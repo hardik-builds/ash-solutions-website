@@ -154,7 +154,7 @@ export default function TeamClient({ teamData }) {
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition:'top' }}
                     />
                   ) : (
                     <div style={{ 

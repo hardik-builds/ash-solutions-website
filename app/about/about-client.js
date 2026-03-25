@@ -10,10 +10,10 @@ const team = [
     image: '/images/hardik-singh.jpeg'
   },
   {
-  name: 'Anshu Rajkagoria',
-role: 'CEO & Cybersecurity Expert',
-bio: 'As the CEO of the organization, Anshu Rajkagoria brings strong leadership skills and a clear strategic vision to drive innovation and growth. With expertise in Cybersecurity and a solid foundation in Web Development, she focuses on building secure and scalable digital solutions. Along with her technical knowledge, Anshu possesses excellent soft skills including communication, teamwork, leadership, and problem-solving abilities. She has consistently maintained a strong academic performance with a CGPA of 7+, reflecting her dedication, discipline, and commitment toward continuous learning and professional excellence.',
-image: '/images/Anshu-Rajkagoria.jpeg'
+    name: 'Anshu Rajkagoria',
+    role: 'CEO & Cybersecurity Expert',
+    bio: 'As the CEO of the organization, Anshu Rajkagoria brings strong leadership skills and a clear strategic vision to drive innovation and growth. With expertise in Cybersecurity and a solid foundation in Web Development, she focuses on building secure and scalable digital solutions. Along with her technical knowledge, Anshu possesses excellent soft skills including communication, teamwork, leadership, and problem-solving abilities. She has consistently maintained a strong academic performance with a CGPA of 7+, reflecting her dedication, discipline, and commitment toward continuous learning and professional excellence.',
+    image: '/images/Anshu-Rajkagoria.jpeg'
 
   }
 ];
@@ -31,12 +31,12 @@ export default function About() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-      <section style={{ 
-        background: isDark 
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)', 
-        color: 'white', 
-        padding: '96px 0' 
+      <section style={{
+        background: isDark
+          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
+        color: 'white',
+        padding: '96px 0'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>About ASH Solutions & Innovations</h1>
@@ -60,7 +60,7 @@ export default function About() {
                 SH Solutions & Innovations represents my commitment to innovation, continuous learning, and delivering high-quality, tailored solutions.
               </p>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -69,12 +69,12 @@ export default function About() {
       <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px' }}>
-            <div style={{ 
-              backgroundColor: 'var(--card-bg)', 
-              padding: '40px', 
-              borderRadius: '16px', 
-              boxShadow: isDark 
-                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)' 
+            <div style={{
+              backgroundColor: 'var(--card-bg)',
+              padding: '40px',
+              borderRadius: '16px',
+              boxShadow: isDark
+                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                 : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
               border: `1px solid var(--border-color)`
             }}>
@@ -83,12 +83,12 @@ export default function About() {
                 To apply my knowledge in web development, cybersecurity, and digital solutions to help businesses and individuals enhance their online presence. I aim to grow as a developer by delivering practical, secure, and innovative projects.
               </p>
             </div>
-            <div style={{ 
-              backgroundColor: 'var(--card-bg)', 
-              padding: '40px', 
-              borderRadius: '16px', 
-              boxShadow: isDark 
-                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)' 
+            <div style={{
+              backgroundColor: 'var(--card-bg)',
+              padding: '40px',
+              borderRadius: '16px',
+              boxShadow: isDark
+                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                 : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
               border: `1px solid var(--border-color)`
             }}>
@@ -123,29 +123,30 @@ export default function About() {
           <h2 style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '64px', color: 'var(--primary-color)' }}>The Team</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px', maxWidth: '900px', margin: '0 auto' }}>
             {team.map((member, index) => (
-              <div 
-                key={index} 
-                style={{ 
-                  backgroundColor: 'var(--card-bg)', 
-                  padding: '40px', 
-                  borderRadius: '16px', 
-                  boxShadow: isDark 
-                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)' 
+              <div
+                key={index}
+                style={{
+                  backgroundColor: 'var(--card-bg)',
+                  padding: '40px',
+                  borderRadius: '16px',
+                  boxShadow: isDark
+                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                     : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
                   border: `1px solid var(--border-color)`
                 }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}>
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
-                    style={{ 
-                      width: '128px', 
-                      height: '128px', 
-                      borderRadius: '50%', 
-                      marginBottom: '24px', 
-                      border: '4px solid var(--info-color)', 
-                      objectFit: 'cover' 
+                    style={{
+                      width: '128px',
+                      height: '128px',
+                      borderRadius: '50%',
+                      marginBottom: '24px',
+                      border: '4px solid var(--info-color)',
+                      objectFit: 'cover',
+                      objectPosition: 'top',
                     }}
                   />
                   <div style={{ textAlign: 'center' }}>
@@ -161,29 +162,29 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
-        padding: '96px 0', 
-        background: isDark 
-          ? 'linear-gradient(to right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)', 
-        color: 'white' 
+      <section style={{
+        padding: '96px 0',
+        background: isDark
+          ? 'linear-gradient(to right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
+        color: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px' }}>Let's Build Something Together</h2>
           <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9 }}>
             I'm excited to bring my skills and fresh perspective to your next project. Get in touch to discuss how I can help.
           </p>
-          <Link 
-            href="/contact" 
-            style={{ 
-              backgroundColor: 'white', 
-              color: 'var(--primary-color)', 
-              padding: '12px 32px', 
-              borderRadius: '6px', 
-              fontWeight: '600', 
-              textDecoration: 'none', 
-              fontSize: '18px', 
-              transition: 'all 0.3s' 
+          <Link
+            href="/contact"
+            style={{
+              backgroundColor: 'white',
+              color: 'var(--primary-color)',
+              padding: '12px 32px',
+              borderRadius: '6px',
+              fontWeight: '600',
+              textDecoration: 'none',
+              fontSize: '18px',
+              transition: 'all 0.3s'
             }}
           >
             Get In Touch

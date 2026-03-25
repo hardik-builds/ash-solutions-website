@@ -1,4 +1,4 @@
-// app/team/page.js
+
 import TeamClient from './team-client';
 
 export const metadata = {
@@ -65,20 +65,20 @@ const teamData = {
       id: 6,
       name: "Sachin Sannaki",
       role: "CFO - Chief Financial Officer",
-      image: "/team/riley.jpg",
+      image: "/images/sachin.jpeg",
       bio: "Driving financial strategy with clarity and control—every decision backed by insight, every rupee optimized for growth.",
       expertise: ["React Native", "Flutter", "Swift", "Kotlin"],
       social: { linkedin: "#", github: "#" }
     },
-    {
-      id: 7,
-      name: "Shubham Verma",
-      role: "CXM - Customer Experience Manager",
-      image: "/team/quinn.jpg",
-      bio: "Delivering exceptional customer experiences—every interaction valued, every issue resolved with care.",
-      expertise: ["Docker", "Kubernetes", "CI/CD", "Terraform"],
-      social: { linkedin: "#", github: "#" }
-    },
+    // {
+    //   id: 7,
+    //   name: "Shubham Verma",
+    //   role: "CXM - Customer Experience Manager",
+    //   image: "/team/quinn.jpg",
+    //   bio: "Delivering exceptional customer experiences—every interaction valued, every issue resolved with care.",
+    //   expertise: ["Docker", "Kubernetes", "CI/CD", "Terraform"],
+    //   social: { linkedin: "#", github: "#" }
+    // },
     // {
     //   id: 8,
     //   name: "Avery Singh",
