@@ -1,9 +1,8 @@
 
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import ThemeToggle from './ThemeToggle'; // Import ThemeToggle
-import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,10 +27,10 @@ export default function Header() {
           {/* Desktop Menu */}
           <div className="desktop-menu" style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
             <Link href="/" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' }}>Home</Link>
-            <Link href="/about" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s', setIsOpen : '(false)'}}>About</Link>
-            <Link href="/services" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s', setIsOpen : '(false)'}}>Services</Link>
-            <Link href="/pricing" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' , setIsOpen : '(false)'}}>Pricing</Link>
-            <Link href="/team" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' , setIsOpen : '(false)' }}>Team</Link>
+            <Link href="/about" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'}}>About</Link>
+            <Link href="/services" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'}}>Services</Link>
+            <Link href="/pricing" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' }}>Pricing</Link>
+            <Link href="/team" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'  }}>Team</Link>
 
             {/* Theme Toggle Button - Moved after Register */}
             <ThemeToggle />
