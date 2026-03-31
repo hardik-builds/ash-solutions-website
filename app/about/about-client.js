@@ -38,9 +38,9 @@ export default function About() {
         color: 'white',
         padding: '96px 0'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>About ASH Solutions & Innovations</h1>
-          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>Learn more about my journey as a fresher, the skills I've mastered, and the mentorship that guided this project.</p>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center', animation: 'fadeInUp 0.8s ease-out' }}>
+          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>About ASH Solutions & Innovations</h1>
+          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>Learn more about my journey as a fresher, the skills I've mastered, and the mentorship that guided this project.</p>
         </div>
       </section>
 
@@ -67,7 +67,7 @@ export default function About() {
 
       {/* Mission & Vision Section */}
       <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', animation: 'fadeInUp 0.8s ease-out' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px' }}>
             <div style={{
               backgroundColor: 'var(--card-bg)',
@@ -90,7 +90,8 @@ export default function About() {
               boxShadow: isDark
                 ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                 : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-              border: `1px solid var(--border-color)`
+              border: `1px solid var(--border-color)`,
+              animation: 'fadeInUp 0.8s ease-out 0.2s both'
             }}>
               <h2 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>My Vision</h2>
               <p style={{ color: 'var(--text-color)', lineHeight: '1.6' }}>
@@ -107,10 +108,10 @@ export default function About() {
           <h2 style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '64px', color: 'var(--primary-color)' }}>Skills & Milestones</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px' }}>
             {achievements.map((achievement, index) => (
-              <div key={index} style={{ textAlign: 'center' }}>
+              <div key={index} style={{ textAlign: 'center', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`, }}>
                 <div style={{ fontSize: '48px', fontWeight: 'bold', color: 'var(--info-color)', marginBottom: '16px' }}>{achievement.value}</div>
-                <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px', color: 'var(--primary-color)' }}>{achievement.title}</h3>
-                <p style={{ color: 'var(--text-color)' }}>{achievement.description}</p>
+                <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px', color: 'var(--primary-color)', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both` }}>{achievement.title}</h3>
+                <p style={{ color: 'var(--text-color)', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both` }}>{achievement.description}</p>
               </div>
             ))}
           </div>
@@ -132,7 +133,8 @@ export default function About() {
                   boxShadow: isDark
                     ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                     : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                  border: `1px solid var(--border-color)`
+                  border: `1px solid var(--border-color)`,
+                  animation: `fadeInUp 0.8s ease-out ${index * 0.3}s both`,
                 }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}>
@@ -170,8 +172,8 @@ export default function About() {
         color: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px' }}>Let's Build Something Together</h2>
-          <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9 }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Let's Build Something Together</h2>
+          <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out' }}>
             I'm excited to bring my skills and fresh perspective to your next project. Get in touch to discuss how I can help.
           </p>
           <Link
@@ -184,7 +186,8 @@ export default function About() {
               fontWeight: '600',
               textDecoration: 'none',
               fontSize: '18px',
-              transition: 'all 0.3s'
+              transition: 'all 0.3s',
+              animation: 'fadeInUp 0.8s ease-out'
             }}
           >
             Get In Touch
@@ -216,6 +219,16 @@ export default function About() {
             background-color: var(--hover-bg);
           }
         }
+           @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
       `}</style>
     </div>
   );
