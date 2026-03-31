@@ -131,27 +131,27 @@ export default function Pricing() {
   const [selectedAddOns, setSelectedAddOns] = useState([]);
 
   const toggleAddOn = (addOn) => {
-    setSelectedAddOns(prev => 
-      prev.includes(addOn) 
+    setSelectedAddOns(prev =>
+      prev.includes(addOn)
         ? prev.filter(item => item !== addOn)
         : [...prev, addOn]
     );
   };
 
   return (
-    <div style={{ 
-      backgroundColor: 'var(--bg-color)', 
-      color: 'var(--text-color)', 
-      minHeight: '100%', 
-      transition: 'background-color 0.3s, color 0.3s' 
+    <div style={{
+      backgroundColor: 'var(--bg-color)',
+      color: 'var(--text-color)',
+      minHeight: '100%',
+      transition: 'background-color 0.3s, color 0.3s'
     }}>
       {/* Hero Section */}
-      <section style={{ 
-        background: isDark 
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)', 
-        color: 'white', 
-        padding: '96px 0' 
+      <section style={{
+        background: isDark
+          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
+        color: 'white',
+        padding: '96px 0'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Pricing Plans</h1>
@@ -162,92 +162,125 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Plans */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-color)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px', alignItems: 'start' }}>
+      <section style={{ padding: '80px 16px', backgroundColor: 'var(--bg-color)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '32px',
+            alignItems: 'stretch'
+          }}>
+
             {plans.map((plan, index) => (
-              <div 
-                key={index} 
-                style={{ 
-                  backgroundColor: 'var(--card-bg)', 
-                  padding: '48px 32px', 
-                  borderRadius: '16px', 
-                  boxShadow: isDark 
-                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)' 
+              <div
+                key={index}
+                style={{
+                  backgroundColor: 'var(--card-bg)',
+                  padding: '48px 32px',
+                  borderRadius: '16px',
+                  boxShadow: isDark
+                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                     : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                  border: plan.popular 
-                    ? '2px solid var(--primary-color)' 
+                  border: plan.popular
+                    ? '2px solid var(--primary-color)'
                     : `2px solid var(--border-color)`,
                   position: 'relative',
-                  transform: plan.popular ? 'scale(1.05)' : 'scale(1)',
-                  transition: 'transform 0.3s, box-shadow 0.3s'
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
+
+                {/* MOST POPULAR FIX */}
                 {plan.popular && (
-                  <div style={{ 
-                    position: 'absolute', 
-                    top: '-12px', 
-                    left: '50%', 
-                    transform: 'translateX(-50%)', 
-                    backgroundColor: 'var(--primary-color)', 
-                    color: 'white', 
-                    padding: '4px 16px', 
-                    borderRadius: '20px', 
-                    fontSize: '14px', 
-                    fontWeight: '600' 
+                  <div style={{
+                    position: 'absolute',
+                    top: '12px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    backgroundColor: 'var(--primary-color)',
+                    color: 'white',
+                    padding: '6px 18px',
+                    borderRadius: '20px',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    zIndex: 2
                   }}>
                     MOST POPULAR
                   </div>
                 )}
-                
-                <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--text-color)' }}>{plan.name}</h3>
-                  <div style={{ marginBottom: '16px' }}>
-                    <span style={{ fontSize: '48px', fontWeight: '800', color: 'var(--primary-color)' }}>{plan.price}</span>
-                    <span style={{ fontSize: '18px', color: isDark ? '#9CA3AF' : '#6B7280' }}>{plan.period}</span>
+
+                {/* TOP CONTENT */}
+                <div>
+                  <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                    <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
+                      {plan.name}
+                    </h3>
+
+                    <div style={{ marginBottom: '16px' }}>
+                      <span style={{ fontSize: '48px', fontWeight: '800', color: 'var(--primary-color)' }}>
+                        {plan.price}
+                      </span>
+                      <span style={{ fontSize: '18px', color: '#6B7280' }}>
+                        {plan.period}
+                      </span>
+                    </div>
+
+                    <p style={{ color: '#6B7280', lineHeight: '1.6' }}>
+                      {plan.description}
+                    </p>
                   </div>
-                  <p style={{ color: isDark ? '#9CA3AF' : '#6B7280', lineHeight: '1.6' }}>{plan.description}</p>
+
+                  {/* FEATURES */}
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0' }}>
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                        <span style={{ marginRight: '10px', color: 'green' }}>✔</span>
+                        {feature}
+                      </li>
+                    ))}
+
+                    {plan.notIncluded.map((feature, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', color: '#9CA3AF' }}>
+                        <span style={{ marginRight: '10px', color: 'red' }}>✖</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px 0' }}>
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', color: 'var(--text-color)' }}>
-                      <svg style={{ width: '20px', height: '20px', color: 'var(--success-color)', marginRight: '12px', flexShrink: 0 }} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                  {plan.notIncluded.map((feature, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', color: isDark ? '#6B7280' : '#9CA3AF' }}>
-                      <svg style={{ width: '20px', height: '20px', color: 'var(--error-color)', marginRight: '12px', flexShrink: 0 }} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link 
+                {/* BUTTON FIX */}
+                <Link
                   href={plan.name === 'Enterprise' ? '/contact' : '/register'}
-                  style={{ 
-                    display: 'block', 
-                    width: '100%', 
-                    padding: '16px', 
-                    borderRadius: '8px', 
-                    fontWeight: '600', 
-                    textAlign: 'center', 
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    padding: '16px',
+                    borderRadius: '8px',
+                    fontWeight: '600',
+                    textAlign: 'center',
                     textDecoration: 'none',
-                    backgroundColor: plan.popular ? 'var(--primary-color)' : 'var(--card-bg)',
+                    backgroundColor: plan.popular ? 'var(--primary-color)' : 'transparent',
                     color: plan.popular ? 'white' : 'var(--primary-color)',
-                    border: plan.popular ? 'none' : '2px solid var(--primary-color)',
+                    border: '2px solid var(--primary-color)',
                     transition: 'all 0.3s'
                   }}
                 >
                   {plan.buttonText}
                 </Link>
+
               </div>
             ))}
+
           </div>
         </div>
       </section>
@@ -264,17 +297,17 @@ export default function Pricing() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px' }}>
             {addOns.map((addOn, index) => (
-              <div 
+              <div
                 key={index}
-                style={{ 
-                  backgroundColor: 'var(--card-bg)', 
-                  padding: '32px', 
-                  borderRadius: '12px', 
-                  boxShadow: isDark 
-                    ? '0 4px 6px -1px rgba(0, 0, 0, 0.3)' 
+                style={{
+                  backgroundColor: 'var(--card-bg)',
+                  padding: '32px',
+                  borderRadius: '12px',
+                  boxShadow: isDark
+                    ? '0 4px 6px -1px rgba(0, 0, 0, 0.3)'
                     : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                  border: selectedAddOns.includes(addOn) 
-                    ? '2px solid var(--primary-color)' 
+                  border: selectedAddOns.includes(addOn)
+                    ? '2px solid var(--primary-color)'
                     : `2px solid var(--border-color)`,
                   cursor: 'pointer',
                   transition: 'all 0.3s'
@@ -286,10 +319,10 @@ export default function Pricing() {
                     <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '4px', color: 'var(--text-color)' }}>{addOn.name}</h3>
                     <p style={{ color: 'var(--primary-color)', fontSize: '18px', fontWeight: '600' }}>{addOn.price}</p>
                   </div>
-                  <div style={{ 
-                    width: '24px', 
-                    height: '24px', 
-                    borderRadius: '50%', 
+                  <div style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
                     border: `2px solid ${isDark ? '#4B5563' : '#D1D5DB'}`,
                     backgroundColor: selectedAddOns.includes(addOn) ? 'var(--primary-color)' : 'var(--card-bg)',
                     display: 'flex',
@@ -303,9 +336,9 @@ export default function Pricing() {
                     )}
                   </div>
                 </div>
-                
+
                 <p style={{ color: isDark ? '#9CA3AF' : '#6B7280', marginBottom: '16px', lineHeight: '1.6' }}>{addOn.description}</p>
-                
+
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {addOn.features.map((feature, idx) => (
                     <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', color: isDark ? '#9CA3AF' : '#6B7280' }}>
@@ -325,13 +358,13 @@ export default function Pricing() {
               <p style={{ marginBottom: '16px', color: isDark ? '#9CA3AF' : '#6B7280' }}>
                 Selected {selectedAddOns.length} add-on{selectedAddOns.length > 1 ? 's' : ''}
               </p>
-              <Link 
+              <Link
                 href="/contact"
-                style={{ 
-                  display: 'inline-block', 
-                  padding: '16px 32px', 
-                  borderRadius: '8px', 
-                  fontWeight: '600', 
+                style={{
+                  display: 'inline-block',
+                  padding: '16px 32px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
                   textDecoration: 'none',
                   backgroundColor: 'var(--primary-color)',
                   color: 'white',
@@ -386,11 +419,11 @@ export default function Pricing() {
                 answer: 'Yes, all our add-ons can be purchased separately even if you don\'t opt for a full website development plan.'
               }
             ].map((faq, index) => (
-              <div key={index} style={{ 
-                backgroundColor: 'var(--card-bg)', 
-                padding: '24px', 
-                borderRadius: '8px', 
-                border: `1px solid var(--border-color)` 
+              <div key={index} style={{
+                backgroundColor: 'var(--card-bg)',
+                padding: '24px',
+                borderRadius: '8px',
+                border: `1px solid var(--border-color)`
               }}>
                 <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: 'var(--text-color)' }}>{faq.question}</h3>
                 <p style={{ color: isDark ? '#9CA3AF' : '#6B7280', lineHeight: '1.6' }}>{faq.answer}</p>
@@ -401,12 +434,12 @@ export default function Pricing() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
-        padding: '96px 0', 
-        background: isDark 
-          ? 'linear-gradient(to right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)', 
-        color: 'white' 
+      <section style={{
+        padding: '96px 0',
+        background: isDark
+          ? 'linear-gradient(to right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
+        color: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px' }}>Ready to Get Started?</h2>
@@ -414,24 +447,24 @@ export default function Pricing() {
             Join hundreds of businesses that trust us for their digital needs.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/register" style={{ 
-              backgroundColor: 'white', 
-              color: 'var(--primary-color)', 
-              padding: '12px 32px', 
-              borderRadius: '6px', 
-              fontWeight: '600', 
-              textDecoration: 'none' 
+            <Link href="/register" style={{
+              backgroundColor: 'white',
+              color: 'var(--primary-color)',
+              padding: '12px 32px',
+              borderRadius: '6px',
+              fontWeight: '600',
+              textDecoration: 'none'
             }}>
               Get Started
             </Link>
-            <Link href="/contact" style={{ 
-              backgroundColor: 'transparent', 
-              color: 'white', 
-              padding: '12px 32px', 
-              borderRadius: '6px', 
-              fontWeight: '600', 
-              textDecoration: 'none', 
-              border: '2px solid white' 
+            <Link href="/contact" style={{
+              backgroundColor: 'transparent',
+              color: 'white',
+              padding: '12px 32px',
+              borderRadius: '6px',
+              fontWeight: '600',
+              textDecoration: 'none',
+              border: '2px solid white'
             }}>
               Talk to Sales
             </Link>
@@ -440,34 +473,34 @@ export default function Pricing() {
       </section>
 
       <style jsx>{`
-        @media (min-width: 768px) {
-          section:nth-of-type(3) > div > div {
-            grid-template-columns: repeat(2, 1fr);
+          @media (min-width: 768px) {
+            section:nth-of-type(3) > div > div {
+              grid-template-columns: repeat(2, 1fr);
+            }
+            section:nth-of-type(3) > div > div:nth-of-type(2) {
+              grid-template-columns: repeat(3, 1fr);
+            }
           }
-          section:nth-of-type(3) > div > div:nth-of-type(2) {
-            grid-template-columns: repeat(3, 1fr);
+          @media (min-width: 1024px) {
+            section:nth-of-type(2) > div > div {
+              grid-template-columns: repeat(3, 1fr);
+            }
           }
-        }
-        @media (min-width: 1024px) {
-          section:nth-of-type(2) > div > div {
-            grid-template-columns: repeat(3, 1fr);
+          @media (hover: hover) {
+            div:hover {
+              transform: translateY(-4px);
+              box-shadow: ${isDark
+          ? '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
+          : '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
+            }
+            a:hover {
+              transform: scale(1.05);
+            }
+            button:hover {
+              background-color: var(--primary-hover);
+            }
           }
-        }
-        @media (hover: hover) {
-          div:hover {
-            transform: translateY(-4px);
-            box-shadow: ${isDark 
-              ? '0 20px 25px -5px rgba(0, 0, 0, 0.3)' 
-              : '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
-          }
-          a:hover {
-            transform: scale(1.05);
-          }
-          button:hover {
-            background-color: var(--primary-hover);
-          }
-        }
-      `}</style>
+        `}</style>
     </div>
   );
 }
