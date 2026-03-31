@@ -152,13 +152,11 @@ export default function Pricing() {
           : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
         color: 'white',
         padding: '96px 0',
-        animation: 'fadeInUp 0.8s ease-out',
-        animation: 'fadeInUp 0.8s ease-out 0.2s both',
-        animation: 'fadeInUp 0.8s ease-out 0.4s both'
+
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Pricing Plans</h1>
-          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
+          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Pricing Plans</h1>
+          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
             Transparent pricing with no hidden fees. Choose the perfect plan for your business needs.
           </p>
         </div>
@@ -192,7 +190,8 @@ export default function Pricing() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-8px)';
@@ -503,6 +502,16 @@ export default function Pricing() {
               background-color: var(--primary-hover);
             }
           }
+             @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
         `}</style>
     </div>
   );
