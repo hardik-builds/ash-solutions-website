@@ -14,62 +14,62 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <div style={{ 
-      backgroundColor: 'var(--bg-color)', 
-      color: 'var(--text-color)', 
+    <div style={{
+      backgroundColor: 'var(--bg-color)',
+      color: 'var(--text-color)',
       minHeight: '100vh',
-      transition: 'background-color 0.3s, color 0.3s' 
+      transition: 'background-color 0.3s, color 0.3s'
     }}>
       {/* Hero Section */}
-      <section style={{ 
-        background: isDark 
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)', 
-        color: 'white', 
+      <section style={{
+        background: isDark
+          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
+        color: 'white',
         padding: '120px 0 80px',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{ 
-          maxWidth: '1200px', 
-          margin: '0 auto', 
-          padding: '0 16px', 
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 16px',
           textAlign: 'center',
           position: 'relative',
           zIndex: 2
         }}>
-          <h1 style={{ 
-            fontSize: '56px', 
-            fontWeight: '800', 
+          <h1 style={{
+            fontSize: '56px',
+            fontWeight: '800',
             marginBottom: '24px',
             lineHeight: 1.2,
             animation: 'fadeInUp 0.8s ease-out'
           }}>
             Innovative Digital Solutions
           </h1>
-          <p style={{ 
-            fontSize: '24px', 
-            maxWidth: '800px', 
-            margin: '0 auto 40px', 
+          <p style={{
+            fontSize: '24px',
+            maxWidth: '800px',
+            margin: '0 auto 40px',
             opacity: 0.95,
             lineHeight: 1.5,
             animation: 'fadeInUp 0.8s ease-out 0.2s both'
           }}>
             Delivering cutting-edge web development services with expertise in modern technologies and a commitment to excellence.
           </p>
-          <div style={{ 
-            display: 'flex', 
-            gap: '16px', 
+          <div style={{
+            display: 'flex',
+            gap: '16px',
             justifyContent: 'center',
             flexWrap: 'wrap',
             animation: 'fadeInUp 0.8s ease-out 0.4s both'
           }}>
-            <Link href="/services" style={{ 
-              backgroundColor: 'white', 
-              color: '#3B82F6', 
-              padding: '14px 32px', 
-              borderRadius: '8px', 
-              fontWeight: '600', 
+            <Link href="/services" style={{
+              backgroundColor: 'white',
+              color: '#3B82F6',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              fontWeight: '600',
               textDecoration: 'none',
               display: 'inline-block',
               transition: 'all 0.3s',
@@ -77,12 +77,12 @@ export default function Home() {
             }}>
               Our Services
             </Link>
-            <Link href="/contact" style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.2)', 
-              color: 'white', 
-              padding: '14px 32px', 
-              borderRadius: '8px', 
-              fontWeight: '600', 
+            <Link href="/contact" style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              fontWeight: '600',
               textDecoration: 'none',
               display: 'inline-block',
               border: '2px solid white',
@@ -92,7 +92,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        
+
         {/* Decorative elements */}
         <div style={{
           position: 'absolute',
@@ -119,31 +119,31 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--bg-color)' }}>
+      <section style={{ padding: '80px 16px', backgroundColor: 'var(--bg-color)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ 
-              fontSize: '42px', 
-              fontWeight: 'bold', 
-              marginBottom: '16px', 
-              color: 'var(--text-color)' 
+            <h2 style={{
+              fontSize: '42px',
+              fontWeight: 'bold',
+              marginBottom: '16px',
+              color: 'var(--text-color)'
             }}>
               Our Services
             </h2>
-            <p style={{ 
-              fontSize: '18px', 
-              color: 'var(--text-secondary)', 
-              maxWidth: '700px', 
-              margin: '0 auto' 
+            <p style={{
+              fontSize: '18px',
+              color: 'var(--text-secondary)',
+              maxWidth: '700px',
+              margin: '0 auto'
             }}>
               Comprehensive digital solutions tailored to your business needs.
             </p>
           </div>
-          
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-            gap: '30px' 
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '30px'
           }}>
             {[
               {
@@ -187,41 +187,43 @@ export default function Home() {
                 features: ['Native Apps', 'Cross-platform', 'UI/UX Design', 'App Store Optimization']
               }
             ].map((service, index) => (
-              <div 
-                key={index} 
-                style={{ 
-                  backgroundColor: 'var(--card-bg)', 
-                  borderRadius: '12px', 
+              <div
+                key={index}
+                style={{
+                  backgroundColor: 'var(--card-bg)',
+                  borderRadius: '12px',
                   padding: '32px',
                   border: `1px solid var(--border-color)`,
                   transition: 'all 0.3s ease',
-                  boxShadow: isDark 
-                    ? '0 4px 6px rgba(0, 0, 0, 0.3)' 
+                  boxShadow: isDark
+                    ? '0 4px 6px rgba(0, 0, 0, 0.3)'
                     : '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  height: '100%',
+
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',   // ⭐ KEY FIX
+                  minHeight: '100%'                  // ⭐ SAFE HEIGHT
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.boxShadow = isDark 
-                    ? '0 10px 20px rgba(0, 0, 0, 0.4)' 
+                  e.currentTarget.style.boxShadow = isDark
+                    ? '0 10px 20px rgba(0, 0, 0, 0.4)'
                     : '0 10px 20px rgba(0, 0, 0, 0.15)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = isDark 
-                    ? '0 4px 6px rgba(0, 0, 0, 0.3)' 
+                  e.currentTarget.style.boxShadow = isDark
+                    ? '0 4px 6px rgba(0, 0, 0, 0.3)'
                     : '0 4px 6px rgba(0, 0, 0, 0.1)';
                 }}
               >
-                <div style={{ 
-                  backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#EBF5FF', 
-                  width: '80px', 
-                  height: '80px', 
-                  borderRadius: '12px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <div style={{
+                  backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#EBF5FF',
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
                   justifyContent: 'center',
                   marginBottom: '24px'
                 }}>
@@ -229,31 +231,31 @@ export default function Home() {
                     {service.icon}
                   </div>
                 </div>
-                <h3 style={{ 
-                  fontSize: '22px', 
-                  fontWeight: 'bold', 
-                  marginBottom: '12px', 
-                  color: 'var(--text-color)' 
+                <h3 style={{
+                  fontSize: '22px',
+                  fontWeight: 'bold',
+                  marginBottom: '12px',
+                  color: 'var(--text-color)'
                 }}>
                   {service.title}
                 </h3>
-                <p style={{ 
-                  fontSize: '16px', 
-                  color: 'var(--text-secondary)', 
+                <p style={{
+                  fontSize: '16px',
+                  color: 'var(--text-secondary)',
                   marginBottom: '20px'
                 }}>
                   {service.description}
                 </p>
-                <ul style={{ 
-                  listStyle: 'none', 
-                  padding: 0, 
+                <ul style={{
+                  listStyle: 'none',
+                  padding: 0,
                   margin: '0 0 20px 0',
                   flexGrow: 1
                 }}>
                   {service.features.map((feature, idx) => (
-                    <li key={idx} style={{ 
-                      fontSize: '14px', 
-                      color: 'var(--text-secondary)', 
+                    <li key={idx} style={{
+                      fontSize: '14px',
+                      color: 'var(--text-secondary)',
                       marginBottom: '8px',
                       display: 'flex',
                       alignItems: 'center'
@@ -263,11 +265,12 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link 
+                <Link
                   href="/contact"
-                  style={{ 
-                    color: 'var(--primary-color)', 
-                    fontWeight: '600', 
+                  style={{
+                    color: 'var(--primary-color)',
+                    marginTop: 'auto',
+                    fontWeight: '600',
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -286,36 +289,36 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section style={{ 
-        padding: '80px 0', 
+      <section style={{
+        padding: '80px 16px',
         backgroundColor: isDark ? '#0f172a' : '#F8FAFC',
         borderTop: `1px solid var(--border-color)`,
         borderBottom: `1px solid var(--border-color)`
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ 
-              fontSize: '42px', 
-              fontWeight: 'bold', 
-              marginBottom: '16px', 
-              color: 'var(--text-color)' 
+            <h2 style={{
+              fontSize: '42px',
+              fontWeight: 'bold',
+              marginBottom: '16px',
+              color: 'var(--text-color)'
             }}>
               Why Choose Us
             </h2>
-            <p style={{ 
-              fontSize: '18px', 
-              color: 'var(--text-secondary)', 
-              maxWidth: '700px', 
-              margin: '0 auto' 
+            <p style={{
+              fontSize: '18px',
+              color: 'var(--text-secondary)',
+              maxWidth: '700px',
+              margin: '0 auto'
             }}>
               We combine technical expertise with academic excellence to deliver outstanding results.
             </p>
           </div>
-          
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-            gap: '40px' 
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '40px'
           }}>
             {[
               {
@@ -339,9 +342,9 @@ export default function Home() {
                 description: 'Dedicated support to ensure your success.'
               }
             ].map((stat, index) => (
-              <div 
-                key={index} 
-                style={{ 
+              <div
+                key={index}
+                style={{
                   textAlign: 'center',
                   backgroundColor: 'var(--card-bg)',
                   padding: '32px 24px',
@@ -356,25 +359,25 @@ export default function Home() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <div style={{ 
-                  fontSize: '48px', 
-                  fontWeight: 'bold', 
-                  color: 'var(--primary-color)', 
-                  marginBottom: '16px' 
+                <div style={{
+                  fontSize: '48px',
+                  fontWeight: 'bold',
+                  color: 'var(--primary-color)',
+                  marginBottom: '16px'
                 }}>
                   {stat.number}
                 </div>
-                <h3 style={{ 
-                  fontSize: '20px', 
-                  fontWeight: 'bold', 
-                  marginBottom: '8px', 
-                  color: 'var(--text-color)' 
+                <h3 style={{
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  marginBottom: '8px',
+                  color: 'var(--text-color)'
                 }}>
                   {stat.title}
                 </h3>
-                <p style={{ 
-                  fontSize: '16px', 
-                  color: 'var(--text-secondary)' 
+                <p style={{
+                  fontSize: '16px',
+                  color: 'var(--text-secondary)'
                 }}>
                   {stat.description}
                 </p>
@@ -385,41 +388,41 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
-        background: isDark 
-          ? 'linear-gradient(to right, #1e3a8a, #3b82f6)' 
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)', 
-        color: 'white', 
-        padding: '80px 0' 
+      <section style={{
+        background: isDark
+          ? 'linear-gradient(to right, #1e3a8a, #3b82f6)'
+          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
+        color: 'white',
+        padding: '80px 16px'
       }}>
-        <div style={{ 
-          maxWidth: '800px', 
-          margin: '0 auto', 
-          padding: '0 16px', 
-          textAlign: 'center' 
+        <div style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          padding: '0 16px',
+          textAlign: 'center'
         }}>
-          <h2 style={{ 
-            fontSize: '42px', 
-            fontWeight: 'bold', 
-            marginBottom: '20px' 
+          <h2 style={{
+            fontSize: '42px',
+            fontWeight: 'bold',
+            marginBottom: '20px'
           }}>
             Ready to Start Your Project?
           </h2>
-          <p style={{ 
-            fontSize: '18px', 
-            marginBottom: '32px', 
-            opacity: 0.95 
+          <p style={{
+            fontSize: '18px',
+            marginBottom: '32px',
+            opacity: 0.95
           }}>
             Let's discuss how we can help bring your ideas to life with our expertise.
           </p>
-          <Link 
-            href="/contact" 
-            style={{ 
-              backgroundColor: 'white', 
-              color: '#3B82F6', 
-              padding: '16px 40px', 
-              borderRadius: '8px', 
-              fontWeight: '600', 
+          <Link
+            href="/contact"
+            style={{
+              backgroundColor: 'white',
+              color: '#3B82F6',
+              padding: '16px 40px',
+              borderRadius: '8px',
+              fontWeight: '600',
               textDecoration: 'none',
               display: 'inline-block',
               transition: 'all 0.3s',
