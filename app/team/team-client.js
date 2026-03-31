@@ -291,9 +291,9 @@ export default function TeamClient({ teamData }) {
         </div>
       </section>
     </div>
+    
   );
-}
-<style jsx>{`
+  <style jsx>{`
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -305,6 +305,8 @@ export default function TeamClient({ teamData }) {
     }
   }
 `}</style>
+}
+
 // Helper styles
 const socialIconStyle = (hoverColor) => ({
   color: 'var(--text-color, #6B7280)',
