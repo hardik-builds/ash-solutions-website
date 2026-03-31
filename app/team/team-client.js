@@ -290,10 +290,7 @@ export default function TeamClient({ teamData }) {
           </div>
         </div>
       </section>
-    </div>
-    
-  );
-  <style jsx>{`
+      <style jsx>{`
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -305,6 +302,10 @@ export default function TeamClient({ teamData }) {
     }
   }
 `}</style>
+    </div>
+
+  );
+
 }
 
 // Helper styles
