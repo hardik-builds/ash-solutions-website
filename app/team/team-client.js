@@ -11,13 +11,13 @@ export default function TeamClient({ teamData }) {
   }, []);
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
+    <div style={{
+      minHeight: '100vh',
       backgroundColor: 'var(--bg-color, #f9fafb)',
       color: 'var(--text-color, #111827)'
     }}>
       {/* Hero Section */}
-      <section style={{ 
+      <section style={{
         background: 'linear-gradient(135deg, var(--primary-color, #3B82F6) 0%, var(--secondary-color, #8B5CF6) 100%)',
         padding: '120px 20px 80px',
         textAlign: 'center',
@@ -32,11 +32,11 @@ export default function TeamClient({ teamData }) {
           bottom: 0,
           background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
         }}></div>
-        
+
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
             gap: '10px',
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
             padding: '8px 20px',
@@ -47,34 +47,41 @@ export default function TeamClient({ teamData }) {
             <FaRocket style={{ color: 'white', fontSize: '20px' }} />
             <span style={{ color: 'white', fontWeight: '500' }}>Young, Agile & Innovative</span>
           </div>
-          
-          <h1 style={{ 
-            fontSize: 'clamp(36px, 5vw, 56px)', 
-            fontWeight: 'bold', 
+
+          <h1 style={{
+            fontSize: 'clamp(36px, 5vw, 56px)',
+            fontWeight: 'bold',
             color: 'white',
             marginBottom: '20px',
-            lineHeight: '1.2'
+            lineHeight: '1.2',
+            animation: 'fadeInUp 0.8s ease-out'
           }}>
             Meet the Dynamic <br />Minds of ASH
           </h1>
-          
-          <p style={{ 
-            fontSize: 'clamp(18px, 2vw, 22px)', 
+
+          <p style={{
+            fontSize: 'clamp(18px, 2vw, 22px)',
             color: 'rgba(255, 255, 255, 0.9)',
             maxWidth: '700px',
             margin: '0 auto 40px',
-            lineHeight: '1.6'
+            lineHeight: '1.6',
+            animation: 'fadeInUp 0.8s ease-out 0.2s both'
           }}>
             We're a close-knit team of 8 young professionals, combining fresh perspectives with the academic rigor from 10+ projects to build amazing things.
           </p>
 
-          <div style={{ 
-            display: 'flex', 
-            gap: '30px', 
+          <div style={{
+            display: 'flex',
+            gap: '30px',
             justifyContent: 'center',
             flexWrap: 'wrap'
           }}>
-            <div style={{ textAlign: 'center' }}>
+            <div style={{
+              textAlign: 'center',
+              animation: 'fadeInUp 0.8s ease-out 0.3s both',
+              animation: 'fadeInUp 0.8s ease-out 0.5s both',
+              animation: 'fadeInUp 0.8s ease-out 0.7s both'
+            }}>
               <div style={{ fontSize: '36px', fontWeight: 'bold', color: 'white' }}>8</div>
               <div style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Team Members</div>
             </div>
@@ -94,14 +101,15 @@ export default function TeamClient({ teamData }) {
       <section style={{ padding: '80px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ 
-              fontSize: 'clamp(32px, 4vw, 42px)', 
+            <h2 style={{
+              fontSize: 'clamp(32px, 4vw, 42px)',
               fontWeight: 'bold',
               marginBottom: '20px',
               background: 'linear-gradient(135deg, var(--primary-color, #3B82F6), var(--secondary-color, #8B5CF6))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              backgroundClip: 'text',
+              animation: 'fadeInUp 0.8s ease-out'
             }}>
               The ASH Squad
             </h2>
@@ -110,9 +118,9 @@ export default function TeamClient({ teamData }) {
             </p>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '40px'
           }}>
             {teamData.teamMembers.map((member, index) => (
@@ -139,11 +147,11 @@ export default function TeamClient({ teamData }) {
                   height: '4px',
                   background: 'linear-gradient(90deg, var(--primary-color, #3B82F6), var(--secondary-color, #8B5CF6))'
                 }}></div>
-                
-                <div style={{ 
-                  width: '120px', 
-                  height: '120px', 
-                  borderRadius: '50%', 
+
+                <div style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
                   backgroundColor: '#e5e7eb',
                   margin: '0 auto 25px',
                   overflow: 'hidden',
@@ -151,13 +159,13 @@ export default function TeamClient({ teamData }) {
                   boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)'
                 }}>
                   {member.image ? (
-                    <img 
-                      src={member.image} 
+                    <img
+                      src={member.image}
                       alt={member.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition:'top' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                     />
                   ) : (
-                    <div style={{ 
+                    <div style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -178,26 +186,26 @@ export default function TeamClient({ teamData }) {
                 <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '5px' }}>
                   {member.name}
                 </h3>
-                <p style={{ 
-                  color: 'var(--primary-color, #3B82F6)', 
-                  fontWeight: '600', 
+                <p style={{
+                  color: 'var(--primary-color, #3B82F6)',
+                  fontWeight: '600',
                   marginBottom: '15px',
                   fontSize: '15px'
                 }}>
                   {member.role}
                 </p>
-                <p style={{ 
-                  color: 'var(--text-color, #6B7280)', 
-                  lineHeight: '1.6', 
+                <p style={{
+                  color: 'var(--text-color, #6B7280)',
+                  lineHeight: '1.6',
                   marginBottom: '20px',
                   fontSize: '14px'
                 }}>
                   {member.bio}
                 </p>
 
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'center', 
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
                   gap: '12px',
                   marginBottom: '20px'
                 }}>
@@ -207,10 +215,10 @@ export default function TeamClient({ teamData }) {
                   {member.social.dribbble && <a href={member.social.dribbble} style={socialIconStyle('#EA4C89')}><FaDribbble /></a>}
                 </div>
 
-                <div style={{ 
-                  display: 'flex', 
-                  flexWrap: 'wrap', 
-                  gap: '6px', 
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '6px',
                   justifyContent: 'center'
                 }}>
                   {member.expertise.map((skill, idx) => (
@@ -226,14 +234,14 @@ export default function TeamClient({ teamData }) {
       </section>
 
       {/* Our Edge Section */}
-      <section style={{ 
-        backgroundColor: 'var(--card-bg, white)', 
-        padding: '80px 20px' 
+      <section style={{
+        backgroundColor: 'var(--card-bg, white)',
+        padding: '80px 20px'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ 
-              fontSize: 'clamp(32px, 4vw, 42px)', 
+            <h2 style={{
+              fontSize: 'clamp(32px, 4vw, 42px)',
               fontWeight: 'bold',
               marginBottom: '20px',
               color: 'var(--text-color, #111827)'
@@ -245,9 +253,9 @@ export default function TeamClient({ teamData }) {
             </p>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '30px'
           }}>
             {teamData.ourEdge.map((value, index) => (
@@ -285,10 +293,21 @@ export default function TeamClient({ teamData }) {
     </div>
   );
 }
-
+<style jsx>{`
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`}</style>
 // Helper styles
 const socialIconStyle = (hoverColor) => ({
-  color: 'var(--text-color, #6B7280)', 
+  color: 'var(--text-color, #6B7280)',
   fontSize: '18px',
   transition: 'all 0.3s',
   display: 'flex',

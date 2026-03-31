@@ -107,16 +107,16 @@ export default function Services() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-      <section style={{ 
-        background: isDark 
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)', 
-        color: 'white', 
-        padding: '96px 0' 
+      <section style={{
+        background: isDark
+          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
+        color: 'white',
+        padding: '96px 0'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Our Services</h1>
-          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
+          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Our Services</h1>
+          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
             Comprehensive digital solutions tailored to elevate your business and drive growth in the modern landscape.
           </p>
         </div>
@@ -126,18 +126,19 @@ export default function Services() {
       <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px' }}>
-            {services.map((service) => (
-              <div 
-                key={service.id} 
-                style={{ 
-                  backgroundColor: 'var(--card-bg)', 
-                  padding: '32px', 
-                  borderRadius: '16px', 
-                  boxShadow: isDark 
-                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)' 
-                    : '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                style={{
+                  backgroundColor: 'var(--card-bg)',
+                  padding: '32px',
+                  borderRadius: '16px',
+                  boxShadow: isDark
+                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
+                    : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
                   transition: 'transform 0.3s, box-shadow 0.3s',
-                  border: `1px solid var(--border-color)`
+                  border: `1px solid var(--border-color)`,
+                  animation: 'fadeInUp 0.8s ease-out 0.2s both'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '24px' }}>
@@ -149,7 +150,7 @@ export default function Services() {
                     <p style={{ color: isDark ? '#9CA3AF' : '#6B7280', lineHeight: '1.6' }}>{service.description}</p>
                   </div>
                 </div>
-                
+
                 <div style={{ marginBottom: '24px' }}>
                   <h4 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: 'var(--text-color)' }}>Key Features:</h4>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -176,16 +177,16 @@ export default function Services() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
-                  <Link 
+                  <Link
                     href="/contact"
-                    style={{ 
-                      flex: 1, 
-                      backgroundColor: 'var(--primary-color)', 
-                      color: 'white', 
-                      padding: '12px 24px', 
-                      borderRadius: '8px', 
-                      fontWeight: '600', 
-                      textDecoration: 'none', 
+                    style={{
+                      flex: 1,
+                      backgroundColor: 'var(--primary-color)',
+                      color: 'white',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      fontWeight: '600',
+                      textDecoration: 'none',
                       transition: 'background-color 0.3s',
                       textAlign: 'center',
                       display: 'block'
@@ -201,30 +202,31 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
-        padding: '96px 0', 
-        background: isDark 
-          ? 'linear-gradient(to right, #1e3a8a, #0f172a)' 
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)', 
-        color: 'white' 
+      <section style={{
+        padding: '96px 0',
+        background: isDark
+          ? 'linear-gradient(to right, #1e3a8a, #0f172a)'
+          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
+        color: 'white'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px' }}>Need a Custom Solution?</h2>
-          <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9 }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Need a Custom Solution?</h2>
+          <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
             We can tailor our services to meet your specific requirements. Let's discuss your unique needs.
           </p>
-          <Link 
-            href="/contact" 
-            style={{ 
-              backgroundColor: 'white', 
-              color: 'var(--primary-color)', 
-              padding: '12px 32px', 
-              borderRadius: '6px', 
-              fontWeight: '600', 
-              textDecoration: 'none', 
-              fontSize: '18px', 
+          <Link
+            href="/contact"
+            style={{
+              backgroundColor: 'white',
+              color: 'var(--primary-color)',
+              padding: '12px 32px',
+              borderRadius: '6px',
+              fontWeight: '600',
+              textDecoration: 'none',
+              fontSize: '18px',
               transition: 'all 0.3s',
-              display: 'inline-block'
+              display: 'inline-block',
+              animation: 'fadeInUp 0.8s ease-out 0.4s both'
             }}
           >
             Schedule a Consultation
@@ -246,14 +248,24 @@ export default function Services() {
         @media (hover: hover) {
           div:hover {
             transform: translateY(-4px);
-            box-shadow: ${isDark 
-              ? '0 20px 25px -5px rgba(0, 0, 0, 0.3)' 
-              : '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
+            box-shadow: ${isDark
+          ? '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
+          : '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
           }
           a:hover {
             background-color: var(--primary-hover);
           }
         }
+          @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
       `}</style>
     </div>
   );
