@@ -143,7 +143,8 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '30px'
+            gap: '30px',
+            alignItems: 'stretch'
           }}>
             {[
               {
@@ -201,8 +202,8 @@ export default function Home() {
 
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',   // ⭐ KEY FIX
-                  minHeight: '100%'                  // ⭐ SAFE HEIGHT
+                  justifyContent: 'flex-start',   // ⭐ CHANGE
+                  height: '100%'                  // ⭐ IMPORTANTHEIGHT
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
