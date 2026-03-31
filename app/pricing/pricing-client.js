@@ -151,7 +151,10 @@ export default function Pricing() {
           ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
           : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
         color: 'white',
-        padding: '96px 0'
+        padding: '96px 0',
+        animation: 'fadeInUp 0.8s ease-out',
+        animation: 'fadeInUp 0.8s ease-out 0.2s both',
+        animation: 'fadeInUp 0.8s ease-out 0.4s both'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
           <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Pricing Plans</h1>
