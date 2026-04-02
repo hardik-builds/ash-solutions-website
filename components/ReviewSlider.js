@@ -48,7 +48,8 @@ export default function ReviewSlider() {
                 {/* Slider Wrapper */}
                 <div style={{
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    minHeight: '320px'
                 }}>
                     <div
                         style={{
@@ -80,7 +81,10 @@ export default function ReviewSlider() {
                                      0 10px 25px rgba(0,0,0,0.08),
                                      0 4px 10px rgba(0,0,0,0.05)
                                      `,
-
+                                    minHeight: '250px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
                                     transition: 'all 0.4s ease',
                                     position: 'relative'
                                 }}
@@ -153,7 +157,7 @@ export default function ReviewSlider() {
                                 borderRadius: '50%',
                                 backgroundColor: index === i ? 'var(--primary-color)' : 'rgba(150,150,150,0.3)',
                                 cursor: 'pointer',
-                    transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease'
                             }}
                         />
                     ))}
