@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
+import ReviewSlider from '@/components/ReviewSlider';
 import Link from 'next/link';
 
 export default function Home() {
@@ -391,6 +392,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ReviewSlider />
 
       {/* CTA Section */}
       <section style={{
