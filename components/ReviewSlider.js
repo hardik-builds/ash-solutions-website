@@ -1,189 +1,153 @@
 'use client';
-import { useState, useEffect } from 'react';
 
 export default function ReviewSlider() {
-  const [index, setIndex] = useState(0);
-
   const reviews = [
     {
-      name: "Dhanush Eeda",
-      rating: 5,
-      text: "Good for system management and conversion systems do work with these guyss, sharing with personal experience.",
+      name: 'Dhanush Eeda',
+      role: 'Business Owner',
+      review:
+        'Good for system management and conversion systems. Sharing from personal experience. Professional communication and quality delivery.',
     },
     {
-      name: "Shakshi Dhakoliya",
-      rating: 5,
-      text: "I had experience with this company you should give an try.",
+      name: 'Shakshi Dhakoliya',
+      role: 'Client',
+      review:
+        'Excellent experience working with ASH Solutions. Smooth process, great support and timely delivery.',
     },
     {
-      name: "Purushotham Arumugam",
-      rating: 4,
-      text: "Great experience with this company! They provide web development, cybersecurity, app development, digital marketing, and SEO optimization services. The team is professional, responsive, and delivers high-quality work on time. Highly recommended",
+      name: 'Purushotham Arumugam',
+      role: 'Client',
+      review:
+        'Professional team providing web development, cybersecurity, app development and SEO services. Highly recommended.',
     },
   ];
 
-  // ✅ Smooth auto slide (no lag)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % reviews.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => setIndex((prev) => (prev + 1) % reviews.length);
-  const prevSlide = () => setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-
   return (
-    <section style={{ padding: '100px 16px' }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-
-        {/* Heading */}
-        <h2 style={{
-          fontSize: 'clamp(28px, 5vw, 40px)',
-          marginBottom: '50px',
-          fontWeight: '800',
-          background: 'linear-gradient(to right, #3B82F6, #06B6D4)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
-        }}>
-          ⭐ What Our Clients Say
-        </h2>
-
-        {/* Slider */}
-        <div style={{
-          position: 'relative',
-          overflow: 'hidden',
-          padding: '0 8px'
-        }}>
-
-          {/* Track */}
-          <div style={{
-            display: 'flex',
-            transform: `translate3d(-${index * 100}%, 0, 0)`,
-            transition: 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)',
-            willChange: 'transform'
-          }}>
-
-            {reviews.map((review, i) => (
-              <div
-                key={i}
-                style={{
-                  flex: '0 0 100%',          // ✅ FIX (NO CUT)
-                  boxSizing: 'border-box',
-                  padding: '10px'
-                }}
-              >
-                <div style={{
-                  width: '100%',
-                  boxSizing: 'border-box',
-                  background: 'var(--card-bg)',
-                  border: '1px solid var(--border-color)',
-                  padding: 'clamp(25px, 5vw, 50px)',
-                  borderRadius: '24px',
-                  backdropFilter: 'blur(12px)',
-                  boxShadow: `
-                    0 10px 30px rgba(0,0,0,0.08),
-                    0 4px 12px rgba(0,0,0,0.05)
-                  `,
-                  transition: 'all 0.3s ease'
-                }}>
-
-                  {/* Review Text */}
-                  <p style={{
-                    fontSize: 'clamp(16px, 2.5vw, 20px)',
-                    color: 'var(--text-color)',
-                    marginBottom: '25px',
-                    lineHeight: '1.7',
-                    fontStyle: 'italic',
-                    wordBreak: 'break-word' // ✅ FIX
-                  }}>
-                    “{review.text}”
-                  </p>
-
-                  {/* Stars */}
-                  <div style={{
-                    color: '#facc15',
-                    marginBottom: '10px',
-                    fontSize: '18px'
-                  }}>
-                    {"⭐".repeat(review.rating)}
-                  </div>
-
-                  {/* Name */}
-                  <h4 style={{
-                    fontWeight: 'bold',
-                    fontSize: '18px',
-                    color: 'var(--text-color)'
-                  }}>
-                    {review.name}
-                  </h4>
-
-                  <p style={{
-                    fontSize: '13px',
-                    color: 'var(--text-secondary)'
-                  }}>
-                    Reviewed on Google
-                  </p>
-
-                </div>
-              </div>
-            ))}
+    <section
+      style={{
+        padding: '140px 20px',
+        background: '#FFFFFF',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+        }}
+      >
+        <div
+          style={{
+            textAlign: 'center',
+            marginBottom: '70px',
+          }}
+        >
+          <div
+            style={{
+              color: '#2563EB',
+              fontWeight: '700',
+              marginBottom: '12px',
+              letterSpacing: '1px',
+            }}
+          >
+            CLIENT TESTIMONIALS
           </div>
 
-          {/* Arrows */}
-          <button onClick={prevSlide} style={arrowStyle('left')}>
-            ‹
-          </button>
+          <h2
+            style={{
+              fontSize: 'clamp(36px,6vw,58px)',
+              fontWeight: '900',
+              color: '#0F172A',
+              marginBottom: '18px',
+            }}
+          >
+            Trusted By Growing Businesses
+          </h2>
 
-          <button onClick={nextSlide} style={arrowStyle('right')}>
-            ›
-          </button>
-
+          <p
+            style={{
+              maxWidth: '700px',
+              margin: '0 auto',
+              color: '#64748B',
+              lineHeight: '1.9',
+            }}
+          >
+            We focus on delivering business value,
+            not just software.
+          </p>
         </div>
 
-        {/* Dots */}
-        <div style={{
-          marginTop: '25px',
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '10px'
-        }}>
-          {reviews.map((_, i) => (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns:
+              'repeat(auto-fit,minmax(320px,1fr))',
+            gap: '24px',
+          }}
+        >
+          {reviews.map((review, index) => (
             <div
-              key={i}
-              onClick={() => setIndex(i)}
+              key={index}
               style={{
-                width: index === i ? '18px' : '10px',
-                height: '10px',
-                borderRadius: '50%',
-                backgroundColor: index === i ? 'var(--primary-color)' : 'rgba(150,150,150,0.3)',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                background: '#F8FAFC',
+                border: '1px solid rgba(15,23,42,.08)',
+                borderRadius: '24px',
+                padding: '32px',
+                boxShadow:
+                  '0 8px 25px rgba(15,23,42,.04)',
               }}
-            />
+            >
+              <div
+                style={{
+                  fontSize: '48px',
+                  color: '#2563EB',
+                  lineHeight: 1,
+                  marginBottom: '20px',
+                }}
+              >
+                "
+              </div>
+
+              <p
+                style={{
+                  color: '#475569',
+                  lineHeight: '1.9',
+                  marginBottom: '25px',
+                  minHeight: '120px',
+                }}
+              >
+                {review.review}
+              </p>
+
+              <div
+                style={{
+                  borderTop:
+                    '1px solid rgba(15,23,42,.08)',
+                  paddingTop: '18px',
+                }}
+              >
+                <div
+                  style={{
+                    fontWeight: '700',
+                    color: '#0F172A',
+                    marginBottom: '4px',
+                  }}
+                >
+                  {review.name}
+                </div>
+
+                <div
+                  style={{
+                    color: '#64748B',
+                    fontSize: '14px',
+                  }}
+                >
+                  {review.role}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
-
-/* Arrow Style */
-const arrowStyle = (side) => ({
-  position: 'absolute',
-  top: '50%',
-  [side]: '10px',
-  transform: 'translateY(-50%)',
-  background: 'var(--card-bg)',
-  border: '1px solid var(--border-color)',
-  width: '42px',
-  height: '42px',
-  borderRadius: '50%',
-  cursor: 'pointer',
-  fontSize: '22px',
-  color: 'var(--text-color)',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-  transition: 'all 0.3s ease',
-  zIndex: 2
-});

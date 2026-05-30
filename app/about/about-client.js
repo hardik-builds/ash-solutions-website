@@ -31,169 +31,991 @@ export default function About() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-      <section style={{
-        background: isDark
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
-        color: 'white',
-        padding: '96px 0'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center', animation: 'fadeInUp 0.8s ease-out' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>About ASH Solutions & Innovations</h1>
-          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>Learn more about my journey as a fresher, the skills I've mastered, and the mentorship that guided this project.</p>
-        </div>
-      </section>
+<section
+  style={{
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '140px 20px',
+    background:
+      isDark
+        ? 'linear-gradient(180deg,#020617,#0F172A)'
+        : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+  }}
+>
+  <div
+    style={{
+      position: 'absolute',
+      width: '450px',
+      height: '450px',
+      background: '#3B82F6',
+      borderRadius: '50%',
+      filter: 'blur(120px)',
+      opacity: 0.18,
+      top: '-100px',
+      right: '-120px',
+    }}
+  />
 
-      {/* My Story Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-color)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '64px', alignItems: 'center' }}>
-            <div>
-              <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>My Journey</h2>
-              <p style={{ fontSize: '18px', color: 'var(--text-color)', marginBottom: '24px', lineHeight: '1.6' }}>
-                My journey with ASH Solutions & Innovations began as a final year project for my Bachelor's degree in Information Technology at Sree Narayana Guru College of Commerce. What started as an academic requirement quickly evolved into a passion project—a platform to consolidate and showcase the full-stack development, cybersecurity principles, and digital marketing strategies I've learned.
-              </p>
-              <p style={{ fontSize: '18px', color: 'var(--text-color)', marginBottom: '24px', lineHeight: '1.6' }}>
-                This website is not just a project; it's a testament to my dedication to modern web technologies and my eagerness to solve real-world problems. As a fresher entering the IT industry, my goal is to leverage these skills to help businesses establish a strong digital footprint.
-              </p>
-              <p style={{ fontSize: '18px', color: 'var(--text-color)', lineHeight: '1.6' }}>
-                SH Solutions & Innovations represents my commitment to innovation, continuous learning, and delivering high-quality, tailored solutions.
-              </p>
-            </div>
+  <div
+    style={{
+      position: 'absolute',
+      width: '350px',
+      height: '350px',
+      background: '#06B6D4',
+      borderRadius: '50%',
+      filter: 'blur(120px)',
+      opacity: 0.15,
+      bottom: '-120px',
+      left: '-120px',
+    }}
+  />
 
-          </div>
-        </div>
-      </section>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+      textAlign: 'center',
+      position: 'relative',
+      zIndex: 2,
+    }}
+  >
+    <div
+      style={{
+        display: 'inline-flex',
+        padding: '10px 18px',
+        borderRadius: '999px',
+        background: 'rgba(59,130,246,.12)',
+        border: '1px solid rgba(59,130,246,.25)',
+        color: '#2563EB',
+        fontWeight: '600',
+        marginBottom: '25px',
+      }}
+    >
+      🚀 ABOUT ASH SOLUTIONS
+    </div>
 
-      {/* Mission & Vision Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', animation: 'fadeInUp 0.8s ease-out' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px' }}>
-            <div style={{
-              backgroundColor: 'var(--card-bg)',
-              padding: '40px',
-              borderRadius: '16px',
-              boxShadow: isDark
-                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
-                : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-              border: `1px solid var(--border-color)`
-            }}>
-              <h2 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>My Mission</h2>
-              <p style={{ color: 'var(--text-color)', lineHeight: '1.6' }}>
-                To apply my knowledge in web development, cybersecurity, and digital solutions to help businesses and individuals enhance their online presence. I aim to grow as a developer by delivering practical, secure, and innovative projects.
-              </p>
-            </div>
-            <div style={{
-              backgroundColor: 'var(--card-bg)',
-              padding: '40px',
-              borderRadius: '16px',
-              boxShadow: isDark
-                ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
-                : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-              border: `1px solid var(--border-color)`,
-              animation: 'fadeInUp 0.8s ease-out 0.2s both'
-            }}>
-              <h2 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>My Vision</h2>
-              <p style={{ color: 'var(--text-color)', lineHeight: '1.6' }}>
-                To continuously evolve my skill set, stay updated with the latest industry trends, and build a reputation for creating reliable and effective digital solutions that make a tangible difference.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <h1
+      style={{
+        fontSize: 'clamp(42px,8vw,78px)',
+        fontWeight: '900',
+        lineHeight: '1.05',
+        color: 'var(--text-color)',
+        marginBottom: '25px',
+      }}
+    >
+      Building Intelligent
+      <br />
+      Digital Solutions
+    </h1>
 
-      {/* Achievements Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-color)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '64px', color: 'var(--primary-color)' }}>Skills & Milestones</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px' }}>
-            {achievements.map((achievement, index) => (
-              <div key={index} style={{ textAlign: 'center', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`, }}>
-                <div style={{ fontSize: '48px', fontWeight: 'bold', color: 'var(--info-color)', marginBottom: '16px' }}>{achievement.value}</div>
-                <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px', color: 'var(--primary-color)', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both` }}>{achievement.title}</h3>
-                <p style={{ color: 'var(--text-color)', animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both` }}>{achievement.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <p
+      style={{
+        maxWidth: '850px',
+        margin: '0 auto',
+        fontSize: '22px',
+        lineHeight: '1.8',
+        color: 'var(--text-secondary)',
+      }}
+    >
+      We help businesses automate operations,
+      build scalable software systems and leverage
+      technology to drive growth, efficiency
+      and innovation.
+    </p>
 
-      {/* Team Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '64px', color: 'var(--primary-color)' }}>The Team</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px', maxWidth: '900px', margin: '0 auto' }}>
-            {team.map((member, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: 'var(--card-bg)',
-                  padding: '40px',
-                  borderRadius: '16px',
-                  boxShadow: isDark
-                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
-                    : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                  border: `1px solid var(--border-color)`,
-                  animation: `fadeInUp 0.8s ease-out ${index * 0.3}s both`,
-                }}
-              >
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    style={{
-                      width: '128px',
-                      height: '128px',
-                      borderRadius: '50%',
-                      marginBottom: '24px',
-                      border: '4px solid var(--info-color)',
-                      objectFit: 'cover',
-                      objectPosition: 'top',
-                    }}
-                  />
-                  <div style={{ textAlign: 'center' }}>
-                    <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--primary-color)' }}>{member.name}</h3>
-                    <p style={{ color: 'var(--info-color)', fontWeight: '600' }}>{member.role}</p>
-                  </div>
-                </div>
-                <p style={{ color: 'var(--text-color)', lineHeight: '1.6', textAlign: 'center' }}>{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div
+      style={{
+        marginTop: '50px',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Link
+        href="/contact"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          textDecoration: 'none',
+          background:
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#fff',
+          fontWeight: '700',
+        }}
+      >
+        Talk To An Expert
+      </Link>
 
-      {/* CTA Section */}
-      <section style={{
-        padding: '96px 0',
-        background: isDark
-          ? 'linear-gradient(to right, #1e3a8a, #0f172a)'
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
-        color: 'white'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Let's Build Something Together</h2>
-          <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out' }}>
-            I'm excited to bring my skills and fresh perspective to your next project. Get in touch to discuss how I can help.
-          </p>
-          <Link
-            href="/contact"
+      <Link
+        href="/services"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          textDecoration: 'none',
+          background: 'var(--card-bg)',
+          color: 'var(--text-color)',
+          border: '1px solid var(--border-color)',
+          fontWeight: '700',
+        }}
+      >
+        View Services
+      </Link>
+    </div>
+  </div>
+</section>
+     
+
+      {/* Our Story Section */}
+<section
+  style={{
+    padding: '140px 20px',
+    background: '#FFFFFF',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+      display: 'grid',
+      gridTemplateColumns: '1.1fr 1fr',
+      gap: '60px',
+      alignItems: 'center',
+    }}
+  >
+    {/* Left Side */}
+
+    <div>
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        OUR STORY
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(36px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '24px',
+          lineHeight: '1.1',
+        }}
+      >
+        Technology That
+        Solves Real Business Problems
+      </h2>
+
+      <p
+        style={{
+          color: '#64748B',
+          lineHeight: '1.9',
+          fontSize: '18px',
+          marginBottom: '22px',
+        }}
+      >
+        ASH Solutions was founded with a simple goal:
+        help businesses leverage modern technology
+        without the complexity that often comes with it.
+      </p>
+
+      <p
+        style={{
+          color: '#64748B',
+          lineHeight: '1.9',
+          fontSize: '18px',
+          marginBottom: '22px',
+        }}
+      >
+        From AI automation and business systems
+        to websites, mobile applications and SaaS
+        platforms, our focus is creating practical
+        digital solutions that deliver measurable
+        business value.
+      </p>
+
+      <p
+        style={{
+          color: '#64748B',
+          lineHeight: '1.9',
+          fontSize: '18px',
+        }}
+      >
+        We believe technology should not only look
+        impressive—it should improve efficiency,
+        streamline operations and support long-term growth.
+      </p>
+    </div>
+
+    {/* Right Side */}
+
+    <div
+      style={{
+        display: 'grid',
+        gap: '20px',
+      }}
+    >
+      {[
+        {
+          title: 'AI Automation',
+          desc:
+            'Automate repetitive workflows and improve operational efficiency.',
+        },
+        {
+          title: 'Custom SaaS Platforms',
+          desc:
+            'Scalable software products built around your business model.',
+        },
+        {
+          title: 'Business Systems',
+          desc:
+            'ERP, CRM and management systems tailored to your workflow.',
+        },
+        {
+          title: 'Long-Term Partnership',
+          desc:
+            'Support, maintenance and continuous improvements after launch.',
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            background: '#FFFFFF',
+            border:
+              '1px solid rgba(15,23,42,.08)',
+            borderRadius: '20px',
+            padding: '24px',
+            boxShadow:
+              '0 8px 25px rgba(15,23,42,.04)',
+          }}
+        >
+          <h3
             style={{
-              backgroundColor: 'white',
-              color: 'var(--primary-color)',
-              padding: '12px 32px',
-              borderRadius: '6px',
-              fontWeight: '600',
-              textDecoration: 'none',
-              fontSize: '18px',
-              transition: 'all 0.3s',
-              animation: 'fadeInUp 0.8s ease-out'
+              color: '#0F172A',
+              fontWeight: '700',
+              marginBottom: '10px',
+              fontSize: '20px',
             }}
           >
-            Get In Touch
-          </Link>
+            {item.title}
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.8',
+            }}
+          >
+            {item.desc}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+     
+{/* Mission & Vision Section */}
+<section
+  style={{
+    padding: '140px 20px',
+    background: '#F8FAFC',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    <div
+      style={{
+        textAlign: 'center',
+        marginBottom: '70px',
+      }}
+    >
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        OUR PURPOSE
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(36px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '18px',
+        }}
+      >
+        Mission & Vision
+      </h2>
+
+      <p
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          color: '#64748B',
+          lineHeight: '1.8',
+        }}
+      >
+        Guiding principles that shape every
+        solution we build.
+      </p>
+    </div>
+
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(400px,1fr))',
+        gap: '30px',
+      }}
+    >
+      {/* Mission */}
+
+      <div
+        style={{
+          background: '#FFFFFF',
+          border:
+            '1px solid rgba(15,23,42,.08)',
+          borderRadius: '28px',
+          padding: '40px',
+          boxShadow:
+            '0 8px 25px rgba(15,23,42,.04)',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '48px',
+            marginBottom: '20px',
+          }}
+        >
+          🎯
+        </div>
+
+        <h3
+          style={{
+            fontSize: '28px',
+            fontWeight: '800',
+            color: '#0F172A',
+            marginBottom: '18px',
+          }}
+        >
+          Our Mission
+        </h3>
+
+        <p
+          style={{
+            color: '#64748B',
+            lineHeight: '1.9',
+            fontSize: '17px',
+          }}
+        >
+          To help businesses transform digitally
+          through AI, automation and custom software
+          solutions that improve efficiency,
+          reduce operational friction and
+          accelerate growth.
+        </p>
+      </div>
+
+      {/* Vision */}
+
+      <div
+        style={{
+          background: '#FFFFFF',
+          border:
+            '1px solid rgba(15,23,42,.08)',
+          borderRadius: '28px',
+          padding: '40px',
+          boxShadow:
+            '0 8px 25px rgba(15,23,42,.04)',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '48px',
+            marginBottom: '20px',
+          }}
+        >
+          🚀
+        </div>
+
+        <h3
+          style={{
+            fontSize: '28px',
+            fontWeight: '800',
+            color: '#0F172A',
+            marginBottom: '18px',
+          }}
+        >
+          Our Vision
+        </h3>
+
+        <p
+          style={{
+            color: '#64748B',
+            lineHeight: '1.9',
+            fontSize: '17px',
+          }}
+        >
+          To become a trusted technology partner
+          for businesses seeking scalable,
+          innovative and future-ready
+          digital solutions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{/* Core Values Section */}
+<section
+  style={{
+    padding: '140px 20px',
+    background: '#FFFFFF',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    <div
+      style={{
+        textAlign: 'center',
+        marginBottom: '70px',
+      }}
+    >
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        OUR VALUES
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(36px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '18px',
+        }}
+      >
+        Principles Behind
+        Every Solution
+      </h2>
+
+      <p
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          color: '#64748B',
+          lineHeight: '1.8',
+        }}
+      >
+        The values that guide how we build,
+        collaborate and deliver results.
+      </p>
+    </div>
+
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(260px,1fr))',
+        gap: '24px',
+      }}
+    >
+      {[
+        {
+          icon: '💡',
+          title: 'Innovation',
+          desc:
+            'Continuously exploring modern technologies and better solutions.',
+        },
+        {
+          icon: '📈',
+          title: 'Business Impact',
+          desc:
+            'Every project is designed to create measurable business value.',
+        },
+        {
+          icon: '🛡️',
+          title: 'Reliability',
+          desc:
+            'Secure, stable and scalable systems built for long-term use.',
+        },
+        {
+          icon: '🚀',
+          title: 'Continuous Improvement',
+          desc:
+            'Constant learning, optimization and innovation in every project.',
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            background: '#F8FAFC',
+            border:
+              '1px solid rgba(15,23,42,.08)',
+            borderRadius: '24px',
+            padding: '30px',
+            transition: '.3s',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '42px',
+              marginBottom: '18px',
+            }}
+          >
+            {item.icon}
+          </div>
+
+          <h3
+            style={{
+              fontSize: '22px',
+              fontWeight: '700',
+              color: '#0F172A',
+              marginBottom: '12px',
+            }}
+          >
+            {item.title}
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.8',
+            }}
+          >
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      {/* Leadership Team */}
+<section
+  style={{
+    padding: '140px 20px',
+    background: '#F8FAFC',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    <div
+      style={{
+        textAlign: 'center',
+        marginBottom: '80px',
+      }}
+    >
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        LEADERSHIP TEAM
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(36px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '18px',
+        }}
+      >
+        Meet The People
+        Behind ASH Solutions
+      </h2>
+
+      <p
+        style={{
+          maxWidth: '750px',
+          margin: '0 auto',
+          color: '#64748B',
+          lineHeight: '1.8',
+        }}
+      >
+        Combining technical expertise,
+        innovation and business-focused thinking
+        to build impactful digital solutions.
+      </p>
+    </div>
+
+    {/* Founder Card */}
+
+    <div
+      style={{
+        background: '#FFFFFF',
+        border: '1px solid rgba(15,23,42,.08)',
+        borderRadius: '30px',
+        padding: '40px',
+        marginBottom: '35px',
+        boxShadow:
+          '0 10px 30px rgba(15,23,42,.05)',
+      }}
+    >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '280px 1fr',
+          gap: '40px',
+          alignItems: 'center',
+        }}
+      >
+        <img
+          src="/images/hardik-singh.jpeg"
+          alt="Hardik Singh"
+          style={{
+            width: '100%',
+            height: '320px',
+            objectFit: 'cover',
+            objectPosition: 'top',
+            borderRadius: '24px',
+          }}
+        />
+
+        <div>
+          <div
+            style={{
+              color: '#2563EB',
+              fontWeight: '700',
+              marginBottom: '10px',
+            }}
+          >
+            FOUNDER
+          </div>
+
+          <h3
+            style={{
+              fontSize: '34px',
+              fontWeight: '900',
+              color: '#0F172A',
+              marginBottom: '10px',
+            }}
+          >
+            Hardik L. Singh
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.9',
+              marginBottom: '25px',
+            }}
+          >
+            Full Stack Developer focused on building
+            scalable software systems, SaaS platforms,
+            AI-powered solutions and business automation tools.
+          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+            }}
+          >
+            {[
+              'Full Stack Development',
+              'AI Integration',
+              'SaaS Development',
+              'Business Systems',
+              'Web Applications',
+            ].map((skill) => (
+              <span
+                key={skill}
+                style={{
+                  padding: '10px 16px',
+                  borderRadius: '999px',
+                  background: '#EFF6FF',
+                  color: '#2563EB',
+                  fontWeight: '600',
+                  fontSize: '14px',
+                }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* CEO Card */}
+
+    <div
+      style={{
+        background: '#FFFFFF',
+        border: '1px solid rgba(15,23,42,.08)',
+        borderRadius: '30px',
+        padding: '40px',
+        boxShadow:
+          '0 10px 30px rgba(15,23,42,.05)',
+      }}
+    >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '280px 1fr',
+          gap: '40px',
+          alignItems: 'center',
+        }}
+      >
+        <img
+          src="/images/Anshu-Rajkagoria.jpeg"
+          alt="Anshu Rajkagoria"
+          style={{
+            width: '100%',
+            height: '320px',
+            objectFit: 'cover',
+            objectPosition: 'top',
+            borderRadius: '24px',
+          }}
+        />
+
+        <div>
+          <div
+            style={{
+              color: '#2563EB',
+              fontWeight: '700',
+              marginBottom: '10px',
+            }}
+          >
+            CEO
+          </div>
+
+          <h3
+            style={{
+              fontSize: '34px',
+              fontWeight: '900',
+              color: '#0F172A',
+              marginBottom: '10px',
+            }}
+          >
+            Anshu Rajkagoria
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.9',
+              marginBottom: '25px',
+            }}
+          >
+            Leading strategic growth, cybersecurity
+            initiatives and operational excellence while
+            driving innovation and long-term business vision.
+          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px',
+            }}
+          >
+            {[
+              'Leadership',
+              'Cybersecurity',
+              'Strategic Planning',
+              'Business Operations',
+              'Digital Innovation',
+            ].map((skill) => (
+              <span
+                key={skill}
+                style={{
+                  padding: '10px 16px',
+                  borderRadius: '999px',
+                  background: '#EFF6FF',
+                  color: '#2563EB',
+                  fontWeight: '600',
+                  fontSize: '14px',
+                }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    {/* CTA Section */}
+<section
+  style={{
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '120px 20px',
+    background:
+      'linear-gradient(135deg,#0F172A,#1E293B)',
+    color: '#fff',
+  }}
+>
+  <div
+    style={{
+      position: 'absolute',
+      width: '400px',
+      height: '400px',
+      background: '#3B82F6',
+      borderRadius: '50%',
+      filter: 'blur(120px)',
+      opacity: 0.15,
+      top: '-120px',
+      right: '-100px',
+    }}
+  />
+
+  <div
+    style={{
+      position: 'absolute',
+      width: '350px',
+      height: '350px',
+      background: '#06B6D4',
+      borderRadius: '50%',
+      filter: 'blur(120px)',
+      opacity: 0.15,
+      bottom: '-100px',
+      left: '-100px',
+    }}
+  />
+
+  <div
+    style={{
+      position: 'relative',
+      zIndex: 2,
+      maxWidth: '900px',
+      margin: '0 auto',
+      textAlign: 'center',
+    }}
+  >
+    <div
+      style={{
+        color: '#60A5FA',
+        fontWeight: '700',
+        marginBottom: '15px',
+        letterSpacing: '1px',
+      }}
+    >
+      LET'S BUILD SOMETHING AMAZING
+    </div>
+
+    <h2
+      style={{
+        fontSize: 'clamp(36px,7vw,64px)',
+        fontWeight: '900',
+        lineHeight: '1.1',
+        marginBottom: '25px',
+      }}
+    >
+      Ready To Build Your
+      <br />
+      Next Digital Solution?
+    </h2>
+
+    <p
+      style={{
+        maxWidth: '750px',
+        margin: '0 auto',
+        fontSize: '18px',
+        lineHeight: '1.9',
+        color: '#CBD5E1',
+      }}
+    >
+      Whether you need AI automation,
+      a custom SaaS platform,
+      a business management system,
+      a website or a mobile application,
+      we're ready to help you scale.
+    </p>
+
+    <div
+      style={{
+        marginTop: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+        flexWrap: 'wrap',
+      }}
+    >
+      <a
+        href="https://wa.me/918652768171"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          textDecoration: 'none',
+          background:
+            'linear-gradient(135deg,#3B82F6,#06B6D4)',
+          color: '#fff',
+          fontWeight: '700',
+          boxShadow:
+            '0 20px 40px rgba(59,130,246,.3)',
+        }}
+      >
+        Talk To An Expert
+      </a>
+
+      <Link
+        href="/contact"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          textDecoration: 'none',
+          background:
+            'rgba(255,255,255,.08)',
+          border:
+            '1px solid rgba(255,255,255,.15)',
+          color: '#fff',
+          fontWeight: '700',
+          backdropFilter: 'blur(20px)',
+        }}
+      >
+        Get Custom Quote
+      </Link>
+    </div>
+
+    <div
+      style={{
+        marginTop: '40px',
+        color: '#94A3B8',
+        fontSize: '14px',
+      }}
+    >
+      AI Automation • SaaS Development • Websites • Apps • Business Systems
+    </div>
+  </div>
+</section>
+
       <style jsx>{`
         @media (min-width: 768px) {
           section:nth-of-type(2) > div > div {
@@ -229,6 +1051,11 @@ export default function About() {
       transform: translateY(0);
     }
   }
+    @media (max-width: 768px) {
+  .team-card {
+    grid-template-columns: 1fr !important;
+  }
+}
       `}</style>
     </div>
   );

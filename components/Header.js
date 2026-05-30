@@ -1,96 +1,279 @@
-
 'use client';
+
 import Link from 'next/link';
-import { useState , useEffect} from 'react';
-import ThemeToggle from './ThemeToggle'; // Import ThemeToggle
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+// import ThemeToggle from './ThemeToggle';
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
   const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'About', href: '/about' },
+    { name: 'Team', href: '/team' },
+    { name: 'Get Quote', href: '/contact' }
+  ];
+
   return (
-    <header style={{ backgroundColor: 'var(--card-bg, white)', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', position: 'sticky', top: 0, zIndex: 50 }}>
-      <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '16px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link href="/" style={{ fontSize: '24px', fontWeight: 'bold', color: '#3B82F6', textDecoration: 'none' }}>
-            ASH Solutions
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="desktop-menu" style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-            <Link href="/" style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' }}>Home</Link>
-            <Link href="/about" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'}}>About</Link>
-            <Link href="/services" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'}}>Services</Link>
-            <Link href="/pricing" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s' }}>Pricing</Link>
-            <Link href="/team" onClick={() => setIsOpen(false)} style={{ color: 'var(--text-color, #4B5563)', textDecoration: 'none', transition: 'color 0.3s'  }}>Team</Link>
-
-            {/* Theme Toggle Button - Moved after Register */}
-            <ThemeToggle />
-
-            {/* <Link href="/admin/contacts" style={{ color: '#4B5563', textDecoration: 'none', transition: 'color 0.3s' }}>Admin</Link> */}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="mobile-menu-button"
-            style={{ display: 'none', background: 'none', border: 'none', color: 'var(--text-color, #4B5563)', cursor: 'pointer' }}
-            onClick={toggleMenu}
+    <>
+      <header
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 9999,
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+          background: scrolled
+            ? 'rgba(15,23,42,0.85)'
+            : 'rgba(15,23,42,0.65)',
+          borderBottom: scrolled
+            ? '1px solid rgba(255,255,255,0.08)'
+            : '1px solid transparent',
+          transition: 'all .3s ease'
+        }}
+      >
+        <nav
+          style={{
+            maxWidth: '1300px',
+            margin: '0 auto',
+            padding: '14px 20px'
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}
           >
-            {isOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
-          </button>
-        </div>
+            {/* LOGO */}
+            <Link
+              href="/"
+              style={{
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px'
+              }}
+            >
+              <div
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '12px',
+                  background:
+                    'linear-gradient(135deg,#3B82F6,#06B6D4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontWeight: '800',
+                  fontSize: '18px',
+                  boxShadow:
+                    '0 10px 30px rgba(59,130,246,.35)'
+                }}
+              >
+                A
+              </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="mobile-menu" style={{ marginTop: '16px', paddingBottom: '16px', display: 'none' }}>
-            <Link href="/" style={{ display: 'block', padding: '8px 0', color: 'var(--text-color, #4B5563)', textDecoration: 'none' }}>Home</Link>
-            <Link href="/about" style={{ display: 'block', padding: '8px 0', color: 'var(--text-color, #4B5563)', textDecoration: 'none' }}>About</Link>
-            <Link href="/services" style={{ display: 'block', padding: '8px 0', color: 'var(--text-color, #4B5563)', textDecoration: 'none' }}>Services</Link>
-            <Link href="/pricing" style={{ display: 'block', padding: '8px 0', color: 'var(--text-color, #4B5563)', textDecoration: 'none' }}>Pricing</Link>
-            <Link href="/team" style={{ display: 'block', padding: '8px 0', color: 'var(--text-color, #4B5563)', textDecoration: 'none' }}>Team</Link>
+              <div>
+                <div
+                  style={{
+                    color: '#fff',
+                    fontWeight: '700',
+                    fontSize: '18px'
+                  }}
+                >
+                  ASH Solutions
+                </div>
 
-            {/* Theme Toggle in Mobile Menu - Moved after Register */}
-            <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0' }}>
-              <ThemeToggle />
+                <div
+                  style={{
+                    fontSize: '11px',
+                    color: '#94A3B8',
+                    letterSpacing: '.5px'
+                  }}
+                >
+                  Digital Innovation Partner
+                </div>
+              </div>
+            </Link>
+
+            {/* DESKTOP MENU */}
+            <div className="desktop-menu">
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    style={{
+                      textDecoration: 'none',
+                      color: active
+                        ? '#60A5FA'
+                        : '#E2E8F0',
+                      fontWeight: active ? '600' : '500',
+                      position: 'relative',
+                      transition: '.3s'
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
 
-            {/* <Link href="/admin/contacts" style={{ display: 'block', padding: '8px 0', color: '#4B5563)', textDecoration: 'none' }}>Admin</Link> */}
-          </div>
-        )}
-      </nav>
+            {/* RIGHT */}
+            <div
+              className="desktop-right"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px'
+              }}
+            >
+              {/* <ThemeToggle /> */}
 
-      <style jsx>{`
-        @media (max-width: 768px) {
+               <a
+  href="https://wa.me/918652768171"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    textDecoration: 'none',
+    padding: '12px 20px',
+    borderRadius: '12px',
+    background:
+      'linear-gradient(135deg,#3B82F6,#06B6D4)',
+    color: '#fff',
+    fontWeight: '600',
+    boxShadow:
+      '0 10px 25px rgba(59,130,246,.3)',
+    transition: 'all .3s ease'
+  }}
+>
+  Talk to an Expert
+</a>
+              
+            </div>
+
+            {/* MOBILE BUTTON */}
+            <button
+              className="mobile-btn"
+              onClick={() => setIsOpen(!isOpen)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: '#fff',
+                fontSize: '28px',
+                cursor: 'pointer'
+              }}
+            >
+              ☰
+            </button>
+          </div>
+
+          {/* MOBILE MENU */}
+          {isOpen && (
+            <div
+              className="mobile-menu"
+              style={{
+                marginTop: '20px',
+                background: 'rgba(15,23,42,.95)',
+                borderRadius: '16px',
+                padding: '20px'
+              }}
+            >
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  style={{
+                    display: 'block',
+                    padding: '12px 0',
+                    color: '#fff',
+                    textDecoration: 'none'
+                  }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              <div
+                style={{
+                  marginTop: '15px',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                {/* <ThemeToggle /> */}
+              </div>
+
+              <Link
+                href="/contact"
+                style={{
+                  display: 'block',
+                  marginTop: '15px',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  padding: '12px',
+                  borderRadius: '12px',
+                  background:
+                    'linear-gradient(135deg,#3B82F6,#06B6D4)',
+                  color: '#fff',
+                  fontWeight: '600'
+                }}
+              >
+                Book Discovery Call
+              </Link>
+            </div>
+          )}
+        </nav>
+
+        <style jsx>{`
           .desktop-menu {
-            display: none !important;
+            display: flex;
+            gap: 30px;
+            align-items: center;
           }
-          .mobile-menu-button {
-            display: block !important;
+
+          .mobile-btn {
+            display: none;
           }
-          .mobile-menu {
-            display: block !important;
+
+          @media (max-width: 900px) {
+            .desktop-menu,
+            .desktop-right {
+              display: none !important;
+            }
+
+            .mobile-btn {
+              display: block !important;
+            }
           }
-        }
-      `}</style>
-    </header>
+        `}</style>
+      </header>
+    </>
   );
 }

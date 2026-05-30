@@ -65,28 +65,154 @@ export default function Contact() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-      <section style={{
-        background: isDark
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
-        color: 'white',
-        padding: '96px 0'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px' }}>Contact Us</h1>
-          <p style={{ fontSize: '24px', maxWidth: '900px', margin: '0 auto', opacity: 0.9 }}>
-            Get in touch with our team to discuss how we can help transform your digital presence.
+      <section
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '140px 20px',
+          background:
+            isDark
+              ? 'linear-gradient(180deg,#020617,#0F172A)'
+              : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            width: '450px',
+            height: '450px',
+            background: '#3B82F6',
+            borderRadius: '50%',
+            filter: 'blur(120px)',
+            opacity: 0.18,
+            top: '-100px',
+            right: '-120px',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            width: '350px',
+            height: '350px',
+            background: '#06B6D4',
+            borderRadius: '50%',
+            filter: 'blur(120px)',
+            opacity: 0.15,
+            bottom: '-120px',
+            left: '-120px',
+          }}
+        />
+
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            textAlign: 'center',
+            position: 'relative',
+            zIndex: 2,
+          }}
+        >
+          <div
+            style={{
+              display: 'inline-flex',
+              padding: '10px 18px',
+              borderRadius: '999px',
+              background: 'rgba(59,130,246,.12)',
+              border: '1px solid rgba(59,130,246,.25)',
+              color: '#2563EB',
+              fontWeight: '600',
+              marginBottom: '25px',
+            }}
+          >
+            🚀 START YOUR PROJECT
+          </div>
+
+          <h1
+            style={{
+              fontSize: 'clamp(42px,8vw,78px)',
+              fontWeight: '900',
+              lineHeight: '1.05',
+              marginBottom: '25px',
+            }}
+          >
+            Let's Build
+            <br />
+            Something Amazing
+          </h1>
+
+          <p
+            style={{
+              maxWidth: '850px',
+              margin: '0 auto',
+              fontSize: '22px',
+              lineHeight: '1.8',
+              color: 'var(--text-secondary)',
+            }}
+          >
+            Tell us about your project and we'll help
+            transform your idea into a scalable digital solution.
           </p>
         </div>
       </section>
 
       {/* Contact Form & Info Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-color)' }}>
+      <section
+        style={{
+          padding: '120px 20px',
+          background: '#F8FAFC',
+        }}
+      >
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '48px' }}>
             {/* Contact Form */}
-            <div>
-              <h2 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>Send Us a Message</h2>
+            <div
+              style={{
+                background:
+                  'rgba(255,255,255,.75)',
+
+                backdropFilter: 'blur(25px)',
+
+                WebkitBackdropFilter: 'blur(25px)',
+
+                border:
+                  '1px solid rgba(255,255,255,.5)',
+
+                boxShadow:
+                  '0 25px 80px rgba(15,23,42,.08)',
+
+                border:
+                  '1px solid rgba(37,99,235,.08)',
+
+                boxShadow:
+                  '0 30px 80px rgba(15,23,42,.08)',
+                padding: '40px',
+                borderRadius: '30px',
+                border: '1px solid rgba(15,23,42,.08)',
+                boxShadow: '0 20px 50px rgba(15,23,42,.06)',
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: '36px',
+                  fontWeight: '800',
+                  marginBottom: '30px',
+                  color: '#0F172A',
+                }}
+              >
+                Request A Quote
+              </h2>
+              <p
+                style={{
+                  color: '#64748B',
+                  lineHeight: '1.8',
+                  marginBottom: '30px'
+                }}
+              >
+                Tell us about your goals and requirements.
+                Our team will review your project and get
+                back with the best solution.
+              </p>
               {isSubmitted ? (
                 <div style={{
                   backgroundColor: isDark ? '#064e3b' : '#D1FAE5',
@@ -112,12 +238,14 @@ export default function Contact() {
                       required
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
-                        border: `1px solid var(--border-color)`,
-                        borderRadius: '6px',
-                        backgroundColor: 'var(--input-bg)',
-                        color: 'var(--text-color)',
-                        transition: 'all 0.3s'
+                        boxSizing: 'border-box',
+                        padding: '16px 20px',
+                        border: '1px solid rgba(15,23,42,.08)',
+                        borderRadius: '14px',
+                        background: '#FFFFFF',
+                        color: '#0F172A',
+                        fontSize: '15px',
+                        transition: 'all .3s ease',
                       }}
                     />
                   </div>
@@ -132,12 +260,14 @@ export default function Contact() {
                       required
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
-                        border: `1px solid var(--border-color)`,
-                        borderRadius: '6px',
-                        backgroundColor: 'var(--input-bg)',
-                        color: 'var(--text-color)',
-                        transition: 'all 0.3s'
+                        boxSizing: 'border-box',
+                        padding: '16px 20px',
+                        border: '1px solid rgba(15,23,42,.08)',
+                        borderRadius: '14px',
+                        background: '#FFFFFF',
+                        color: '#0F172A',
+                        fontSize: '15px',
+                        transition: 'all .3s ease',
                       }}
                     />
                   </div>
@@ -153,17 +283,19 @@ export default function Contact() {
                       onChange={handleChange}
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
-                        border: `1px solid var(--border-color)`,
-                        borderRadius: '6px',
-                        backgroundColor: 'var(--input-bg)',
-                        color: 'var(--text-color)',
-                        transition: 'all 0.3s'
+                        boxSizing: 'border-box',
+                        padding: '16px 20px',
+                        border: '1px solid rgba(15,23,42,.08)',
+                        borderRadius: '14px',
+                        background: '#FFFFFF',
+                        color: '#0F172A',
+                        fontSize: '15px',
+                        transition: 'all .3s ease',
                       }}
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" style={{ display: 'block', color: 'var(--text-color)', fontWeight: '500', marginBottom: '8px' }}>Company</label>
+                    <label htmlFor="company" style={{ display: 'block', color: 'var(--text-color)', fontWeight: '500', marginBottom: '8px' }}>Business Name</label>
                     <input
                       type="text"
                       id="company"
@@ -172,12 +304,14 @@ export default function Contact() {
                       onChange={handleChange}
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
-                        border: `1px solid var(--border-color)`,
-                        borderRadius: '6px',
-                        backgroundColor: 'var(--input-bg)',
-                        color: 'var(--text-color)',
-                        transition: 'all 0.3s'
+                        boxSizing: 'border-box',
+                        padding: '16px 20px',
+                        border: '1px solid rgba(15,23,42,.08)',
+                        borderRadius: '14px',
+                        background: '#FFFFFF',
+                        color: '#0F172A',
+                        fontSize: '15px',
+                        transition: 'all .3s ease',
                       }}
                     />
                   </div>
@@ -199,17 +333,86 @@ export default function Contact() {
                       transition: 'all 0.3s'
                     }}
                   >
-                    <option value="">Select a service</option>
-                    <option value="web-development">Web Development</option>
+                    <option value="">Select Service</option>
+                    <option value="ai-automation">AI Automation</option>
+                    <option value="saas-development">Custom SaaS Development</option>
+                    <option value="crm-erp">Business Management System</option>
+                    <option value="website">Website Development</option>
+                    <option value="mobile-app">Mobile Application</option>
                     <option value="cybersecurity">Cybersecurity</option>
-                    <option value="seo">SEO Optimization</option>
-                    <option value="game-development">Game Development</option>
-                    <option value="app-development">App Development</option>
-                    <option value="cloud-solutions">Cloud Solutions</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" style={{ display: 'block', color: 'var(--text-color)', fontWeight: '500', marginBottom: '8px' }}>Message *</label>
+                  <label
+                    htmlFor="budget"
+                    style={{
+                      display: 'block',
+                      color: 'var(--text-color)',
+                      fontWeight: '500',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    Estimated Budget
+                  </label>
+
+                  <select
+                    id="budget"
+                    name="budget"
+                    onChange={handleChange}
+                    style={{
+                      width: '100%',
+                      padding: '14px 18px',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      background: 'var(--input-bg)',
+                      color: 'var(--text-color)',
+                    }}
+                  >
+                    <option value="">Select Budget</option>
+                    <option>Under ₹25K</option>
+                    <option>₹25K - ₹50K</option>
+                    <option>₹50K - ₹1L</option>
+                    <option>₹1L - ₹3L</option>
+                    <option>₹3L+</option>
+                    <option>Not Sure</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="timeline"
+                    style={{
+                      display: 'block',
+                      color: 'var(--text-color)',
+                      fontWeight: '500',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    Project Timeline
+                  </label>
+
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    onChange={handleChange}
+                    style={{
+                      width: '100%',
+                      padding: '14px 18px',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      background: 'var(--input-bg)',
+                      color: 'var(--text-color)',
+                    }}
+                  >
+                    <option value="">Select Timeline</option>
+                    <option>Immediately</option>
+                    <option>Within 1 Month</option>
+                    <option>1-3 Months</option>
+                    <option>3-6 Months</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" style={{ display: 'block', color: 'var(--text-color)', fontWeight: '500', marginBottom: '8px' }}>Tell Us About Your Project *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -219,29 +422,71 @@ export default function Contact() {
                     required
                     style={{
                       width: '100%',
-                      padding: '12px 16px',
-                      border: `1px solid var(--border-color)`,
-                      borderRadius: '6px',
+                      boxSizing: 'border-box',
+                      padding: '16px 20px',
+                      border: '1px solid rgba(15,23,42,.08)',
+                      borderRadius: '14px',
+                      background: '#FFFFFF',
+                      color: '#0F172A',
+                      fontSize: '15px',
+                      minHeight: '160px',
                       resize: 'vertical',
-                      backgroundColor: 'var(--input-bg)',
-                      color: 'var(--text-color)',
-                      transition: 'all 0.3s'
+                      transition: 'all .3s ease',
                     }}
                   ></textarea>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '12px',
+                    marginBottom: '20px',
+                  }}
+                >
+                  {[
+                    '✓ Free Consultation',
+                    '✓ Custom Proposal',
+                    '✓ No Commitment',
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      style={{
+                        padding: '8px 14px',
+                        borderRadius: '999px',
+                        background: '#EFF6FF',
+                        color: '#2563EB',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                      }}
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   style={{
-                    backgroundColor: 'var(--primary-color)',
-                    color: 'white',
-                    padding: '12px 24px',
-                    borderRadius: '6px',
-                    fontWeight: '600',
+                    width: '100%',
+
+                    padding: '18px',
+
+                    borderRadius: '16px',
+
+                    background:
+                      'linear-gradient(135deg,#0F172A,#1E293B)',
+
+                    color: '#fff',
+
+                    fontWeight: '700',
+
+                    fontSize: '16px',
+
                     border: 'none',
+
                     cursor: 'pointer',
-                    transition: 'all 0.3s',
-                    opacity: isSubmitting ? 0.7 : 1
+
+                    transition: 'all .3s ease',
                   }}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -251,79 +496,173 @@ export default function Contact() {
 
             {/* Contact Information */}
             <div>
-              <h2 style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '24px', color: 'var(--primary-color)' }}>Get In Touch</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <div style={{
-                    backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#DBEAFE',
-                    padding: '12px',
-                    borderRadius: '50%',
-                    marginRight: '16px'
-                  }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" style={{ height: '24px', width: '24px', color: 'var(--primary-color)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 style={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '4px', color: 'var(--text-color)' }}>Office Location</h3>
-                    <p style={{ color: 'var(--text-secondary)' }}>Vatsala Tai Naik Nagar S.G.Barve Marg Chembur Maharashtra MUmbai -400071 </p>
-                  </div>
-                </div>
+              <div>
+  <h2
+    style={{
+      fontSize: '36px',
+      fontWeight: '800',
+      marginBottom: '18px',
+      color: '#0F172A',
+    }}
+  >
+    Let's Talk
+  </h2>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <div style={{
-                    backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#DBEAFE',
-                    padding: '12px',
-                    borderRadius: '50%',
-                    marginRight: '16px'
-                  }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" style={{ height: '24px', width: '24px', color: 'var(--primary-color)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 style={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '4px', color: 'var(--text-color)' }}>Phone</h3>
-                    <p style={{ color: 'var(--text-secondary)' }}>+91 8652768171</p>
-                  </div>
-                </div>
+  <p
+    style={{
+      color: '#64748B',
+      lineHeight: '1.8',
+      marginBottom: '40px',
+    }}
+  >
+    Have a project in mind? Reach out and we'll discuss
+    the best strategy, timeline and solution.
+  </p>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <div style={{
-                    backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#DBEAFE',
-                    padding: '12px',
-                    borderRadius: '50%',
-                    marginRight: '16px'
-                  }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" style={{ height: '24px', width: '24px', color: 'var(--primary-color)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 style={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '4px', color: 'var(--text-color)' }}>Email</h3>
-                    <p style={{ color: 'var(--text-secondary)' }}>contact@ashsolutions.site</p>
-                  </div>
-                </div>
+  <div
+    style={{
+      display: 'grid',
+      gap: '20px',
+    }}
+  >
+    {[
+      {
+        icon: '📍',
+        title: 'Office Location',
+        value:
+          'Vatsala Tai Naik Nagar, S.G. Barve Marg, Chembur, Mumbai - 400071',
+      },
+      {
+        icon: '📞',
+        title: 'Phone',
+        value: '+91 8652768171',
+      },
+      {
+        icon: '✉️',
+        title: 'Email',
+        value: 'contact@ashsolutions.site',
+      },
+      {
+        icon: '🕒',
+        title: 'Business Hours',
+        value:
+          'Mon - Fri: 10AM - 7PM | Sat: 10AM - 4PM',
+      },
+    ].map((item) => (
+      <div
+        key={item.title}
+        style={{
+          background: '#FFFFFF',
+          padding: '24px',
+          borderRadius: '24px',
+          border: '1px solid rgba(15,23,42,.08)',
+          boxShadow:
+            '0 10px 30px rgba(15,23,42,.04)',
+          display: 'flex',
+          gap: '18px',
+          alignItems: 'flex-start',
+        }}
+      >
+        <div
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '18px',
+            background: '#EFF6FF',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            flexShrink: 0,
+          }}
+        >
+          {item.icon}
+        </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <div style={{
-                    backgroundColor: isDark ? 'rgba(59, 130, 246, 0.2)' : '#DBEAFE',
-                    padding: '12px',
-                    borderRadius: '50%',
-                    marginRight: '16px'
-                  }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" style={{ height: '24px', width: '24px', color: 'var(--primary-color)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 style={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '4px', color: 'var(--text-color)' }}>Business Hours</h3>
-                    <p style={{ color: 'var(--text-secondary)' }}>Monday - Friday: 10:00 AM - 7:00 PM</p>
-                    <p style={{ color: 'var(--text-secondary)' }}>Saturday: 10:00 AM - 4:00 PM</p>
-                    <p style={{ color: 'var(--text-secondary)' }}>Sunday: Closed</p>
-                  </div>
-                </div>
-              </div>
+        <div>
+          <h3
+            style={{
+              fontSize: '18px',
+              fontWeight: '700',
+              color: '#0F172A',
+              marginBottom: '6px',
+            }}
+          >
+            {item.title}
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.7',
+            }}
+          >
+            {item.value}
+          </p>
+        </div>
+      </div>
+    ))}
+
+    <div
+      style={{
+        background:
+          'linear-gradient(135deg,#0F172A,#1E293B)',
+        padding: '30px',
+        borderRadius: '24px',
+        color: '#fff',
+      }}
+    >
+      <div
+        style={{
+          fontSize: '14px',
+          opacity: 0.8,
+          marginBottom: '10px',
+        }}
+      >
+        RESPONSE TIME
+      </div>
+
+      <div
+        style={{
+          fontSize: '30px',
+          fontWeight: '800',
+          marginBottom: '8px',
+        }}
+      >
+        Within 24 Hours
+      </div>
+
+      <p
+        style={{
+          color: '#CBD5E1',
+          lineHeight: '1.7',
+        }}
+      >
+        Most inquiries receive a response within a few
+        hours during business days.
+      </p>
+    </div>
+
+    <a
+      href="https://wa.me/918652768171"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'block',
+        textAlign: 'center',
+        padding: '18px',
+        borderRadius: '18px',
+        background:
+          'linear-gradient(135deg,#2563EB,#06B6D4)',
+        color: '#fff',
+        textDecoration: 'none',
+        fontWeight: '700',
+      }}
+    >
+      Chat On WhatsApp →
+    </a>
+  </div>
+</div>
 
               {/* Map Placeholder
               <div style={{ marginTop: '32px' }}>
@@ -344,6 +683,122 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <section
+  style={{
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '120px 20px',
+    background:
+      'linear-gradient(135deg,#0F172A,#1E293B)',
+    color: '#fff',
+  }}
+>
+  <div
+    style={{
+      position: 'absolute',
+      width: '400px',
+      height: '400px',
+      background: '#3B82F6',
+      borderRadius: '50%',
+      filter: 'blur(120px)',
+      opacity: 0.12,
+      top: '-100px',
+      right: '-100px',
+    }}
+  />
+
+  <div
+    style={{
+      maxWidth: '900px',
+      margin: '0 auto',
+      textAlign: 'center',
+      position: 'relative',
+      zIndex: 2,
+    }}
+  >
+    <div
+      style={{
+        color: '#60A5FA',
+        fontWeight: '700',
+        marginBottom: '15px',
+      }}
+    >
+      READY TO START?
+    </div>
+
+    <h2
+      style={{
+        fontSize: 'clamp(36px,7vw,64px)',
+        fontWeight: '900',
+        lineHeight: '1.1',
+        marginBottom: '25px',
+      }}
+    >
+      Let's Turn Your Idea
+      <br />
+      Into Reality
+    </h2>
+
+    <p
+      style={{
+        color: '#CBD5E1',
+        fontSize: '18px',
+        lineHeight: '1.9',
+        maxWidth: '750px',
+        margin: '0 auto',
+      }}
+    >
+      Whether you're building a website,
+      SaaS platform, AI automation system,
+      CRM, ERP or mobile app —
+      we're ready to help.
+    </p>
+
+    <div
+      style={{
+        marginTop: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+        flexWrap: 'wrap',
+      }}
+    >
+      <a
+        href="https://wa.me/918652768171"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          background:
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#fff',
+          textDecoration: 'none',
+          fontWeight: '700',
+        }}
+      >
+        Talk To An Expert
+      </a>
+
+      <a
+        href="mailto:contact@ashsolutions.site"
+        style={{
+          padding: '16px 28px',
+          borderRadius: '14px',
+          background: 'rgba(255,255,255,.08)',
+          border:
+            '1px solid rgba(255,255,255,.15)',
+          color: '#fff',
+          textDecoration: 'none',
+          fontWeight: '700',
+        }}
+      >
+        Email Us
+      </a>
+    </div>
+  </div>
+</section>
+
       <style jsx>{`
         @media (min-width: 768px) {
           section:nth-of-type(2) > div > div {

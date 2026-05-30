@@ -107,112 +107,427 @@ export default function Services() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-      <section style={{
-        background: isDark
-          ? 'linear-gradient(to bottom right, #1e3a8a, #0f172a)'
-          : 'linear-gradient(to bottom right, #3B82F6, #06B6D4)',
-        color: 'white',
-        padding: '96px 0'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '48px', fontWeight: '800', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Our Services</h1>
-          <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
-            Comprehensive digital solutions tailored to elevate your business and drive growth in the modern landscape.
+      {/* Hero Section */}
+      <section
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '140px 20px 140px',
+          background:
+            isDark
+              ? 'linear-gradient(180deg,#020617,#0F172A)'
+              : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            width: '450px',
+            height: '450px',
+            background: '#3B82F6',
+            borderRadius: '50%',
+            filter: 'blur(120px)',
+            opacity: 0.18,
+            top: '-100px',
+            right: '-120px',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            width: '350px',
+            height: '350px',
+            background: '#06B6D4',
+            borderRadius: '50%',
+            filter: 'blur(120px)',
+            opacity: 0.15,
+            bottom: '-120px',
+            left: '-120px',
+          }}
+        />
+
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            textAlign: 'center',
+            position: 'relative',
+            zIndex: 2,
+          }}
+        >
+          <div
+            style={{
+              display: 'inline-flex',
+              padding: '10px 18px',
+              borderRadius: '999px',
+              background: 'rgba(59,130,246,.12)',
+              border: '1px solid rgba(59,130,246,.25)',
+              color: '#2563EB',
+              fontWeight: '600',
+              marginBottom: '25px',
+            }}
+          >
+            🚀 SERVICES
+          </div>
+
+          <h1
+            style={{
+              fontSize: 'clamp(42px,8vw,78px)',
+              fontWeight: '900',
+              lineHeight: '1.05',
+              color: 'var(--text-color)',
+              marginBottom: '25px',
+            }}
+          >
+            Solutions Built
+            <br />
+            For Growth
+          </h1>
+
+          <p
+            style={{
+              maxWidth: '850px',
+              margin: '0 auto',
+              fontSize: '22px',
+              lineHeight: '1.8',
+              color: 'var(--text-secondary)',
+            }}
+          >
+            From AI automation and SaaS platforms to
+            business systems, websites and mobile apps —
+            we build technology that helps businesses scale.
           </p>
+
+          <div
+            style={{
+              marginTop: '50px',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="https://wa.me/918652768171"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: '16px 28px',
+                borderRadius: '14px',
+                textDecoration: 'none',
+                background:
+                  'linear-gradient(135deg,#2563EB,#06B6D4)',
+                color: '#fff',
+                fontWeight: '700',
+              }}
+            >
+              Talk To An Expert
+            </a>
+
+            <Link
+              href="/contact"
+              style={{
+                padding: '16px 28px',
+                borderRadius: '14px',
+                textDecoration: 'none',
+                background: 'var(--card-bg)',
+                color: 'var(--text-color)',
+                border: '1px solid var(--border-color)',
+                fontWeight: '700',
+              }}
+            >
+              Get Custom Quote
+            </Link>
+          </div>
         </div>
       </section>
-
       {/* Services Grid */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--secondary-bg)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '32px' }}>
-            {services.map((service, index) => (
+      <section
+        style={{
+          padding: '120px 20px',
+          background: '#F8FAFC',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              textAlign: 'center',
+              marginBottom: '70px',
+            }}
+          >
+            <div
+              style={{
+                color: '#2563EB',
+                fontWeight: '700',
+                marginBottom: '12px',
+                letterSpacing: '1px',
+              }}
+            >
+              WHAT WE BUILD
+            </div>
+
+            <h2
+              style={{
+                fontSize: 'clamp(34px,6vw,58px)',
+                fontWeight: '900',
+                color: '#0F172A',
+                marginBottom: '18px',
+              }}
+            >
+              Technology Built For Growth
+            </h2>
+
+            <p
+              style={{
+                maxWidth: '700px',
+                margin: '0 auto',
+                color: '#64748B',
+                lineHeight: '1.8',
+              }}
+            >
+              Solutions designed to automate operations,
+              improve efficiency and help businesses scale.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns:
+                'repeat(auto-fit,minmax(320px,1fr))',
+              gap: '32px',
+            }}
+          >
+            {[
+              {
+                title: 'AI Automation',
+                desc: 'Automate workflows, lead management, customer support and repetitive business tasks.',
+              },
+              {
+                title: 'Custom SaaS Development',
+                desc: 'Build scalable SaaS products with subscriptions, dashboards and automation.',
+              },
+              {
+                title: 'Business Management Systems',
+                desc: 'Custom ERP, CRM and operational systems tailored to your workflow.',
+              },
+              {
+                title: 'Website Development',
+                desc: 'Modern websites built for trust, performance and conversions.',
+              },
+              {
+                title: 'Mobile Applications',
+                desc: 'Android and cross-platform apps designed for business growth.',
+              },
+              {
+                title: 'Cybersecurity Solutions',
+                desc: 'Security assessments, consulting and protection for digital assets.',
+              },
+            ].map((service, index) => (
               <div
-                key={service.id}
+                key={index}
                 style={{
-                  backgroundColor: 'var(--card-bg)',
-                  padding: '32px',
-                  borderRadius: '16px',
-                  boxShadow: isDark
-                    ? '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
-                    : '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                  transition: 'transform 0.3s, box-shadow 0.3s',
-                  border: `1px solid var(--border-color)`,
-                  animation: 'fadeInUp 0.8s ease-out 0.2s both'
+                  background: '#FFFFFF',
+                  border:
+                    '1px solid rgba(15,23,42,.08)',
+                  borderRadius: '28px',
+                  padding: '36px',
+                  transition: 'all .35s ease',
+                  overflow: 'hidden',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    'translateY(-8px)';
+
+                  e.currentTarget.style.boxShadow =
+                    '0 20px 40px rgba(15,23,42,.08)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    'translateY(0)';
+                  e.currentTarget.style.boxShadow =
+                    'none';
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '24px' }}>
-                  <div style={{ color: 'var(--primary-color)', marginRight: '16px' }}>
-                    {service.icon}
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--text-color)' }}>{service.title}</h3>
-                    <p style={{ color: isDark ? '#9CA3AF' : '#6B7280', lineHeight: '1.6' }}>{service.description}</p>
-                  </div>
-                </div>
+                <h3
+                  style={{
+                    fontSize: '24px',
+                    fontWeight: '700',
+                    color: '#0F172A',
+                    marginBottom: '14px',
+                  }}
+                >
+                  {service.title}
+                </h3>
 
-                <div style={{ marginBottom: '24px' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px', color: 'var(--text-color)' }}>Key Features:</h4>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {service.features.map((feature, index) => (
-                      <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', color: isDark ? '#9CA3AF' : '#6B7280' }}>
-                        <svg style={{ width: '16px', height: '16px', color: 'var(--success-color)', marginRight: '8px' }} fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <p
+                  style={{
+                    color: '#64748B',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {service.desc}
+                </p>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '24px', borderTop: `1px solid var(--border-color)` }}>
-                  <div>
-                    <p style={{ fontSize: '14px', color: isDark ? '#9CA3AF' : '#6B7280', marginBottom: '4px' }}>Starting from</p>
-                    <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--primary-color)' }}>{service.pricing}</p>
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <p style={{ fontSize: '14px', color: isDark ? '#9CA3AF' : '#6B7280', marginBottom: '4px' }}>Duration</p>
-                    <p style={{ fontSize: '16px', fontWeight: '600', color: 'var(--text-color)' }}>{service.duration}</p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
-                  <Link
-                    href="/contact"
-                    style={{
-                      flex: 1,
-                      backgroundColor: 'var(--primary-color)',
-                      color: 'white',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      fontWeight: '600',
-                      textDecoration: 'none',
-                      transition: 'background-color 0.3s',
-                      textAlign: 'center',
-                      display: 'block'
-                    }}
-                  >
-                    Get Quote
-                  </Link>
-                </div>
+                <a
+                  href="https://wa.me/918652768171"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-block',
+                    marginTop: '20px',
+                    color: '#2563EB',
+                    textDecoration: 'none',
+                    fontWeight: '700',
+                  }}
+                >
+                  Discuss Project →
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
+      {/* Why Businesses Choose Us */}
+      <section
+        style={{
+          padding: '120px 20px',
+          background: '#FFFFFF',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              textAlign: 'center',
+              marginBottom: '70px',
+            }}
+          >
+            <div
+              style={{
+                color: '#2563EB',
+                fontWeight: '700',
+                marginBottom: '12px',
+                letterSpacing: '1px',
+              }}
+            >
+              WHY CHOOSE US
+            </div>
 
+            <h2
+              style={{
+                fontSize: 'clamp(34px,6vw,58px)',
+                fontWeight: '900',
+                color: '#0F172A',
+                marginBottom: '18px',
+              }}
+            >
+              Technology With A Business Mindset
+            </h2>
+
+            <p
+              style={{
+                maxWidth: '750px',
+                margin: '0 auto',
+                color: '#64748B',
+                lineHeight: '1.8',
+              }}
+            >
+              We don't just build software. We help businesses
+              improve operations, automate workflows and create
+              scalable systems for long-term growth.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns:
+                'repeat(auto-fit,minmax(260px,1fr))',
+              gap: '24px',
+            }}
+          >
+            {[
+              {
+                title: 'Business First',
+                desc: 'Every solution is designed around business goals and measurable outcomes.',
+              },
+              {
+                title: 'AI-Driven Innovation',
+                desc: 'Leverage automation and AI to reduce manual work and improve efficiency.',
+              },
+              {
+                title: 'Scalable Architecture',
+                desc: 'Built to support future growth without requiring complete rebuilds.',
+              },
+              {
+                title: 'Long-Term Partnership',
+                desc: 'Ongoing support, maintenance and continuous improvement after launch.',
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  background: '#F8FAFC',
+                  border: '1px solid rgba(15,23,42,.08)',
+                  borderRadius: '24px',
+                  padding: '32px',
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: '22px',
+                    fontWeight: '700',
+                    color: '#0F172A',
+                    marginBottom: '12px',
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  style={{
+                    color: '#64748B',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* CTA Section */}
-      <section style={{
-        padding: '96px 0',
-        background: isDark
-          ? 'linear-gradient(to right, #1e3a8a, #0f172a)'
-          : 'linear-gradient(to right, #3B82F6, #06B6D4)',
-        color: 'white'
-      }}>
+      <section
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '120px 20px',
+          background:
+            'linear-gradient(135deg,#0F172A,#1E293B)',
+          color: '#fff',
+        }}
+      >
+
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Need a Custom Solution?</h2>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '24px', animation: 'fadeInUp 0.8s ease-out' }}>Ready To Scale Your Business?</h2>
           <p style={{ fontSize: '20px', marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px', opacity: 0.9, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
-            We can tailor our services to meet your specific requirements. Let's discuss your unique needs.
+            Whether you need AI automation,
+            a custom SaaS platform,
+            a website, mobile application or
+            business management system,
+            we're ready to build it.
           </p>
           <Link
             href="/contact"
@@ -245,17 +560,7 @@ export default function Services() {
             grid-template-columns: repeat(2, 1fr);
           }
         }
-        @media (hover: hover) {
-          div:hover {
-            transform: translateY(-4px);
-            box-shadow: ${isDark
-          ? '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
-          : '0 20px 25px -5px rgba(0, 0, 0, 0.1)'};
-          }
-          a:hover {
-            background-color: var(--primary-hover);
-          }
-        }
+       
           @keyframes fadeInUp {
     from {
       opacity: 0;

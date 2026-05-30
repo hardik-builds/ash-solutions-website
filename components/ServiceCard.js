@@ -1,3 +1,4 @@
+//components/ServiceCard.js
 import Link from 'next/link';
 
 export default function ServiceCard({ title, description, icon, slug }) {
