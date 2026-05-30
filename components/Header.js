@@ -231,7 +231,7 @@ export default function Header() {
               </div>
 
               <Link
-                href="/contact"
+                href="https://wa.me/918652768171"
                 style={{
                   display: 'block',
                   marginTop: '15px',
