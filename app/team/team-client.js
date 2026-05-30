@@ -16,8 +16,8 @@ export default function TeamClient({ teamData }) {
       backgroundColor: 'var(--bg-color, #f9fafb)',
       color: 'var(--text-color, #111827)'
     }}>
-      {/* Hero Section */}
-     <section
+      {/* Hero Section */} 
+     <section className='team-hero'
   style={{
     position: 'relative',
     overflow: 'hidden',
@@ -106,7 +106,7 @@ export default function TeamClient({ teamData }) {
       solutions for modern businesses.
     </p>
 
-    <div
+    <div className='hero-stats'
       style={{
         marginTop: '60px',
         display: 'grid',
@@ -196,7 +196,7 @@ export default function TeamClient({ teamData }) {
       </p>
     </div>
 
-    <div
+    <div className='team-grid'
       style={{
         display: 'grid',
         gridTemplateColumns:
@@ -205,7 +205,7 @@ export default function TeamClient({ teamData }) {
       }}
     >
       {teamData.teamMembers.map((member) => (
-        <div
+        <div className='team-card'
           key={member.id}
           style={{
             background: '#FFFFFF',
@@ -218,7 +218,7 @@ export default function TeamClient({ teamData }) {
             textAlign: 'center',
           }}
         >
-          <div
+          <div className="team-image"
             style={{
               width: '180px',
               height: '180px',
@@ -553,6 +553,81 @@ export default function TeamClient({ teamData }) {
       transform: translateY(0);
     }
   }
+    @media (max-width:768px){
+
+  .hero-stats{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .team-grid{
+    grid-template-columns:1fr !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .team-card{
+    padding:28px !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .team-image{
+    width:140px !important;
+    height:140px !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .team-hero{
+    padding:110px 20px 90px !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .team-hero{
+    padding:110px 20px 90px !important;
+  }
+
+  .hero-stats{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .team-card{
+    padding:28px !important;
+  }
+
+  .team-image{
+    width:140px !important;
+    height:140px !important;
+  }
+
+}
+
+@media (max-width:640px){
+
+  .team-cta{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .team-cta a{
+    width:100%;
+    max-width:320px;
+    text-align:center;
+  }
+
+}
 `}</style>
     </div>
 

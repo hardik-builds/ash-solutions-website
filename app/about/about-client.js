@@ -42,7 +42,7 @@ export default function About() {
         : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
   }}
 >
-  <div
+  <div className='about-hero'
     style={{
       position: 'absolute',
       width: '450px',
@@ -173,7 +173,7 @@ export default function About() {
     background: '#FFFFFF',
   }}
 >
-  <div
+  <div className='story-grid'
     style={{
       maxWidth: '1200px',
       margin: '0 auto',
@@ -372,7 +372,7 @@ export default function About() {
       </p>
     </div>
 
-    <div
+    <div className='mission-grid'
       style={{
         display: 'grid',
         gridTemplateColumns:
@@ -484,7 +484,7 @@ export default function About() {
     background: '#FFFFFF',
   }}
 >
-  <div
+  <div className='values-grid'
     style={{
       maxWidth: '1200px',
       margin: '0 auto',
@@ -681,7 +681,7 @@ export default function About() {
           '0 10px 30px rgba(15,23,42,.05)',
       }}
     >
-      <div
+      <div className='leader-card'
         style={{
           display: 'grid',
           gridTemplateColumns: '280px 1fr',
@@ -689,7 +689,7 @@ export default function About() {
           alignItems: 'center',
         }}
       >
-        <img
+        <img className='leader-image'
           src="/images/hardik-singh.jpeg"
           alt="Hardik Singh"
           style={{
@@ -770,7 +770,7 @@ export default function About() {
 
     {/* CEO Card */}
 
-    <div
+    <div className='leader-card'
       style={{
         background: '#FFFFFF',
         border: '1px solid rgba(15,23,42,.08)',
@@ -780,7 +780,7 @@ export default function About() {
           '0 10px 30px rgba(15,23,42,.05)',
       }}
     >
-      <div
+      <div className='leader-card'
         style={{
           display: 'grid',
           gridTemplateColumns: '280px 1fr',
@@ -788,7 +788,7 @@ export default function About() {
           alignItems: 'center',
         }}
       >
-        <img
+        <img className='leader-image'
           src="/images/Anshu-Rajkagoria.jpeg"
           alt="Anshu Rajkagoria"
           style={{
@@ -1055,6 +1055,52 @@ export default function About() {
   .team-card {
     grid-template-columns: 1fr !important;
   }
+}
+  @media (max-width:900px){
+
+  .story-grid{
+    grid-template-columns:1fr !important;
+    gap:30px !important;
+  }
+
+}
+  @media (max-width:900px){
+
+  .leader-card{
+    grid-template-columns:1fr !important;
+    text-align:center;
+  }
+
+}
+  @media (max-width:900px){
+
+  .leader-image{
+    max-width:260px;
+    margin:auto;
+    height:260px !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .mission-grid{
+    grid-template-columns:1fr !important;
+  }
+
+}
+  @media (max-width:768px){
+
+  .about-hero{
+    padding:110px 20px 90px !important;
+  }
+
+}
+  @media (max-width:640px){
+
+  .values-grid{
+    grid-template-columns:1fr !important;
+  }
+
 }
       `}</style>
     </div>
