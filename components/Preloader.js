@@ -9,11 +9,11 @@ export default function Preloader() {
   useEffect(() => {
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
-    }, 2200);
+    }, 1800);
 
     const hideTimer = setTimeout(() => {
       setHide(true);
-    }, 2800);
+    }, 2400);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -29,112 +29,170 @@ export default function Preloader() {
         style={{
           position: 'fixed',
           inset: 0,
-          width: '100vw',
-          height: '100vh',
-          background: '#020617',
           zIndex: 999999,
-
+          background: '#020617',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          overflow: 'hidden',
 
           opacity: fadeOut ? 0 : 1,
-          transition: 'opacity .6s ease',
+          transform: fadeOut ? 'scale(1.04)' : 'scale(1)',
+          filter: fadeOut ? 'blur(10px)' : 'blur(0px)',
+
+          transition: 'all .7s ease',
         }}
       >
-        {/* Glow */}
+        {/* Glow Right */}
         <div
           style={{
             position: 'absolute',
-            width: '350px',
-            height: '350px',
+            width: '500px',
+            height: '500px',
             background: '#2563EB',
             borderRadius: '50%',
-            filter: 'blur(120px)',
+            filter: 'blur(140px)',
             opacity: 0.15,
+            top: '-120px',
+            right: '-120px',
+            animation: 'float 8s ease-in-out infinite',
           }}
         />
 
+        {/* Glow Left */}
+        <div
+          style={{
+            position: 'absolute',
+            width: '420px',
+            height: '420px',
+            background: '#06B6D4',
+            borderRadius: '50%',
+            filter: 'blur(130px)',
+            opacity: 0.12,
+            bottom: '-120px',
+            left: '-120px',
+            animation: 'float 10s ease-in-out infinite',
+          }}
+        />
+
+        {/* Center Content */}
         <div
           style={{
             position: 'relative',
             zIndex: 2,
             textAlign: 'center',
             padding: '20px',
-            width: '100%',
-            maxWidth: '500px',
           }}
         >
           <div
             style={{
-              display: 'inline-flex',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              background: 'rgba(59,130,246,.12)',
-              border: '1px solid rgba(59,130,246,.25)',
-              color: '#60A5FA',
-              fontWeight: '600',
-              fontSize: '13px',
-              marginBottom: '24px',
+              fontSize: 'clamp(72px,12vw,140px)',
+              fontWeight: '900',
+              lineHeight: '.9',
+
+              background:
+                'linear-gradient(135deg,#2563EB,#38BDF8)',
+
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+
+              animation: 'logoReveal 1s ease forwards',
             }}
           >
-            🚀 Loading Experience
+            ASH
           </div>
 
-          <h1
+          <div
             style={{
-              fontSize: 'clamp(30px,8vw,58px)',
-              fontWeight: '900',
               color: '#FFFFFF',
-              marginBottom: '12px',
-              lineHeight: '1.1',
+              fontWeight: '700',
+              letterSpacing: '8px',
+              fontSize: 'clamp(14px,2vw,20px)',
+              marginTop: '10px',
             }}
           >
-            ASH SOLUTIONS
-          </h1>
+            SOLUTIONS
+          </div>
 
-          <p
+          <div
             style={{
+              marginTop: '18px',
               color: '#94A3B8',
-              letterSpacing: '2px',
-              marginBottom: '35px',
-              fontSize: '14px',
+              fontSize: '12px',
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
             }}
           >
             AI • SAAS • AUTOMATION
-          </p>
+          </div>
 
-          {/* Progress Bar */}
+          {/* Loading Bar */}
+
           <div
             style={{
-              width: '100%',
-              height: '6px',
+              width: '220px',
+              height: '3px',
+              background: 'rgba(255,255,255,.08)',
               borderRadius: '999px',
-              background: '#1E293B',
               overflow: 'hidden',
+              margin: '28px auto 0',
             }}
           >
-            <div
-              style={{
-                height: '100%',
-                width: '100%',
-                background:
-                  'linear-gradient(90deg,#2563EB,#06B6D4)',
-                animation: 'loadingBar 2.2s ease forwards',
-              }}
-            />
+            <div className="loaderLine" />
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes loadingBar {
+        .loaderLine {
+          height: 100%;
+          width: 0%;
+          border-radius: 999px;
+
+          background: linear-gradient(
+            90deg,
+            #2563eb,
+            #38bdf8
+          );
+
+          animation: loading 2s ease forwards;
+        }
+
+        @keyframes loading {
           from {
-            transform: translateX(-100%);
+            width: 0%;
           }
 
           to {
-            transform: translateX(0%);
+            width: 100%;
+          }
+        }
+
+        @keyframes float {
+          0% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-25px);
+          }
+
+          100% {
+            transform: translateY(0px);
+          }
+        }
+
+        @keyframes logoReveal {
+          from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            filter: blur(15px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0px) scale(1);
+            filter: blur(0px);
           }
         }
       `}</style>

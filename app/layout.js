@@ -2,7 +2,6 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ScrollToTop from '@/components/ScrollToTop';
 import ResponsiveHandler from '@/components/ResponsiveHandler';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import Preloader from '@/components/Preloader';
 
 export const metadata = {
@@ -33,7 +32,6 @@ return ( <html lang="en" suppressHydrationWarning> <head> <meta
       overflowX: 'hidden'
     }}
   >
-    <ThemeProvider>
       <Preloader />
 
       {/* <ResponsiveHandler /> */}
@@ -53,7 +51,6 @@ return ( <html lang="en" suppressHydrationWarning> <head> <meta
       <Footer />
 
       <ScrollToTop />
-    </ThemeProvider>
   </body>
 </html>
 );

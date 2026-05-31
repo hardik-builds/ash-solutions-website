@@ -16,14 +16,13 @@ export default function TeamClient({ teamData }) {
       backgroundColor: 'var(--bg-color, #f9fafb)',
       color: 'var(--text-color, #111827)'
     }}>
-      {/* Hero Section */} 
-     <section className='team-hero'
+  {/* Hero Section */}
+<section
   style={{
     position: 'relative',
     overflow: 'hidden',
-    padding: '140px 20px',
-    background:
-      'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+    padding: '140px 20px 120px',
+    background: 'linear-gradient(180deg,#F8FBFF,#FFFFFF)',
   }}
 >
   <div
@@ -35,7 +34,7 @@ export default function TeamClient({ teamData }) {
       borderRadius: '50%',
       filter: 'blur(120px)',
       opacity: 0.18,
-      top: '-100px',
+      top: '-120px',
       right: '-120px',
     }}
   />
@@ -68,82 +67,110 @@ export default function TeamClient({ teamData }) {
         display: 'inline-flex',
         padding: '10px 18px',
         borderRadius: '999px',
-        background: 'rgba(59,130,246,.12)',
-        border: '1px solid rgba(59,130,246,.25)',
+        background: 'rgba(59,130,246,.10)',
+        border: '1px solid rgba(59,130,246,.20)',
         color: '#2563EB',
-        fontWeight: '600',
-        marginBottom: '25px',
+        fontWeight: '700',
+        marginBottom: '24px',
       }}
     >
-      🚀 OUR LEADERSHIP
+      👥 OUR TEAM
     </div>
 
     <h1
       style={{
-        fontSize: 'clamp(42px,8vw,78px)',
+        fontSize: 'clamp(40px,8vw,78px)',
         fontWeight: '900',
         lineHeight: '1.05',
         color: '#0F172A',
-        marginBottom: '25px',
+        marginBottom: '24px',
       }}
     >
-      The People Behind
+      Meet The Team
       <br />
-      ASH Solutions
+      Behind ASH Solutions
     </h1>
 
     <p
       style={{
         maxWidth: '850px',
         margin: '0 auto',
-        fontSize: '22px',
+        fontSize: 'clamp(16px,3vw,22px)',
         lineHeight: '1.8',
         color: '#64748B',
       }}
     >
-      Building AI automation systems,
-      SaaS platforms and custom digital
-      solutions for modern businesses.
+      A passionate team focused on building
+      AI-powered software, automation systems,
+      SaaS products and business solutions
+      designed for growth.
     </p>
 
-    <div className='hero-stats'
+    <div
       style={{
         marginTop: '60px',
         display: 'grid',
         gridTemplateColumns:
-          'repeat(auto-fit,minmax(180px,1fr))',
+          'repeat(auto-fit,minmax(220px,1fr))',
         gap: '20px',
       }}
     >
       {[
-        'AI Automation',
-        'Custom SaaS',
-        'Business Systems',
-        'Client Focused',
-      ].map((item) => (
+        {
+          number: 'AI',
+          label: 'Automation Solutions',
+        },
+        {
+          number: 'SaaS',
+          label: 'Platform Development',
+        },
+        {
+          number: '24/7',
+          label: 'Support Mindset',
+        },
+        {
+          number: '100%',
+          label: 'Client Focused',
+        },
+      ].map((item, index) => (
         <div
-          key={item}
+          key={index}
           style={{
-            padding: '20px',
-            borderRadius: '18px',
             background: '#FFFFFF',
-            border:
-              '1px solid rgba(15,23,42,.08)',
+            borderRadius: '24px',
+            padding: '28px',
+            border: '1px solid rgba(15,23,42,.08)',
             boxShadow:
-              '0 10px 30px rgba(15,23,42,.05)',
-            fontWeight: '600',
-            color: '#0F172A',
+              '0 15px 35px rgba(15,23,42,.05)',
           }}
         >
-          {item}
+          <div
+            style={{
+              fontSize: '32px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
+            }}
+          >
+            {item.number}
+          </div>
+
+          <div
+            style={{
+              color: '#64748B',
+              fontWeight: '600',
+            }}
+          >
+            {item.label}
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
 
-      {/* Unified Team Section */}
-     <section
+{/* Meet The Team Section */}
+<section
   style={{
     padding: '120px 20px',
     background: '#F8FAFC',
@@ -163,10 +190,14 @@ export default function TeamClient({ teamData }) {
     >
       <div
         style={{
+          display: 'inline-block',
+          padding: '10px 18px',
+          borderRadius: '999px',
+          background: 'rgba(59,130,246,.10)',
+          border: '1px solid rgba(59,130,246,.20)',
           color: '#2563EB',
           fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          marginBottom: '20px',
         }}
       >
         LEADERSHIP TEAM
@@ -174,13 +205,16 @@ export default function TeamClient({ teamData }) {
 
       <h2
         style={{
-          fontSize: 'clamp(36px,6vw,58px)',
+          fontSize: 'clamp(34px,6vw,58px)',
           fontWeight: '900',
           color: '#0F172A',
           marginBottom: '18px',
+          lineHeight: '1.1',
         }}
       >
-        Meet The Team
+        Meet The People
+        <br />
+        Behind The Vision
       </h2>
 
       <p
@@ -189,64 +223,78 @@ export default function TeamClient({ teamData }) {
           margin: '0 auto',
           color: '#64748B',
           lineHeight: '1.8',
+          fontSize: '17px',
         }}
       >
-        Meet the people driving innovation,
-        technology and growth at ASH Solutions.
+        Combining technology, innovation and
+        business strategy to build scalable
+        digital solutions for modern businesses.
       </p>
     </div>
 
-    <div className='team-grid'
+    <div
       style={{
         display: 'grid',
         gridTemplateColumns:
-          'repeat(auto-fit,minmax(450px,1fr))',
-        gap: '40px',
+          'repeat(auto-fit,minmax(320px,1fr))',
+        gap: '30px',
       }}
     >
       {teamData.teamMembers.map((member) => (
-        <div className='team-card'
+        <div
           key={member.id}
           style={{
             background: '#FFFFFF',
             borderRadius: '32px',
-            padding: '45px',
-            border:
-              '1px solid rgba(15,23,42,.08)',
+            padding: '36px',
+            border: '1px solid rgba(15,23,42,.08)',
             boxShadow:
-              '0 20px 50px rgba(15,23,42,.06)',
+              '0 15px 40px rgba(15,23,42,.05)',
             textAlign: 'center',
+            transition: 'all .3s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(-8px)';
+            e.currentTarget.style.boxShadow =
+              '0 25px 50px rgba(15,23,42,.08)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(0)';
+            e.currentTarget.style.boxShadow =
+              '0 15px 40px rgba(15,23,42,.05)';
           }}
         >
-          <div className="team-image"
+          {/* Profile Image */}
+          <div
             style={{
-              width: '180px',
-              height: '180px',
+              width: '160px',
+              height: '160px',
               borderRadius: '50%',
               overflow: 'hidden',
-              margin: '0 auto 30px',
+              margin: '0 auto 28px',
               border: '6px solid #FFFFFF',
               boxShadow:
-                '0 20px 40px rgba(15,23,42,.12)',
+                '0 20px 40px rgba(15,23,42,.10)',
             }}
           >
-            {member.image && (
-              <img
-                src={member.image}
-                alt={member.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'top',
-                }}
-              />
-            )}
+            <img
+              src={member.image}
+              alt={member.name}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'top',
+              }}
+            />
           </div>
 
+          {/* Name */}
           <h3
             style={{
-              fontSize: '30px',
+              fontSize: 'clamp(24px,4vw,30px)',
               fontWeight: '800',
               color: '#0F172A',
               marginBottom: '8px',
@@ -255,45 +303,47 @@ export default function TeamClient({ teamData }) {
             {member.name}
           </h3>
 
+          {/* Role */}
           <div
             style={{
               color: '#2563EB',
               fontWeight: '700',
-              letterSpacing: '.5px',
               textTransform: 'uppercase',
+              letterSpacing: '.5px',
               marginBottom: '20px',
             }}
           >
             {member.role}
           </div>
 
+          {/* Bio */}
           <p
             style={{
               color: '#64748B',
               lineHeight: '1.9',
-              fontSize: '16px',
-              marginBottom: '25px',
+              marginBottom: '24px',
             }}
           >
             {member.bio}
           </p>
 
+          {/* Skills */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '10px',
               justifyContent: 'center',
+              gap: '10px',
             }}
           >
             {member.expertise.map((skill, idx) => (
               <span
                 key={idx}
                 style={{
-                  background: '#EFF6FF',
-                  color: '#2563EB',
                   padding: '8px 14px',
                   borderRadius: '999px',
+                  background: '#EFF6FF',
+                  color: '#2563EB',
                   fontSize: '13px',
                   fontWeight: '600',
                 }}
@@ -308,8 +358,8 @@ export default function TeamClient({ teamData }) {
   </div>
 </section>
 
-      {/* Our Edge Section */}
-   <section
+    {/* Why Choose Us Section */}
+<section
   style={{
     padding: '120px 20px',
     background: '#FFFFFF',
@@ -329,10 +379,14 @@ export default function TeamClient({ teamData }) {
     >
       <div
         style={{
+          display: 'inline-block',
+          padding: '10px 18px',
+          borderRadius: '999px',
+          background: 'rgba(59,130,246,.10)',
+          border: '1px solid rgba(59,130,246,.20)',
           color: '#2563EB',
           fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          marginBottom: '20px',
         }}
       >
         WHY CHOOSE US
@@ -340,25 +394,31 @@ export default function TeamClient({ teamData }) {
 
       <h2
         style={{
-          fontSize: 'clamp(36px,6vw,58px)',
+          fontSize: 'clamp(34px,6vw,58px)',
           fontWeight: '900',
           color: '#0F172A',
           marginBottom: '18px',
+          lineHeight: '1.1',
         }}
       >
-        The ASH Advantage
+        The ASH
+        <br />
+        Advantage
       </h2>
 
       <p
         style={{
-          maxWidth: '700px',
+          maxWidth: '720px',
           margin: '0 auto',
           color: '#64748B',
           lineHeight: '1.8',
+          fontSize: '17px',
         }}
       >
-        Combining modern technology, innovation and
-        business-focused execution to deliver real results.
+        We combine technical expertise,
+        business understanding and modern
+        technologies to build solutions that
+        create measurable business impact.
       </p>
     </div>
 
@@ -366,19 +426,39 @@ export default function TeamClient({ teamData }) {
       style={{
         display: 'grid',
         gridTemplateColumns:
-          'repeat(auto-fit,minmax(280px,1fr))',
-        gap: '30px',
+          'repeat(auto-fit,minmax(260px,1fr))',
+        gap: '28px',
       }}
     >
-      {teamData.ourEdge.map((value, index) => (
+      {[
+        {
+          icon: '🚀',
+          title: 'Innovation First',
+          desc: 'We leverage modern technologies, AI automation and scalable architectures to keep businesses ahead of the competition.',
+        },
+        {
+          icon: '🎯',
+          title: 'Business Focused',
+          desc: 'Every solution is designed around business goals, efficiency and measurable growth outcomes.',
+        },
+        {
+          icon: '⚡',
+          title: 'Fast Execution',
+          desc: 'Agile development processes help us deliver high-quality solutions quickly without sacrificing quality.',
+        },
+        {
+          icon: '🤝',
+          title: 'Long-Term Partnership',
+          desc: 'We support businesses beyond launch with continuous improvements, maintenance and strategic guidance.',
+        },
+      ].map((item, index) => (
         <div
           key={index}
           style={{
             background: '#F8FAFC',
-            padding: '40px',
             borderRadius: '28px',
-            border:
-              '1px solid rgba(15,23,42,.06)',
+            padding: '36px',
+            border: '1px solid rgba(15,23,42,.06)',
             transition: 'all .3s ease',
           }}
           onMouseEnter={(e) => {
@@ -396,11 +476,18 @@ export default function TeamClient({ teamData }) {
         >
           <div
             style={{
-              fontSize: '52px',
-              marginBottom: '20px',
+              width: '70px',
+              height: '70px',
+              borderRadius: '18px',
+              background: '#EFF6FF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '32px',
+              marginBottom: '24px',
             }}
           >
-            {value.icon}
+            {item.icon}
           </div>
 
           <h3
@@ -411,7 +498,7 @@ export default function TeamClient({ teamData }) {
               marginBottom: '14px',
             }}
           >
-            {value.title}
+            {item.title}
           </h3>
 
           <p
@@ -420,33 +507,50 @@ export default function TeamClient({ teamData }) {
               lineHeight: '1.8',
             }}
           >
-            {value.description}
+            {item.desc}
           </p>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+{/* CTA Section */}
 <section
   style={{
     padding: '120px 20px',
-    background: '#020617',
-    color: 'white',
+    background:
+      'linear-gradient(135deg,#0F172A,#1E293B)',
     position: 'relative',
     overflow: 'hidden',
+    color: '#FFFFFF',
   }}
 >
   <div
     style={{
       position: 'absolute',
-      width: '450px',
-      height: '450px',
+      width: '500px',
+      height: '500px',
       background: '#2563EB',
       borderRadius: '50%',
       filter: 'blur(140px)',
       opacity: 0.15,
-      top: '-150px',
-      right: '-120px',
+      top: '-200px',
+      right: '-150px',
+    }}
+  />
+
+  <div
+    style={{
+      position: 'absolute',
+      width: '400px',
+      height: '400px',
+      background: '#06B6D4',
+      borderRadius: '50%',
+      filter: 'blur(140px)',
+      opacity: 0.12,
+      bottom: '-180px',
+      left: '-150px',
     }}
   />
 
@@ -467,7 +571,7 @@ export default function TeamClient({ teamData }) {
         background: 'rgba(37,99,235,.12)',
         border: '1px solid rgba(37,99,235,.25)',
         color: '#60A5FA',
-        fontWeight: '600',
+        fontWeight: '700',
         marginBottom: '24px',
       }}
     >
@@ -489,18 +593,21 @@ export default function TeamClient({ teamData }) {
 
     <p
       style={{
-        maxWidth: '700px',
+        maxWidth: '720px',
         margin: '0 auto',
         color: '#CBD5E1',
-        fontSize: '20px',
+        fontSize: '18px',
         lineHeight: '1.8',
       }}
     >
-      Our team is ready to help transform your idea
-      into a scalable digital solution built for growth.
+      Whether you're planning an AI-powered
+      platform, business management system,
+      custom SaaS product or modern website,
+      our team is ready to help you build it.
     </p>
 
     <div
+      className="team-cta"
       style={{
         marginTop: '45px',
         display: 'flex',
@@ -517,9 +624,12 @@ export default function TeamClient({ teamData }) {
           padding: '16px 30px',
           borderRadius: '14px',
           textDecoration: 'none',
-          background: '#2563EB',
-          color: '#fff',
+          background:
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#FFFFFF',
           fontWeight: '700',
+          boxShadow:
+            '0 15px 35px rgba(37,99,235,.35)',
         }}
       >
         Talk To Our Team
@@ -531,10 +641,11 @@ export default function TeamClient({ teamData }) {
           padding: '16px 30px',
           borderRadius: '14px',
           textDecoration: 'none',
-          background: 'rgba(255,255,255,.05)',
-          border: '1px solid rgba(255,255,255,.1)',
-          color: '#fff',
+          background: 'rgba(255,255,255,.08)',
+          border: '1px solid rgba(255,255,255,.12)',
+          color: '#FFFFFF',
           fontWeight: '700',
+          backdropFilter: 'blur(10px)',
         }}
       >
         Request A Quote
@@ -542,6 +653,7 @@ export default function TeamClient({ teamData }) {
     </div>
   </div>
 </section>
+
       <style jsx>{`
   @keyframes fadeInUp {
     from {

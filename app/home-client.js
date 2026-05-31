@@ -1,11 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useTheme } from '@/components/ThemeProvider';
 import ReviewSlider from '@/components/ReviewSlider';
 import Link from 'next/link';
 
 export default function Home() {
-  const { isDark } = useTheme();
   const [pageVisible, setPageVisible] = useState(false);
 
   useEffect(() => {
@@ -19,8 +17,8 @@ export default function Home() {
   return (
     <div className='page-enter'
       style={{
-        backgroundColor: 'var(--bg-color)',
-        color: 'var(--text-color)',
+        backgroundColor: '#020617',
+        color: '#FFFFFF',
         minHeight: '100vh',
         transition:
           'opacity .8s ease, transform .8s ease',
@@ -30,726 +28,846 @@ export default function Home() {
           : 'translateY(30px)',
       }}
     >
-      {/* Hero Section */}
-      <section className="hero-section"
+     
+{/* Hero Section */}
+<section
+  className="hero-section"
+  style={{
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '140px 20px 120px',
+    background:
+      'linear-gradient(180deg,#F8FAFC 0%,#FFFFFF 100%)',
+  }}
+>
+  {/* Glow Effects */}
+
+  <div
+    style={{
+      position: 'absolute',
+      width: '450px',
+      height: '450px',
+      background: '#3B82F6',
+      borderRadius: '50%',
+      filter: 'blur(140px)',
+      opacity: 0.08,
+      top: '-150px',
+      right: '-150px',
+    }}
+  />
+
+  <div
+    style={{
+      position: 'absolute',
+      width: '350px',
+      height: '350px',
+      background: '#06B6D4',
+      borderRadius: '50%',
+      filter: 'blur(140px)',
+      opacity: 0.06,
+      bottom: '-150px',
+      left: '-150px',
+    }}
+  />
+
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+      position: 'relative',
+      zIndex: 2,
+      textAlign: 'center',
+      width: '100%',
+    }}
+  >
+    {/* Badge */}
+
+    <div
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '10px',
+        padding: '10px 18px',
+        borderRadius: '999px',
+        background: 'rgba(37,99,235,.08)',
+        border: '1px solid rgba(37,99,235,.15)',
+        color: '#2563EB',
+        fontWeight: '600',
+        marginBottom: '25px',
+      }}
+    >
+      🚀 AI • SaaS • Automation
+    </div>
+
+    {/* Heading */}
+
+    <h1
+      style={{
+        fontSize: 'clamp(42px,8vw,78px)',
+        fontWeight: '900',
+        lineHeight: '1.05',
+        marginBottom: '25px',
+        color: '#0F172A',
+        letterSpacing: '-2px',
+      }}
+    >
+      Transform Your Business
+      <br />
+      With Smart Digital Solutions
+    </h1>
+
+    {/* Description */}
+
+    <p
+      style={{
+        maxWidth: '850px',
+        margin: '0 auto',
+        fontSize: 'clamp(18px,2.5vw,24px)',
+        lineHeight: '1.8',
+        color: '#475569',
+      }}
+    >
+      We build AI automation systems, custom SaaS
+      platforms, websites, mobile applications and
+      business solutions that help companies grow
+      faster and operate smarter.
+    </p>
+
+    {/* CTA Buttons */}
+
+    <div
+      className="cta-buttons"
+      style={{
+        marginTop: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '16px',
+        flexWrap: 'wrap',
+        width: '100%',
+      }}
+    >
+      <a
+        href="https://wa.me/918652768171"
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
-          position: 'relative',
-          overflow: 'hidden',
-          padding: '140px 20px 120px',
+          padding: '16px 24px',
+          borderRadius: '14px',
+          textDecoration: 'none',
           background:
-            isDark
-              ? 'linear-gradient(180deg,#020617,#0F172A)'
-              : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#fff',
+          fontWeight: '700',
+          boxShadow:
+            '0 20px 40px rgba(59,130,246,.20)',
+          width: '100%',
+          maxWidth: '280px',
+          textAlign: 'center',
+          boxSizing: 'border-box',
         }}
       >
-        {/* Gradient Blobs */}
+        Talk To An Expert
+      </a>
 
+      <Link
+        href="/services"
+        style={{
+          padding: '16px 24px',
+          borderRadius: '14px',
+          textDecoration: 'none',
+          border:
+            '1px solid rgba(15,23,42,.08)',
+          color: '#0F172A',
+          fontWeight: '700',
+          background: '#FFFFFF',
+          width: '100%',
+          maxWidth: '280px',
+          textAlign: 'center',
+          boxSizing: 'border-box',
+          boxShadow:
+            '0 10px 25px rgba(15,23,42,.05)',
+        }}
+      >
+        Explore Services
+      </Link>
+    </div>
+
+    {/* Trust Cards */}
+
+    <div
+      className="trust-grid"
+      style={{
+        marginTop: '70px',
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(220px,1fr))',
+        gap: '20px',
+      }}
+    >
+      {[
+        'AI Automation',
+        'Custom SaaS',
+        'Web Development',
+        'Mobile Apps',
+      ].map((item) => (
         <div
+          key={item}
           style={{
-            position: 'absolute',
-            width: '450px',
-            height: '450px',
-            background: '#3B82F6',
-            borderRadius: '50%',
-            filter: 'blur(120px)',
-            opacity: 0.18,
-            top: '-100px',
-            right: '-120px',
-          }}
-        />
-
-        <div
-          style={{
-            position: 'absolute',
-            width: '350px',
-            height: '350px',
-            background: '#06B6D4',
-            borderRadius: '50%',
-            filter: 'blur(120px)',
-            opacity: 0.15,
-            bottom: '-120px',
-            left: '-120px',
-          }}
-        />
-
-        <div className='why-content'
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            position: 'relative',
-            zIndex: 2,
-            textAlign: 'center',
+            padding: '22px',
+            borderRadius: '20px',
+            background: '#FFFFFF',
+            border:
+              '1px solid rgba(15,23,42,.06)',
+            boxShadow:
+              '0 10px 25px rgba(15,23,42,.04)',
+            fontWeight: '600',
+            color: '#0F172A',
           }}
         >
-          {/* Badge */}
+          {item}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+   {/* Services Section */}
+<section
+  style={{
+    padding: '120px 20px',
+    background: '#F8FAFC',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    {/* Heading */}
 
+    <div
+      style={{
+        textAlign: 'center',
+        marginBottom: '70px',
+      }}
+    >
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        WHAT WE BUILD
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(34px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '18px',
+        }}
+      >
+        Technology Built For Growth
+      </h2>
+
+      <p
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          color: '#475569',
+          lineHeight: '1.8',
+          fontSize: '18px',
+        }}
+      >
+        We help businesses automate operations,
+        build scalable software and create digital
+        experiences that drive measurable growth.
+      </p>
+    </div>
+
+    {/* Cards */}
+
+    <div
+      className="services-grid"
+      style={{
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(320px,1fr))',
+        gap: '24px',
+      }}
+    >
+      {[
+        {
+          title: 'AI Automation',
+          desc: 'Automate repetitive workflows, lead management, customer support and business operations.',
+          icon: '🤖',
+        },
+        {
+          title: 'Custom SaaS Development',
+          desc: 'Subscription-based software platforms built specifically for your business model.',
+          icon: '🚀',
+        },
+        {
+          title: 'Business Management Systems',
+          desc: 'Custom ERP, CRM and operational systems tailored to your workflow.',
+          icon: '📊',
+        },
+        {
+          title: 'Website Development',
+          desc: 'Modern websites focused on performance, trust and conversion.',
+          icon: '🌐',
+        },
+        {
+          title: 'Mobile Applications',
+          desc: 'Scalable Android and cross-platform applications for growing businesses.',
+          icon: '📱',
+        },
+        {
+          title: 'Cybersecurity Solutions',
+          desc: 'Security assessments, consulting and protection for digital assets.',
+          icon: '🔒',
+        },
+      ].map((service, index) => (
+        <div
+          key={index}
+          style={{
+            background: 'rgba(255,255,255,.75)',
+            backdropFilter: 'blur(20px)',
+            border:
+              '1px solid rgba(15,23,42,.06)',
+            borderRadius: '26px',
+            padding: '32px',
+            transition: 'all .35s ease',
+            boxShadow:
+              '0 10px 25px rgba(15,23,42,.04)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(-8px)';
+
+            e.currentTarget.style.boxShadow =
+              '0 20px 40px rgba(37,99,235,.10)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(0)';
+
+            e.currentTarget.style.boxShadow =
+              '0 10px 25px rgba(15,23,42,.04)';
+          }}
+        >
           <div
             style={{
-              display: 'inline-flex',
+              width: '60px',
+              height: '60px',
+              borderRadius: '18px',
+              display: 'flex',
               alignItems: 'center',
-              gap: '10px',
-              padding: '10px 18px',
-              borderRadius: '999px',
-              background: 'rgba(59,130,246,.12)',
-              border: '1px solid rgba(59,130,246,.25)',
-              marginBottom: '25px',
-              color: '#3B82F6',
-              fontWeight: '600',
+              justifyContent: 'center',
+              background:
+                'linear-gradient(135deg,#2563EB,#06B6D4)',
+              color: '#fff',
+              fontSize: '26px',
+              marginBottom: '20px',
             }}
           >
-            🚀 AI • SaaS • Automation
+            {service.icon}
           </div>
 
-          {/* Heading */}
-
-          <h1
+          <h3
             style={{
-              fontSize: 'clamp(42px,8vw,78px)',
-              fontWeight: '900',
-              lineHeight: '1.05',
-              marginBottom: '25px',
-              color: 'var(--text-color)',
+              fontSize: '24px',
+              fontWeight: '700',
+              color: '#0F172A',
+              marginBottom: '14px',
             }}
           >
-            Transform Your Business
-            <br />
-            With Smart Digital Solutions
-          </h1>
-
-          {/* Description */}
+            {service.title}
+          </h3>
 
           <p
             style={{
-              maxWidth: '850px',
-              margin: '0 auto',
-              fontSize: 'clamp(18px,2.5vw,24px)',
+              color: '#64748B',
               lineHeight: '1.8',
-              color: 'var(--text-secondary)',
             }}
           >
-            We build AI automation systems, custom SaaS
-            platforms, websites, mobile applications and
-            business solutions that help companies grow
-            faster and operate smarter.
+            {service.desc}
           </p>
 
-          {/* Buttons */}
-
-          <div className="cta-buttons"
+          <a
+            href="https://wa.me/918652768171"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              marginTop: '40px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '16px',
-              flexWrap: 'wrap',
+              display: 'inline-block',
+              marginTop: '20px',
+              color: '#2563EB',
+              textDecoration: 'none',
+              fontWeight: '700',
             }}
           >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: '16px 28px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                background:
-                  'linear-gradient(135deg,#3B82F6,#06B6D4)',
-                color: '#fff',
-                fontWeight: '700',
-                boxShadow:
-                  '0 20px 40px rgba(59,130,246,.3)',
-              }}
-            >
-              Talk to an Expert
-            </a>
-
-            <Link
-              href="/services"
-              style={{
-                padding: '16px 28px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                border:
-                  '1px solid rgba(255,255,255,.15)',
-                color: 'var(--text-color)',
-                fontWeight: '700',
-                background: 'var(--card-bg)',
-              }}
-            >
-              Explore Services
-            </Link>
-          </div>
-
-          {/* Trust Badges */}
-
-          <div className="trust-grid"
-            style={{
-              marginTop: '70px',
-              display: 'grid',
-              gridTemplateColumns:
-                'repeat(auto-fit,minmax(180px,1fr))',
-              gap: '20px',
-            }}
-          >
-            {[
-              'AI Automation',
-              'Custom SaaS',
-              'Web Development',
-              'Mobile Apps',
-            ].map((item) => (
-              <div
-                key={item}
-                style={{
-                  padding: '20px',
-                  borderRadius: '18px',
-                  background: 'var(--card-bg)',
-                  border:
-                    '1px solid var(--border-color)',
-                  fontWeight: '600',
-                }}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+            Learn More →
+          </a>
         </div>
-      </section>
+      ))}
+    </div>
 
-      {/* Services Section */}
-      <section
+    {/* Bottom CTA */}
+
+    <div
+      style={{
+        textAlign: 'center',
+        marginTop: '60px',
+      }}
+    >
+      <a
+        href="https://wa.me/918652768171"
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
-          padding: '120px 20px',
-          background: 'var(--secondary-bg)',
+          display: 'inline-block',
+          padding: '16px 30px',
+          borderRadius: '14px',
+          background:
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#fff',
+          textDecoration: 'none',
+          fontWeight: '700',
+          boxShadow:
+            '0 15px 35px rgba(37,99,235,.25)',
         }}
       >
+        Get Custom Quote
+      </a>
+    </div>
+  </div>
+</section>
+  {/* Why Choose Us Section */}
+
+<section
+  style={{
+    padding: '120px 20px',
+    background: '#FFFFFF',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    <div
+      className="why-container"
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1.1fr 1fr',
+        gap: '60px',
+        alignItems: 'center',
+      }}
+    >
+      {/* Left Content */}
+
+      <div>
         <div
           style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
+            color: '#2563EB',
+            fontWeight: '700',
+            marginBottom: '12px',
+            letterSpacing: '1px',
           }}
         >
+          WHY ASH SOLUTIONS
+        </div>
+
+        <h2
+          style={{
+            fontSize: 'clamp(36px,6vw,58px)',
+            fontWeight: '900',
+            color: '#0F172A',
+            lineHeight: '1.1',
+            marginBottom: '22px',
+          }}
+        >
+          Technology Built
+          <br />
+          Around Business Growth
+        </h2>
+
+        <p
+          style={{
+            color: '#64748B',
+            lineHeight: '1.9',
+            fontSize: '18px',
+            marginBottom: '20px',
+          }}
+        >
+          Most development agencies focus only on
+          building software. We focus on helping
+          businesses increase efficiency, automate
+          operations and create systems that scale.
+        </p>
+
+        <p
+          style={{
+            color: '#64748B',
+            lineHeight: '1.9',
+            fontSize: '18px',
+            marginBottom: '35px',
+          }}
+        >
+          Every solution is designed with long-term
+          business goals, automation opportunities and
+          future expansion in mind.
+        </p>
+
+        <a
+          href="https://wa.me/918652768171"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '16px 28px',
+            borderRadius: '14px',
+            background:
+              'linear-gradient(135deg,#2563EB,#06B6D4)',
+            color: '#fff',
+            textDecoration: 'none',
+            fontWeight: '700',
+            boxShadow:
+              '0 15px 35px rgba(37,99,235,.20)',
+          }}
+        >
+          Talk To An Expert
+        </a>
+      </div>
+
+      {/* Right Cards */}
+
+      <div
+        style={{
+          display: 'grid',
+          gap: '18px',
+        }}
+      >
+        {[
+          {
+            title: 'AI-Powered Solutions',
+            desc: 'Automate repetitive work and improve productivity through intelligent workflows.',
+          },
+          {
+            title: 'Business-First Approach',
+            desc: 'Every project is aligned with measurable business goals and outcomes.',
+          },
+          {
+            title: 'Scalable Architecture',
+            desc: 'Built to support future growth without costly rebuilds.',
+          },
+          {
+            title: 'Long-Term Partnership',
+            desc: 'Continuous support, maintenance and future enhancements.',
+          },
+        ].map((item, index) => (
           <div
+            key={index}
             style={{
-              textAlign: 'center',
-              marginBottom: '70px',
+              background: '#FFFFFF',
+              border:
+                '1px solid rgba(15,23,42,.06)',
+              borderRadius: '22px',
+              padding: '24px',
+              boxShadow:
+                '0 10px 25px rgba(15,23,42,.04)',
             }}
           >
-            <div
+            <h3
               style={{
-                color: '#2563EB',
-                fontWeight: '700',
-                marginBottom: '12px',
-                letterSpacing: '1px',
-              }}
-            >
-              WHAT WE BUILD
-            </div>
-            <h2
-              style={{
-                fontSize: 'clamp(34px,6vw,58px)',
-                fontWeight: '900',
                 color: '#0F172A',
-                marginBottom: '18px',
+                fontSize: '20px',
+                fontWeight: '700',
+                marginBottom: '10px',
               }}
             >
-              Technology Built For Growth
-            </h2>
+              {item.title}
+            </h3>
 
             <p
               style={{
-                maxWidth: '700px',
-                margin: '0 auto',
                 color: '#64748B',
                 lineHeight: '1.8',
               }}
             >
-              We help businesses automate operations,
-              build scalable software and create digital
-              experiences that drive measurable growth.
+              {item.desc}
             </p>
           </div>
+        ))}
+      </div>
+    </div>
 
-          <div className="services-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns:
-                'repeat(auto-fit,minmax(320px,1fr))',
-              gap: '24px',
-            }}
-          >
-            {[
-              {
-                title: 'AI Automation',
-                desc: 'Automate repetitive workflows, lead management, customer support and business operations.',
-              },
-              {
-                title: 'Custom SaaS Development',
-                desc: 'Subscription-based software platforms built specifically for your business model.',
-              },
-              {
-                title: 'Business Management Systems',
-                desc: 'Custom ERP, CRM and operational systems tailored to your workflow.',
-              },
-              {
-                title: 'Website Development',
-                desc: 'Modern websites focused on performance, trust and conversion.',
-              },
-              {
-                title: 'Mobile Applications',
-                desc: 'Scalable Android and cross-platform applications for growing businesses.',
-              },
-              {
-                title: 'Cybersecurity Solutions',
-                desc: 'Security assessments, consulting and protection for digital assets.',
-              },
-            ].map((service, index) => (
-              <div
-                key={index}
-                style={{
-                  background: 'var(--card-bg)',
-                  border:
-                    '1px solid rgba(15,23,42,.08)',
-                  borderRadius: '24px',
-                  padding: '32px',
-                  transition: '.3s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    'translateY(-8px)';
-                  e.currentTarget.style.boxShadow =
-                    '0 20px 40px rgba(15,23,42,.08)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform =
-                    'translateY(0)';
-                  e.currentTarget.style.boxShadow =
-                    'none';
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: '24px',
-                    fontWeight: '700',
-                    color: 'var(--text-color)',
-                    marginBottom: '14px',
-                  }}
-                >
-                  {service.title}
-                </h3>
+    {/* Stats Section */}
 
-                <p
-                  style={{
-                    color: '#64748B',
-                    lineHeight: '1.8',
-                  }}
-                >
-                  {service.desc}
-                </p>
-
-                <a
-                  href="https://wa.me/918652768171"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-block',
-                    marginTop: '20px',
-                    color: '#2563EB',
-                    textDecoration: 'none',
-                    fontWeight: '700',
-                  }}
-                >
-                  Learn More →
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div
-            style={{
-              textAlign: 'center',
-              marginTop: '60px',
-            }}
-          >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                padding: '16px 28px',
-                borderRadius: '14px',
-                background:
-                  'linear-gradient(135deg,#2563EB,#06B6D4)',
-                color: '#fff',
-                textDecoration: 'none',
-                fontWeight: '700',
-              }}
-            >
-              Get Custom Quote
-            </a>
-          </div>
-        </div>
-      </section>
-      {/* Why Choose Us Section */}
-      <section
-        style={{
-          padding: '140px 20px',
-          background: 'var(--card-bg)',
-        }}
-      >
-        <div className='why-container'
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns:'1.1fr 1fr',
-            gap: '60px',
-            alignItems: 'center',
-          }}
-        >
-          {/* Left Side */}
-
-          <div>
-            <div
-              style={{
-                color: '#2563EB',
-                fontWeight: '700',
-                marginBottom: '12px',
-                letterSpacing: '1px',
-              }}
-            >
-              WHY ASH SOLUTIONS
-            </div>
-
-            <h2
-              style={{
-                fontSize: 'clamp(36px,6vw,58px)',
-                fontWeight: '900',
-                color: 'var(--text-color)',
-                marginBottom: '20px',
-                lineHeight: '1.1',
-              }}
-            >
-              We Build Solutions,
-              Not Just Software
-            </h2>
-
-            <p
-              style={{
-                color: '#64748B',
-                lineHeight: '1.9',
-                fontSize: '18px',
-                marginBottom: '20px',
-              }}
-            >
-              Most agencies focus on delivering a website.
-              We focus on helping businesses improve efficiency,
-              automate processes and create scalable systems.
-            </p>
-
-            <p
-              style={{
-                color: '#64748B',
-                lineHeight: '1.9',
-                fontSize: '18px',
-                marginBottom: '35px',
-              }}
-            >
-              Every solution is approached with business goals,
-              growth potential and long-term scalability in mind.
-            </p>
-
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                padding: '16px 28px',
-                borderRadius: '14px',
-                background:
-                  'linear-gradient(135deg,#2563EB,#06B6D4)',
-                color: '#fff',
-                textDecoration: 'none',
-                fontWeight: '700',
-              }}
-            >
-              Talk To An Expert
-            </a>
-
-            {/* Stats */}
-          </div>
-
-          {/* Right Side */}
-
-          <div className='why-right'
-            style={{
-              display: 'grid',
-              gap: '20px',
-            }}
-          >
-            {[
-              {
-                title: 'AI-Powered Solutions',
-                desc:
-                  'Automation and intelligent workflows that save time and improve productivity.',
-              },
-              {
-                title: 'Business-Focused Approach',
-                desc:
-                  'Every solution is aligned with business growth and operational efficiency.',
-              },
-              {
-                title: 'Scalable Architecture',
-                desc:
-                  'Built to grow with your business without costly rebuilds later.',
-              },
-              {
-                title: 'Long-Term Partnership',
-                desc:
-                  'Continuous support, upgrades and future enhancements.',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  background: 'var(--card-bg)',
-                  border:
-                    '1px solid rgba(15,23,42,.08)',
-                  borderRadius: '20px',
-                  padding: '24px',
-                  boxShadow:
-                    '0 8px 25px rgba(15,23,42,.04)',
-                }}
-              >
-                <h3
-                  style={{
-                    color: 'var(--text-color)',
-                    fontWeight: '700',
-                    marginBottom: '10px',
-                    fontSize: '20px',
-                  }}
-                >
-                  {item.title}
-                </h3>
-
-                <p
-                  style={{
-                    color: '#64748B',
-                    lineHeight: '1.8',
-                  }}
-                >
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-           <div className="why-stats"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2,1fr)',
-                gap: '16px',
-                marginTop: '40px',
-              }}
-            >
-              {[
-                {
-                  value: '7+',
-                  label: 'Core Services',
-                },
-                {
-                  value: 'AI',
-                  label: 'Powered Solutions',
-                },
-                {
-                  value: '24/7',
-                  label: 'Support',
-                },
-                {
-                  value: '100%',
-                  label: 'Custom Built',
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  style={{
-                    background: 'var(--secondary-bg)',
-                    border:
-                      '1px solid rgba(15,23,42,.08)',
-                    borderRadius: '18px',
-                    padding: '20px',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: '30px',
-                      fontWeight: '800',
-                      color: '#2563EB',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    {item.value}
-                  </div>
-
-                  <div
-                    style={{
-                      color: '#64748B',
-                      fontSize: '14px',
-                      lineHeight: '1.5',
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-        </div>
-      </section>
-      {/* how we work  */}
-      <section
-        style={{
-          padding: '140px 20px',
-          background: 'var(--secondary-bg)',
-        }}
-      >
+    <div
+      className="why-stats"
+      style={{
+        marginTop: '70px',
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(220px,1fr))',
+        gap: '20px',
+      }}
+    >
+      {[
+        {
+          value: '7+',
+          label: 'Core Services',
+        },
+        {
+          value: 'AI',
+          label: 'Powered Solutions',
+        },
+        {
+          value: '24/7',
+          label: 'Support',
+        },
+        {
+          value: '100%',
+          label: 'Custom Built',
+        },
+      ].map((item) => (
         <div
+          key={item.label}
           style={{
-            maxWidth: '1100px',
-            margin: '0 auto',
+            background: '#F8FAFC',
+            border:
+              '1px solid rgba(15,23,42,.06)',
+            borderRadius: '22px',
+            padding: '26px',
+            textAlign: 'center',
+            boxShadow:
+              '0 10px 25px rgba(15,23,42,.04)',
           }}
         >
           <div
             style={{
-              textAlign: 'center',
-              marginBottom: '90px',
+              fontSize: '38px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
             }}
           >
-            <div
-              style={{
-                color: '#2563EB',
-                fontWeight: '700',
-                marginBottom: '12px',
-                letterSpacing: '1px',
-              }}
-            >
-              OUR PROCESS
-            </div>
-
-            <h2
-              style={{
-                fontSize: 'clamp(36px,6vw,58px)',
-                fontWeight: '900',
-                color: 'var(--text-color)',
-                marginBottom: '18px',
-              }}
-            >
-              From Idea To Deployment
-            </h2>
-
-            <p
-              style={{
-                maxWidth: '700px',
-                margin: '0 auto',
-                color: '#64748B',
-                lineHeight: '1.9',
-                fontSize: '18px',
-              }}
-            >
-              Every project follows a structured roadmap
-              focused on quality, scalability and business outcomes.
-            </p>
+            {item.value}
           </div>
 
           <div
             style={{
-              display: 'grid',
-              gap: '24px',
+              color: '#64748B',
+              fontSize: '15px',
             }}
           >
-            {[
-              {
-                step: '01',
-                title: 'Discovery',
-                desc: 'Understand goals, business challenges and project requirements.',
-              },
-              {
-                step: '02',
-                title: 'Strategy',
-                desc: 'Create the roadmap, architecture and implementation plan.',
-              },
-              {
-                step: '03',
-                title: 'Development',
-                desc: 'Build the solution using modern technologies and best practices.',
-              },
-              {
-                step: '04',
-                title: 'Launch',
-                desc: 'Deploy, test and optimize for performance and reliability.',
-              },
-              {
-                step: '05',
-                title: 'Support',
-                desc: 'Continuous maintenance, improvements and future scaling.',
-              },
-            ].map((item, index) => (
-              <div className='process-card'
-                key={index}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '30px',
-                  background: 'var(--card-bg)',
-                  border: '1px solid rgba(15,23,42,.08)',
-                  borderRadius: '24px',
-                  padding: '28px',
-                  boxShadow: '0 8px 25px rgba(15,23,42,.04)',
-                }}
-              >
-                <div
-                  style={{
-                    minWidth: '80px',
-                    height: '80px',
-                    borderRadius: '20px',
-                    background:
-                      'linear-gradient(135deg,#2563EB,#06B6D4)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#fff',
-                    fontWeight: '900',
-                    fontSize: '26px',
-                  }}
-                >
-                  {item.step}
-                </div>
-
-                <div>
-                  <h3
-                    style={{
-                      fontSize: '24px',
-                      color: 'var(--text-color)',
-                      fontWeight: '700',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-
-                  <p
-                    style={{
-                      color: '#64748B',
-                      lineHeight: '1.8',
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+            {item.label}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+      {/* Our Process Section */}
+
+<section
+  style={{
+    padding: '120px 20px',
+    background: '#F8FAFC',
+  }}
+>
+  <div
+    style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+    }}
+  >
+    {/* Heading */}
+
+    <div
+      style={{
+        textAlign: 'center',
+        marginBottom: '80px',
+      }}
+    >
+      <div
+        style={{
+          color: '#2563EB',
+          fontWeight: '700',
+          marginBottom: '12px',
+          letterSpacing: '1px',
+        }}
+      >
+        OUR PROCESS
+      </div>
+
+      <h2
+        style={{
+          fontSize: 'clamp(36px,6vw,58px)',
+          fontWeight: '900',
+          color: '#0F172A',
+          marginBottom: '18px',
+        }}
+      >
+        From Idea To Deployment
+      </h2>
+
+      <p
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          color: '#64748B',
+          lineHeight: '1.9',
+          fontSize: '18px',
+        }}
+      >
+        Every project follows a structured roadmap
+        focused on quality, scalability and business outcomes.
+      </p>
+    </div>
+
+    {/* Process Cards */}
+
+    <div
+      className="process-grid"
+      style={{
+        display: 'grid',
+        gridTemplateColumns:
+          'repeat(auto-fit,minmax(320px,1fr))',
+        gap: '24px',
+      }}
+    >
+      {[
+        {
+          step: '01',
+          title: 'Discovery',
+          desc: 'Understand business goals, challenges and project requirements.',
+        },
+        {
+          step: '02',
+          title: 'Strategy',
+          desc: 'Create architecture, roadmap and execution plan.',
+        },
+        {
+          step: '03',
+          title: 'Development',
+          desc: 'Build scalable solutions using modern technologies.',
+        },
+        {
+          step: '04',
+          title: 'Launch',
+          desc: 'Deploy, optimize and ensure reliability.',
+        },
+        {
+          step: '05',
+          title: 'Support',
+          desc: 'Continuous maintenance, improvements and scaling.',
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            background: 'rgba(255,255,255,.8)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(15,23,42,.06)',
+            borderRadius: '28px',
+            padding: '32px',
+            boxShadow:
+              '0 10px 25px rgba(15,23,42,.04)',
+            transition: '.3s',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(-8px)';
+
+            e.currentTarget.style.boxShadow =
+              '0 20px 40px rgba(37,99,235,.10)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(0)';
+
+            e.currentTarget.style.boxShadow =
+              '0 10px 25px rgba(15,23,42,.04)';
+          }}
+        >
+          <div
+            style={{
+              width: '70px',
+              height: '70px',
+              borderRadius: '20px',
+              background:
+                'linear-gradient(135deg,#2563EB,#06B6D4)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontWeight: '900',
+              fontSize: '24px',
+              marginBottom: '22px',
+            }}
+          >
+            {item.step}
+          </div>
+
+          <h3
+            style={{
+              fontSize: '24px',
+              fontWeight: '700',
+              color: '#0F172A',
+              marginBottom: '12px',
+            }}
+          >
+            {item.title}
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              lineHeight: '1.8',
+            }}
+          >
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* Bottom CTA */}
+
+    <div
+      style={{
+        textAlign: 'center',
+        marginTop: '60px',
+      }}
+    >
+      <a
+        href="https://wa.me/918652768171"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'inline-block',
+          padding: '16px 30px',
+          borderRadius: '14px',
+          background:
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#fff',
+          textDecoration: 'none',
+          fontWeight: '700',
+          boxShadow:
+            '0 15px 35px rgba(37,99,235,.25)',
+        }}
+      >
+        Start Your Project
+      </a>
+    </div>
+  </div>
+</section>
 
       {/* premium stats section */}
 
@@ -1036,6 +1154,51 @@ padding:110px 20px 90px !important;
   .why-stats{
     order: 3;
     margin-top: 0 !important;
+  }
+
+}
+@media (max-width: 900px) {
+  .why-container {
+    grid-template-columns: 1fr !important;
+    gap: 35px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+  @media (max-width:768px){
+
+  .process-grid{
+    grid-template-columns:1fr !important;
+  }
+
+}
+  @media (max-width:640px){
+
+  .cta-buttons{
+    flex-direction:column !important;
+    align-items:center !important;
+    width:100%;
+  }
+
+  .cta-buttons a{
+    width:100%;
+    max-width:320px;
+    text-align:center;
+  }
+
+}
+  @media (max-width:640px){
+
+  .why-btn{
+    display:block !important;
+    width:100%;
+    max-width:320px;
+    text-align:center;
+    margin:auto;
   }
 
 }

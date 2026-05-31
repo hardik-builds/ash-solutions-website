@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { useState } from 'react';
-import { useTheme } from '@/components/ThemeProvider';
+
 
 const services = [
   {
@@ -102,11 +102,10 @@ const services = [
 ];
 
 export default function Services() {
-  const { isDark } = useTheme();
+
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
-      {/* Hero Section */}
+    <div style={{ backgroundColor: '#FFFFFF', color: '#0F172A', transition: 'background-color 0.3s, color 0.3s', overflow: 'hidden' }}>
       {/* Hero Section */}
       <section
         style={{
@@ -114,9 +113,7 @@ export default function Services() {
           overflow: 'hidden',
           padding: '140px 20px 140px',
           background:
-            isDark
-              ? 'linear-gradient(180deg,#020617,#0F172A)'
-              : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+            'linear-gradient(180deg,#F8FBFF,#FFFFFF)',
         }}
       >
         <div
@@ -191,7 +188,7 @@ export default function Services() {
               margin: '0 auto',
               fontSize: '22px',
               lineHeight: '1.8',
-              color: 'var(--text-secondary)',
+              color: '#64748B'
             }}
           >
             From AI automation and SaaS platforms to
@@ -213,7 +210,10 @@ export default function Services() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: '16px 28px',
+                padding: '14px 24px',
+                width: '100%',
+                maxWidth: '280px',
+                textAlign: 'center',
                 borderRadius: '14px',
                 textDecoration: 'none',
                 background:
@@ -228,12 +228,15 @@ export default function Services() {
             <Link
               href="/contact"
               style={{
-                padding: '16px 28px',
+                padding: '14px 24px',
+                width: '100%',
+                maxWidth: '280px',
+                textAlign: 'center',
                 borderRadius: '14px',
                 textDecoration: 'none',
-                background: 'var(--card-bg)',
-                color: 'var(--text-color)',
-                border: '1px solid var(--border-color)',
+                background: '#FFFFFF',
+                color: '#0F172A',
+                border: '1px solid #CBD5E1',
                 fontWeight: '700',
               }}
             >
@@ -300,7 +303,7 @@ export default function Services() {
             style={{
               display: 'grid',
               gridTemplateColumns:
-                'repeat(auto-fit,minmax(320px,1fr))',
+                'repeat(auto-fit,minmax(280px,1fr))',
               gap: '32px',
             }}
           >
@@ -453,7 +456,7 @@ export default function Services() {
             style={{
               display: 'grid',
               gridTemplateColumns:
-                'repeat(auto-fit,minmax(260px,1fr))',
+                'repeat(auto-fit,minmax(240px,1fr))',
               gap: '24px',
             }}
           >
@@ -532,16 +535,17 @@ export default function Services() {
           <Link
             href="/contact"
             style={{
-              backgroundColor: 'white',
-              color: 'var(--primary-color)',
-              padding: '12px 32px',
-              borderRadius: '6px',
-              fontWeight: '600',
+              background:
+                'linear-gradient(135deg,#2563EB,#06B6D4)',
+              color: '#FFFFFF',
+              padding: '16px 32px',
+              borderRadius: '14px',
+              fontWeight: '700',
               textDecoration: 'none',
               fontSize: '18px',
-              transition: 'all 0.3s',
               display: 'inline-block',
-              animation: 'fadeInUp 0.8s ease-out 0.4s both'
+              boxShadow:
+                '0 10px 25px rgba(37,99,235,.25)',
             }}
           >
             Schedule a Consultation
@@ -549,19 +553,8 @@ export default function Services() {
         </div>
       </section>
 
-      <style jsx>{`
-        @media (min-width: 768px) {
-          section:nth-of-type(2) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (min-width: 1024px) {
-          section:nth-of-type(2) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-       
-          @keyframes fadeInUp {
+      <style jsx>{` 
+         @keyframes fadeInUp {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -571,6 +564,22 @@ export default function Services() {
       transform: translateY(0);
     }
   }
+    @media (max-width:768px){
+
+  section{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+
+  h1{
+    line-height:1.15 !important;
+  }
+
+  h2{
+    line-height:1.2 !important;
+  }
+
+}
       `}</style>
     </div>
   );

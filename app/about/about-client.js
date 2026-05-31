@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link';
-import { useTheme } from '@/components/ThemeProvider';
 
 const team = [
   {
@@ -26,23 +25,20 @@ const achievements = [
 ];
 
 export default function About() {
-  const { isDark } = useTheme();
 
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
-      {/* Hero Section */}
+  {/* Hero Section */}
 <section
   style={{
     position: 'relative',
     overflow: 'hidden',
     padding: '140px 20px',
     background:
-      isDark
-        ? 'linear-gradient(180deg,#020617,#0F172A)'
-        : 'linear-gradient(180deg,#F8FAFC,#FFFFFF)',
+      'linear-gradient(180deg,#F8FBFF,#FFFFFF)',
   }}
 >
-  <div className='about-hero'
+  <div
     style={{
       position: 'absolute',
       width: '450px',
@@ -99,7 +95,7 @@ export default function About() {
         fontSize: 'clamp(42px,8vw,78px)',
         fontWeight: '900',
         lineHeight: '1.05',
-        color: 'var(--text-color)',
+        color: '#0F172A',
         marginBottom: '25px',
       }}
     >
@@ -112,9 +108,9 @@ export default function About() {
       style={{
         maxWidth: '850px',
         margin: '0 auto',
-        fontSize: '22px',
+        fontSize: 'clamp(16px,2.5vw,22px)',
         lineHeight: '1.8',
-        color: 'var(--text-secondary)',
+        color: '#64748B',
       }}
     >
       We help businesses automate operations,
@@ -135,13 +131,17 @@ export default function About() {
       <Link
         href="/contact"
         style={{
-          padding: '16px 28px',
+          padding: '14px 24px',
+          width: '100%',
+          maxWidth: '280px',
+          textAlign: 'center',
           borderRadius: '14px',
           textDecoration: 'none',
           background:
             'linear-gradient(135deg,#2563EB,#06B6D4)',
           color: '#fff',
           fontWeight: '700',
+          boxSizing: 'border-box',
         }}
       >
         Talk To An Expert
@@ -150,13 +150,17 @@ export default function About() {
       <Link
         href="/services"
         style={{
-          padding: '16px 28px',
+          padding: '14px 24px',
+          width: '100%',
+          maxWidth: '280px',
+          textAlign: 'center',
           borderRadius: '14px',
           textDecoration: 'none',
-          background: 'var(--card-bg)',
-          color: 'var(--text-color)',
-          border: '1px solid var(--border-color)',
+          background: '#FFFFFF',
+          color: '#0F172A',
+          border: '1px solid #CBD5E1',
           fontWeight: '700',
+          boxSizing: 'border-box',
         }}
       >
         View Services
@@ -166,32 +170,35 @@ export default function About() {
 </section>
      
 
-      {/* Our Story Section */}
+  {/* Our Story Section */}
 <section
   style={{
-    padding: '140px 20px',
+    padding: '120px 20px',
     background: '#FFFFFF',
   }}
 >
-  <div className='story-grid'
+  <div
     style={{
       maxWidth: '1200px',
       margin: '0 auto',
       display: 'grid',
-      gridTemplateColumns: '1.1fr 1fr',
+      gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))',
       gap: '60px',
       alignItems: 'center',
     }}
   >
-    {/* Left Side */}
-
+    {/* Left Content */}
     <div>
       <div
         style={{
+          display: 'inline-block',
+          padding: '10px 18px',
+          borderRadius: '999px',
+          background: 'rgba(59,130,246,.10)',
+          border: '1px solid rgba(59,130,246,.20)',
           color: '#2563EB',
           fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          marginBottom: '20px',
         }}
       >
         OUR STORY
@@ -199,129 +206,161 @@ export default function About() {
 
       <h2
         style={{
-          fontSize: 'clamp(36px,6vw,58px)',
+          fontSize: 'clamp(34px,6vw,58px)',
           fontWeight: '900',
+          lineHeight: '1.1',
           color: '#0F172A',
           marginBottom: '24px',
-          lineHeight: '1.1',
         }}
       >
-        Technology That
-        Solves Real Business Problems
+        Technology Focused.
+        <br />
+        Business Driven.
       </h2>
 
       <p
         style={{
           color: '#64748B',
           lineHeight: '1.9',
-          fontSize: '18px',
-          marginBottom: '22px',
+          fontSize: '17px',
+          marginBottom: '20px',
         }}
       >
-        ASH Solutions was founded with a simple goal:
-        help businesses leverage modern technology
-        without the complexity that often comes with it.
+        ASH Solutions was founded with a simple goal —
+        helping businesses leverage modern technology
+        to improve efficiency, automate workflows and
+        scale operations without unnecessary complexity.
       </p>
 
       <p
         style={{
           color: '#64748B',
           lineHeight: '1.9',
-          fontSize: '18px',
-          marginBottom: '22px',
+          fontSize: '17px',
         }}
       >
-        From AI automation and business systems
-        to websites, mobile applications and SaaS
-        platforms, our focus is creating practical
-        digital solutions that deliver measurable
-        business value.
-      </p>
-
-      <p
-        style={{
-          color: '#64748B',
-          lineHeight: '1.9',
-          fontSize: '18px',
-        }}
-      >
-        We believe technology should not only look
-        impressive—it should improve efficiency,
-        streamline operations and support long-term growth.
+        From custom software and SaaS platforms to AI
+        automation and business systems, we focus on
+        building practical solutions that create real
+        business impact and long-term growth.
       </p>
     </div>
 
-    {/* Right Side */}
-
+    {/* Right Card */}
     <div
       style={{
-        display: 'grid',
-        gap: '20px',
+        background: '#F8FAFC',
+        border: '1px solid rgba(15,23,42,.08)',
+        borderRadius: '30px',
+        padding: '40px',
+        boxShadow:
+          '0 15px 40px rgba(15,23,42,.05)',
       }}
     >
-      {[
-        {
-          title: 'AI Automation',
-          desc:
-            'Automate repetitive workflows and improve operational efficiency.',
-        },
-        {
-          title: 'Custom SaaS Platforms',
-          desc:
-            'Scalable software products built around your business model.',
-        },
-        {
-          title: 'Business Systems',
-          desc:
-            'ERP, CRM and management systems tailored to your workflow.',
-        },
-        {
-          title: 'Long-Term Partnership',
-          desc:
-            'Support, maintenance and continuous improvements after launch.',
-        },
-      ].map((item, index) => (
-        <div
-          key={index}
-          style={{
-            background: '#FFFFFF',
-            border:
-              '1px solid rgba(15,23,42,.08)',
-            borderRadius: '20px',
-            padding: '24px',
-            boxShadow:
-              '0 8px 25px rgba(15,23,42,.04)',
-          }}
-        >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns:
+            'repeat(auto-fit,minmax(140px,1fr))',
+          gap: '24px',
+        }}
+      >
+        <div>
           <h3
             style={{
-              color: '#0F172A',
-              fontWeight: '700',
-              marginBottom: '10px',
-              fontSize: '20px',
+              fontSize: '42px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
             }}
           >
-            {item.title}
+            10+
           </h3>
 
           <p
             style={{
               color: '#64748B',
-              lineHeight: '1.8',
+              margin: 0,
             }}
           >
-            {item.desc}
+            Solutions Delivered
           </p>
         </div>
-      ))}
+
+        <div>
+          <h3
+            style={{
+              fontSize: '42px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
+            }}
+          >
+            100%
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              margin: 0,
+            }}
+          >
+            Client Focused
+          </p>
+        </div>
+
+        <div>
+          <h3
+            style={{
+              fontSize: '42px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
+            }}
+          >
+            AI
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              margin: 0,
+            }}
+          >
+            Powered Solutions
+          </p>
+        </div>
+
+        <div>
+          <h3
+            style={{
+              fontSize: '42px',
+              fontWeight: '900',
+              color: '#2563EB',
+              marginBottom: '8px',
+            }}
+          >
+            24/7
+          </h3>
+
+          <p
+            style={{
+              color: '#64748B',
+              margin: 0,
+            }}
+          >
+            Support Mindset
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-     
+            
 {/* Mission & Vision Section */}
 <section
   style={{
-    padding: '140px 20px',
+    padding: '120px 20px',
     background: '#F8FAFC',
   }}
 >
@@ -339,10 +378,14 @@ export default function About() {
     >
       <div
         style={{
+          display: 'inline-block',
+          padding: '10px 18px',
+          borderRadius: '999px',
+          background: 'rgba(59,130,246,.10)',
+          border: '1px solid rgba(59,130,246,.20)',
           color: '#2563EB',
           fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          marginBottom: '20px',
         }}
       >
         OUR PURPOSE
@@ -350,10 +393,11 @@ export default function About() {
 
       <h2
         style={{
-          fontSize: 'clamp(36px,6vw,58px)',
+          fontSize: 'clamp(34px,6vw,58px)',
           fontWeight: '900',
           color: '#0F172A',
-          marginBottom: '18px',
+          marginBottom: '20px',
+          lineHeight: '1.1',
         }}
       >
         Mission & Vision
@@ -365,38 +409,47 @@ export default function About() {
           margin: '0 auto',
           color: '#64748B',
           lineHeight: '1.8',
+          fontSize: '17px',
         }}
       >
-        Guiding principles that shape every
-        solution we build.
+        Building technology that helps businesses
+        automate operations, improve efficiency and
+        unlock sustainable growth.
       </p>
     </div>
 
-    <div className='mission-grid'
+    <div
       style={{
         display: 'grid',
         gridTemplateColumns:
-          'repeat(auto-fit,minmax(400px,1fr))',
+          'repeat(auto-fit,minmax(320px,1fr))',
         gap: '30px',
       }}
     >
       {/* Mission */}
-
       <div
         style={{
           background: '#FFFFFF',
-          border:
-            '1px solid rgba(15,23,42,.08)',
-          borderRadius: '28px',
+          borderRadius: '30px',
           padding: '40px',
+          border: '1px solid rgba(15,23,42,.08)',
           boxShadow:
-            '0 8px 25px rgba(15,23,42,.04)',
+            '0 15px 40px rgba(15,23,42,.05)',
         }}
       >
         <div
           style={{
-            fontSize: '48px',
-            marginBottom: '20px',
+            width: '70px',
+            height: '70px',
+            borderRadius: '20px',
+            background:
+              'linear-gradient(135deg,#2563EB,#06B6D4)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: '30px',
+            marginBottom: '24px',
           }}
         >
           🎯
@@ -404,7 +457,7 @@ export default function About() {
 
         <h3
           style={{
-            fontSize: '28px',
+            fontSize: '30px',
             fontWeight: '800',
             color: '#0F172A',
             marginBottom: '18px',
@@ -417,34 +470,41 @@ export default function About() {
           style={{
             color: '#64748B',
             lineHeight: '1.9',
-            fontSize: '17px',
+            fontSize: '16px',
           }}
         >
-          To help businesses transform digitally
-          through AI, automation and custom software
-          solutions that improve efficiency,
-          reduce operational friction and
-          accelerate growth.
+          To help businesses embrace digital
+          transformation through custom software,
+          AI automation, SaaS solutions and scalable
+          technology systems that deliver measurable
+          business results.
         </p>
       </div>
 
       {/* Vision */}
-
       <div
         style={{
           background: '#FFFFFF',
-          border:
-            '1px solid rgba(15,23,42,.08)',
-          borderRadius: '28px',
+          borderRadius: '30px',
           padding: '40px',
+          border: '1px solid rgba(15,23,42,.08)',
           boxShadow:
-            '0 8px 25px rgba(15,23,42,.04)',
+            '0 15px 40px rgba(15,23,42,.05)',
         }}
       >
         <div
           style={{
-            fontSize: '48px',
-            marginBottom: '20px',
+            width: '70px',
+            height: '70px',
+            borderRadius: '20px',
+            background:
+              'linear-gradient(135deg,#2563EB,#06B6D4)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: '30px',
+            marginBottom: '24px',
           }}
         >
           🚀
@@ -452,7 +512,7 @@ export default function About() {
 
         <h3
           style={{
-            fontSize: '28px',
+            fontSize: '30px',
             fontWeight: '800',
             color: '#0F172A',
             marginBottom: '18px',
@@ -465,26 +525,27 @@ export default function About() {
           style={{
             color: '#64748B',
             lineHeight: '1.9',
-            fontSize: '17px',
+            fontSize: '16px',
           }}
         >
-          To become a trusted technology partner
-          for businesses seeking scalable,
-          innovative and future-ready
-          digital solutions.
+          To become a trusted technology partner for
+          businesses worldwide by creating innovative,
+          scalable and future-ready digital solutions
+          that drive long-term success.
         </p>
       </div>
     </div>
   </div>
 </section>
+
 {/* Core Values Section */}
 <section
   style={{
-    padding: '140px 20px',
+    padding: '120px 20px',
     background: '#FFFFFF',
   }}
 >
-  <div className='values-grid'
+  <div
     style={{
       maxWidth: '1200px',
       margin: '0 auto',
@@ -498,10 +559,14 @@ export default function About() {
     >
       <div
         style={{
+          display: 'inline-block',
+          padding: '10px 18px',
+          borderRadius: '999px',
+          background: 'rgba(59,130,246,.10)',
+          border: '1px solid rgba(59,130,246,.20)',
           color: '#2563EB',
           fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          marginBottom: '20px',
         }}
       >
         OUR VALUES
@@ -509,26 +574,30 @@ export default function About() {
 
       <h2
         style={{
-          fontSize: 'clamp(36px,6vw,58px)',
+          fontSize: 'clamp(34px,6vw,58px)',
           fontWeight: '900',
           color: '#0F172A',
           marginBottom: '18px',
+          lineHeight: '1.1',
         }}
       >
-        Principles Behind
-        Every Solution
+        Principles That Drive
+        <br />
+        Everything We Build
       </h2>
 
       <p
         style={{
-          maxWidth: '700px',
+          maxWidth: '720px',
           margin: '0 auto',
           color: '#64748B',
           lineHeight: '1.8',
+          fontSize: '17px',
         }}
       >
-        The values that guide how we build,
-        collaborate and deliver results.
+        Every project, decision and solution is guided
+        by values that help us deliver meaningful results
+        for our clients.
       </p>
     </div>
 
@@ -542,75 +611,90 @@ export default function About() {
     >
       {[
         {
+          icon: '🤝',
+          title: 'Client First',
+          desc: 'We focus on understanding business needs and delivering solutions that create real value.',
+        },
+        {
           icon: '💡',
           title: 'Innovation',
-          desc:
-            'Continuously exploring modern technologies and better solutions.',
+          desc: 'We continuously explore modern technologies, AI and automation to stay ahead.',
         },
         {
-          icon: '📈',
-          title: 'Business Impact',
-          desc:
-            'Every project is designed to create measurable business value.',
+          icon: '⚡',
+          title: 'Execution',
+          desc: 'Ideas matter, but implementation matters more. We prioritize delivery and outcomes.',
         },
         {
-          icon: '🛡️',
-          title: 'Reliability',
-          desc:
-            'Secure, stable and scalable systems built for long-term use.',
+          icon: '🔒',
+          title: 'Trust & Security',
+          desc: 'Security, transparency and reliability are built into every solution we create.',
         },
-        {
-          icon: '🚀',
-          title: 'Continuous Improvement',
-          desc:
-            'Constant learning, optimization and innovation in every project.',
-        },
-      ].map((item, index) => (
+      ].map((value, index) => (
         <div
           key={index}
           style={{
             background: '#F8FAFC',
-            border:
-              '1px solid rgba(15,23,42,.08)',
-            borderRadius: '24px',
-            padding: '30px',
-            transition: '.3s',
+            border: '1px solid rgba(15,23,42,.08)',
+            borderRadius: '28px',
+            padding: '36px',
+            transition: 'all .3s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(-8px)';
+            e.currentTarget.style.boxShadow =
+              '0 20px 40px rgba(15,23,42,.08)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              'translateY(0)';
+            e.currentTarget.style.boxShadow =
+              'none';
           }}
         >
           <div
             style={{
-              fontSize: '42px',
-              marginBottom: '18px',
+              width: '70px',
+              height: '70px',
+              borderRadius: '20px',
+              background:
+                'linear-gradient(135deg,#2563EB,#06B6D4)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '30px',
+              marginBottom: '24px',
             }}
           >
-            {item.icon}
+            {value.icon}
           </div>
 
           <h3
             style={{
-              fontSize: '22px',
-              fontWeight: '700',
+              fontSize: '24px',
+              fontWeight: '800',
               color: '#0F172A',
-              marginBottom: '12px',
+              marginBottom: '14px',
             }}
           >
-            {item.title}
+            {value.title}
           </h3>
 
           <p
             style={{
               color: '#64748B',
               lineHeight: '1.8',
+              margin: 0,
             }}
           >
-            {item.desc}
+            {value.desc}
           </p>
         </div>
       ))}
     </div>
   </div>
 </section>
-
 
       {/* Leadership Team */}
 <section
@@ -868,8 +952,7 @@ export default function About() {
     </div>
   </div>
 </section>
-
-    {/* CTA Section */}
+{/* CTA Section */}
 <section
   style={{
     position: 'relative',
@@ -877,19 +960,19 @@ export default function About() {
     padding: '120px 20px',
     background:
       'linear-gradient(135deg,#0F172A,#1E293B)',
-    color: '#fff',
   }}
 >
+  {/* Glow Effects */}
   <div
     style={{
       position: 'absolute',
       width: '400px',
       height: '400px',
-      background: '#3B82F6',
+      background: '#2563EB',
       borderRadius: '50%',
-      filter: 'blur(120px)',
-      opacity: 0.15,
-      top: '-120px',
+      filter: 'blur(140px)',
+      opacity: 0.18,
+      top: '-150px',
       right: '-100px',
     }}
   />
@@ -901,9 +984,9 @@ export default function About() {
       height: '350px',
       background: '#06B6D4',
       borderRadius: '50%',
-      filter: 'blur(120px)',
+      filter: 'blur(140px)',
       opacity: 0.15,
-      bottom: '-100px',
+      bottom: '-150px',
       left: '-100px',
     }}
   />
@@ -912,54 +995,59 @@ export default function About() {
     style={{
       position: 'relative',
       zIndex: 2,
-      maxWidth: '900px',
+      maxWidth: '1000px',
       margin: '0 auto',
       textAlign: 'center',
     }}
   >
     <div
       style={{
-        color: '#60A5FA',
-        fontWeight: '700',
-        marginBottom: '15px',
-        letterSpacing: '1px',
+        display: 'inline-block',
+        padding: '10px 18px',
+        borderRadius: '999px',
+        background: 'rgba(255,255,255,.08)',
+        border: '1px solid rgba(255,255,255,.12)',
+        color: '#CBD5E1',
+        fontWeight: '600',
+        marginBottom: '24px',
       }}
     >
-      LET'S BUILD SOMETHING AMAZING
+      🚀 LET'S BUILD SOMETHING GREAT
     </div>
 
     <h2
       style={{
-        fontSize: 'clamp(36px,7vw,64px)',
+        fontSize: 'clamp(34px,7vw,64px)',
         fontWeight: '900',
         lineHeight: '1.1',
-        marginBottom: '25px',
+        color: '#FFFFFF',
+        marginBottom: '24px',
       }}
     >
-      Ready To Build Your
+      Ready To Transform
       <br />
-      Next Digital Solution?
+      Your Business?
     </h2>
 
     <p
       style={{
-        maxWidth: '750px',
+        maxWidth: '760px',
         margin: '0 auto',
-        fontSize: '18px',
-        lineHeight: '1.9',
         color: '#CBD5E1',
+        lineHeight: '1.9',
+        fontSize: '18px',
       }}
     >
-      Whether you need AI automation,
-      a custom SaaS platform,
-      a business management system,
-      a website or a mobile application,
-      we're ready to help you scale.
+      Whether you need a modern website,
+      custom software, SaaS platform,
+      AI automation or a complete business
+      management system — ASH Solutions is
+      ready to turn your vision into reality.
     </p>
 
     <div
       style={{
-        marginTop: '40px',
+        marginTop: '45px',
         display: 'flex',
         justifyContent: 'center',
         gap: '16px',
@@ -971,15 +1059,16 @@ export default function About() {
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          padding: '16px 28px',
-          borderRadius: '14px',
           textDecoration: 'none',
+          padding: '16px 30px',
+          borderRadius: '14px',
           background:
-            'linear-gradient(135deg,#3B82F6,#06B6D4)',
-          color: '#fff',
+            'linear-gradient(135deg,#2563EB,#06B6D4)',
+          color: '#FFFFFF',
           fontWeight: '700',
+          fontSize: '16px',
           boxShadow:
-            '0 20px 40px rgba(59,130,246,.3)',
+            '0 15px 35px rgba(37,99,235,.35)',
         }}
       >
         Talk To An Expert
@@ -988,30 +1077,19 @@ export default function About() {
       <Link
         href="/contact"
         style={{
-          padding: '16px 28px',
-          borderRadius: '14px',
           textDecoration: 'none',
-          background:
-            'rgba(255,255,255,.08)',
-          border:
-            '1px solid rgba(255,255,255,.15)',
-          color: '#fff',
+          padding: '16px 30px',
+          borderRadius: '14px',
+          background: 'rgba(255,255,255,.08)',
+          border: '1px solid rgba(255,255,255,.15)',
+          color: '#FFFFFF',
           fontWeight: '700',
-          backdropFilter: 'blur(20px)',
+          fontSize: '16px',
+          backdropFilter: 'blur(10px)',
         }}
       >
         Get Custom Quote
       </Link>
-    </div>
-
-    <div
-      style={{
-        marginTop: '40px',
-        color: '#94A3B8',
-        fontSize: '14px',
-      }}
-    >
-      AI Automation • SaaS Development • Websites • Apps • Business Systems
     </div>
   </div>
 </section>
