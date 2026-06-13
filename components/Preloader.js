@@ -1,201 +1,245 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader() {
-  const [hide, setHide] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [percent, setPercent] = useState(0);
+  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => {
-      setFadeOut(true);
-    }, 1800);
+    const duration = 1600;
+    const intervalTime = 30;
+    const steps = duration / intervalTime;
+    let currentStep = 0;
 
-    const hideTimer = setTimeout(() => {
-      setHide(true);
-    }, 2400);
+    const timer = setInterval(() => {
+      currentStep++;
+      const nextPercent = Math.min(Math.round((currentStep / steps) * 100), 100);
+      setPercent(nextPercent);
 
-    return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(hideTimer);
-    };
+      if (nextPercent >= 100) {
+        clearInterval(timer);
+        setTimeout(() => {
+          setComplete(true);
+        }, 300);
+      }
+    }, intervalTime);
+
+    return () => clearInterval(timer);
   }, []);
 
-  if (hide) return null;
-
   return (
-    <>
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 999999,
-          background: '#020617',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-
-          opacity: fadeOut ? 0 : 1,
-          transform: fadeOut ? 'scale(1.04)' : 'scale(1)',
-          filter: fadeOut ? 'blur(10px)' : 'blur(0px)',
-
-          transition: 'all .7s ease',
-        }}
-      >
-        {/* Glow Right */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '500px',
-            height: '500px',
-            background: '#2563EB',
-            borderRadius: '50%',
-            filter: 'blur(140px)',
-            opacity: 0.15,
-            top: '-120px',
-            right: '-120px',
-            animation: 'float 8s ease-in-out infinite',
+    <AnimatePresence>
+      {!complete && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          exit={{ 
+            opacity: 0, 
+            scale: 1.05,
+            filter: 'blur(15px)',
+            transition: { duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] } 
           }}
-        />
-
-        {/* Glow Left */}
-        <div
           style={{
-            position: 'absolute',
-            width: '420px',
-            height: '420px',
-            background: '#06B6D4',
-            borderRadius: '50%',
-            filter: 'blur(130px)',
-            opacity: 0.12,
-            bottom: '-120px',
-            left: '-120px',
-            animation: 'float 10s ease-in-out infinite',
-          }}
-        />
-
-        {/* Center Content */}
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 2,
-            textAlign: 'center',
-            padding: '20px',
+            position: 'fixed',
+            inset: 0,
+            zIndex: 999999,
+            background: '#f0f2f8',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
           }}
         >
+          {/* Pastel Radial Glows */}
           <div
             style={{
-              fontSize: 'clamp(72px,12vw,140px)',
-              fontWeight: '900',
-              lineHeight: '.9',
-
-              background:
-                'linear-gradient(135deg,#2563EB,#38BDF8)',
-
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-
-              animation: 'logoReveal 1s ease forwards',
+              position: 'absolute',
+              width: '600px',
+              height: '600px',
+              background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)',
+              borderRadius: '50%',
+              top: '-15%',
+              right: '-10%',
+              pointerEvents: 'none',
             }}
-          >
-            ASH
-          </div>
-
+          />
           <div
             style={{
-              color: '#FFFFFF',
-              fontWeight: '700',
-              letterSpacing: '8px',
-              fontSize: 'clamp(14px,2vw,20px)',
-              marginTop: '10px',
+              position: 'absolute',
+              width: '500px',
+              height: '500px',
+              background: 'radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%)',
+              borderRadius: '50%',
+              bottom: '-15%',
+              left: '-10%',
+              pointerEvents: 'none',
             }}
-          >
-            SOLUTIONS
-          </div>
+          />
 
+          {/* Light Grid Pattern */}
           <div
             style={{
-              marginTop: '18px',
-              color: '#94A3B8',
-              fontSize: '12px',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `
+                linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px)
+              `,
+              backgroundSize: '45px 45px',
+              opacity: 0.6,
+              zIndex: 1,
             }}
-          >
-            AI • SAAS • AUTOMATION
-          </div>
+          />
 
-          {/* Loading Bar */}
-
+          {/* Center Card */}
           <div
             style={{
-              width: '220px',
-              height: '3px',
-              background: 'rgba(255,255,255,.08)',
-              borderRadius: '999px',
-              overflow: 'hidden',
-              margin: '28px auto 0',
+              position: 'relative',
+              zIndex: 2,
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '40px',
+              maxWidth: '480px',
+              width: '100%',
             }}
           >
-            <div className="loaderLine" />
+            {/* Spinning HUD Graphic container */}
+            <div
+              style={{
+                position: 'relative',
+                width: '160px',
+                height: '160px',
+                marginBottom: '35px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {/* Outer Dashed Ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  border: '1px dashed rgba(99, 102, 241, 0.35)',
+                  borderRadius: '50%',
+                }}
+              />
+
+              {/* Inner Glowing Ring */}
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  position: 'absolute',
+                  inset: '12px',
+                  border: '1px solid transparent',
+                  borderTop: '2px solid #4f46e5',
+                  borderBottom: '2px solid #0891b2',
+                  borderRadius: '50%',
+                  filter: 'drop-shadow(0 0 6px rgba(99, 102, 241, 0.3))',
+                }}
+              />
+
+              {/* Center Counter */}
+              <div
+                style={{
+                  fontSize: '38px',
+                  fontFamily: 'monospace',
+                  fontWeight: '800',
+                  color: '#0f172a',
+                  letterSpacing: '-1px',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'center',
+                }}
+              >
+                <span>{String(percent).padStart(3, '0')}</span>
+                <span style={{ fontSize: '18px', color: '#4f46e5', marginLeft: '2px' }}>%</span>
+              </div>
+            </div>
+
+            {/* Glowing Brand Logo */}
+            <motion.h1
+              initial={{ y: 15, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              style={{
+                fontSize: '44px',
+                fontWeight: '900',
+                lineHeight: '1.1',
+                letterSpacing: '-1.5px',
+                background: 'linear-gradient(135deg, #4f46e5 10%, #7c3aed 50%, #0891b2 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                marginBottom: '8px',
+              }}
+            >
+              ASH
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.9 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              style={{
+                color: '#0f172a',
+                fontWeight: '800',
+                letterSpacing: '8px',
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                textIndent: '8px',
+                marginBottom: '30px',
+              }}
+            >
+              SOLUTIONS
+            </motion.div>
+
+            {/* Loading Bar Track */}
+            <div
+              style={{
+                width: '180px',
+                height: '4px',
+                background: 'rgba(99, 102, 241, 0.1)',
+                borderRadius: '999px',
+                overflow: 'hidden',
+                position: 'relative',
+              }}
+            >
+              <div
+                style={{
+                  height: '100%',
+                  width: `${percent}%`,
+                  borderRadius: '999px',
+                  background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #0891b2)',
+                  transition: 'width 0.1s linear',
+                }}
+              />
+            </div>
+
+            {/* System Status message */}
+            <div
+              style={{
+                marginTop: '15px',
+                fontFamily: 'monospace',
+                fontSize: '11px',
+                color: '#4f46e5',
+                fontWeight: '600',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+              }}
+            >
+              {percent < 30 ? 'Loading dependencies...' : percent < 70 ? 'Initializing automation module...' : percent < 100 ? 'Configuring neural nodes...' : 'Ready.'}
+            </div>
           </div>
-        </div>
-      </div>
-
-      <style jsx>{`
-        .loaderLine {
-          height: 100%;
-          width: 0%;
-          border-radius: 999px;
-
-          background: linear-gradient(
-            90deg,
-            #2563eb,
-            #38bdf8
-          );
-
-          animation: loading 2s ease forwards;
-        }
-
-        @keyframes loading {
-          from {
-            width: 0%;
-          }
-
-          to {
-            width: 100%;
-          }
-        }
-
-        @keyframes float {
-          0% {
-            transform: translateY(0px);
-          }
-
-          50% {
-            transform: translateY(-25px);
-          }
-
-          100% {
-            transform: translateY(0px);
-          }
-        }
-
-        @keyframes logoReveal {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-            filter: blur(15px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0px) scale(1);
-            filter: blur(0px);
-          }
-        }
-      `}</style>
-    </>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

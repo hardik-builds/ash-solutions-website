@@ -22,132 +22,172 @@ export default function ReviewSlider() {
     },
   ];
 
+  const allReviews = [...reviews, ...reviews];
+
   return (
-    <section
-      style={{
-        padding: '140px 20px',
-        background: '#FFFFFF',
-      }}
-    >
-      <div
+    <>
+      <section
         style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
+          padding: '120px 0',
+          background: '#f0f2f8',
+          overflow: 'hidden',
+          position: 'relative',
         }}
       >
         <div
           style={{
             textAlign: 'center',
             marginBottom: '70px',
+            padding: '0 24px',
           }}
         >
           <div
             style={{
-              color: '#2563EB',
+              color: '#4f46e5',
               fontWeight: '700',
-              marginBottom: '12px',
-              letterSpacing: '1px',
+              letterSpacing: '2px',
+              marginBottom: '15px',
+              textTransform: 'uppercase',
             }}
           >
-            CLIENT TESTIMONIALS
+            Client Testimonials
           </div>
 
           <h2
             style={{
-              fontSize: 'clamp(36px,6vw,58px)',
+              fontSize: 'clamp(38px, 6vw, 64px)',
               fontWeight: '900',
-              color: '#0F172A',
-              marginBottom: '18px',
+              lineHeight: '1.1',
+              color: '#0f172a',
+              marginBottom: '20px',
+              letterSpacing: '-1.5px',
             }}
           >
-            Trusted By Growing Businesses
+            Trusted By <br />
+            Growing Businesses
           </h2>
 
           <p
             style={{
-              maxWidth: '700px',
+              maxWidth: '680px',
               margin: '0 auto',
-              color: '#64748B',
-              lineHeight: '1.9',
+              color: '#1e293b',
+              lineHeight: '1.8',
+              fontSize: '18px',
             }}
           >
-            We focus on delivering business value,
-            not just software.
+            We focus on delivering business outcomes, not just software.
           </p>
         </div>
 
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns:
-              'repeat(auto-fit,minmax(320px,1fr))',
-            gap: '24px',
+            overflow: 'hidden',
+            position: 'relative',
           }}
         >
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              style={{
-                background: '#F8FAFC',
-                border: '1px solid rgba(15,23,42,.08)',
-                borderRadius: '24px',
-                padding: '32px',
-                boxShadow:
-                  '0 8px 25px rgba(15,23,42,.04)',
-              }}
-            >
+          <div className="review-track">
+            {allReviews.map((review, index) => (
               <div
+                key={index}
+                className="review-card glass-panel"
                 style={{
-                  fontSize: '48px',
-                  color: '#2563EB',
-                  lineHeight: 1,
-                  marginBottom: '20px',
-                }}
-              >
-                "
-              </div>
-
-              <p
-                style={{
-                  color: '#475569',
-                  lineHeight: '1.9',
-                  marginBottom: '25px',
-                  minHeight: '120px',
-                }}
-              >
-                {review.review}
-              </p>
-
-              <div
-                style={{
-                  borderTop:
-                    '1px solid rgba(15,23,42,.08)',
-                  paddingTop: '18px',
+                  borderRadius: '28px',
+                  padding: '35px',
+                  border: '1px solid rgba(15, 23, 42, 0.05)',
+                  background: '#ffffff',
+                  boxShadow: '0 10px 30px rgba(15, 23, 42, 0.02)',
                 }}
               >
                 <div
                   style={{
-                    fontWeight: '700',
-                    color: '#0F172A',
-                    marginBottom: '4px',
+                    fontSize: '60px',
+                    fontWeight: '900',
+                    color: 'rgba(99, 102, 241, 0.2)',
+                    lineHeight: 1,
+                    marginBottom: '-10px',
+                    fontFamily: 'Georgia, serif',
                   }}
                 >
-                  {review.name}
+                  “
                 </div>
 
-                <div
+                <p
                   style={{
-                    color: '#64748B',
-                    fontSize: '14px',
+                    color: '#1e293b',
+                    lineHeight: '1.8',
+                    marginBottom: '30px',
+                    fontSize: '15px',
                   }}
                 >
-                  {review.role}
+                  {review.review}
+                </p>
+
+                <div>
+                  <div
+                    style={{
+                      fontWeight: '800',
+                      color: '#0f172a',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    {review.name}
+                  </div>
+
+                  <div
+                    style={{
+                      color: '#4f46e5',
+                      fontSize: '13px',
+                      fontWeight: '700',
+                    }}
+                  >
+                    {review.role}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        <style jsx>{`
+          .review-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scrollReviews 30s linear infinite;
+            padding: 20px 24px;
+          }
+
+          .review-card {
+            width: 380px;
+            min-height: 250px;
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+
+          .review-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.25) !important;
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.12) !important;
+          }
+
+          @keyframes scrollReviews {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+
+          @media (max-width: 768px) {
+            .review-card {
+              width: 300px;
+              padding: 25px;
+            }
+          }
+        `}</style>
+      </section>
+    </>
   );
 }

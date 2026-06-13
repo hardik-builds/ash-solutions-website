@@ -8,82 +8,95 @@ export default function NotFound() {
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
-      backgroundColor: '#F9FAFB',
+      backgroundColor: 'var(--bg-color)',
       padding: '16px'
     }}>
-      <div style={{ 
-        textAlign: 'center', 
-        backgroundColor: 'white',
-        padding: '48px',
-        borderRadius: '16px',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-        maxWidth: '500px',
-        width: '100%'
-      }}>
+      <div 
+        className="glass-panel"
+        style={{ 
+          textAlign: 'center', 
+          padding: '48px',
+          borderRadius: '24px',
+          maxWidth: '500px',
+          width: '100%'
+        }}
+      >
         <div style={{ 
           fontSize: '120px', 
-          fontWeight: '800', 
-          color: '#3B82F6', 
+          fontWeight: '950', 
+          background: 'var(--cyber-gradient)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
           lineHeight: '1',
-          marginBottom: '24px'
+          marginBottom: '24px',
+          letterSpacing: '-4px'
         }}>
           404
         </div>
-        <h2 style={{ fontSize: '28px', fontWeight: 'bold', color: '#111827', marginBottom: '16px' }}>Page Not Found</h2>
-        <p style={{ color: '#6B7280', marginBottom: '32px', lineHeight: '1.6' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '900', color: 'var(--title-color)', marginBottom: '16px', letterSpacing: '-0.5px' }}>Page Not Found</h2>
+        <p style={{ color: 'var(--body-text)', marginBottom: '32px', lineHeight: '1.6' }}>
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link 
             href="/"
+            className="cta-primary-btn"
             style={{ 
-              backgroundColor: '#3B82F6', 
+              backgroundColor: '#4f46e5',
+              background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
               color: 'white', 
-              padding: '12px 24px', 
-              borderRadius: '8px', 
-              fontWeight: '600', 
+              padding: '14px 28px', 
+              borderRadius: '12px', 
+              fontWeight: '700', 
               textDecoration: 'none',
-              transition: 'background-color 0.3s'
+              boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25)',
+              transition: 'all 0.3s ease'
             }}
           >
             Go Home
           </Link>
           <Link 
             href="/contact"
+            className="cta-secondary-btn"
             style={{ 
-              backgroundColor: 'white', 
-              color: '#3B82F6', 
-              padding: '12px 24px', 
-              borderRadius: '8px', 
-              fontWeight: '600', 
+              background: 'var(--cta-secondary-bg)', 
+              color: 'var(--text-color)', 
+              padding: '14px 28px', 
+              borderRadius: '12px', 
+              fontWeight: '700', 
               textDecoration: 'none',
-              border: '2px solid #3B82F6',
-              transition: 'all 0.3s'
+              border: '1px solid var(--cta-secondary-border)',
+              boxShadow: 'var(--cta-secondary-shadow)',
+              transition: 'all 0.3s ease'
             }}
           >
             Contact Support
           </Link>
         </div>
         
-        <div style={{ marginTop: '48px' }}>
-          <p style={{ fontSize: '14px', color: '#9CA3AF', marginBottom: '16px' }}>You might be looking for:</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Link href="/about" style={{ color: '#3B82F6', textDecoration: 'none', fontSize: '14px' }}>About Us</Link>
-            <Link href="/services" style={{ color: '#3B82F6', textDecoration: 'none', fontSize: '14px' }}>Services</Link>
-            <Link href="/pricing" style={{ color: '#3B82F6', textDecoration: 'none', fontSize: '14px' }}>Pricing</Link>
-            <Link href="/contact" style={{ color: '#3B82F6', textDecoration: 'none', fontSize: '14px' }}>Contact</Link>
+        <div style={{ marginTop: '48px', borderTop: '1px solid var(--card-border)', paddingTop: '32px' }}>
+          <p style={{ fontSize: '14px', color: 'var(--body-text)', marginBottom: '16px', fontWeight: '600' }}>You might be looking for:</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <Link href="/about" style={{ color: '#4f46e5', textDecoration: 'none', fontSize: '14px', fontWeight: '700' }}>About Us</Link>
+            <Link href="/services" style={{ color: '#4f46e5', textDecoration: 'none', fontSize: '14px', fontWeight: '700' }}>Services</Link>
+            <Link href="/team" style={{ color: '#4f46e5', textDecoration: 'none', fontSize: '14px', fontWeight: '700' }}>Our Team</Link>
+            <Link href="/contact" style={{ color: '#4f46e5', textDecoration: 'none', fontSize: '14px', fontWeight: '700' }}>Contact</Link>
           </div>
         </div>
       </div>
       <style jsx>{`
         @media (hover: hover) {
-          a:hover {
-            background-color: #2563EB;
+          .cta-primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
           }
-          a:nth-of-type(2):hover {
-            background-color: #EFF6FF;
+          .cta-secondary-btn:hover {
+            background: var(--cta-secondary-bg);
+            border-color: var(--cta-secondary-border);
+            opacity: 0.9;
+            transform: translateY(-2px);
           }
-          div:last-child a:hover {
+          div a:hover {
             text-decoration: underline;
           }
         }

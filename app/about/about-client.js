@@ -1,5 +1,7 @@
-'use client'
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const team = [
   {
@@ -13,7 +15,6 @@ const team = [
     role: 'CEO & Cybersecurity Expert',
     bio: 'As the CEO of the organization, Anshu Rajkagoria brings strong leadership skills and a clear strategic vision to drive innovation and growth. With expertise in Cybersecurity and a solid foundation in Web Development, she focuses on building secure and scalable digital solutions. Along with her technical knowledge, Anshu possesses excellent soft skills including communication, teamwork, leadership, and problem-solving abilities. She has consistently maintained a strong academic performance with a CGPA of 7+, reflecting her dedication, discipline, and commitment toward continuous learning and professional excellence.',
     image: '/images/Anshu-Rajkagoria.jpeg'
-
   }
 ];
 
@@ -25,1161 +26,790 @@ const achievements = [
 ];
 
 export default function About() {
-
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
-  {/* Hero Section */}
-<section
-  style={{
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '140px 20px',
-    background:
-      'linear-gradient(180deg,#F8FBFF,#FFFFFF)',
-  }}
->
-  <div
-    style={{
-      position: 'absolute',
-      width: '450px',
-      height: '450px',
-      background: '#3B82F6',
-      borderRadius: '50%',
-      filter: 'blur(120px)',
-      opacity: 0.18,
-      top: '-100px',
-      right: '-120px',
-    }}
-  />
-
-  <div
-    style={{
-      position: 'absolute',
-      width: '350px',
-      height: '350px',
-      background: '#06B6D4',
-      borderRadius: '50%',
-      filter: 'blur(120px)',
-      opacity: 0.15,
-      bottom: '-120px',
-      left: '-120px',
-    }}
-  />
-
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-      textAlign: 'center',
-      position: 'relative',
-      zIndex: 2,
-    }}
-  >
-    <div
-      style={{
-        display: 'inline-flex',
-        padding: '10px 18px',
-        borderRadius: '999px',
-        background: 'rgba(59,130,246,.12)',
-        border: '1px solid rgba(59,130,246,.25)',
-        color: '#2563EB',
-        fontWeight: '600',
-        marginBottom: '25px',
-      }}
-    >
-      🚀 ABOUT ASH SOLUTIONS
-    </div>
-
-    <h1
-      style={{
-        fontSize: 'clamp(42px,8vw,78px)',
-        fontWeight: '900',
-        lineHeight: '1.05',
-        color: '#0F172A',
-        marginBottom: '25px',
-      }}
-    >
-      Building Intelligent
-      <br />
-      Digital Solutions
-    </h1>
-
-    <p
-      style={{
-        maxWidth: '850px',
-        margin: '0 auto',
-        fontSize: 'clamp(16px,2.5vw,22px)',
-        lineHeight: '1.8',
-        color: '#64748B',
-      }}
-    >
-      We help businesses automate operations,
-      build scalable software systems and leverage
-      technology to drive growth, efficiency
-      and innovation.
-    </p>
-
-    <div
-      style={{
-        marginTop: '50px',
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '16px',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Link
-        href="/contact"
+    <div style={{ background: 'transparent', color: 'var(--text-color)' }}>
+      {/* Hero Section */}
+      <section
+        className="hero-section"
         style={{
-          padding: '14px 24px',
-          width: '100%',
-          maxWidth: '280px',
-          textAlign: 'center',
-          borderRadius: '14px',
-          textDecoration: 'none',
-          background:
-            'linear-gradient(135deg,#2563EB,#06B6D4)',
-          color: '#fff',
-          fontWeight: '700',
-          boxSizing: 'border-box',
+          padding: '170px 24px 100px',
+          background: 'radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        Talk To An Expert
-      </Link>
-
-      <Link
-        href="/services"
-        style={{
-          padding: '14px 24px',
-          width: '100%',
-          maxWidth: '280px',
-          textAlign: 'center',
-          borderRadius: '14px',
-          textDecoration: 'none',
-          background: '#FFFFFF',
-          color: '#0F172A',
-          border: '1px solid #CBD5E1',
-          fontWeight: '700',
-          boxSizing: 'border-box',
-        }}
-      >
-        View Services
-      </Link>
-    </div>
-  </div>
-</section>
-     
-
-  {/* Our Story Section */}
-<section
-  style={{
-    padding: '120px 20px',
-    background: '#FFFFFF',
-  }}
->
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))',
-      gap: '60px',
-      alignItems: 'center',
-    }}
-  >
-    {/* Left Content */}
-    <div>
-      <div
-        style={{
-          display: 'inline-block',
-          padding: '10px 18px',
-          borderRadius: '999px',
-          background: 'rgba(59,130,246,.10)',
-          border: '1px solid rgba(59,130,246,.20)',
-          color: '#2563EB',
-          fontWeight: '700',
-          marginBottom: '20px',
-        }}
-      >
-        OUR STORY
-      </div>
-
-      <h2
-        style={{
-          fontSize: 'clamp(34px,6vw,58px)',
-          fontWeight: '900',
-          lineHeight: '1.1',
-          color: '#0F172A',
-          marginBottom: '24px',
-        }}
-      >
-        Technology Focused.
-        <br />
-        Business Driven.
-      </h2>
-
-      <p
-        style={{
-          color: '#64748B',
-          lineHeight: '1.9',
-          fontSize: '17px',
-          marginBottom: '20px',
-        }}
-      >
-        ASH Solutions was founded with a simple goal —
-        helping businesses leverage modern technology
-        to improve efficiency, automate workflows and
-        scale operations without unnecessary complexity.
-      </p>
-
-      <p
-        style={{
-          color: '#64748B',
-          lineHeight: '1.9',
-          fontSize: '17px',
-        }}
-      >
-        From custom software and SaaS platforms to AI
-        automation and business systems, we focus on
-        building practical solutions that create real
-        business impact and long-term growth.
-      </p>
-    </div>
-
-    {/* Right Card */}
-    <div
-      style={{
-        background: '#F8FAFC',
-        border: '1px solid rgba(15,23,42,.08)',
-        borderRadius: '30px',
-        padding: '40px',
-        boxShadow:
-          '0 15px 40px rgba(15,23,42,.05)',
-      }}
-    >
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns:
-            'repeat(auto-fit,minmax(140px,1fr))',
-          gap: '24px',
-        }}
-      >
-        <div>
-          <h3
-            style={{
-              fontSize: '42px',
-              fontWeight: '900',
-              color: '#2563EB',
-              marginBottom: '8px',
-            }}
-          >
-            10+
-          </h3>
-
-          <p
-            style={{
-              color: '#64748B',
-              margin: 0,
-            }}
-          >
-            Solutions Delivered
-          </p>
-        </div>
-
-        <div>
-          <h3
-            style={{
-              fontSize: '42px',
-              fontWeight: '900',
-              color: '#2563EB',
-              marginBottom: '8px',
-            }}
-          >
-            100%
-          </h3>
-
-          <p
-            style={{
-              color: '#64748B',
-              margin: 0,
-            }}
-          >
-            Client Focused
-          </p>
-        </div>
-
-        <div>
-          <h3
-            style={{
-              fontSize: '42px',
-              fontWeight: '900',
-              color: '#2563EB',
-              marginBottom: '8px',
-            }}
-          >
-            AI
-          </h3>
-
-          <p
-            style={{
-              color: '#64748B',
-              margin: 0,
-            }}
-          >
-            Powered Solutions
-          </p>
-        </div>
-
-        <div>
-          <h3
-            style={{
-              fontSize: '42px',
-              fontWeight: '900',
-              color: '#2563EB',
-              marginBottom: '8px',
-            }}
-          >
-            24/7
-          </h3>
-
-          <p
-            style={{
-              color: '#64748B',
-              margin: 0,
-            }}
-          >
-            Support Mindset
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-            
-{/* Mission & Vision Section */}
-<section
-  style={{
-    padding: '120px 20px',
-    background: '#F8FAFC',
-  }}
->
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-    }}
-  >
-    <div
-      style={{
-        textAlign: 'center',
-        marginBottom: '70px',
-      }}
-    >
-      <div
-        style={{
-          display: 'inline-block',
-          padding: '10px 18px',
-          borderRadius: '999px',
-          background: 'rgba(59,130,246,.10)',
-          border: '1px solid rgba(59,130,246,.20)',
-          color: '#2563EB',
-          fontWeight: '700',
-          marginBottom: '20px',
-        }}
-      >
-        OUR PURPOSE
-      </div>
-
-      <h2
-        style={{
-          fontSize: 'clamp(34px,6vw,58px)',
-          fontWeight: '900',
-          color: '#0F172A',
-          marginBottom: '20px',
-          lineHeight: '1.1',
-        }}
-      >
-        Mission & Vision
-      </h2>
-
-      <p
-        style={{
-          maxWidth: '700px',
-          margin: '0 auto',
-          color: '#64748B',
-          lineHeight: '1.8',
-          fontSize: '17px',
-        }}
-      >
-        Building technology that helps businesses
-        automate operations, improve efficiency and
-        unlock sustainable growth.
-      </p>
-    </div>
-
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns:
-          'repeat(auto-fit,minmax(320px,1fr))',
-        gap: '30px',
-      }}
-    >
-      {/* Mission */}
-      <div
-        style={{
-          background: '#FFFFFF',
-          borderRadius: '30px',
-          padding: '40px',
-          border: '1px solid rgba(15,23,42,.08)',
-          boxShadow:
-            '0 15px 40px rgba(15,23,42,.05)',
-        }}
-      >
+        {/* Background Glow */}
         <div
           style={{
-            width: '70px',
-            height: '70px',
-            borderRadius: '20px',
-            background:
-              'linear-gradient(135deg,#2563EB,#06B6D4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontSize: '30px',
-            marginBottom: '24px',
+            position: 'absolute',
+            width: '500px',
+            height: '500px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%)',
+            filter: 'blur(140px)',
+            top: '-200px',
+            right: '-150px',
+            pointerEvents: 'none',
           }}
-        >
-          🎯
-        </div>
+        />
 
-        <h3
-          style={{
-            fontSize: '30px',
-            fontWeight: '800',
-            color: '#0F172A',
-            marginBottom: '18px',
-          }}
-        >
-          Our Mission
-        </h3>
-
-        <p
-          style={{
-            color: '#64748B',
-            lineHeight: '1.9',
-            fontSize: '16px',
-          }}
-        >
-          To help businesses embrace digital
-          transformation through custom software,
-          AI automation, SaaS solutions and scalable
-          technology systems that deliver measurable
-          business results.
-        </p>
-      </div>
-
-      {/* Vision */}
-      <div
-        style={{
-          background: '#FFFFFF',
-          borderRadius: '30px',
-          padding: '40px',
-          border: '1px solid rgba(15,23,42,.08)',
-          boxShadow:
-            '0 15px 40px rgba(15,23,42,.05)',
-        }}
-      >
         <div
           style={{
-            width: '70px',
-            height: '70px',
-            borderRadius: '20px',
-            background:
-              'linear-gradient(135deg,#2563EB,#06B6D4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontSize: '30px',
-            marginBottom: '24px',
-          }}
-        >
-          🚀
-        </div>
-
-        <h3
-          style={{
-            fontSize: '30px',
-            fontWeight: '800',
-            color: '#0F172A',
-            marginBottom: '18px',
-          }}
-        >
-          Our Vision
-        </h3>
-
-        <p
-          style={{
-            color: '#64748B',
-            lineHeight: '1.9',
-            fontSize: '16px',
-          }}
-        >
-          To become a trusted technology partner for
-          businesses worldwide by creating innovative,
-          scalable and future-ready digital solutions
-          that drive long-term success.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Core Values Section */}
-<section
-  style={{
-    padding: '120px 20px',
-    background: '#FFFFFF',
-  }}
->
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-    }}
-  >
-    <div
-      style={{
-        textAlign: 'center',
-        marginBottom: '70px',
-      }}
-    >
-      <div
-        style={{
-          display: 'inline-block',
-          padding: '10px 18px',
-          borderRadius: '999px',
-          background: 'rgba(59,130,246,.10)',
-          border: '1px solid rgba(59,130,246,.20)',
-          color: '#2563EB',
-          fontWeight: '700',
-          marginBottom: '20px',
-        }}
-      >
-        OUR VALUES
-      </div>
-
-      <h2
-        style={{
-          fontSize: 'clamp(34px,6vw,58px)',
-          fontWeight: '900',
-          color: '#0F172A',
-          marginBottom: '18px',
-          lineHeight: '1.1',
-        }}
-      >
-        Principles That Drive
-        <br />
-        Everything We Build
-      </h2>
-
-      <p
-        style={{
-          maxWidth: '720px',
-          margin: '0 auto',
-          color: '#64748B',
-          lineHeight: '1.8',
-          fontSize: '17px',
-        }}
-      >
-        Every project, decision and solution is guided
-        by values that help us deliver meaningful results
-        for our clients.
-      </p>
-    </div>
-
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns:
-          'repeat(auto-fit,minmax(260px,1fr))',
-        gap: '24px',
-      }}
-    >
-      {[
-        {
-          icon: '🤝',
-          title: 'Client First',
-          desc: 'We focus on understanding business needs and delivering solutions that create real value.',
-        },
-        {
-          icon: '💡',
-          title: 'Innovation',
-          desc: 'We continuously explore modern technologies, AI and automation to stay ahead.',
-        },
-        {
-          icon: '⚡',
-          title: 'Execution',
-          desc: 'Ideas matter, but implementation matters more. We prioritize delivery and outcomes.',
-        },
-        {
-          icon: '🔒',
-          title: 'Trust & Security',
-          desc: 'Security, transparency and reliability are built into every solution we create.',
-        },
-      ].map((value, index) => (
-        <div
-          key={index}
-          style={{
-            background: '#F8FAFC',
-            border: '1px solid rgba(15,23,42,.08)',
-            borderRadius: '28px',
-            padding: '36px',
-            transition: 'all .3s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform =
-              'translateY(-8px)';
-            e.currentTarget.style.boxShadow =
-              '0 20px 40px rgba(15,23,42,.08)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform =
-              'translateY(0)';
-            e.currentTarget.style.boxShadow =
-              'none';
+            maxWidth: '1300px',
+            margin: '0 auto',
+            textAlign: 'center',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
           <div
             style={{
-              width: '70px',
-              height: '70px',
-              borderRadius: '20px',
-              background:
-                'linear-gradient(135deg,#2563EB,#06B6D4)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '30px',
-              marginBottom: '24px',
+              color: '#4f46e5',
+              fontWeight: '700',
+              letterSpacing: '2px',
+              marginBottom: '20px',
+              textTransform: 'uppercase',
             }}
           >
-            {value.icon}
+            About ASH Solutions
           </div>
 
-          <h3
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             style={{
-              fontSize: '24px',
-              fontWeight: '800',
-              color: '#0F172A',
-              marginBottom: '14px',
+              fontSize: 'clamp(32px, 8vw, 100px)',
+              fontWeight: '950',
+              lineHeight: '.95',
+              letterSpacing: '-2px',
+              color: 'var(--title-color)',
+              marginBottom: '30px',
             }}
           >
-            {value.title}
-          </h3>
+            Technology.<br />
+            Automation.<br />
+            <span className="text-gradient-purple-cyan">Growth.</span>
+          </motion.h1>
 
           <p
             style={{
-              color: '#64748B',
-              lineHeight: '1.8',
-              margin: 0,
+              maxWidth: '850px',
+              margin: '0 auto',
+              color: 'var(--body-text)',
+              fontSize: '20px',
+              lineHeight: '1.9',
             }}
           >
-            {value.desc}
+            We build AI-powered software, automation systems and scalable digital solutions that help businesses operate smarter, grow faster and stay future-ready.
           </p>
+
+          {/* Buttons */}
+          <div
+            className="about-hero-buttons"
+            style={{
+              marginTop: '55px',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '18px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Link
+              href="/contact"
+              className="cta-primary-btn"
+              style={{
+                padding: '18px 36px',
+                borderRadius: '16px',
+                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                fontWeight: '700',
+                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            >
+              Start A Project
+            </Link>
+
+            <Link
+              href="/services"
+              className="cta-secondary-btn"
+              style={{
+                padding: '18px 36px',
+                borderRadius: '16px',
+                border: '1px solid var(--cta-secondary-border)',
+                color: 'var(--text-color)',
+                textDecoration: 'none',
+                fontWeight: '700',
+                background: 'var(--cta-secondary-bg)',
+                boxShadow: 'var(--cta-secondary-shadow)',
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+            >
+              Explore Services
+            </Link>
+          </div>
+
+          {/* Ribbon */}
+          <div
+            style={{
+              marginTop: '90px',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+              borderTop: '1px solid rgba(15, 23, 42, 0.05)',
+              borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
+              padding: '24px 0',
+              background: 'rgba(255, 255, 255, 0.8)',
+            }}
+          >
+            <div className="about-ribbon">
+              AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • CYBERSECURITY • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS • AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • CYBERSECURITY • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
+
+      {/* Our Story Section */}
+      <section
+        style={{
+          padding: '120px 24px',
+          background: 'var(--section-bg)',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          className="story-grid"
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1.1fr',
+            gap: '80px',
+            alignItems: 'center',
+          }}
+        >
+          {/* Left Side */}
+          <div>
+            <div
+              style={{
+                color: '#4f46e5',
+                fontWeight: '700',
+                letterSpacing: '2px',
+                marginBottom: '20px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Our Story
+            </div>
+
+            <h2
+              style={{
+                fontSize: 'clamp(44px, 6vw, 78px)',
+                fontWeight: '900',
+                lineHeight: '.95',
+                color: '#0f172a',
+                letterSpacing: '-2px',
+              }}
+            >
+              Building <br />
+              Systems <br />
+              That Scale.
+            </h2>
+          </div>
+
+          {/* Right Side */}
+          <div>
+            <p
+              style={{
+                color: '#1e293b',
+                fontSize: '18px',
+                lineHeight: '1.9',
+                marginBottom: '24px',
+              }}
+            >
+              ASH Solutions was founded with a vision of helping businesses leverage software, automation and AI to operate more efficiently and scale sustainably.
+            </p>
+
+            <p
+              style={{
+                color: '#1e293b',
+                fontSize: '18px',
+                lineHeight: '1.9',
+                marginBottom: '24px',
+              }}
+            >
+              We focus on building custom systems that eliminate manual work, improve visibility and create long-term operational advantages.
+            </p>
+
+            <p
+              style={{
+                color: '#1e293b',
+                fontSize: '18px',
+                lineHeight: '1.9',
+              }}
+            >
+              Every solution we build is designed around real business outcomes, not just technology.
+            </p>
+          </div>
+        </div>
+
+        {/* Metrics Grid */}
+        <div
+          style={{
+            maxWidth: '1280px',
+            margin: '100px auto 0',
+          }}
+        >
+          <div
+            className="principles-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+              gap: '24px',
+            }}
+          >
+            {achievements.map((item, idx) => (
+              <div
+                key={idx}
+                className="glass-panel"
+                style={{
+                  padding: 'var(--card-padding)',
+                  borderRadius: '24px',
+                  borderTop: '2px solid #4f46e5',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: '44px',
+                    fontWeight: '900',
+                    color: '#4f46e5',
+                    marginBottom: '10px',
+                  }}
+                >
+                  {item.value}
+                </div>
+                <h3
+                  style={{
+                    fontSize: '18px',
+                    fontWeight: '800',
+                    color: '#0f172a',
+                    marginBottom: '10px',
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p style={{ color: '#1e293b', fontSize: '14px', lineHeight: '1.6' }}>
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Leadership Team */}
-<section
-  style={{
-    padding: '140px 20px',
-    background: '#F8FAFC',
-  }}
->
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-    }}
-  >
-    <div
-      style={{
-        textAlign: 'center',
-        marginBottom: '80px',
-      }}
-    >
-      <div
+      <section
         style={{
-          color: '#2563EB',
-          fontWeight: '700',
-          marginBottom: '12px',
-          letterSpacing: '1px',
+          padding: '120px 24px',
+          background: 'var(--bg-color)',
         }}
       >
-        LEADERSHIP TEAM
-      </div>
-
-      <h2
-        style={{
-          fontSize: 'clamp(36px,6vw,58px)',
-          fontWeight: '900',
-          color: '#0F172A',
-          marginBottom: '18px',
-        }}
-      >
-        Meet The People
-        Behind ASH Solutions
-      </h2>
-
-      <p
-        style={{
-          maxWidth: '750px',
-          margin: '0 auto',
-          color: '#64748B',
-          lineHeight: '1.8',
-        }}
-      >
-        Combining technical expertise,
-        innovation and business-focused thinking
-        to build impactful digital solutions.
-      </p>
-    </div>
-
-    {/* Founder Card */}
-
-    <div
-      style={{
-        background: '#FFFFFF',
-        border: '1px solid rgba(15,23,42,.08)',
-        borderRadius: '30px',
-        padding: '40px',
-        marginBottom: '35px',
-        boxShadow:
-          '0 10px 30px rgba(15,23,42,.05)',
-      }}
-    >
-      <div className='leader-card'
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '280px 1fr',
-          gap: '40px',
-          alignItems: 'center',
-        }}
-      >
-        <img className='leader-image'
-          src="/images/hardik-singh.jpeg"
-          alt="Hardik Singh"
+        <div
           style={{
-            width: '100%',
-            height: '320px',
-            objectFit: 'cover',
-            objectPosition: 'top',
-            borderRadius: '24px',
+            maxWidth: '1280px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Heading */}
+          <div
+            style={{
+              textAlign: 'center',
+              marginBottom: '100px',
+            }}
+          >
+            <div
+              style={{
+                color: '#4f46e5',
+                fontWeight: '700',
+                letterSpacing: '2px',
+                marginBottom: '15px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Leadership Team
+            </div>
+
+            <h2
+              style={{
+                fontSize: 'clamp(38px, 6vw, 64px)',
+                fontWeight: '900',
+                lineHeight: '.95',
+                color: '#0f172a',
+                letterSpacing: '-1.5px',
+              }}
+            >
+              The People Behind ASH
+            </h2>
+          </div>
+
+          {/* Leaders Showcase */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
+            {/* Hardik */}
+            <div
+              className="leader-row"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1.2fr',
+                gap: '60px',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ position: 'relative' }}>
+                <div
+                  style={{
+                    padding: '8px',
+                    borderRadius: '28px',
+                    background: 'linear-gradient(135deg, #4f46e5, #0891b2)',
+                    boxShadow: '0 25px 50px rgba(79, 70, 229, 0.15)',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                  className="photo-frame"
+                >
+                  <img
+                    src="/images/hardik-singh.jpeg"
+                    alt="Hardik L. Singh - Founder"
+                    style={{
+                      width: '100%',
+                      height: '520px',
+                      objectFit: 'cover',
+                      objectPosition: 'center 20%',
+                      borderRadius: '20px',
+                      display: 'block',
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    color: '#4f46e5',
+                    fontWeight: '700',
+                    marginBottom: '12px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                  }}
+                >
+                  Founder & Full-Stack Developer
+                </div>
+
+                <h3
+                  style={{
+                    fontSize: 'clamp(32px, 5vw, 54px)',
+                    fontWeight: '900',
+                    color: '#0f172a',
+                    marginBottom: '20px',
+                    lineHeight: '.95',
+                    letterSpacing: '-1px',
+                  }}
+                >
+                  {team[0].name}
+                </h3>
+
+                <p
+                  style={{
+                    color: '#1e293b',
+                    lineHeight: '1.9',
+                    fontSize: '18px',
+                  }}
+                >
+                  {team[0].bio}
+                </p>
+              </div>
+            </div>
+
+            {/* Anshu */}
+            <div
+              className="leader-row reverse"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1.2fr 1fr',
+                gap: '60px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    color: '#4f46e5',
+                    fontWeight: '700',
+                    marginBottom: '12px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                  }}
+                >
+                  CEO & Cybersecurity Expert
+                </div>
+
+                <h3
+                  style={{
+                    fontSize: 'clamp(32px, 5vw, 54px)',
+                    fontWeight: '900',
+                    color: '#0f172a',
+                    marginBottom: '20px',
+                    lineHeight: '.95',
+                    letterSpacing: '-1px',
+                  }}
+                >
+                  {team[1].name}
+                </h3>
+
+                <p
+                  style={{
+                    color: '#1e293b',
+                    lineHeight: '1.9',
+                    fontSize: '18px',
+                  }}
+                >
+                  {team[1].bio}
+                </p>
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    padding: '8px',
+                    borderRadius: '28px',
+                    background: 'linear-gradient(135deg, #7c3aed, #4f46e5)',
+                    boxShadow: '0 25px 50px rgba(124, 58, 237, 0.15)',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                  className="photo-frame"
+                >
+                  <img
+                    src="/images/Anshu-Rajkagoria.jpeg"
+                    alt="Anshu Rajkagoria - CEO"
+                    style={{
+                      width: '100%',
+                      height: '520px',
+                      objectFit: 'cover',
+                      objectPosition: 'center 20%',
+                      borderRadius: '20px',
+                      display: 'block',
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section
+        style={{
+          padding: '120px 24px',
+          background: 'var(--section-bg)',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              textAlign: 'center',
+              marginBottom: '100px',
+            }}
+          >
+            <div
+              style={{
+                color: '#4f46e5',
+                fontWeight: '700',
+                letterSpacing: '2px',
+                marginBottom: '15px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Core Principles
+            </div>
+
+            <h2
+              style={{
+                fontSize: 'clamp(38px, 6vw, 64px)',
+                fontWeight: '900',
+                lineHeight: '.95',
+                color: '#0f172a',
+                letterSpacing: '-1.5px',
+              }}
+            >
+              How We Think.
+            </h2>
+          </div>
+
+          {[
+            {
+              number: '01',
+              title: 'Business First',
+              desc: 'Technology should solve business problems, not create new ones. Every solution starts with understanding goals and outcomes.',
+            },
+            {
+              number: '02',
+              title: 'Innovation With Purpose',
+              desc: 'We embrace AI and emerging technologies only when they create measurable value for our clients.',
+            },
+            {
+              number: '03',
+              title: 'Execution Matters',
+              desc: 'Ideas are valuable, but execution creates results. We focus on delivering reliable and scalable systems.',
+            },
+            {
+              number: '04',
+              title: 'Long-Term Partnerships',
+              desc: 'We build relationships, not projects. Our success grows when our clients continue to grow.',
+            },
+          ].map((item) => (
+            <div
+              key={item.number}
+              className="value-row"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '180px 1fr',
+                gap: '40px',
+                padding: '50px 0',
+                borderTop: '1px solid rgba(15, 23, 42, 0.05)',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: '64px',
+                  fontWeight: '950',
+                  color: '#4f46e5',
+                  lineHeight: '1',
+                }}
+              >
+                {item.number}
+              </div>
+
+              <div>
+                <h3
+                  style={{
+                    fontSize: '26px',
+                    fontWeight: '800',
+                    color: '#0f172a',
+                    marginBottom: '14px',
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  style={{
+                    maxWidth: '800px',
+                    color: '#1e293b',
+                    fontSize: '17px',
+                    lineHeight: '1.8',
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section - Anchor dark block */}
+      <section
+        style={{
+          padding: '140px 24px',
+          background: '#070b13',
+          color: '#FFFFFF',
+          overflow: 'hidden',
+          position: 'relative',
+          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            width: '600px',
+            height: '600px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)',
+            filter: 'blur(120px)',
+            top: '-200px',
+            right: '-150px',
+            pointerEvents: 'none',
           }}
         />
 
-        <div>
-          <div
-            style={{
-              color: '#2563EB',
-              fontWeight: '700',
-              marginBottom: '10px',
-            }}
-          >
-            FOUNDER
-          </div>
-
-          <h3
-            style={{
-              fontSize: '34px',
-              fontWeight: '900',
-              color: '#0F172A',
-              marginBottom: '10px',
-            }}
-          >
-            Hardik L. Singh
-          </h3>
-
-          <p
-            style={{
-              color: '#64748B',
-              lineHeight: '1.9',
-              marginBottom: '25px',
-            }}
-          >
-            Full Stack Developer focused on building
-            scalable software systems, SaaS platforms,
-            AI-powered solutions and business automation tools.
-          </p>
-
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '10px',
-            }}
-          >
-            {[
-              'Full Stack Development',
-              'AI Integration',
-              'SaaS Development',
-              'Business Systems',
-              'Web Applications',
-            ].map((skill) => (
-              <span
-                key={skill}
-                style={{
-                  padding: '10px 16px',
-                  borderRadius: '999px',
-                  background: '#EFF6FF',
-                  color: '#2563EB',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* CEO Card */}
-
-    <div className='leader-card'
-      style={{
-        background: '#FFFFFF',
-        border: '1px solid rgba(15,23,42,.08)',
-        borderRadius: '30px',
-        padding: '40px',
-        boxShadow:
-          '0 10px 30px rgba(15,23,42,.05)',
-      }}
-    >
-      <div className='leader-card'
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '280px 1fr',
-          gap: '40px',
-          alignItems: 'center',
-        }}
-      >
-        <img className='leader-image'
-          src="/images/Anshu-Rajkagoria.jpeg"
-          alt="Anshu Rajkagoria"
+        <div
           style={{
-            width: '100%',
-            height: '320px',
-            objectFit: 'cover',
-            objectPosition: 'top',
-            borderRadius: '24px',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            position: 'relative',
+            zIndex: 2,
+            textAlign: 'center',
           }}
-        />
-
-        <div>
+        >
           <div
             style={{
-              color: '#2563EB',
+              color: '#818cf8',
               fontWeight: '700',
-              marginBottom: '10px',
+              letterSpacing: '2px',
+              marginBottom: '20px',
+              textTransform: 'uppercase',
             }}
           >
-            CEO
+            LET'S BUILD TOGETHER
           </div>
 
-          <h3
+          <h2
             style={{
-              fontSize: '34px',
+              fontSize: 'clamp(44px, 6vw, 84px)',
               fontWeight: '900',
-              color: '#0F172A',
-              marginBottom: '10px',
+              lineHeight: '.95',
+              letterSpacing: '-2px',
+              marginBottom: '35px',
             }}
           >
-            Anshu Rajkagoria
-          </h3>
+            Your Vision. <br />
+            Our Expertise.
+          </h2>
 
           <p
             style={{
-              color: '#64748B',
+              maxWidth: '760px',
+              margin: '0 auto',
+              color: '#cbd5e1',
               lineHeight: '1.9',
-              marginBottom: '25px',
+              fontSize: '18px',
+              marginBottom: '45px',
             }}
           >
-            Leading strategic growth, cybersecurity
-            initiatives and operational excellence while
-            driving innovation and long-term business vision.
+            Whether you're launching a startup, modernizing operations, automating workflows or building a custom software platform, we're ready to help turn ideas into scalable digital solutions.
           </p>
 
           <div
+            className="about-cta-buttons"
             style={{
               display: 'flex',
+              justifyContent: 'center',
+              gap: '18px',
               flexWrap: 'wrap',
-              gap: '10px',
             }}
           >
-            {[
-              'Leadership',
-              'Cybersecurity',
-              'Strategic Planning',
-              'Business Operations',
-              'Digital Innovation',
-            ].map((skill) => (
-              <span
-                key={skill}
-                style={{
-                  padding: '10px 16px',
-                  borderRadius: '999px',
-                  background: '#EFF6FF',
-                  color: '#2563EB',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                }}
-              >
-                {skill}
-              </span>
-            ))}
+            <a
+              href="https://wa.me/918652768171"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary-btn"
+              style={{
+                padding: '18px 36px',
+                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                borderRadius: '16px',
+                fontWeight: '800',
+                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.35)',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Start A Conversation
+            </a>
+
+            <Link
+              href="/services"
+              className="cta-secondary-btn"
+              style={{
+                padding: '18px 36px',
+                border: '1px solid rgba(255,255,255,.15)',
+                background: 'rgba(255,255,255,.04)',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                borderRadius: '16px',
+                fontWeight: '800',
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Explore Services
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-{/* CTA Section */}
-<section
-  style={{
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '120px 20px',
-    background:
-      'linear-gradient(135deg,#0F172A,#1E293B)',
-  }}
->
-  {/* Glow Effects */}
-  <div
-    style={{
-      position: 'absolute',
-      width: '400px',
-      height: '400px',
-      background: '#2563EB',
-      borderRadius: '50%',
-      filter: 'blur(140px)',
-      opacity: 0.18,
-      top: '-150px',
-      right: '-100px',
-    }}
-  />
-
-  <div
-    style={{
-      position: 'absolute',
-      width: '350px',
-      height: '350px',
-      background: '#06B6D4',
-      borderRadius: '50%',
-      filter: 'blur(140px)',
-      opacity: 0.15,
-      bottom: '-150px',
-      left: '-100px',
-    }}
-  />
-
-  <div
-    style={{
-      position: 'relative',
-      zIndex: 2,
-      maxWidth: '1000px',
-      margin: '0 auto',
-      textAlign: 'center',
-    }}
-  >
-    <div
-      style={{
-        display: 'inline-block',
-        padding: '10px 18px',
-        borderRadius: '999px',
-        background: 'rgba(255,255,255,.08)',
-        border: '1px solid rgba(255,255,255,.12)',
-        color: '#CBD5E1',
-        fontWeight: '600',
-        marginBottom: '24px',
-      }}
-    >
-      🚀 LET'S BUILD SOMETHING GREAT
-    </div>
-
-    <h2
-      style={{
-        fontSize: 'clamp(34px,7vw,64px)',
-        fontWeight: '900',
-        lineHeight: '1.1',
-        color: '#FFFFFF',
-        marginBottom: '24px',
-      }}
-    >
-      Ready To Transform
-      <br />
-      Your Business?
-    </h2>
-
-    <p
-      style={{
-        maxWidth: '760px',
-        margin: '0 auto',
-        color: '#CBD5E1',
-        lineHeight: '1.9',
-        fontSize: '18px',
-      }}
-    >
-      Whether you need a modern website,
-      custom software, SaaS platform,
-      AI automation or a complete business
-      management system — ASH Solutions is
-      ready to turn your vision into reality.
-    </p>
-
-    <div
-      style={{
-        marginTop: '45px',
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '16px',
-        flexWrap: 'wrap',
-      }}
-    >
-      <a
-        href="https://wa.me/918652768171"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          textDecoration: 'none',
-          padding: '16px 30px',
-          borderRadius: '14px',
-          background:
-            'linear-gradient(135deg,#2563EB,#06B6D4)',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          fontSize: '16px',
-          boxShadow:
-            '0 15px 35px rgba(37,99,235,.35)',
-        }}
-      >
-        Talk To An Expert
-      </a>
-
-      <Link
-        href="/contact"
-        style={{
-          textDecoration: 'none',
-          padding: '16px 30px',
-          borderRadius: '14px',
-          background: 'rgba(255,255,255,.08)',
-          border: '1px solid rgba(255,255,255,.15)',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          fontSize: '16px',
-          backdropFilter: 'blur(10px)',
-        }}
-      >
-        Get Custom Quote
-      </Link>
-    </div>
-  </div>
-</section>
+      </section>
 
       <style jsx>{`
-        @media (min-width: 768px) {
-          section:nth-of-type(2) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          section:nth-of-type(3) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          section:nth-of-type(4) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          section:nth-of-type(5) > div > div {
-            grid-template-columns: repeat(2, 1fr);
-          }
+        .about-ribbon {
+          display: inline-block;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          color: #4b5563;
+          animation: ribbonMove 24s linear infinite;
         }
-        @media (min-width: 1024px) {
-          section:nth-of-type(4) > div > div {
-            grid-template-columns: repeat(4, 1fr);
-          }
+
+        @keyframes ribbonMove {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
+
         @media (hover: hover) {
-          a:hover {
-            background-color: var(--hover-bg);
+          .cta-primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+          }
+          .cta-secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+          }
+          .photo-frame:hover {
+            transform: translateY(-6px) scale(1.025);
+            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25) !important;
           }
         }
-           @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-    @media (max-width: 768px) {
-  .team-card {
-    grid-template-columns: 1fr !important;
-  }
-}
-  @media (max-width:900px){
 
-  .story-grid{
-    grid-template-columns:1fr !important;
-    gap:30px !important;
-  }
+        @media (max-width: 900px) {
+          .story-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .leader-row {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+          }
+          .leader-row img {
+            height: 400px !important;
+          }
+          .reverse {
+            display: flex !important;
+            flex-direction: column-reverse !important;
+          }
+          .value-row {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
 
-}
-  @media (max-width:900px){
-
-  .leader-card{
-    grid-template-columns:1fr !important;
-    text-align:center;
-  }
-
-}
-  @media (max-width:900px){
-
-  .leader-image{
-    max-width:260px;
-    margin:auto;
-    height:260px !important;
-  }
-
-}
-  @media (max-width:768px){
-
-  .mission-grid{
-    grid-template-columns:1fr !important;
-  }
-
-}
-  @media (max-width:768px){
-
-  .about-hero{
-    padding:110px 20px 90px !important;
-  }
-
-}
-  @media (max-width:640px){
-
-  .values-grid{
-    grid-template-columns:1fr !important;
-  }
-
-}
+        @media (max-width: 768px) {
+          :global(.about-hero-buttons), :global(.about-cta-buttons) {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+            width: 100% !important;
+          }
+          :global(.about-hero-buttons a), :global(.about-cta-buttons a) {
+            width: 100% !important;
+            max-width: 100% !important;
+            text-align: center !important;
+          }
+        }
       `}</style>
     </div>
   );

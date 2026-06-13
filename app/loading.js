@@ -8,20 +8,20 @@ export default function Loading() {
       flexDirection: 'column',
       alignItems: 'center', 
       justifyContent: 'center',
-      backgroundColor: '#F9FAFB'
+      backgroundColor: 'var(--bg-color)'
     }}>
       <div 
         style={{ 
           width: '60px', 
           height: '60px', 
-          border: '4px solid rgba(59, 130, 246, 0.2)', 
-          borderTop: '4px solid #3B82F6', 
+          border: '4px solid rgba(99, 102, 241, 0.1)', 
+          borderTop: '4px solid #4f46e5', 
           borderRadius: '50%',
           marginBottom: '24px',
           animation: 'spin 1s linear infinite'
         }}
       ></div>
-      <p style={{ color: '#6B7280', fontSize: '16px' }}>Loading...</p>
+      <p style={{ color: 'var(--body-text)', fontSize: '16px' }}>Loading...</p>
     </div>
   )
 }

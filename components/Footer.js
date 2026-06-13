@@ -1,168 +1,304 @@
-import Link from 'next/link';
-const linkStyle = {
-  display: 'block',
-  color: '#94A3B8',
-  textDecoration: 'none',
-  marginBottom: '12px',
-  transition: 'all .3s ease',
-};
+'use client';
 
-const contactStyle = {
-  color: '#94A3B8',
-  marginBottom: '12px',
-};
+import Link from 'next/link';
+
 export default function Footer() {
   return (
-  <footer
-  style={{
-    background: '#020617',
-    color: '#fff',
-    padding: '90px 20px 40px',
-    borderTop: '1px solid rgba(255,255,255,.06)',
-  }}
->
-  <div
-    style={{
-      maxWidth: '1200px',
-      margin: '0 auto',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))',
-      gap: '50px',
-      marginBottom: '60px',
-    }}
-  >
-    {/* Brand */}
-    <div>
-      <h2
+    <footer
+      style={{
+        background: '#070b13',
+        color: '#FFFFFF',
+        padding: '90px 24px 35px',
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+      }}
+    >
+      {/* Premium Glow Blobs */}
+      <div
         style={{
-          fontSize: '30px',
-          fontWeight: '900',
-          marginBottom: '16px',
+          position: 'absolute',
+          width: '350px',
+          height: '350px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          top: '-100px',
+          right: '-100px',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+          bottom: '-50px',
+          left: '-100px',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
-        ASH Solutions
-      </h2>
+        {/* Top Section */}
+        <div className="footer-grid">
+          {/* Company */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <h2
+              style={{
+                fontSize: '32px',
+                fontWeight: '900',
+                letterSpacing: '-1px',
+                background: 'linear-gradient(135deg, #ffffff 40%, #818cf8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              ASH Solutions
+            </h2>
 
-      <p
-        style={{
-          color: '#94A3B8',
-          lineHeight: '1.8',
-        }}
-      >
-        Building AI Automation, SaaS Platforms,
-        Business Systems, Websites and Mobile Apps
-        for modern businesses.
-      </p>
-    </div>
+            <p
+              style={{
+                color: '#e2e8f0',
+                lineHeight: '1.8',
+                fontSize: '15px',
+                maxWidth: '320px',
+              }}
+            >
+              Building AI Automation, SaaS Platforms, Business Systems, Websites and Mobile Apps designed for growth.
+            </p>
 
-    {/* Services */}
-    <div>
-      <h3
-        style={{
-          marginBottom: '20px',
-          fontSize: '18px',
-          fontWeight: '700',
-        }}
-      >
-        Services
-      </h3>
+            <div style={{ marginTop: '10px' }}>
+              <a
+                href="https://wa.me/918652768171"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-cta"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 26px',
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #4f46e5 0%, #4338ca 100%)',
+                  color: '#FFFFFF',
+                  textDecoration: 'none',
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                Let's Talk <span style={{ transition: 'transform 0.2s' }}>→</span>
+              </a>
+            </div>
+          </div>
 
-      {[
-        'AI Automation',
-        'Custom SaaS',
-        'CRM & ERP',
-        'Web Development',
-        'Mobile Apps',
-        'Cybersecurity',
-      ].map((item) => (
-        <p
-          key={item}
+          {/* Company Links */}
+          <div>
+            <h3
+              style={{
+                fontSize: '16px',
+                fontWeight: '700',
+                marginBottom: '22px',
+                color: '#ffffff',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Company
+            </h3>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px',
+              }}
+            >
+              {['Home', 'About', 'Services', 'Team', 'Contact'].map((item) => (
+                <Link
+                  key={item}
+                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  className="footer-link"
+                  style={{
+                    color: '#cbd5e1',
+                    textDecoration: 'none',
+                    fontSize: '15px',
+                    width: 'fit-content',
+                    transition: 'color 0.2s ease, transform 0.2s ease',
+                  }}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3
+              style={{
+                fontSize: '16px',
+                fontWeight: '700',
+                marginBottom: '22px',
+                color: '#ffffff',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Services
+            </h3>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px',
+                color: '#cbd5e1',
+                fontSize: '15px',
+              }}
+            >
+              <span className="footer-service-item">AI Automation</span>
+              <span className="footer-service-item">Custom SaaS</span>
+              <span className="footer-service-item">CRM Systems</span>
+              <span className="footer-service-item">ERP Solutions</span>
+              <span className="footer-service-item">Web Development</span>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3
+              style={{
+                fontSize: '16px',
+                fontWeight: '700',
+                marginBottom: '22px',
+                color: '#ffffff',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Contact
+            </h3>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px',
+                color: '#cbd5e1',
+                fontSize: '15px',
+              }}
+            >
+              <span>Mumbai, India</span>
+              <a
+                href="mailto:contact@ashsolutions.site"
+                className="footer-link"
+                style={{ color: '#cbd5e1', textDecoration: 'none' }}
+              >
+                contact@ashsolutions.site
+              </a>
+              <a
+                href="tel:+918652768171"
+                className="footer-link"
+                style={{ color: '#cbd5e1', textDecoration: 'none' }}
+              >
+                +91 86527 68171
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div
           style={{
-            color: '#94A3B8',
-            marginBottom: '12px',
+            marginTop: '60px',
+            marginBottom: '30px',
+            height: '1px',
+            background:
+              'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)',
+          }}
+        />
+
+        {/* Tagline */}
+        <div
+          style={{
+            textAlign: 'center',
+            color: '#94a3b8',
+            fontWeight: '600',
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
+            fontSize: '11px',
+            marginBottom: '20px',
           }}
         >
-          {item}
-        </p>
-      ))}
-    </div>
+          AI • SaaS • Automation • Business Systems • Mobile Apps
+        </div>
 
-    {/* Quick Links */}
-    <div>
-      <h3
-        style={{
-          marginBottom: '20px',
-          fontSize: '18px',
-          fontWeight: '700',
-        }}
-      >
-        Quick Links
-      </h3>
+        {/* Bottom */}
+        <div
+          style={{
+            textAlign: 'center',
+            color: '#94a3b8',
+            fontSize: '13px',
+          }}
+        >
+          © {new Date().getFullYear()} ASH Solutions. All Rights Reserved.
+        </div>
+      </div>
 
-      <a href="/" style={linkStyle}>Home</a>
-      <a href="/about" style={linkStyle}>About</a>
-      <a href="/services" style={linkStyle}>Services</a>
-      <a href="/team" style={linkStyle}>Team</a>
-      <a href="/contact" style={linkStyle}>Contact</a>
-    </div>
+      <style jsx>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1fr 1fr;
+          gap: 60px;
+        }
 
-    {/* Contact */}
-    <div>
-      <h3
-        style={{
-          marginBottom: '20px',
-          fontSize: '18px',
-          fontWeight: '700',
-        }}
-      >
-        Contact
-      </h3>
+        .footer-service-item {
+          display: block;
+        }
 
-      <p style={contactStyle}>
-        📍 Mumbai, Maharashtra
-      </p>
+        @media (hover: hover) {
+          .footer-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+          }
+          .footer-cta:hover span {
+            transform: translateX(4px);
+          }
+          .footer-link:hover {
+            color: #ffffff !important;
+            transform: translateX(4px);
+          }
+        }
 
-      <p style={contactStyle}>
-        📞 +91 8652768171
-      </p>
+        @media (max-width: 900px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+          }
+        }
 
-      <p style={contactStyle}>
-        ✉️ contact@ashsolutions.site
-      </p>
-
-      <a
-        href="https://wa.me/918652768171"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'inline-block',
-          marginTop: '16px',
-          padding: '12px 20px',
-          borderRadius: '12px',
-          background: '#2563EB',
-          color: '#fff',
-          textDecoration: 'none',
-          fontWeight: '700',
-        }}
-      >
-        WhatsApp Us
-      </a>
-    </div>
-  </div>
-
-  {/* Bottom Bar */}
-  <div
-    style={{
-      borderTop: '1px solid rgba(255,255,255,.08)',
-      paddingTop: '25px',
-      textAlign: 'center',
-      color: '#64748B',
-      fontSize: '14px',
-    }}
-  >
-    © {new Date().getFullYear()} ASH Solutions &
-    Innovations. All Rights Reserved.
-  </div>
-</footer>
+        @media (max-width: 600px) {
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 35px;
+          }
+          padding: 60px 16px 30px;
+        }
+      `}</style>
+    </footer>
   );
 }

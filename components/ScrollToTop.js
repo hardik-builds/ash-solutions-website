@@ -33,21 +33,29 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       style={{
         position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        backgroundColor: '#3B82F6',
+        bottom: '24px',
+        right: '24px',
+        backgroundColor: '#6366f1',
         color: 'white',
         width: '50px',
         height: '50px',
         borderRadius: '50%',
-        border: 'none',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-        transition: 'all 0.3s',
+        boxShadow: '0 8px 30px rgba(99, 102, 241, 0.3)',
+        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         zIndex: 1000
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)';
+        e.currentTarget.style.backgroundColor = '#4f46e5';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+        e.currentTarget.style.backgroundColor = '#6366f1';
       }}
     >
       <svg style={{ width: '24px', height: '24px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
