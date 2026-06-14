@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FiArrowRight, FiBriefcase } from 'react-icons/fi';
+import CTASection from '@/components/CTASection';
 
 const team = [
   {
@@ -186,9 +188,26 @@ export default function About() {
                 fontWeight: '700',
                 boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(79, 70, 229, 0.4)';
+                const arrow = e.currentTarget.querySelector('.arrow-icon');
+                if (arrow) arrow.style.transform = 'translateX(4px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.25)';
+                const arrow = e.currentTarget.querySelector('.arrow-icon');
+                if (arrow) arrow.style.transform = 'translateX(0)';
               }}
             >
               Start A Project
+              <FiArrowRight className="arrow-icon" style={{ fontSize: '18px', transition: 'transform 0.3s ease' }} />
             </Link>
 
             <Link
@@ -205,8 +224,24 @@ export default function About() {
                 boxShadow: 'var(--cta-secondary-shadow)',
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                e.currentTarget.style.backgroundColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.05)';
+                e.currentTarget.style.borderColor = isDark ? 'rgba(56, 189, 248, 0.25)' : 'rgba(99, 102, 241, 0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.backgroundColor = 'var(--cta-secondary-bg)';
+                e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
               }}
             >
+              <FiBriefcase style={{ fontSize: '18px' }} />
               Explore Services
             </Link>
           </div>
@@ -699,126 +734,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA Section - Anchor dark block */}
-      <section
-        style={{
-          padding: '140px 24px',
-          background: '#070b13',
-          color: '#FFFFFF',
-          overflow: 'hidden',
-          position: 'relative',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)',
-            filter: 'blur(120px)',
-            top: '-200px',
-            right: '-150px',
-            pointerEvents: 'none',
-          }}
-        />
-
-        <div
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            position: 'relative',
-            zIndex: 2,
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              color: '#818cf8',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '20px',
-              textTransform: 'uppercase',
-            }}
-          >
-            LET'S BUILD TOGETHER
-          </div>
-
-          <h2
-            style={{
-              fontSize: 'clamp(44px, 6vw, 84px)',
-              fontWeight: '900',
-              lineHeight: '.95',
-              letterSpacing: '-2px',
-              marginBottom: '35px',
-            }}
-          >
-            Your Vision. <br />
-            Our Expertise.
-          </h2>
-
-          <p
-            style={{
-              maxWidth: '760px',
-              margin: '0 auto',
-              color: '#cbd5e1',
-              lineHeight: '1.9',
-              fontSize: '18px',
-              marginBottom: '45px',
-            }}
-          >
-            Whether you're launching a startup, modernizing operations, automating workflows or building a custom software platform, we're ready to help turn ideas into scalable digital solutions.
-          </p>
-
-          <div
-            className="about-cta-buttons"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '18px',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-primary-btn"
-              style={{
-                padding: '18px 36px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                borderRadius: '16px',
-                fontWeight: '800',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.35)',
-                transition: 'all 0.3s ease',
-              }}
-            >
-              Start A Conversation
-            </a>
-
-            <Link
-              href="/services"
-              className="cta-secondary-btn"
-              style={{
-                padding: '18px 36px',
-                border: '1px solid rgba(255,255,255,.15)',
-                background: 'rgba(255,255,255,.04)',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                borderRadius: '16px',
-                fontWeight: '800',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.3s ease',
-              }}
-            >
-              Explore Services
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection />
 
       <style jsx>{`
         .about-ribbon {
@@ -836,15 +752,6 @@ export default function About() {
         }
 
         @media (hover: hover) {
-          .cta-primary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-          }
-          .cta-secondary-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-          }
           .photo-frame:hover {
             transform: translateY(-6px) scale(1.025);
             box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25) !important;

@@ -1,6 +1,6 @@
 import connectDB from '@/lib/mongodb';
 import Project from '@/lib/models/Project';
-import { getToken } from '@/lib/auth';
+import jwt from 'jsonwebtoken';
 
 export async function GET(request) {
   try {

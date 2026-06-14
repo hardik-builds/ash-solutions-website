@@ -36,9 +36,11 @@ export async function GET() {
     results.bcrypt = { success: false, error: error.message };
   }
   
-  // Test JWT
   try {
-    const testToken = jwt.sign({ test: 'test' }, process.env.JWT_SECRET || 'fallback');
+    if (!process.env.JWT_SECRET) {
+      throw new Error('JWT_SECRET is missing');
+    }
+    const testToken = jwt.sign({ test: 'test' }, process.env.JWT_SECRET);
     results.jwt = { success: true };
   } catch (error) {
     results.jwt = { success: false, error: error.message };

@@ -475,6 +475,13 @@ html, body {
   padding: 50px 40px;
 }
 
+.insight-card {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 40px;
+  width: 100%;
+}
+
 @media (max-width: 992px) {
   .service-card {
     grid-template-columns: 80px 1fr !important;
@@ -511,13 +518,15 @@ html, body {
   }
 
   /* Services Mobile Stack & Dividers */
-  .services-page-wrapper .service-card {
+  .services-page-wrapper .service-card,
+  .services-page-wrapper .insight-card {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
     padding: 35px 0 !important;
     border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
   }
-  .services-page-wrapper .service-card:last-child {
+  .services-page-wrapper .service-card:last-child,
+  .services-page-wrapper .insight-card:last-child {
     border-bottom: none !important;
   }
 

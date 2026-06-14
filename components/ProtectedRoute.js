@@ -8,17 +8,21 @@ export default function ProtectedRoute({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    const checkAuth = () => {
-      const token = localStorage.getItem('token');
-      const user = localStorage.getItem('user');
-      
-      if (token && user) {
-        setIsAuthenticated(true);
-      } else {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch('/api/auth/me');
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          router.push('/login');
+        }
+      } catch (err) {
         setIsAuthenticated(false);
         router.push('/login');
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
 
     checkAuth();

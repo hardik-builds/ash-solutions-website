@@ -10,15 +10,20 @@ export default function SimpleDashboardLayout({ children, title }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated()) {
-      router.push('/login');
-      return;
-    }
-    setUser(getUser());
+    const checkAuth = async () => {
+      const authenticated = await isAuthenticated();
+      if (!authenticated) {
+        router.push('/login');
+        return;
+      }
+      const userData = await getUser();
+      setUser(userData);
+    };
+    checkAuth();
   }, [router]);
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     router.push('/login');
   };
 

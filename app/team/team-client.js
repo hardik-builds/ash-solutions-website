@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaLinkedin, FaTwitter, FaGithub, FaDribbble, FaRocket, FaHandshake } from 'react-icons/fa';
 import { FiUsers, FiTarget, FiZap } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import CTASection from '@/components/CTASection';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -541,134 +542,7 @@ export default function TeamClient({ teamData }) {
       </section>
 
       {/* CTA Section - Anchor dark block */}
-      <section
-        style={{
-          padding: '120px 24px',
-          background: '#090d16',
-          position: 'relative',
-          overflow: 'hidden',
-          color: '#FFFFFF',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            width: '500px',
-            height: '500px',
-            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%)',
-            borderRadius: '50%',
-            filter: 'blur(140px)',
-            top: '-200px',
-            right: '-150px',
-            pointerEvents: 'none',
-          }}
-        />
-
-        <div
-          style={{
-            maxWidth: '1000px',
-            margin: '0 auto',
-            textAlign: 'center',
-            position: 'relative',
-            zIndex: 2,
-          }}
-        >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              background: 'rgba(99, 102, 241, 0.1)',
-              border: '1px solid rgba(99, 102, 241, 0.2)',
-              color: '#818cf8',
-              fontWeight: '700',
-              fontSize: '13px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              marginBottom: '24px',
-            }}
-          >
-            <FaRocket style={{ marginRight: '8px', fontSize: '14px' }} /> Let's Build Together
-          </div>
-
-          <h2
-            style={{
-              fontSize: 'clamp(38px, 6vw, 64px)',
-              fontWeight: '900',
-              lineHeight: '1.1',
-              marginBottom: '24px',
-              color: '#ffffff',
-              letterSpacing: '-1.5px',
-            }}
-          >
-            Have A Project <br />
-            In Mind?
-          </h2>
-
-          <p
-            style={{
-              maxWidth: '720px',
-              margin: '0 auto',
-              color: '#cbd5e1',
-              fontSize: '18px',
-              lineHeight: '1.8',
-              marginBottom: '40px',
-            }}
-          >
-            Whether you're planning an AI-powered platform, business management system, custom SaaS product or modern website, our team is ready to help you build it.
-          </p>
-
-          <div
-            className="team-cta"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '16px',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-primary-btn"
-              style={{
-                padding: '16px 32px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                color: '#FFFFFF',
-                fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              Talk To Our Team
-            </a>
-
-            <Link
-              href="/contact"
-              className="cta-secondary-btn"
-              style={{
-                padding: '16px 32px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#FFFFFF',
-                fontWeight: '700',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              Request A Quote
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection />
 
       <style jsx>{`
         @media (hover: hover) {

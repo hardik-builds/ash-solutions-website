@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRocket } from 'react-icons/fa';
-import { FiMail, FiPhone, FiClock } from 'react-icons/fi';
+import { FaRocket, FaWhatsapp } from 'react-icons/fa';
+import { FiMail, FiPhone, FiClock, FiUser, FiBriefcase, FiMessageSquare, FiZap, FiCheckCircle, FiSend } from 'react-icons/fi';
+import CTASection from '@/components/CTASection';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -68,14 +69,14 @@ export default function Contact() {
   const inputStyle = {
     width: '100%',
     padding: '16px 20px',
-    border: '1px solid var(--input-border)',
-    borderRadius: '14px',
-    boxSizing: 'border-box',
-    fontSize: '15px',
-    background: 'var(--input-bg)',
+    paddingLeft: '48px',
+    border: 'none',
+    background: 'transparent',
     color: 'var(--input-text)',
     outline: 'none',
-    transition: 'all 0.3s ease',
+    fontSize: '15px',
+    fontFamily: 'inherit',
+    boxSizing: 'border-box',
   };
 
   return (
@@ -273,8 +274,13 @@ export default function Contact() {
                   fontWeight: '700',
                   color: 'var(--title-color)',
                   fontSize: '15px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px'
                 }}
               >
+                <FiCheckCircle style={{ color: '#4f46e5', fontSize: '18px', flexShrink: 0 }} />
                 {item}
               </div>
             ))}
@@ -362,86 +368,98 @@ export default function Contact() {
                 )}
               </AnimatePresence>
 
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name *"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    style={inputStyle}
-                    className="contact-input"
-                  />
+                  <div className="input-wrapper">
+                    <FiUser className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      style={inputStyle}
+                    />
+                  </div>
 
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address *"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    style={inputStyle}
-                    className="contact-input"
-                  />
+                  <div className="input-wrapper">
+                    <FiMail className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      style={inputStyle}
+                    />
+                  </div>
                 </div>
 
                 <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    style={inputStyle}
-                    className="contact-input"
-                  />
+                  <div className="input-wrapper">
+                    <FiPhone className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                  </div>
 
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Business Name"
-                    value={formData.company}
-                    onChange={handleChange}
-                    style={inputStyle}
-                    className="contact-input"
-                  />
+                  <div className="input-wrapper">
+                    <FiBriefcase className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <input
+                      type="text"
+                      name="company"
+                      placeholder="Business Name"
+                      value={formData.company}
+                      onChange={handleChange}
+                      style={inputStyle}
+                    />
+                  </div>
                 </div>
 
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  style={{
-                    ...inputStyle,
-                    color: formData.service ? 'var(--input-text)' : '#64748b',
-                  }}
-                  className="contact-input"
-                >
-                  <option value="" style={{ background: 'var(--input-bg)', color: '#64748b' }}>Select Service</option>
-                  <option value="website" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Website Development</option>
-                  <option value="saas" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Custom SaaS Development</option>
-                  <option value="automation" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>AI Automation</option>
-                  <option value="crm" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Business Management System</option>
-                  <option value="mobile" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Mobile App Development</option>
-                  <option value="security" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Cybersecurity</option>
-                </select>
+                <div className="input-wrapper">
+                  <FiZap className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', zIndex: 3, transition: 'all 0.3s ease' }} />
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    style={{
+                      ...inputStyle,
+                      color: formData.service ? 'var(--input-text)' : '#64748b',
+                    }}
+                  >
+                    <option value="" style={{ background: 'var(--input-bg)', color: '#64748b' }}>Select Service</option>
+                    <option value="website" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Website Development</option>
+                    <option value="saas" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Custom SaaS Development</option>
+                    <option value="automation" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>AI Automation</option>
+                    <option value="crm" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Business Management System</option>
+                    <option value="mobile" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Mobile App Development</option>
+                    <option value="security" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Cybersecurity</option>
+                  </select>
+                </div>
 
-                <textarea
-                  rows="6"
-                  name="message"
-                  placeholder="Tell Us About Your Project *"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  style={{
-                    ...inputStyle,
-                    minHeight: '160px',
-                    resize: 'vertical',
-                  }}
-                  className="contact-input"
-                />
+                <div className="input-wrapper" style={{ alignItems: 'flex-start' }}>
+                  <FiMessageSquare className="input-icon" style={{ position: 'absolute', left: '16px', top: '18px', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                  <textarea
+                    rows="6"
+                    name="message"
+                    placeholder="Tell Us About Your Project *"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    style={{
+                      ...inputStyle,
+                      minHeight: '160px',
+                      resize: 'vertical',
+                    }}
+                  />
+                </div>
 
                 <button
                   type="submit"
@@ -452,16 +470,33 @@ export default function Contact() {
                     padding: '18px',
                     border: 'none',
                     borderRadius: '14px',
-                    background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                    background: 'linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%)',
                     color: '#FFFFFF',
                     fontWeight: '800',
                     fontSize: '16px',
                     cursor: 'pointer',
                     boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)';
+                    e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(6, 182, 212, 0.35)';
+                    const icon = e.currentTarget.querySelector('.btn-icon');
+                    if (icon) icon.style.transform = 'translate(3px, -3px) scale(1.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.25)';
+                    const icon = e.currentTarget.querySelector('.btn-icon');
+                    if (icon) icon.style.transform = 'translate(0, 0) scale(1)';
                   }}
                 >
                   {isSubmitting ? 'Sending...' : 'Get Free Consultation'}
+                  {!isSubmitting && <FiSend className="btn-icon" style={{ fontSize: '18px', transition: 'transform 0.3s ease' }} />}
                 </button>
               </form>
             </div>
@@ -474,6 +509,9 @@ export default function Contact() {
                 padding: 'var(--card-padding)',
                 position: 'sticky',
                 top: '120px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+                boxShadow: 'var(--card-shadow), var(--card-sheen)',
               }}
             >
               <div
@@ -501,10 +539,11 @@ export default function Contact() {
                 href="https://wa.me/918652768171"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-whatsapp"
+                className="cta-whatsapp cta-whatsapp-pulse"
                 style={{
-                  display: 'block',
-                  textAlign: 'center',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   padding: '16px',
                   borderRadius: '14px',
                   background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
@@ -512,34 +551,80 @@ export default function Contact() {
                   textDecoration: 'none',
                   fontWeight: '700',
                   boxShadow: '0 4px 15px rgba(34, 197, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
-                  marginBottom: '30px',
+                  marginBottom: '35px',
                   transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                  e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(34, 197, 94, 0.35)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(34, 197, 94, 0.2)';
                 }}
               >
-                Open WhatsApp
+                <FaWhatsapp style={{ fontSize: '20px' }} /> Open WhatsApp
               </a>
 
               <div
                 style={{
-                  color: 'var(--title-color)',
-                  lineHeight: '2.1',
-                  fontSize: '15px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '20px',
                   borderTop: '1px solid var(--card-border)',
-                  paddingTop: '20px',
-                  fontWeight: '700',
+                  paddingTop: '25px',
                 }}
               >
-                <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center' }}>
-                  <FiMail style={{ marginRight: '10px', color: '#4f46e5', flexShrink: 0 }} />
-                  <span style={{ color: 'var(--body-text)', fontWeight: '600' }}>contact@ashsolutions.site</span>
+                {/* Email Item */}
+                <div className="contact-info-item">
+                  <div className="info-icon-wrapper">
+                    <FiMail />
+                  </div>
+                  <div>
+                    <div className="info-label">
+                      Email Address
+                    </div>
+                    <a
+                      href="mailto:contact@ashsolutions.site"
+                      className="info-link"
+                    >
+                      contact@ashsolutions.site
+                    </a>
+                  </div>
                 </div>
-                <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center' }}>
-                  <FiPhone style={{ marginRight: '10px', color: '#4f46e5', flexShrink: 0 }} />
-                  <span style={{ color: 'var(--body-text)', fontWeight: '600' }}>+91 86527 68171</span>
+
+                {/* Phone Item */}
+                <div className="contact-info-item">
+                  <div className="info-icon-wrapper">
+                    <FiPhone />
+                  </div>
+                  <div>
+                    <div className="info-label">
+                      Phone Call
+                    </div>
+                    <a
+                      href="tel:+918652768171"
+                      className="info-link"
+                    >
+                      +91 86527 68171
+                    </a>
+                  </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <FiClock style={{ marginRight: '10px', color: '#4f46e5', flexShrink: 0 }} />
-                  <span style={{ color: 'var(--body-text)', fontWeight: '600' }}>Response Within 24 Hours</span>
+
+                {/* Clock Item */}
+                <div className="contact-info-item">
+                  <div className="info-icon-wrapper">
+                    <FiClock />
+                  </div>
+                  <div>
+                    <div className="info-label">
+                      Response Time
+                    </div>
+                    <div className="info-text">
+                      Within 24 Hours
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -547,126 +632,154 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Bottom CTA block - Anchor dark block */}
-      <section
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          padding: '120px 24px',
-          background: '#070b13',
-          color: '#fff',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            width: '450px',
-            height: '450px',
-            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%)',
-            borderRadius: '50%',
-            filter: 'blur(140px)',
-            top: '-150px',
-            right: '-120px',
-            pointerEvents: 'none',
-          }}
-        />
-
-        <div
-          style={{
-            maxWidth: '1000px',
-            margin: '0 auto',
-            textAlign: 'center',
-            position: 'relative',
-            zIndex: 2,
-          }}
-        >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              background: 'rgba(99, 102, 241, 0.1)',
-              border: '1px solid rgba(99, 102, 241, 0.2)',
-              color: '#818cf8',
-              fontWeight: '600',
-              fontSize: '13px',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              marginBottom: '24px',
-            }}
-          >
-            <FaRocket style={{ marginRight: '8px', fontSize: '14px' }} /> Let's Build Together
-          </div>
-
-          <h2
-            style={{
-              fontSize: 'clamp(38px, 6vw, 64px)',
-              fontWeight: '900',
-              lineHeight: '1.1',
-              marginBottom: '24px',
-              letterSpacing: '-1.5px',
-            }}
-          >
-            Ready To Start <br />
-            Your Project?
-          </h2>
-
-          <p style={{ maxWidth: '700px', margin: '0 auto', color: '#cbd5e1', fontSize: '18px', lineHeight: '1.8', marginBottom: '40px' }}>
-            Whether you need a website, AI automation, SaaS platform, CRM, ERP or mobile application, our team is ready to help turn your vision into reality.
-          </p>
-
-          <div
-            className="contact-cta-buttons"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '16px',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-primary-btn"
-              style={{
-                padding: '16px 30px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                color: '#fff',
-                fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              Talk To An Expert
-            </a>
-
-            <a
-              href="mailto:contact@ashsolutions.site"
-              className="cta-secondary-btn"
-              style={{
-                padding: '16px 30px',
-                borderRadius: '14px',
-                textDecoration: 'none',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#fff',
-                fontWeight: '700',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              Email Us
-            </a>
-          </div>
-        </div>
-      </section>
+      <CTASection />
 
       <style jsx>{`
+        .input-wrapper {
+          position: relative;
+          width: 100%;
+          border: 1px solid var(--input-border);
+          border-radius: 14px;
+          background: var(--input-bg);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          display: flex;
+          align-items: center;
+        }
+
+        .input-wrapper:hover {
+          border-color: rgba(99, 102, 241, 0.25);
+          background: var(--card-bg);
+        }
+
+        .input-wrapper:focus-within {
+          border-color: #4f46e5;
+          background: var(--card-bg) !important;
+          box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15), 0 8px 20px -5px rgba(79, 70, 229, 0.1);
+          transform: translateY(-1px);
+        }
+
+        .input-wrapper:focus-within .input-icon {
+          color: #4f46e5 !important;
+          transform: translateY(-50%) scale(1.1) !important;
+        }
+
+        /* Message textarea icon positioning */
+        .input-wrapper[style*="alignItems: flex-start"] .input-icon,
+        .input-wrapper[style*="align-items: flex-start"] .input-icon {
+          transform: none !important;
+          top: 18px !important;
+        }
+        
+        .input-wrapper[style*="alignItems: flex-start"]:focus-within .input-icon,
+        .input-wrapper[style*="align-items: flex-start"]:focus-within .input-icon {
+          transform: scale(1.1) !important;
+        }
+
+        [data-theme="dark"] .input-wrapper:focus-within {
+          border-color: #38bdf8;
+          background: var(--card-bg) !important;
+          box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 8px 20px -5px rgba(56, 189, 248, 0.1);
+        }
+
+        [data-theme="dark"] .input-wrapper:focus-within .input-icon {
+          color: #38bdf8 !important;
+        }
+
+        .contact-info-item {
+          display: flex;
+          align-items: center;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          padding: 10px;
+          border-radius: 16px;
+          cursor: pointer;
+        }
+
+        .contact-info-item:hover {
+          background: rgba(99, 102, 241, 0.04);
+          transform: translateX(4px);
+        }
+
+        [data-theme="dark"] .contact-info-item:hover {
+          background: rgba(56, 189, 248, 0.04);
+        }
+
+        .info-icon-wrapper {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          background: rgba(99, 102, 241, 0.08);
+          display: flex;
+          align-items: center;
+          justifyContent: center;
+          margin-right: 14px;
+          flex-shrink: 0;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .contact-info-item:hover .info-icon-wrapper {
+          background: #4f46e5 !important;
+          transform: scale(1.1);
+        }
+
+        [data-theme="dark"] .contact-info-item:hover .info-icon-wrapper {
+          background: #38bdf8 !important;
+        }
+
+        .info-icon-wrapper :global(svg) {
+          color: #4f46e5;
+          font-size: 18px;
+          transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .info-icon-wrapper :global(svg) {
+          color: #38bdf8;
+        }
+
+        .contact-info-item:hover .info-icon-wrapper :global(svg) {
+          color: #ffffff !important;
+        }
+
+        .info-label {
+          font-size: 10px;
+          color: #64748b;
+          text-transform: uppercase;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          margin-bottom: 2px;
+        }
+
+        .info-link, .info-text {
+          font-size: 15px;
+          color: var(--title-color);
+          font-weight: 700;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+
+        .contact-info-item:hover .info-link {
+          color: #4f46e5;
+        }
+
+        [data-theme="dark"] .contact-info-item:hover .info-link {
+          color: #38bdf8;
+        }
+
+        @keyframes whatsapp-pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+          }
+        }
+
+        .cta-whatsapp-pulse {
+          animation: whatsapp-pulse 2s infinite;
+        }
+
         @media (hover: hover) {
           .cta-primary-btn:hover {
             transform: translateY(-2px);
@@ -681,11 +794,6 @@ export default function Contact() {
           .cta-whatsapp:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-          }
-          .contact-input:focus {
-            border-color: #4f46e5 !important;
-            background: rgba(99, 102, 241, 0.01) !important;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
           }
         }
 
