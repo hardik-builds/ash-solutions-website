@@ -30,14 +30,9 @@ const cardVariants = {
 };
 
 export default function TeamClient({ teamData }) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   return (
     <div
+      className="team-page-wrapper"
       style={{
         position: 'relative',
         minHeight: '100vh',
@@ -368,6 +363,7 @@ export default function TeamClient({ teamData }) {
                   {member.expertise.map((skill, idx) => (
                     <span
                       key={idx}
+                      className="member-skill-tag"
                       style={{
                         padding: '6px 12px',
                         borderRadius: '8px',

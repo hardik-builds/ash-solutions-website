@@ -80,6 +80,7 @@ export default function Contact() {
 
   return (
     <div
+      className="contact-page-wrapper"
       style={{
         position: 'relative',
         background: 'transparent',

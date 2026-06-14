@@ -464,3 +464,113 @@ html, body {
 .live-log-item span {
   color: #38bdf8;
 }
+
+/* ==========================================
+   Desktop Service Card Layout
+   ========================================== */
+.service-card {
+  display: grid;
+  grid-template-columns: 80px 1.5fr 1fr;
+  gap: 40px;
+  padding: 50px 40px;
+}
+
+@media (max-width: 992px) {
+  .service-card {
+    grid-template-columns: 80px 1fr !important;
+    gap: 24px !important;
+    padding: 30px !important;
+  }
+}
+
+/* ==========================================
+   Minimalist Mobile Revamp (Card Strip)
+   ========================================== */
+@media (max-width: 768px) {
+  /* Remove heavy cards layout on sub-pages only (preserve home page) */
+  .about-page-wrapper .glass-panel,
+  .services-page-wrapper .glass-panel,
+  .team-page-wrapper .glass-panel,
+  .contact-page-wrapper .glass-panel {
+    background: transparent !important;
+    border: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    padding: 24px 0 !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Disable card sheen overlays */
+  .about-page-wrapper .premium-card-sheen::after,
+  .services-page-wrapper .premium-card-sheen::after,
+  .team-page-wrapper .premium-card-sheen::after,
+  .contact-page-wrapper .premium-card-sheen::after {
+    display: none !important;
+  }
+
+  /* Services Mobile Stack & Dividers */
+  .services-page-wrapper .service-card {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 35px 0 !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+  }
+  .services-page-wrapper .service-card:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Transform service tag list into bullet items */
+  .services-page-wrapper .service-tags-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-top: 16px;
+  }
+  
+  .services-page-wrapper .service-tag {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--text-color) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .services-page-wrapper .service-tag::before {
+    content: "•";
+    color: #4f46e5;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Transform team expertise cards to inline text list */
+  .team-page-wrapper .member-skill-tag {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #4f46e5 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+  }
+  
+  .team-page-wrapper .member-skill-tag:not(:last-child)::after {
+    content: " • ";
+    color: rgba(15, 23, 42, 0.3);
+    margin: 0 4px;
+  }
+  
+  /* Stacking contact page form fields and cards */
+  .contact-page-wrapper .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .contact-page-wrapper #contact-form {
+    padding: 0 !important;
+  }
+}

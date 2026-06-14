@@ -184,7 +184,7 @@ const cardVariants = {
 
 export default function Services() {
   return (
-    <div style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+    <div className="services-page-wrapper" style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
       <div
         className="mesh-glow-indigo"
         style={{
@@ -393,13 +393,9 @@ export default function Services() {
               <motion.div
                 key={service.id}
                 variants={cardVariants}
-                className="glass-panel glass-panel-hover premium-card-sheen"
+                className="service-card glass-panel glass-panel-hover premium-card-sheen"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '80px 1.5fr 1fr',
-                  gap: '40px',
                   alignItems: 'start',
-                  padding: '50px 40px',
                   borderRadius: '28px',
                 }}
               >
@@ -439,10 +435,11 @@ export default function Services() {
                     {service.description}
                   </p>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                  <div className="service-tags-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                     {service.features.map((feat, idx) => (
                       <span
                         key={idx}
+                        className="service-tag"
                         style={{
                           padding: '6px 12px',
                           borderRadius: '8px',

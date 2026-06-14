@@ -50,7 +50,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <div style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+    <div className="about-page-wrapper" style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
       <div
         className="mesh-glow-indigo"
         style={{
@@ -434,20 +434,21 @@ export default function About() {
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1.2fr',
-                gap: '60px',
+                gap: '80px',
                 alignItems: 'center',
               }}
             >
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
                 <div
-                  style={{
-                    padding: '8px',
-                    borderRadius: '28px',
-                    background: 'linear-gradient(135deg, #4f46e5, #0891b2)',
-                    boxShadow: '0 25px 50px rgba(79, 70, 229, 0.15)',
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
                   className="photo-frame"
+                  style={{
+                    borderRadius: '20px',
+                    boxShadow: '0 20px 50px rgba(15, 23, 42, 0.08)',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    maxWidth: '320px',
+                    width: '100%',
+                    overflow: 'hidden',
+                  }}
                 >
                   <img
                     src="/images/hardik-singh.jpeg"
@@ -471,7 +472,8 @@ export default function About() {
                     fontWeight: '700',
                     marginBottom: '12px',
                     textTransform: 'uppercase',
-                    letterSpacing: '1px',
+                    letterSpacing: '1.5px',
+                    fontSize: '13px'
                   }}
                 >
                   Founder & Full-Stack Developer
@@ -479,11 +481,11 @@ export default function About() {
 
                 <h3
                   style={{
-                    fontSize: 'clamp(32px, 5vw, 54px)',
+                    fontSize: 'clamp(28px, 4vw, 44px)',
                     fontWeight: '900',
-                    color: '#0f172a',
+                    color: 'var(--title-color)',
                     marginBottom: '20px',
-                    lineHeight: '.95',
+                    lineHeight: '1.1',
                     letterSpacing: '-1px',
                   }}
                 >
@@ -492,9 +494,9 @@ export default function About() {
 
                 <p
                   style={{
-                    color: '#1e293b',
-                    lineHeight: '1.9',
-                    fontSize: '18px',
+                    color: 'var(--body-text)',
+                    lineHeight: '1.8',
+                    fontSize: '16.5px',
                   }}
                 >
                   {team[0].bio}
@@ -508,7 +510,7 @@ export default function About() {
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1.2fr 1fr',
-                gap: '60px',
+                gap: '80px',
                 alignItems: 'center',
               }}
             >
@@ -519,7 +521,8 @@ export default function About() {
                     fontWeight: '700',
                     marginBottom: '12px',
                     textTransform: 'uppercase',
-                    letterSpacing: '1px',
+                    letterSpacing: '1.5px',
+                    fontSize: '13px'
                   }}
                 >
                   CEO & Cybersecurity Expert
@@ -527,11 +530,11 @@ export default function About() {
 
                 <h3
                   style={{
-                    fontSize: 'clamp(32px, 5vw, 54px)',
+                    fontSize: 'clamp(28px, 4vw, 44px)',
                     fontWeight: '900',
-                    color: '#0f172a',
+                    color: 'var(--title-color)',
                     marginBottom: '20px',
-                    lineHeight: '.95',
+                    lineHeight: '1.1',
                     letterSpacing: '-1px',
                   }}
                 >
@@ -540,25 +543,26 @@ export default function About() {
 
                 <p
                   style={{
-                    color: '#1e293b',
-                    lineHeight: '1.9',
-                    fontSize: '18px',
+                    color: 'var(--body-text)',
+                    lineHeight: '1.8',
+                    fontSize: '16.5px',
                   }}
                 >
                   {team[1].bio}
                 </p>
               </div>
 
-              <div>
+              <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
                 <div
-                  style={{
-                    padding: '8px',
-                    borderRadius: '28px',
-                    background: 'linear-gradient(135deg, #7c3aed, #4f46e5)',
-                    boxShadow: '0 25px 50px rgba(124, 58, 237, 0.15)',
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
                   className="photo-frame"
+                  style={{
+                    borderRadius: '20px',
+                    boxShadow: '0 20px 50px rgba(15, 23, 42, 0.08)',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    maxWidth: '320px',
+                    width: '100%',
+                    overflow: 'hidden',
+                  }}
                 >
                   <img
                     src="/images/Anshu-Rajkagoria.jpeg"
