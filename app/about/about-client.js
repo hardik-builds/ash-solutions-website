@@ -25,9 +25,68 @@ const achievements = [
   { title: 'Hours of Learning', value: '1000+', description: 'Dedicated to self-learning and practical application' }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 90,
+      damping: 14,
+    },
+  },
+};
+
 export default function About() {
   return (
-    <div style={{ background: 'transparent', color: 'var(--text-color)' }}>
+    <div style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+      <div
+        className="mesh-glow-indigo"
+        style={{
+          position: 'absolute',
+          width: '600px',
+          height: '600px',
+          top: '-150px',
+          right: '-100px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-cyan"
+        style={{
+          position: 'absolute',
+          width: '500px',
+          height: '500px',
+          top: '30%',
+          left: '-150px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-purple"
+        style={{
+          position: 'absolute',
+          width: '550px',
+          height: '550px',
+          bottom: '10%',
+          right: '-120px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -191,7 +250,12 @@ export default function About() {
           }}
         >
           {/* Left Side */}
-          <div>
+          <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <div
               style={{
                 color: '#4f46e5',
@@ -217,11 +281,17 @@ export default function About() {
               Systems <br />
               That Scale.
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right Side */}
-          <div>
-            <p
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.p
+              variants={itemVariants}
               style={{
                 color: '#1e293b',
                 fontSize: '18px',
@@ -230,9 +300,10 @@ export default function About() {
               }}
             >
               ASH Solutions was founded with a vision of helping businesses leverage software, automation and AI to operate more efficiently and scale sustainably.
-            </p>
+            </motion.p>
 
-            <p
+            <motion.p
+              variants={itemVariants}
               style={{
                 color: '#1e293b',
                 fontSize: '18px',
@@ -241,9 +312,10 @@ export default function About() {
               }}
             >
               We focus on building custom systems that eliminate manual work, improve visibility and create long-term operational advantages.
-            </p>
+            </motion.p>
 
-            <p
+            <motion.p
+              variants={itemVariants}
               style={{
                 color: '#1e293b',
                 fontSize: '18px',
@@ -251,8 +323,8 @@ export default function About() {
               }}
             >
               Every solution we build is designed around real business outcomes, not just technology.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
 
         {/* Metrics Grid */}
@@ -382,7 +454,7 @@ export default function About() {
                     alt="Hardik L. Singh - Founder"
                     style={{
                       width: '100%',
-                      height: '520px',
+                      height: '380px',
                       objectFit: 'cover',
                       objectPosition: 'center 20%',
                       borderRadius: '20px',
@@ -493,7 +565,7 @@ export default function About() {
                     alt="Anshu Rajkagoria - CEO"
                     style={{
                       width: '100%',
-                      height: '520px',
+                      height: '380px',
                       objectFit: 'cover',
                       objectPosition: 'center 20%',
                       borderRadius: '20px',
@@ -773,6 +845,12 @@ export default function About() {
             transform: translateY(-6px) scale(1.025);
             box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25) !important;
           }
+          .photo-frame img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          }
+          .photo-frame:hover img {
+            transform: scale(1.04) !important;
+          }
         }
 
         @media (max-width: 900px) {
@@ -785,11 +863,24 @@ export default function About() {
             gap: 30px !important;
           }
           .leader-row img {
-            height: 400px !important;
+            height: 340px !important;
+          }
+          .photo-frame {
+            max-width: 350px !important;
+            margin: 0 auto !important;
           }
           .reverse {
             display: flex !important;
             flex-direction: column-reverse !important;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .leader-row img {
+            height: 260px !important;
+          }
+          .photo-frame {
+            max-width: 280px !important;
           }
           .value-row {
             grid-template-columns: 1fr !important;

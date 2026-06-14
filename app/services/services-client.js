@@ -159,9 +159,69 @@ const industries = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 90,
+      damping: 14,
+    },
+  },
+};
+
 export default function Services() {
   return (
-    <div style={{ background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+      <div
+        className="mesh-glow-indigo"
+        style={{
+          position: 'absolute',
+          width: '600px',
+          height: '600px',
+          top: '-150px',
+          right: '-100px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-cyan"
+        style={{
+          position: 'absolute',
+          width: '500px',
+          height: '500px',
+          top: '30%',
+          left: '-150px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-purple"
+        style={{
+          position: 'absolute',
+          width: '550px',
+          height: '550px',
+          bottom: '10%',
+          right: '-120px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -322,14 +382,18 @@ export default function Services() {
             </h2>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
+          >
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="glass-panel glass-panel-hover"
+                variants={cardVariants}
+                className="glass-panel glass-panel-hover premium-card-sheen"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '80px 1.5fr 1fr',
@@ -341,6 +405,7 @@ export default function Services() {
               >
                 {/* Icon Circle */}
                 <div
+                  className="service-icon"
                   style={{
                     width: '72px',
                     height: '72px',
@@ -351,6 +416,7 @@ export default function Services() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: '#4f46e5',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
                 >
                   {service.icon}
@@ -418,7 +484,7 @@ export default function Services() {
                     href="https://wa.me/918652768171"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="cta-primary-btn"
+                    className="cta-primary-btn service-card-btn"
                     style={{
                       marginTop: '15px',
                       textDecoration: 'none',
@@ -430,17 +496,15 @@ export default function Services() {
                       fontWeight: '700',
                       textAlign: 'center',
                       transition: 'all 0.3s ease',
-                      width: '100%',
-                      maxWidth: '180px',
                       boxShadow: '0 4px 15px rgba(79, 70, 229, 0.2)',
                     }}
                   >
-                    Discuss project →
+                    Discuss project &rarr;
                   </a>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -485,7 +549,7 @@ export default function Services() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px',
             }}
           >
@@ -761,6 +825,11 @@ export default function Services() {
             background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%) !important;
             box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
           }
+          .glass-panel-hover:hover .service-icon {
+            transform: scale(1.12) rotate(4deg) !important;
+            background: rgba(99, 102, 241, 0.12) !important;
+            border-color: rgba(99, 102, 241, 0.25) !important;
+          }
         }
 
         @media (max-width: 992px) {
@@ -799,6 +868,17 @@ export default function Services() {
             width: 100% !important;
             max-width: 100% !important;
             text-align: center !important;
+          }
+        }
+
+        .service-card-btn {
+          width: 100%;
+          max-width: 180px;
+        }
+
+        @media (max-width: 768px) {
+          .service-card-btn {
+            max-width: 100% !important;
           }
         }
       `}</style>

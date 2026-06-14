@@ -6,6 +6,29 @@ import { FaLinkedin, FaTwitter, FaGithub, FaDribbble, FaRocket, FaHandshake } fr
 import { FiUsers, FiTarget, FiZap } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 90,
+      damping: 14,
+    },
+  },
+};
+
 export default function TeamClient({ teamData }) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -16,11 +39,49 @@ export default function TeamClient({ teamData }) {
   return (
     <div
       style={{
+        position: 'relative',
         minHeight: '100vh',
         background: 'transparent',
         color: 'var(--text-color)',
+        overflow: 'hidden',
       }}
     >
+      <div
+        className="mesh-glow-indigo"
+        style={{
+          position: 'absolute',
+          width: '600px',
+          height: '600px',
+          top: '-150px',
+          right: '-100px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-cyan"
+        style={{
+          position: 'absolute',
+          width: '500px',
+          height: '500px',
+          top: '30%',
+          left: '-150px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-purple"
+        style={{
+          position: 'absolute',
+          width: '550px',
+          height: '550px',
+          bottom: '10%',
+          right: '-120px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -202,20 +263,22 @@ export default function TeamClient({ teamData }) {
             </p>
           </div>
 
-          <div
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '30px',
             }}
           >
             {teamData.teamMembers.map((member) => (
               <motion.div
                 key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="glass-panel glass-panel-hover"
+                variants={cardVariants}
+                className="glass-panel glass-panel-hover premium-card-sheen"
                 style={{
                   borderRadius: '32px',
                   padding: 'var(--card-padding)',
@@ -313,6 +376,7 @@ export default function TeamClient({ teamData }) {
                         color: '#4f46e5',
                         fontSize: '12px',
                         fontWeight: '700',
+                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
                     >
                       {skill}
@@ -354,7 +418,7 @@ export default function TeamClient({ teamData }) {
                 )}
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -630,6 +694,11 @@ export default function TeamClient({ teamData }) {
             box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2) !important;
             border-color: #4f46e5 !important;
             transform: scale(1.06) rotate(1.5deg);
+          }
+          .glass-panel-hover:hover span {
+            background: rgba(99, 102, 241, 0.16) !important;
+            border-color: rgba(99, 102, 241, 0.35) !important;
+            transform: scale(1.06) translateY(-1px);
           }
           .social-link-item:hover {
             color: #4f46e5 !important;

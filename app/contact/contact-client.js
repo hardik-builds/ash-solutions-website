@@ -79,7 +79,38 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
+    <div
+      style={{
+        position: 'relative',
+        background: 'transparent',
+        color: 'var(--text-color)',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        className="mesh-glow-indigo"
+        style={{
+          position: 'absolute',
+          width: '600px',
+          height: '600px',
+          top: '-150px',
+          right: '-100px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="mesh-glow-cyan"
+        style={{
+          position: 'absolute',
+          width: '500px',
+          height: '500px',
+          top: '40%',
+          left: '-150px',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -301,9 +332,18 @@ export default function Contact() {
               <AnimatePresence>
                 {isSubmitted && (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: {
+                        type: 'spring',
+                        stiffness: 120,
+                        damping: 14,
+                      },
+                    }}
+                    exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
                     style={{
                       background: 'rgba(34, 197, 94, 0.1)',
                       border: '1px solid rgba(34, 197, 94, 0.3)',
