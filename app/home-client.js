@@ -1,11 +1,262 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import ReviewSlider from '@/components/ReviewSlider';
 import Link from 'next/link';
 
+function TiltCard({ children, className = '', style = {}, ...props }) {
+  const cardRef = useRef(null);
+  
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  
+  const springConfig = { damping: 22, stiffness: 180, mass: 0.6 };
+  const smoothRotateX = useSpring(rotateX, springConfig);
+  const smoothRotateY = useSpring(rotateY, springConfig);
+  
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    
+    const rect = card.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    const mouseX = (e.clientX - rect.left) / width - 0.5;
+    const mouseY = (e.clientY - rect.top) / height - 0.5;
+    
+    const rX = -mouseY * 12;
+    const rY = mouseX * 12;
+    
+    rotateX.set(rX);
+    rotateY.set(rY);
+  };
+  
+  const handleMouseLeave = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+  };
+  
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`tilt-card-wrapper ${className}`}
+      style={{
+        transformStyle: 'preserve-3d',
+        rotateX: smoothRotateX,
+        rotateY: smoothRotateY,
+        transition: 'box-shadow 0.3s ease',
+        ...style
+      }}
+      {...props}
+    >
+      <div style={{ width: '100%', height: '100%', transformStyle: 'preserve-3d' }}>
+        {children}
+      </div>
+    </motion.div>
+  );
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+const card3DVariant = {
+  hidden: { 
+    opacity: 0, 
+    y: 60, 
+    rotateX: 30, 
+    transformPerspective: 1000, 
+    z: -80 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    rotateX: 0, 
+    z: 0, 
+    transition: { 
+      type: 'spring', 
+      damping: 20, 
+      stiffness: 90, 
+      mass: 0.8 
+    } 
+  }
+};
+
+function TechCube({ scrollYProgress }) {
+  const rotateY = useTransform(scrollYProgress, [0.15, 0.45], [0, 360]);
+  const rotateX = useTransform(scrollYProgress, [0.15, 0.45], [15, 45]);
+  
+  const smoothRotateY = useSpring(rotateY, { damping: 22, stiffness: 80 });
+  const smoothRotateX = useSpring(rotateX, { damping: 22, stiffness: 80 });
+
+  const faces = [
+    { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: '#4f46e5', transform: 'rotateY(0deg) translateZ(120px)' },
+    { name: 'SaaS Platforms', desc: 'Next.js, React, Node', color: '#0ea5e9', transform: 'rotateY(90deg) translateZ(120px)' },
+    { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#7c3aed', transform: 'rotateY(180deg) translateZ(120px)' },
+    { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: '#38bdf8', transform: 'rotateY(270deg) translateZ(120px)' },
+    { name: 'Database Systems', desc: 'MongoDB, PostgreSQL', color: '#10b981', transform: 'rotateX(90deg) translateZ(120px)' },
+    { name: 'Cybersecurity', desc: 'Auth, DevSecOps, Shield', color: '#f43f5e', transform: 'rotateX(-90deg) translateZ(120px)' },
+  ];
+
+  return (
+    <div style={{
+      width: '280px',
+      height: '280px',
+      perspective: '1000px',
+      margin: '60px auto',
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 3
+    }}>
+      <motion.div
+        style={{
+          width: '240px',
+          height: '240px',
+          position: 'relative',
+          transformStyle: 'preserve-3d',
+          rotateX: smoothRotateX,
+          rotateY: smoothRotateY,
+        }}
+      >
+        {faces.map((face, index) => (
+          <div
+            key={index}
+            style={{
+              position: 'absolute',
+              width: '240px',
+              height: '240px',
+              background: 'var(--card-bg)',
+              border: `2px solid ${face.color}40`,
+              borderRadius: '20px',
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+              backfaceVisibility: 'hidden',
+              boxShadow: `0 10px 30px ${face.color}15, inset 0 1px 0 rgba(255,255,255,0.05)`,
+              transform: face.transform,
+            }}
+          >
+            <div style={{
+              width: '50px',
+              height: '50px',
+              borderRadius: '12px',
+              background: `${face.color}15`,
+              color: face.color,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: '800',
+              fontSize: '20px',
+              marginBottom: '15px',
+            }}>
+              {index + 1}
+            </div>
+            <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+              {face.name}
+            </h4>
+            <p style={{ fontSize: '13px', color: 'var(--body-text)', margin: 0, lineHeight: '1.4' }}>
+              {face.desc}
+            </p>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [pageVisible, setPageVisible] = useState(false);
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const rawPillsZ = useTransform(scrollYProgress, [0, 0.22], [0, 600]);
+  const rawPillsOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0]);
+  const rawHeroTextY = useTransform(scrollYProgress, [0, 0.22], [0, -120]);
+  const rawHeroTextOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0]);
+  const rawEditorScale = useTransform(scrollYProgress, [0, 0.25], [1, 0.82]);
+  const rawEditorOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
+
+  const rawServicesY = useTransform(scrollYProgress, [0.08, 0.28], [120, 0]);
+  const rawServicesOpacity = useTransform(scrollYProgress, [0.08, 0.25], [0, 1]);
+
+  const rawTechY = useTransform(scrollYProgress, [0.15, 0.35], [120, 0]);
+  const rawTechOpacity = useTransform(scrollYProgress, [0.15, 0.32], [0, 1]);
+
+  const rawWhyY = useTransform(scrollYProgress, [0.22, 0.45], [120, 0]);
+  const rawWhyOpacity = useTransform(scrollYProgress, [0.22, 0.42], [0, 1]);
+
+  const rawCasesY = useTransform(scrollYProgress, [0.42, 0.62], [120, 0]);
+  const rawCasesOpacity = useTransform(scrollYProgress, [0.42, 0.58], [0, 1]);
+
+  const rawReviewsY = useTransform(scrollYProgress, [0.62, 0.82], [120, 0]);
+  const rawReviewsOpacity = useTransform(scrollYProgress, [0.62, 0.78], [0, 1]);
+
+  // Infinite Perspective Grid Parallax
+  const rawGridY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const rawGridRotateX = useTransform(scrollYProgress, [0, 1], [60, 72]);
+
+  // Floating Parallax Background Shapes
+  const rawShape1Y = useTransform(scrollYProgress, [0, 1], [0, -320]);
+  const rawShape1Rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const rawShape2Y = useTransform(scrollYProgress, [0, 1], [0, -520]);
+  const rawShape2Rotate = useTransform(scrollYProgress, [0, 1], [0, -270]);
+  const rawShape3Y = useTransform(scrollYProgress, [0, 1], [0, -420]);
+  const rawShape3Rotate = useTransform(scrollYProgress, [0, 1], [45, 405]);
+
+  // Spring configurations for ultra premium feel
+  const scrollSpringConfig = { damping: 30, stiffness: 140, mass: 0.5 };
+  
+  const pillsZ = useSpring(rawPillsZ, scrollSpringConfig);
+  const pillsOpacity = useSpring(rawPillsOpacity, scrollSpringConfig);
+  const heroTextY = useSpring(rawHeroTextY, scrollSpringConfig);
+  const heroTextOpacity = useSpring(rawHeroTextOpacity, scrollSpringConfig);
+  const editorScale = useSpring(rawEditorScale, scrollSpringConfig);
+  const editorOpacity = useSpring(rawEditorOpacity, scrollSpringConfig);
+
+  const servicesY = useSpring(rawServicesY, scrollSpringConfig);
+  const servicesOpacity = useSpring(rawServicesOpacity, scrollSpringConfig);
+
+  const techY = useSpring(rawTechY, scrollSpringConfig);
+  const techOpacity = useSpring(rawTechOpacity, scrollSpringConfig);
+
+  const whyY = useSpring(rawWhyY, scrollSpringConfig);
+  const whyOpacity = useSpring(rawWhyOpacity, scrollSpringConfig);
+
+  const casesY = useSpring(rawCasesY, scrollSpringConfig);
+  const casesOpacity = useSpring(rawCasesOpacity, scrollSpringConfig);
+
+  const reviewsY = useSpring(rawReviewsY, scrollSpringConfig);
+  const reviewsOpacity = useSpring(rawReviewsOpacity, scrollSpringConfig);
+
+  const gridY = useSpring(rawGridY, scrollSpringConfig);
+  const gridRotateX = useSpring(rawGridRotateX, scrollSpringConfig);
+
+  const shape1Y = useSpring(rawShape1Y, scrollSpringConfig);
+  const shape1Rotate = useSpring(rawShape1Rotate, scrollSpringConfig);
+  const shape2Y = useSpring(rawShape2Y, scrollSpringConfig);
+  const shape2Rotate = useSpring(rawShape2Rotate, scrollSpringConfig);
+  const shape3Y = useSpring(rawShape3Y, scrollSpringConfig);
+  const shape3Rotate = useSpring(rawShape3Rotate, scrollSpringConfig);
+
+  const editorZ = useTransform(scrollYProgress, [0, 0.25], [0, -220]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,18 +267,88 @@ export default function Home() {
   }, []);
 
   return (
-    <div className='page-enter'
+    <div className='page-enter perspective-container'
+      ref={containerRef}
       style={{
-        backgroundColor: '#ffffff',
-        color: '#334155',
+        backgroundColor: 'var(--bg-color)',
+        color: 'var(--text-color)',
         minHeight: '100vh',
         transition: 'opacity .8s ease, transform .8s ease',
         opacity: pageVisible ? 1 : 0,
         transform: pageVisible ? 'translateY(0)' : 'translateY(30px)',
         position: 'relative',
-        overflow: 'hidden'
+        overflowX: 'hidden',
+        transformStyle: 'preserve-3d',
       }}
     >
+      {/* Cinematic Cyber Background Grid */}
+      <motion.div 
+        className="cyber-grid-3d" 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '100vh',
+          transformOrigin: 'top center',
+          rotateX: gridRotateX,
+          translateY: gridY,
+          transformStyle: 'preserve-3d',
+        }}
+      />
+
+      {/* Floating 3D Background Parallax Objects */}
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, pointerEvents: 'none', zIndex: 1 }}>
+         <motion.div 
+           style={{
+             position: 'absolute',
+             top: '20%',
+             left: '4%',
+             width: '60px',
+             height: '60px',
+             borderRadius: '16px',
+             border: '1px solid var(--card-border)',
+             background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1))',
+             y: shape1Y,
+             rotate: shape1Rotate,
+           }}
+         />
+         <motion.div 
+           style={{
+             position: 'absolute',
+             top: '65%',
+             right: '6%',
+             width: '80px',
+             height: '80px',
+             borderRadius: '50%',
+             border: '1px solid var(--card-border)',
+             background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(168, 85, 247, 0.08))',
+             y: shape2Y,
+             rotate: shape2Rotate,
+           }}
+         />
+         <motion.div 
+           style={{
+             position: 'absolute',
+             top: '45%',
+             right: '12%',
+             width: '45px',
+             height: '45px',
+             borderRadius: '8px',
+             border: '1px solid var(--card-border)',
+             background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(99, 102, 241, 0.1))',
+             y: shape3Y,
+             rotate: shape3Rotate,
+           }}
+         />
+      </div>
+      
+      {/* Floating Sparkles/Particles */}
+      <div className="glow-particle" style={{ left: '10%', animationDelay: '0s', animationDuration: '24s' }} />
+      <div className="glow-particle" style={{ left: '30%', animationDelay: '4s', animationDuration: '18s' }} />
+      <div className="glow-particle" style={{ left: '55%', animationDelay: '2s', animationDuration: '28s' }} />
+      <div className="glow-particle" style={{ left: '75%', animationDelay: '6s', animationDuration: '20s' }} />
+      <div className="glow-particle" style={{ left: '90%', animationDelay: '1s', animationDuration: '22s' }} />
       {/* Ambient Watercolor Glows - Highly Subdued for Pure White Page */}
       <div
         style={{
@@ -96,7 +417,12 @@ export default function Home() {
           className="hero-grid"
         >
           {/* LEFT */}
-          <div>
+          <motion.div
+            style={{
+              y: heroTextY,
+              opacity: heroTextOpacity,
+            }}
+          >
             <div
                style={{
               color: '#4f46e5',
@@ -113,7 +439,7 @@ export default function Home() {
                 fontSize: 'clamp(44px, 6.5vw, 78px)',
                 fontWeight: '950',
                 lineHeight: '1.05',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 marginBottom: '25px',
                 letterSpacing: '-2px',
               }}
@@ -131,7 +457,7 @@ export default function Home() {
               style={{
                 fontSize: '20px',
                 lineHeight: '1.8',
-                color: '#475569',
+                color: 'var(--body-text)',
                 maxWidth: '650px',
               }}
             >
@@ -180,63 +506,67 @@ export default function Home() {
                 className="btn-secondary"
                 style={{
                   textDecoration: 'none',
-                  border: '1px solid rgba(15, 23, 42, 0.12)',
-                  color: '#0f172a',
+                  border: '1px solid var(--cta-secondary-border)',
+                  color: 'var(--title-color)',
                   padding: '16px 32px',
                   borderRadius: '14px',
                   fontWeight: '700',
-                  background: 'rgba(255, 255, 255, 0.85)',
-                  boxShadow: '0 4px 12px rgba(15, 23, 42, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+                  background: 'var(--cta-secondary-bg)',
+                  boxShadow: 'var(--cta-secondary-shadow)',
                   backdropFilter: 'blur(10px)',
                   transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                   display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                  e.currentTarget.style.backgroundColor = 'rgba(15, 23, 42, 0.04)';
-                  e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.2)';
+                  e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
+                  e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
-                  e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.12)';
+                  e.currentTarget.style.background = 'var(--cta-secondary-bg)';
+                  e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
                 }}
               >
                 Explore Services
               </Link>
             </div>
-          </div>
+          </motion.div>
           {/* RIGHT */}
           <div
             style={{
               position: 'relative',
               padding: '20px',
+              transformStyle: 'preserve-3d',
             }}
             className="hero-right-container"
           >
-            {/* Floating Pills */}
-            <div className="floating-pill pill1">React</div>
-            <div className="floating-pill pill2">Next.js</div>
-            <div className="floating-pill pill3">Node.js</div>
-            <div className="floating-pill pill4">MongoDB</div>
-            <div className="floating-pill pill5">OpenAI</div>
-            <div className="floating-pill pill6">AWS</div>
 
             {/* Code Editor */}
-            <div
-              className="glass-panel"
+            <motion.div
               style={{
-                background: 'rgba(9, 13, 26, 0.88)',
-                border: '1px solid rgba(15, 23, 42, 0.15)',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                boxShadow: '0 30px 60px rgba(15, 23, 42, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-                position: 'relative',
-                zIndex: 3,
-                display: 'flex',
-                flexDirection: 'column'
+                z: editorZ,
+                scale: editorScale,
+                opacity: editorOpacity,
+                transformStyle: 'preserve-3d',
               }}
             >
+              <TiltCard>
+                <div
+                  className="glass-panel"
+                  style={{
+                    background: 'rgba(9, 13, 26, 0.88)',
+                    border: '1px solid rgba(15, 23, 42, 0.15)',
+                    borderRadius: '24px',
+                    overflow: 'hidden',
+                    boxShadow: '0 30px 60px rgba(15, 23, 42, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                    position: 'relative',
+                    zIndex: 3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
               {/* Header */}
               <div
                 style={{
@@ -387,8 +717,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </TiltCard>
+        </motion.div>
+      </div>
+    </div>
 
         {/* Flowing Service Ribbon */}
         <div
@@ -396,16 +728,11 @@ export default function Home() {
             marginTop: '80px',
             overflow: 'hidden',
             whiteSpace: 'nowrap',
-            borderTop: '1px solid rgba(15, 23, 42, 0.06)',
-            borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
-            padding: '18px 0',
-            background: '#ffffff',
             position: 'relative',
             zIndex: 3
           }}
         >
           <div className="service-ribbon" style={{
-              marginTop: '90px',
               overflow: 'hidden',
               whiteSpace: 'nowrap',
               borderTop: '1px solid var(--card-border)',
@@ -417,14 +744,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Services Section */}
-      <section
+      <motion.section
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         style={{
           padding: '120px 20px',
           background: 'transparent',
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
         }}
       >
         <div
@@ -456,7 +786,7 @@ export default function Home() {
               style={{
                 fontSize: 'clamp(34px,6vw,58px)',
                 fontWeight: '900',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 marginBottom: '18px',
                 letterSpacing: '-1.5px'
               }}
@@ -468,7 +798,7 @@ export default function Home() {
               style={{
                 maxWidth: '700px',
                 margin: '0 auto',
-                color: '#475569',
+                color: 'var(--body-text)',
                 lineHeight: '1.8',
                 fontSize: '18px',
               }}
@@ -478,12 +808,17 @@ export default function Home() {
           </div>
 
           {/* Cards */}
-          <div
+          <motion.div
             className="services-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '24px',
+              transformStyle: 'preserve-3d',
             }}
           >
             {[
@@ -552,83 +887,73 @@ export default function Home() {
                 ),
               },
             ].map((service, index) => (
-              <div
-                key={index}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.85)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
-                  borderRadius: '26px',
-                  padding: '32px',
-                  transition: 'all .35s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: '0 10px 30px -10px rgba(15, 23, 42, 0.05)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(15, 23, 42, 0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.06)';
-                }}
-              >
-                <div
+              <motion.div key={index} variants={card3DVariant} style={{ transformStyle: 'preserve-3d' }}>
+                <TiltCard
                   style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '18px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'rgba(99, 102, 241, 0.05)',
-                    border: '1px solid rgba(99, 102, 241, 0.12)',
-                    marginBottom: '20px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    borderRadius: '26px',
+                    padding: '32px',
+                    boxShadow: 'var(--card-shadow)',
+                    height: '100%'
                   }}
                 >
-                  {service.icon}
-                </div>
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      borderRadius: '18px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'rgba(99, 102, 241, 0.05)',
+                      border: '1px solid rgba(99, 102, 241, 0.12)',
+                      marginBottom: '20px',
+                    }}
+                  >
+                    {service.icon}
+                  </div>
 
-                <h3
-                  style={{
-                    fontSize: '24px',
-                    fontWeight: '700',
-                    color: '#0f172a',
-                    marginBottom: '14px',
-                  }}
-                >
-                  {service.title}
-                </h3>
+                  <h3
+                    style={{
+                      fontSize: '24px',
+                      fontWeight: '700',
+                      color: 'var(--title-color)',
+                      marginBottom: '14px',
+                    }}
+                  >
+                    {service.title}
+                  </h3>
 
-                <p
-                  style={{
-                    color: '#475569',
-                    lineHeight: '1.8',
-                  }}
-                >
-                  {service.desc}
-                </p>
+                  <p
+                    style={{
+                      color: 'var(--body-text)',
+                      lineHeight: '1.8',
+                    }}
+                  >
+                    {service.desc}
+                  </p>
 
-                <a
-                  href="https://wa.me/918652768171"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="services-learn-more"
-                  style={{
-                    display: 'inline-block',
-                    marginTop: '20px',
-                    color: '#4f46e5',
-                    textDecoration: 'none',
-                    fontWeight: '700',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  Learn More <span className="arrow-span" style={{ display: 'inline-block', transition: 'transform 0.3s ease' }}>→</span>
-                </a>
-              </div>
+                  <a
+                    href="https://wa.me/918652768171"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="services-learn-more"
+                    style={{
+                      display: 'inline-block',
+                      marginTop: '20px',
+                      color: '#4f46e5',
+                      textDecoration: 'none',
+                      fontWeight: '700',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    Learn More <span className="arrow-span" style={{ display: 'inline-block', transition: 'transform 0.3s ease' }}>→</span>
+                  </a>
+                </TiltCard>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Bottom CTA */}
           <div
@@ -666,10 +991,14 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Modernization Tech Stack Section */}
-      <section
+      <motion.section
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         style={{
           padding: '120px 20px',
           background: 'transparent',
@@ -706,7 +1035,7 @@ export default function Home() {
               style={{
                 fontSize: 'clamp(34px,6vw,58px)',
                 fontWeight: '900',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 marginBottom: '18px',
                 letterSpacing: '-1.5px'
               }}
@@ -718,7 +1047,7 @@ export default function Home() {
               style={{
                 maxWidth: '700px',
                 margin: '0 auto',
-                color: '#475569',
+                color: 'var(--body-text)',
                 lineHeight: '1.9',
                 fontSize: '18px',
               }}
@@ -726,6 +1055,9 @@ export default function Home() {
               We build with modern, production-grade tools that scale automatically, guarantee zero-downtime deployments, and keep applications lightning fast.
             </p>
           </div>
+
+          {/* Interactive 3D Spinning Tech Cube */}
+          <TechCube scrollYProgress={scrollYProgress} />
 
           {/* Grid of Tech Stacks */}
           <div className="tech-grid">
@@ -939,15 +1271,19 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us Section */}
-      <section
+      <motion.section
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         style={{
           padding: '120px 24px',
           background: 'transparent',
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
         }}
       >
         <div
@@ -1074,7 +1410,8 @@ export default function Home() {
             </div>
 
             {/* Right Content - Operations Hub Mock Dashboard */}
-            <div className="operations-hub">
+            <TiltCard style={{ width: '100%' }}>
+              <div className="operations-hub" style={{ transformStyle: 'preserve-3d' }}>
               {/* Header */}
               <div
                 style={{
@@ -1097,19 +1434,22 @@ export default function Home() {
               </div>
 
               {/* Status Section */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '20px', marginBottom: '20px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '20px', marginBottom: '20px', transformStyle: 'preserve-3d' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', transformStyle: 'preserve-3d' }}>
                   <div
                     style={{
                       background: 'rgba(255, 255, 255, 0.03)',
                       border: '1px solid rgba(255, 255, 255, 0.06)',
                       borderRadius: '16px',
                       padding: '16px',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      transform: 'translateZ(30px)',
+                      transformStyle: 'preserve-3d',
+                      boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#38bdf8' }}>99.9%</div>
-                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px' }}>System Uptime</div>
+                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#38bdf8', transform: 'translateZ(10px)' }}>99.9%</div>
+                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>System Uptime</div>
                   </div>
                   <div
                     style={{
@@ -1117,11 +1457,14 @@ export default function Home() {
                       border: '1px solid rgba(255, 255, 255, 0.06)',
                       borderRadius: '16px',
                       padding: '16px',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      transform: 'translateZ(40px)',
+                      transformStyle: 'preserve-3d',
+                      boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#a855f7' }}>40%+</div>
-                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px' }}>Efficiency Gain</div>
+                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#a855f7', transform: 'translateZ(10px)' }}>40%+</div>
+                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>Efficiency Gain</div>
                   </div>
                 </div>
 
@@ -1135,13 +1478,16 @@ export default function Home() {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    minHeight: '180px'
+                    minHeight: '180px',
+                    transform: 'translateZ(25px)',
+                    transformStyle: 'preserve-3d',
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                   }}
                 >
-                  <div style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', color: '#a1a1aa', letterSpacing: '0.5px', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', color: '#a1a1aa', letterSpacing: '0.5px', marginBottom: '8px', transform: 'translateZ(10px)' }}>
                     Activity Logs
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', transform: 'translateZ(5px)' }}>
                     <div className="live-log-item"><span>[11:02:14]</span> AI Agent cluster initiated</div>
                     <div className="live-log-item"><span>[11:02:15]</span> Database replication: OK</div>
                     <div className="live-log-item"><span>[11:02:19]</span> SSL Handshake verification</div>
@@ -1151,27 +1497,32 @@ export default function Home() {
               </div>
 
               {/* Progress Line */}
-              <div style={{ marginTop: '10px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '700', color: '#a1a1aa', marginBottom: '6px' }}>
+              <div style={{ marginTop: '10px', transform: 'translateZ(35px)', transformStyle: 'preserve-3d' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '700', color: '#a1a1aa', marginBottom: '6px', transform: 'translateZ(5px)' }}>
                   <span>AI SYSTEM EFFICIENCY</span>
                   <span style={{ color: '#38bdf8' }}>92% OPTIMIZED</span>
                 </div>
-                <div className="performance-line">
+                <div className="performance-line" style={{ transform: 'translateZ(5px)' }}>
                   <div className="performance-fill" />
                 </div>
               </div>
             </div>
+          </TiltCard>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Process Section */}
-      <section
+      <motion.section
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         style={{
           padding: '120px 20px',
           background: 'transparent',
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
         }}
       >
         <div
@@ -1203,7 +1554,7 @@ export default function Home() {
               style={{
                 fontSize: 'clamp(36px,6vw,58px)',
                 fontWeight: '900',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 marginBottom: '18px',
                 letterSpacing: '-1.5px'
               }}
@@ -1215,7 +1566,7 @@ export default function Home() {
               style={{
                 maxWidth: '700px',
                 margin: '0 auto',
-                color: '#475569',
+                color: 'var(--body-text)',
                 lineHeight: '1.9',
                 fontSize: '18px',
               }}
@@ -1225,7 +1576,14 @@ export default function Home() {
           </div>
 
           {/* Timeline Wrapper */}
-          <div className="timeline-container" style={{ position: 'relative', margin: '60px auto 0', maxWidth: '1000px', padding: '20px 0' }}>
+          <motion.div
+            className="timeline-container"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            style={{ position: 'relative', margin: '60px auto 0', maxWidth: '1000px', padding: '20px 0', transformStyle: 'preserve-3d' }}
+          >
             {/* Vertical Line */}
             <div className="timeline-line" style={{
               position: 'absolute',
@@ -1267,50 +1625,47 @@ export default function Home() {
             ].map((item, index) => {
               const isEven = index % 2 === 0;
               return (
-                <div key={index} className={`timeline-item ${isEven ? 'left' : 'right'}`} style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '60px',
-                  width: '100%',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
+                <motion.div
+                  key={index}
+                  variants={card3DVariant}
+                  className={`timeline-item ${isEven ? 'left' : 'right'}`}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '60px',
+                    width: '100%',
+                    position: 'relative',
+                    zIndex: 2,
+                    transformStyle: 'preserve-3d'
+                  }}
+                >
                   {/* Content Card Side */}
                   <div className="timeline-content-wrapper" style={{
                     width: '44%',
                     order: isEven ? 1 : 3,
                     textAlign: isEven ? 'right' : 'left'
                   }}>
-                    <div className="glass-panel timeline-card" style={{
-                      padding: '30px',
-                      borderRadius: '24px',
-                      background: 'rgba(255, 255, 255, 0.75)',
-                      border: '1px solid rgba(15, 23, 42, 0.06)',
-                      boxShadow: '0 10px 30px -10px rgba(15, 23, 42, 0.05)',
-                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                      display: 'inline-block',
-                      textAlign: 'left',
-                      width: '100%'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.25)';
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 15px 30px rgba(99, 102, 241, 0.08)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.06)';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(15, 23, 42, 0.05)';
-                    }}
-                    >
-                      <h3 style={{ fontSize: '22px', fontWeight: '700', color: '#0f172a', marginBottom: '10px' }}>
-                        {item.title}
-                      </h3>
-                      <p style={{ color: '#475569', lineHeight: '1.7', fontSize: '15px' }}>
-                        {item.desc}
-                      </p>
-                    </div>
+                    <TiltCard style={{ width: '100%' }}>
+                      <div className="glass-panel timeline-card" style={{
+                        padding: '30px',
+                        borderRadius: '24px',
+                        background: 'var(--card-bg)',
+                        border: '1px solid var(--card-border)',
+                        boxShadow: 'var(--card-shadow)',
+                        display: 'block',
+                        textAlign: 'left',
+                        width: '100%',
+                      }}
+                      >
+                        <h3 style={{ fontSize: '22px', fontWeight: '700', color: 'var(--title-color)', marginBottom: '10px' }}>
+                          {item.title}
+                        </h3>
+                        <p style={{ color: 'var(--body-text)', lineHeight: '1.7', fontSize: '15px' }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </TiltCard>
                   </div>
 
                   {/* Central Circle Badge */}
@@ -1318,7 +1673,7 @@ export default function Home() {
                     width: '54px',
                     height: '54px',
                     borderRadius: '50%',
-                    background: '#ffffff',
+                    backgroundColor: 'var(--bg-color)',
                     border: '2px solid #4f46e5',
                     display: 'flex',
                     alignItems: 'center',
@@ -1331,17 +1686,17 @@ export default function Home() {
                     position: 'absolute',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    zIndex: 5
+                    zIndex: 10
                   }}>
                     {item.step}
                   </div>
 
                   {/* Spacer for other side */}
                   <div className="timeline-spacer" style={{ width: '44%', order: isEven ? 3 : 1 }} />
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Bottom CTA */}
           <div
@@ -1378,20 +1733,27 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Slider */}
-      <ReviewSlider />
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <ReviewSlider />
+      </motion.div>
 
-      {/* CTA Section - Converted to Pure White Layout */}
+      {/* CTA Section - Styled with Theme Variables */}
       <section
         style={{
           position: 'relative',
           overflow: 'hidden',
           padding: '120px 20px',
-          background: '#ffffff',
-          borderTop: '1px solid rgba(15, 23, 42, 0.06)',
-          color: '#0f172a',
+          background: 'var(--bg-color)',
+          borderTop: '1px solid var(--card-border)',
+          color: 'var(--text-color)',
           zIndex: 2
         }}
       >
@@ -1449,7 +1811,7 @@ export default function Home() {
               lineHeight: '1.1',
               marginBottom: '25px',
               letterSpacing: '-1.5px',
-              color: '#0f172a'
+              color: 'var(--title-color)'
             }}
           >
             Your Next Growth Engine<br />Starts Here
@@ -1461,7 +1823,7 @@ export default function Home() {
               margin: '0 auto',
               fontSize: '18px',
               lineHeight: '1.9',
-              color: '#475569',
+              color: 'var(--body-text)',
             }}
           >
             Whether you need AI automation, a custom SaaS platform, a business management system, a website or a mobile app, we&apos;re ready to help you scale.
@@ -1509,9 +1871,9 @@ export default function Home() {
                 padding: '16px 36px',
                 borderRadius: '14px',
                 textDecoration: 'none',
-                background: 'rgba(255, 255, 255, 0.7)',
-                border: '1px solid rgba(15, 23, 42, 0.12)',
-                color: '#0f172a',
+                background: 'var(--cta-secondary-bg)',
+                border: '1px solid var(--cta-secondary-border)',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -1519,13 +1881,13 @@ export default function Home() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                e.currentTarget.style.backgroundColor = 'rgba(15, 23, 42, 0.05)';
-                e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.2)';
+                e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
+                e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-                e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.12)';
+                e.currentTarget.style.background = 'var(--cta-secondary-bg)';
+                e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
               }}
             >
               Get Custom Quote
@@ -1535,7 +1897,7 @@ export default function Home() {
           <div
             style={{
               marginTop: '40px',
-              color: '#64748B',
+              color: 'var(--body-text)',
               fontSize: '14px',
               fontWeight: '500',
               letterSpacing: '0.5px'
@@ -1654,7 +2016,8 @@ export default function Home() {
           .cta-buttons {
             justify-content: center;
           }
-          .floating-pill {
+          .floating-pill,
+          .tech-orbit-container {
             display: none !important;
           }
         }

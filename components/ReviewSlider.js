@@ -29,7 +29,7 @@ export default function ReviewSlider() {
       <section
         style={{
           padding: '120px 0',
-          background: '#f0f2f8',
+          background: 'var(--section-bg)',
           overflow: 'hidden',
           position: 'relative',
         }}
@@ -58,7 +58,7 @@ export default function ReviewSlider() {
               fontSize: 'clamp(38px, 6vw, 64px)',
               fontWeight: '900',
               lineHeight: '1.1',
-              color: '#0f172a',
+              color: 'var(--title-color)',
               marginBottom: '20px',
               letterSpacing: '-1.5px',
             }}
@@ -71,7 +71,7 @@ export default function ReviewSlider() {
             style={{
               maxWidth: '680px',
               margin: '0 auto',
-              color: '#1e293b',
+              color: 'var(--body-text)',
               lineHeight: '1.8',
               fontSize: '18px',
             }}
@@ -94,9 +94,9 @@ export default function ReviewSlider() {
                 style={{
                   borderRadius: '28px',
                   padding: '35px',
-                  border: '1px solid rgba(15, 23, 42, 0.05)',
-                  background: '#ffffff',
-                  boxShadow: '0 10px 30px rgba(15, 23, 42, 0.02)',
+                  border: '1px solid var(--card-border)',
+                  background: 'var(--card-bg)',
+                  boxShadow: 'var(--card-shadow), var(--card-sheen)',
                 }}
               >
                 <div
@@ -114,7 +114,7 @@ export default function ReviewSlider() {
 
                 <p
                   style={{
-                    color: '#1e293b',
+                    color: 'var(--body-text)',
                     lineHeight: '1.8',
                     marginBottom: '30px',
                     fontSize: '15px',
@@ -127,7 +127,7 @@ export default function ReviewSlider() {
                   <div
                     style={{
                       fontWeight: '800',
-                      color: '#0f172a',
+                      color: 'var(--title-color)',
                       marginBottom: '4px',
                     }}
                   >

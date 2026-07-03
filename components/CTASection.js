@@ -11,14 +11,14 @@ export default function CTASection() {
         position: 'relative',
         overflow: 'hidden',
         padding: '120px 20px',
-        background: '#ffffff',
+        background: 'var(--bg-color)',
         backgroundImage: `
           linear-gradient(rgba(99, 102, 241, 0.015) 1px, transparent 1px),
           linear-gradient(90deg, rgba(99, 102, 241, 0.015) 1px, transparent 1px)
         `,
         backgroundSize: '32px 32px',
-        borderTop: '1px solid rgba(15, 23, 42, 0.06)',
-        color: '#0f172a',
+        borderTop: '1px solid var(--card-border)',
+        color: 'var(--text-color)',
         zIndex: 2,
         width: '100%'
       }}
@@ -80,7 +80,7 @@ export default function CTASection() {
             lineHeight: '1.1',
             marginBottom: '25px',
             letterSpacing: '-1.5px',
-            color: '#0f172a'
+            color: 'var(--title-color)'
           }}
         >
           Your Next Growth Engine<br />Starts Here
@@ -92,7 +92,7 @@ export default function CTASection() {
             margin: '0 auto',
             fontSize: '18px',
             lineHeight: '1.9',
-            color: '#475569',
+            color: 'var(--body-text)',
           }}
         >
           Whether you need AI automation, a custom SaaS platform, a business management system, a website or a mobile app, we&apos;re ready to help you scale.
@@ -149,9 +149,9 @@ export default function CTASection() {
               padding: '16px 36px',
               borderRadius: '14px',
               textDecoration: 'none',
-              background: 'rgba(255, 255, 255, 0.7)',
-              border: '1px solid rgba(15, 23, 42, 0.12)',
-              color: '#0f172a',
+              background: 'var(--cta-secondary-bg)',
+              border: '1px solid var(--cta-secondary-border)',
+              color: 'var(--title-color)',
               fontWeight: '700',
               backdropFilter: 'blur(10px)',
               transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -162,15 +162,15 @@ export default function CTASection() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-              e.currentTarget.style.backgroundColor = 'rgba(15, 23, 42, 0.05)';
-              e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.2)';
+              e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
+              e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
               const arrow = e.currentTarget.querySelector('.arrow-icon');
               if (arrow) arrow.style.transform = 'translateX(4px)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-              e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.12)';
+              e.currentTarget.style.background = 'var(--cta-secondary-bg)';
+              e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
               const arrow = e.currentTarget.querySelector('.arrow-icon');
               if (arrow) arrow.style.transform = 'translateX(0)';
             }}
@@ -183,7 +183,7 @@ export default function CTASection() {
         <div
           style={{
             marginTop: '40px',
-            color: '#64748B',
+            color: 'var(--body-text)',
             fontSize: '14px',
             fontWeight: '500',
             letterSpacing: '0.5px'

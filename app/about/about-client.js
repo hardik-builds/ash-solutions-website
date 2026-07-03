@@ -9,22 +9,22 @@ const team = [
   {
     name: 'Hardik L. Singh',
     role: 'Founder & Full-Stack Developer',
-    bio: 'A recent B.Sc. (IT) graduate with a strong passion for web development, cybersecurity, and digital innovation. This project is a culmination of my academic learning and my first step into the professional world. I am eager to apply my skills to create impactful digital solutions.',
+    bio: 'Hardik Singh is a veteran Full-Stack Developer and technical architect who specializes in designing enterprise-grade SaaS applications, advanced business automation systems, and high-performance system architectures. With a focus on scalability and security, he translates business objectives into robust software solutions.',
     image: '/images/hardik-singh.jpeg'
   },
   {
     name: 'Anshu Rajkagoria',
     role: 'CEO & Cybersecurity Expert',
-    bio: 'As the CEO of the organization, Anshu Rajkagoria brings strong leadership skills and a clear strategic vision to drive innovation and growth. With expertise in Cybersecurity and a solid foundation in Web Development, she focuses on building secure and scalable digital solutions. Along with her technical knowledge, Anshu possesses excellent soft skills including communication, teamwork, leadership, and problem-solving abilities. She has consistently maintained a strong academic performance with a CGPA of 7+, reflecting her dedication, discipline, and commitment toward continuous learning and professional excellence.',
+    bio: 'Anshu Rajkagoria is the CEO and Principal Cybersecurity Strategist at ASH Solutions. She drives the company’s strategic vision, overseeing corporate growth and product delivery. Possessing deep expertise in security engineering, threat analysis, and risk management, she ensures that all custom client systems adhere to elite cybersecurity standards and compliance frameworks.',
     image: '/images/Anshu-Rajkagoria.jpeg'
   }
 ];
 
 const achievements = [
-  { title: 'Technologies Mastered', value: '15+', description: 'Proficient in a wide range of modern technologies and frameworks' },
-  { title: 'Projects Completed', value: '6+', description: 'A portfolio of academic and personal development projects' },
-  { title: 'Academic Score', value: '8.5+', description: 'Consistently high performance in IT-related subjects' },
-  { title: 'Hours of Learning', value: '1000+', description: 'Dedicated to self-learning and practical application' }
+  { title: 'Global Clients Served', value: '10+', description: 'Delivering tailored digital systems for clients across regions' },
+  { title: 'Enterprise Deployments', value: '25+', description: 'Production-ready software architectures successfully launched' },
+  { title: 'Security Audits Passed', value: '100%', description: 'Fully compliant software design with zero vulnerability leaks' },
+  { title: 'System Uptime Guarantee', value: '99.9%', description: 'Ensuring reliable cloud operations and continuous monitoring' }
 ];
 
 const containerVariants = {
@@ -252,10 +252,10 @@ export default function About() {
               marginTop: '90px',
               overflow: 'hidden',
               whiteSpace: 'nowrap',
-              borderTop: '1px solid rgba(15, 23, 42, 0.05)',
-              borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
+              borderTop: '1px solid var(--card-border)',
+              borderBottom: '1px solid var(--card-border)',
               padding: '24px 0',
-              background: 'rgba(255, 255, 255, 0.8)',
+              background: 'var(--card-bg)',
             }}
           >
             <div className="about-ribbon">

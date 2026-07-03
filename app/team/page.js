@@ -1,64 +1,62 @@
-
 import TeamClient from './team-client';
 
 export const metadata = {
-  title: 'Our Team - ASH Solutions | Young, Agile & Innovative',
-  description: 'Meet the dynamic and young team behind ASH Solutions. With 10+ academic projects, we bring fresh perspectives and agile solutions to every challenge.',
-  keywords: ['ASH Solutions team', 'young developers', 'agile team', 'academic projects', 'student developers'],
+  title: 'Our Team - ASH Solutions | Enterprise Engineers & Solutions Architects',
+  description: 'Meet the team behind ASH Solutions. We design, build, and deploy production-ready automation systems and custom software for modern enterprises.',
+  keywords: ['ASH Solutions team', 'software engineers', 'cybersecurity experts', 'full-stack developers', 'solutions architects'],
   openGraph: {
     title: 'Our Team - ASH Solutions',
-    description: 'A young, agile team delivering innovative solutions with a strong academic foundation.',
+    description: 'A professional engineering team delivering secure, scalable, and automated digital solutions.',
     type: 'website',
   },
 };
 
-// Updated team data for a small, agile, and young team
+// Updated team data for a professional, enterprise-focused team
 const teamData = {
-  // A single array for all team members
   teamMembers: [
     {
       id: 1,
       name: "Hardik Singh",
-      role: "Founder & Full stack Dev",
+      role: "Founder & Full-Stack Architect",
       image: "/images/hardik-singh.jpeg",
-      bio: "Bridging ideas and execution. Passionate about clean code and leading our agile sprints.",
-      expertise: ["React", "Node.js", "Agile", "Team Leadership"],
+      bio: "Bridging business objectives and software execution. Passionate about scalable architectures and leading our engineering sprints.",
+      expertise: ["React/Next.js", "Node.js", "Cloud Architecture", "System Design"],
       social: { linkedin: "#", github: "#" }
     },
     {
       id: 2,
       name: "Anshu Rajkagoria",
-      role: "Cybersecurity Engineer",
+      role: "CEO & Cybersecurity Expert",
       image: "/images/Anshu-Rajkagoria.jpeg",
-      bio: "Protecting systems and data with precision—every layer secured with purpose.",
-      expertise: ["Figma", "User Research", "Prototyping", "Adobe XD"],
+      bio: "Protecting client systems and databases with enterprise-grade threat modeling and precision engineering.",
+      expertise: ["Penetration Testing", "Threat Modeling", "Network Security", "Compliance Frameworks"],
       social: { linkedin: "#", twitter: "#", dribbble: "#" }
     },
     {
       id: 3,
       name: "Kuldeep garg",
-      role: "Cybersecurity analyst",
+      role: "Cybersecurity Analyst",
       image: "/images/Kuldeep.jpeg",
-      bio: "Defending digital assets through vigilant analysis—every threat identified, every risk minimized.",
-      expertise: ["Python", "Django", "PostgreSQL", "AWS"],
+      bio: "Defending digital assets through vigilant auditing and proactive threat detection.",
+      expertise: ["SIEM Systems", "Incident Response", "Vulnerability Scanning", "Network Auditing"],
       social: { linkedin: "#", github: "#" }
     },
     {
       id: 4,
       name: "Sharan Arundhudhiyar",
-      role: "APP developer",
+      role: "Mobile App Developer",
       image: "/images/sharan.jpeg",
-      bio: "Designing seamless mobile experiences—every tap intuitive, every feature purposeful.",
-      expertise: ["JavaScript", "Vue.js", "CSS3", "Webpack"],
+      bio: "Designing high-performance mobile experiences with clean architecture and native platform integration.",
+      expertise: ["React Native", "Flutter", "iOS/Android Dev", "Mobile UI Patterns"],
       social: { linkedin: "#", github: "#" }
     },
     {
       id: 5,
-      name: "Nirmal Arundhudhiyar ",
-      role: "APP developer",
+      name: "Nirmal Arundhudhiyar",
+      role: "Mobile App Developer",
       image: "/images/Nirmal.jpeg",
-      bio: "Building powerful apps that solve real problems—clean code, smooth performance, meaningful impact..",
-      expertise: ["Python", "SQL", "Tableau", "Machine Learning"],
+      bio: "Building robust apps with optimized data syncing, offline capability, and smooth interaction mechanics.",
+      expertise: ["React Native", "API Integration", "Mobile Architecture", "Swift/Kotlin"],
       social: { linkedin: "#", github: "#" }
     },
     {
@@ -66,49 +64,30 @@ const teamData = {
       name: "Sachin Sannaki",
       role: "CFO - Chief Financial Officer",
       image: "/images/sachin.jpeg",
-      bio: "Driving financial strategy with clarity and control—every decision backed by insight, every rupee optimized for growth.",
-      expertise: ["React Native", "Flutter", "Swift", "Kotlin"],
+      bio: "Driving financial planning and operational efficiency to power sustainable corporate scaling.",
+      expertise: ["Financial Modeling", "Strategic Planning", "Operations Management", "Risk Assessment"],
       social: { linkedin: "#", github: "#" }
-    },
-    // {
-    //   id: 7,
-    //   name: "Shubham Verma",
-    //   role: "CXM - Customer Experience Manager",
-    //   image: "/team/quinn.jpg",
-    //   bio: "Delivering exceptional customer experiences—every interaction valued, every issue resolved with care.",
-    //   expertise: ["Docker", "Kubernetes", "CI/CD", "Terraform"],
-    //   social: { linkedin: "#", github: "#" }
-    // },
-    // {
-    //   id: 8,
-    //   name: "Avery Singh",
-    //   role: "Content & QA Strategist",
-    //   image: "/team/avery.jpg",
-    //   bio: "Ensuring our content is clear and our code is bug-free. The final check for quality.",
-    //   expertise: ["Technical Writing", "Selenium", "Jest", "SEO"],
-    //   social: { linkedin: "#", twitter: "#" }
-    // }
+    }
   ],
-  // New section to highlight the team's unique strengths
   ourEdge: [
     { 
       title: "Agile & Adaptive", 
-      description: "We thrive in fast-paced environments, using agile methodologies to iterate quickly and adapt to new challenges seamlessly.", 
+      description: "We thrive in fast-paced environments, using modern agile methodologies to deliver incremental value and adapt to changing requirements.", 
       icon: "🚀" 
     },
     { 
-      title: "Fresh Perspectives", 
-      description: "As a young team, we bring creativity, new ideas, and a deep understanding of modern technology trends to every project.", 
-      icon: "💡" 
+      title: "Modern Architectures", 
+      description: "We leverage cutting-edge technologies, modern frameworks, and cloud-native patterns to build robust software systems.", 
+      icon: "⚙️" 
     },
     { 
-      title: "Academic Rigor", 
-      description: "Our foundation is built on 10+ academic projects, giving us a strong theoretical base and a disciplined approach to problem-solving.", 
-      icon: "🎓" 
+      title: "Enterprise Standards", 
+      description: "Our systems align with strict criteria for high-grade security, comprehensive logging, performance benchmarks, and operational efficiency.", 
+      icon: "🛡️" 
     },
     { 
-      title: "Collaborative Spirit", 
-      description: "We're a tight-knit group that believes in the power of collaboration. Every voice is heard, and every contribution matters.", 
+      title: "Collaborative Synergy", 
+      description: "We align engineering, security, operations, and leadership to deliver cohesive systems that solve complex business challenges.", 
       icon: "🤝" 
     }
   ]
