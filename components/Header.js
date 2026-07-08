@@ -15,7 +15,13 @@ export default function Header() {
   const timeoutRef = useRef(null);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
+    let storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem('theme');
+    } catch (e) {
+      console.warn('localStorage is blocked/unsupported in this environment:', e);
+    }
+    
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
     setTheme(initialTheme);
@@ -23,7 +29,12 @@ export default function Header() {
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleSystemThemeChange = (e) => {
-      const currentStored = localStorage.getItem('theme');
+      let currentStored = null;
+      try {
+        currentStored = localStorage.getItem('theme');
+      } catch (err) {
+        console.warn('localStorage is blocked/unsupported in this environment:', err);
+      }
       if (!currentStored) {
         const nextSystemTheme = e.matches ? 'dark' : 'light';
         setTheme(nextSystemTheme);
@@ -38,7 +49,11 @@ export default function Header() {
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
+    try {
+      localStorage.setItem('theme', nextTheme);
+    } catch (e) {
+      console.warn('localStorage setItem failed:', e);
+    }
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
