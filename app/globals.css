@@ -9,6 +9,7 @@
 
 :root {
   /* Default Theme is Dark (Pulze.io style) */
+  color-scheme: dark;
   --bg-color: #0a0a0a;
   --bg-grid: 
     linear-gradient(rgba(158, 60, 236, 0.03) 1px, transparent 1px),
@@ -47,6 +48,7 @@
 
 [data-theme="light"] {
   /* Fallback Light Mode */
+  color-scheme: light;
   --bg-color: #ffffff;
   --bg-grid: 
     linear-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px),
@@ -128,17 +130,17 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border: 2px solid #f1f5f9;
+  background: var(--card-border);
+  border: 2.5px solid var(--bg-color);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366f1;
+  background: var(--text-color);
 }
 
 /* Custom Selection */
