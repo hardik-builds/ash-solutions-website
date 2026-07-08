@@ -18,7 +18,7 @@ export default function ReviewSlider() {
       name: 'Purushotham Arumugam',
       role: 'Client',
       review:
-        'Professional team providing web development, cybersecurity, app development and SEO services. Highly recommended.',
+        'Professional team providing web development, cloud solutions, app development and SEO services. Highly recommended.',
     },
   ];
 

@@ -14,8 +14,8 @@ const team = [
   },
   {
     name: 'Anshu Rajkagoria',
-    role: 'CEO & Cybersecurity Expert',
-    bio: 'Anshu Rajkagoria is the CEO and Principal Cybersecurity Strategist at ASH Solutions. She drives the company’s strategic vision, overseeing corporate growth and product delivery. Possessing deep expertise in security engineering, threat analysis, and risk management, she ensures that all custom client systems adhere to elite cybersecurity standards and compliance frameworks.',
+    role: 'CEO & Security Architect',
+    bio: 'Anshu Rajkagoria is the CEO and Principal Security Architect at ASH Solutions. She drives the company’s strategic vision, overseeing corporate growth and product delivery. Possessing deep expertise in security engineering, threat analysis, and risk management, she ensures that all custom client systems adhere to elite security standards and compliance frameworks.',
     image: '/images/Anshu-Rajkagoria.jpeg'
   }
 ];
@@ -259,7 +259,7 @@ export default function About() {
             }}
           >
             <div className="about-ribbon">
-              AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • CYBERSECURITY • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS • AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • CYBERSECURITY • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS
+              AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS • AI AUTOMATION • CUSTOM SAAS • CRM SYSTEMS • ERP PLATFORMS • WEB DEVELOPMENT • MOBILE APPLICATIONS • BUSINESS SYSTEMS • AI INTEGRATION • CLOUD SOLUTIONS
             </div>
           </div>
         </div>
@@ -560,7 +560,7 @@ export default function About() {
                     fontSize: '13px'
                   }}
                 >
-                  CEO & Cybersecurity Expert
+                  CEO & Security Architect
                 </div>
 
                 <h3

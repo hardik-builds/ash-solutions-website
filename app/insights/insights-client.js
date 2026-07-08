@@ -5,6 +5,51 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 
+function SkeletonCard() {
+  return (
+    <div
+      className="glass-panel"
+      style={{
+        borderRadius: '24px',
+        background: 'var(--card-bg)',
+        border: '1px solid var(--card-border)',
+        boxShadow: 'var(--card-shadow), var(--card-sheen)',
+        padding: 'var(--card-padding)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: '180px'
+      }}
+    >
+      <div className="shimmer-effect" />
+      
+      {/* Category/Author row */}
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ width: '120px', height: '12px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px' }} />
+        <div style={{ width: '80px', height: '12px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px' }} />
+      </div>
+
+      {/* Title */}
+      <div style={{ width: '60%', height: '24px', background: 'rgba(255, 255, 255, 0.12)', borderRadius: '6px', margin: '4px 0' }} />
+
+      {/* Description lines */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div style={{ width: '100%', height: '14px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+        <div style={{ width: '95%', height: '14px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+        <div style={{ width: '80%', height: '14px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+      </div>
+
+      {/* Tags/Bottom row */}
+      <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
+        <div style={{ width: '80px', height: '26px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '6px' }} />
+        <div style={{ width: '65px', height: '26px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '6px' }} />
+      </div>
+    </div>
+  );
+}
+
 export default function InsightsClient() {
   const [activeTab, setActiveTab] = useState('case-studies');
   const [user, setUser] = useState(null);
@@ -821,8 +866,10 @@ export default function InsightsClient() {
 
         {/* Listings Block */}
         {isLoading ? (
-          <div style={{ textAlign: 'center', padding: '60px 0', fontSize: '15px', fontWeight: '600', color: 'var(--body-text)' }}>
-            Loading insights data...
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }} className="insights-list">

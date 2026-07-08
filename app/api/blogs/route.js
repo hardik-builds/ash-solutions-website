@@ -1,8 +1,8 @@
 import connectDB from '@/lib/mongodb';
 import Blog from '@/lib/models/Blog';
 import jwt from 'jsonwebtoken';
-
 import { cookies } from 'next/headers';
+import cache from '@/lib/cache';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
@@ -11,11 +11,32 @@ if (!JWT_SECRET) {
 
 export async function GET() {
   try {
+    const cacheKey = 'blogs_all';
+    const cachedBlogs = cache.get(cacheKey);
+
+    if (cachedBlogs) {
+      console.log('Serving blogs from cache');
+      return new Response(JSON.stringify({ blogs: cachedBlogs }), {
+        status: 200,
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Cache': 'HIT'
+        },
+      });
+    }
+
     await connectDB();
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
+
+    // Store in cache (5 minutes TTL = 300,000 ms)
+    cache.set(cacheKey, blogs, 300000);
+
     return new Response(JSON.stringify({ blogs }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'X-Cache': 'MISS'
+      },
     });
   } catch (error) {
     console.error('Fetch blogs error:', error);
@@ -78,6 +99,9 @@ export async function POST(req) {
       author: author || 'ASH Solutions',
       tags: tags || [],
     });
+
+    // Invalidate blogs cache on new write
+    cache.invalidate('blogs_all');
 
     return new Response(JSON.stringify({ blog }), {
       status: 201,

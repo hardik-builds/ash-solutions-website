@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, useAnimationFrame } from 'framer-motion';
 import ReviewSlider from '@/components/ReviewSlider';
 import Link from 'next/link';
 
@@ -92,11 +92,19 @@ const card3DVariant = {
 };
 
 function TechCube({ scrollYProgress }) {
-  const rotateY = useTransform(scrollYProgress, [0.15, 0.45], [0, 360]);
-  const rotateX = useTransform(scrollYProgress, [0.15, 0.45], [15, 45]);
+  const rotateXVal = useMotionValue(15);
+  const rotateYVal = useMotionValue(0);
   
-  const smoothRotateY = useSpring(rotateY, { damping: 22, stiffness: 80 });
-  const smoothRotateX = useSpring(rotateX, { damping: 22, stiffness: 80 });
+  const smoothRotateX = useSpring(rotateXVal, { damping: 25, stiffness: 120 });
+  const smoothRotateY = useSpring(rotateYVal, { damping: 25, stiffness: 120 });
+
+  const [isPanning, setIsPanning] = useState(false);
+
+  useAnimationFrame(() => {
+    if (!isPanning) {
+      rotateYVal.set(rotateYVal.get() + 0.3);
+    }
+  });
 
   const faces = [
     { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: '#4f46e5', transform: 'rotateY(0deg) translateZ(120px)' },
@@ -104,22 +112,32 @@ function TechCube({ scrollYProgress }) {
     { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#7c3aed', transform: 'rotateY(180deg) translateZ(120px)' },
     { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: '#38bdf8', transform: 'rotateY(270deg) translateZ(120px)' },
     { name: 'Database Systems', desc: 'MongoDB, PostgreSQL', color: '#10b981', transform: 'rotateX(90deg) translateZ(120px)' },
-    { name: 'Cybersecurity', desc: 'Auth, DevSecOps, Shield', color: '#f43f5e', transform: 'rotateX(-90deg) translateZ(120px)' },
+    { name: 'API Integrations', desc: 'GraphQL, REST, Webhooks', color: '#f43f5e', transform: 'rotateX(-90deg) translateZ(120px)' },
   ];
 
   return (
-    <div style={{
-      width: '280px',
-      height: '280px',
-      perspective: '1000px',
-      margin: '60px auto',
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 3
-    }}>
+    <div 
+      style={{
+        width: '280px',
+        height: '280px',
+        perspective: '1000px',
+        margin: '60px auto',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 3,
+        cursor: isPanning ? 'grabbing' : 'grab',
+        touchAction: 'none'
+      }}
+    >
       <motion.div
+        onPanStart={() => setIsPanning(true)}
+        onPan={(event, info) => {
+          rotateYVal.set(rotateYVal.get() + info.delta.x * 0.6);
+          rotateXVal.set(rotateXVal.get() - info.delta.y * 0.6);
+        }}
+        onPanEnd={() => setIsPanning(false)}
         style={{
           width: '240px',
           height: '240px',
@@ -148,6 +166,8 @@ function TechCube({ scrollYProgress }) {
               backfaceVisibility: 'hidden',
               boxShadow: `0 10px 30px ${face.color}15, inset 0 1px 0 rgba(255,255,255,0.05)`,
               transform: face.transform,
+              userSelect: 'none',
+              pointerEvents: 'none'
             }}
           >
             <div style={{
@@ -740,7 +760,7 @@ export default function Home() {
               padding: '18px 0',
               background: 'var(--card-bg)',
             }}>
-            AI AUTOMATION • CUSTOM SAAS • WEB DEVELOPMENT • MOBILE APPS • CRM • ERP • CYBERSECURITY • AI AUTOMATION • CUSTOM SAAS • WEB DEVELOPMENT • MOBILE APPS • CRM • ERP • CYBERSECURITY
+            AI AUTOMATION • CUSTOM SAAS • WEB DEVELOPMENT • MOBILE APPS • CRM • ERP • CLOUD INTEGRATION • AI AUTOMATION • CUSTOM SAAS • WEB DEVELOPMENT • MOBILE APPS • CRM • ERP • CLOUD INTEGRATION
           </div>
         </div>
       </section>
@@ -877,12 +897,11 @@ export default function Home() {
                 ),
               },
               {
-                title: 'Cybersecurity Solutions',
-                desc: 'Security assessments, consulting and protection for digital assets.',
+                title: 'Cloud & DevOps Solutions',
+                desc: 'AWS orchestration, Docker container setups, and secure CI/CD pipelines.',
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d946ef" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeOpacity="0.3" />
-                    <rect x="10" y="11" width="4" height="4" rx="1" strokeWidth="2" />
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" strokeOpacity="0.3" />
                   </svg>
                 ),
               },
@@ -1903,7 +1922,7 @@ export default function Home() {
               letterSpacing: '0.5px'
             }}
           >
-            AI Automation • SaaS Development • Websites • Apps • Cybersecurity
+            AI Automation • SaaS Development • Websites • Apps • Cloud Integration
           </div>
         </div>
       </section>

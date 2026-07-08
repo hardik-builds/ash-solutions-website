@@ -36,9 +36,52 @@ export default function CaseStudyClient({ id }) {
   if (isLoading) {
     return (
       <div style={containerStyle}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
-          <div style={spinnerStyle}></div>
-          <span style={{ marginTop: '16px', color: 'var(--body-text)', fontSize: '15px', fontWeight: '500' }}>Loading Case Study...</span>
+        <div style={innerContainerStyle}>
+          {/* Navigation link placeholder */}
+          <div style={{ marginBottom: '40px', width: '150px', height: '16px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}>
+            <div className="shimmer-effect" />
+          </div>
+
+          {/* Main content block skeleton */}
+          <div className="glass-panel" style={{ ...contentPanelStyle, position: 'relative', overflow: 'hidden' }}>
+            <div className="shimmer-effect" />
+            
+            {/* Client category label */}
+            <div style={{ width: '180px', height: '14px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px', marginBottom: '12px' }} />
+            
+            {/* Title heading placeholder */}
+            <div style={{ width: '80%', height: '36px', background: 'rgba(255, 255, 255, 0.12)', borderRadius: '8px', marginBottom: '16px' }} />
+            
+            {/* Publish Date placeholder */}
+            <div style={{ width: '130px', height: '12px', background: 'rgba(255, 255, 255, 0.06)', borderRadius: '4px', marginBottom: '24px' }} />
+            
+            <hr style={dividerStyle} />
+
+            {/* Section Header placeholder */}
+            <div style={{ width: '150px', height: '14px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '4px', marginBottom: '16px', marginTop: '12px' }} />
+            
+            {/* Text description paragraphs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px' }}>
+              <div style={{ width: '100%', height: '16px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+              <div style={{ width: '98%', height: '16px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+              <div style={{ width: '95%', height: '16px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+              <div style={{ width: '80%', height: '16px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }} />
+            </div>
+
+            {/* Outcome block placeholder */}
+            <div style={{ ...outcomeCardStyle, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ width: '120px', height: '12px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px' }} />
+              <div style={{ width: '70%', height: '20px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '6px' }} />
+            </div>
+
+            {/* Tags section */}
+            <div style={{ width: '180px', height: '14px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '4px', marginBottom: '12px' }} />
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ width: '80px', height: '28px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '6px' }} />
+              <div style={{ width: '60px', height: '28px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '6px' }} />
+              <div style={{ width: '75px', height: '28px', background: 'rgba(255, 255, 255, 0.04)', borderRadius: '6px' }} />
+            </div>
+          </div>
         </div>
       </div>
     );

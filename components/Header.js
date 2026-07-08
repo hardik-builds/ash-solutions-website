@@ -418,7 +418,7 @@ export default function Header() {
                     </ul>
                   </div>
 
-                  {/* Column 3: Cloud & Cybersecurity */}
+                  {/* Column 3: Cloud & DevOps */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <div style={{
@@ -435,34 +435,24 @@ export default function Header() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                       </div>
-                      <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--title-color)' }}>Cybersecurity & Cloud</h4>
+                      <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--title-color)' }}>Cloud & DevOps</h4>
                     </div>
-                    <p style={{ fontSize: '12.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>Advanced digital asset protection and modern container environments.</p>
+                    <p style={{ fontSize: '12.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>Modern container environments and cloud infrastructure.</p>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <li>
-                        <Link href="/services#cybersecurity" className="mega-menu-link">
-                          Security Audits & Testing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services#cybersecurity" className="mega-menu-link">
-                          Penetration Testing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services#cybersecurity" className="mega-menu-link">
+                        <Link href="/services" className="mega-menu-link">
                           AWS & Azure Architecture
                         </Link>
                       </li>
                       <li>
-                        <Link href="/services#cybersecurity" className="mega-menu-link">
+                        <Link href="/services" className="mega-menu-link">
                           CI/CD Pipelines & DevOps
                         </Link>
                       </li>
                     </ul>
                   </div>
 
-                  {/* Column 4: Digital Marketing & SEO */}
+                  {/* Column 4: SEO & Analytics */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <div style={{
@@ -479,23 +469,13 @@ export default function Header() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                       </div>
-                      <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--title-color)' }}>Marketing & Growth</h4>
+                      <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--title-color)' }}>SEO & Analytics</h4>
                     </div>
-                    <p style={{ fontSize: '12.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>Search visibility tactics and marketing campaigns to boost user acquisition.</p>
+                    <p style={{ fontSize: '12.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>Search visibility tactics and data reporting to track business growth.</p>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <li>
                         <Link href="/services#seo-optimization" className="mega-menu-link">
                           Technical & On-Page SEO
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services#digital-marketing" className="mega-menu-link">
-                          PPC Campaign Management
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services#digital-marketing" className="mega-menu-link">
-                          Social Media Marketing
                         </Link>
                       </li>
                       <li>

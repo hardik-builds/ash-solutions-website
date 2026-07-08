@@ -2,6 +2,8 @@ import connectDB from '@/lib/mongodb';
 import User from '@/lib/models/User';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import limiter, { getClientIp } from '@/lib/rateLimit';
+import { validateLoginPayload } from '@/lib/validation';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
@@ -10,15 +12,32 @@ if (!JWT_SECRET) {
 
 export async function POST(req) {
   try {
-    await connectDB();
-    const { email, password } = await req.json();
+    // 1. Rate Limiting (5 requests per 1 minute)
+    const ip = getClientIp();
+    if (limiter.isLimitReached(ip, 5, 60000)) {
+      console.warn(`Rate limit exceeded for IP: ${ip} on login`);
+      return new Response(JSON.stringify({ error: 'Too many login attempts. Please try again in a minute.' }), {
+        status: 429,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
-    if (!email || !password) {
-      return new Response(JSON.stringify({ error: 'Please provide email and password' }), {
+    // 2. Parse request JSON
+    const body = await req.json();
+
+    // 3. Server-side payload validation and sanitization
+    const validation = validateLoginPayload(body);
+    if (!validation.isValid) {
+      return new Response(JSON.stringify({ error: 'Validation failed', errors: validation.errors }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    const { email, password } = validation.sanitized;
+
+    await connectDB();
+    console.log('Database connected successfully');
 
     // Find User
     const user = await User.findOne({ email });

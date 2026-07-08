@@ -440,7 +440,7 @@ export default function Contact() {
                     <option value="automation" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>AI Automation</option>
                     <option value="crm" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Business Management System</option>
                     <option value="mobile" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Mobile App Development</option>
-                    <option value="security" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Cybersecurity</option>
+                    <option value="cloud" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Cloud & DevOps Integration</option>
                   </select>
                 </div>
 

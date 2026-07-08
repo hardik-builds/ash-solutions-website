@@ -3,7 +3,7 @@ import TeamClient from './team-client';
 export const metadata = {
   title: 'Our Team - ASH Solutions | Enterprise Engineers & Solutions Architects',
   description: 'Meet the team behind ASH Solutions. We design, build, and deploy production-ready automation systems and custom software for modern enterprises.',
-  keywords: ['ASH Solutions team', 'software engineers', 'cybersecurity experts', 'full-stack developers', 'solutions architects'],
+  keywords: ['ASH Solutions team', 'software engineers', 'security architects', 'full-stack developers', 'solutions architects'],
   openGraph: {
     title: 'Our Team - ASH Solutions',
     description: 'A professional engineering team delivering secure, scalable, and automated digital solutions.',
@@ -26,7 +26,7 @@ const teamData = {
     {
       id: 2,
       name: "Anshu Rajkagoria",
-      role: "CEO & Cybersecurity Expert",
+      role: "CEO & Security Architect",
       image: "/images/Anshu-Rajkagoria.jpeg",
       bio: "Protecting client systems and databases with enterprise-grade threat modeling and precision engineering.",
       expertise: ["Penetration Testing", "Threat Modeling", "Network Security", "Compliance Frameworks"],
@@ -35,7 +35,7 @@ const teamData = {
     {
       id: 3,
       name: "Kuldeep garg",
-      role: "Cybersecurity Analyst",
+      role: "DevSecOps & Cloud Engineer",
       image: "/images/Kuldeep.jpeg",
       bio: "Defending digital assets through vigilant auditing and proactive threat detection.",
       expertise: ["SIEM Systems", "Incident Response", "Vulnerability Scanning", "Network Auditing"],

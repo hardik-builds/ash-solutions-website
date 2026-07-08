@@ -1,8 +1,8 @@
 import connectDB from '@/lib/mongodb';
 import CaseStudy from '@/lib/models/CaseStudy';
 import jwt from 'jsonwebtoken';
-
 import { cookies } from 'next/headers';
+import cache from '@/lib/cache';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
@@ -11,11 +11,32 @@ if (!JWT_SECRET) {
 
 export async function GET() {
   try {
+    const cacheKey = 'case_studies_all';
+    const cachedStudies = cache.get(cacheKey);
+
+    if (cachedStudies) {
+      console.log('Serving case studies from cache');
+      return new Response(JSON.stringify({ caseStudies: cachedStudies }), {
+        status: 200,
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Cache': 'HIT'
+        },
+      });
+    }
+
     await connectDB();
     const caseStudies = await CaseStudy.find({}).sort({ createdAt: -1 });
+
+    // Store in cache (5 minutes TTL)
+    cache.set(cacheKey, caseStudies, 300000);
+
     return new Response(JSON.stringify({ caseStudies }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'X-Cache': 'MISS'
+      },
     });
   } catch (error) {
     console.error('Fetch case studies error:', error);
@@ -79,6 +100,9 @@ export async function POST(req) {
       outcome,
       tags: tags || [],
     });
+
+    // Invalidate case studies cache on write
+    cache.invalidate('case_studies_all');
 
     return new Response(JSON.stringify({ caseStudy }), {
       status: 201,

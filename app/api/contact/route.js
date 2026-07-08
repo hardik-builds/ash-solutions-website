@@ -1,20 +1,38 @@
 import connectDB from '@/lib/mongodb';
 import { createContact } from '@/lib/createContact';
 import nodemailer from 'nodemailer';
+import limiter, { getClientIp } from '@/lib/rateLimit';
+import { validateContactPayload } from '@/lib/validation';
 
 export async function POST(request) {
   try {
     console.log('=== Contact Form Submission ===');
-    
-    const { name, email, phone, company, service, message } = await request.json();
 
-    // Validate input
-    if (!name || !email || !message) {
+    // 1. Rate Limiting check (3 requests per 5 minutes)
+    const ip = getClientIp();
+    const limitWindowMs = 5 * 60 * 1000; // 5 minutes
+    if (limiter.isLimitReached(ip, 3, limitWindowMs)) {
+      console.warn(`Rate limit exceeded for IP: ${ip}`);
       return Response.json(
-        { success: false, message: 'Please provide name, email, and message' },
+        { success: false, message: 'Too many messages submitted. Please try again in 5 minutes.' },
+        { status: 429 }
+      );
+    }
+
+    // 2. Parse request JSON
+    const body = await request.json();
+
+    // 3. Server-side payload validation and sanitization
+    const validation = validateContactPayload(body);
+    if (!validation.isValid) {
+      console.warn('Contact validation errors:', validation.errors);
+      return Response.json(
+        { success: false, message: 'Invalid payload values', errors: validation.errors },
         { status: 400 }
       );
     }
+
+    const { name, email, phone, company, service, message } = validation.sanitized;
 
     // Connect to database
     await connectDB();
@@ -44,8 +62,7 @@ export async function POST(request) {
         secure: process.env.EMAIL_PORT === '465',
         auth: {
           user: process.env.EMAIL_USER,
-          pass: 
-          process.env.EMAIL_PASS
+          pass: process.env.EMAIL_PASS
         },
       });
 
@@ -58,14 +75,14 @@ export async function POST(request) {
             <h2 style="color: #111827; margin: 0 0 10px;">New Contact Form Submission</h2>
             <p style="color: #4b5563; margin: 0 0 10px;">From: ${name}</p>
             <p style="color: #6b7280; margin: 0 0 10px;">Email: ${email}</p>
-            <p style="color: ${phone || 'Not provided'}</p>
-            <p style="color: ${company || 'Not provided'}</p>
-            <p style="color: ${service || 'Not specified'}</p>
+            <p style="color: #6b7280; margin: 0 0 10px;">Phone: ${phone || 'Not provided'}</p>
+            <p style="color: #6b7280; margin: 0 0 10px;">Company: ${company || 'Not provided'}</p>
+            <p style="color: #6b7280; margin: 0 0 10px;">Service Requested: ${service || 'Not specified'}</p>
             <div style="border-top: 1px solid #e5e7eb; padding-top: 10px; margin-top: 10px;">
               <p style="color: #111827; margin: 0 0 10px;">Message:</p>
-              <p style="color: ${message}</p>
+              <p style="color: #374151; white-space: pre-wrap;">${message}</p>
             </div>
-            <p style="font-size: 12px; color: #9ca3af; margin: 0 0 10px;">Contact ID: ${contact._id}</p>
+            <p style="font-size: 12px; color: #9ca3af; margin: 15px 0 10px;">Contact ID: ${contact._id}</p>
             <p style="font-size: 12px; color: #6b7280;">Date: ${new Date(contact.createdAt).toLocaleDateString()}</p>
           </div>
       `,
