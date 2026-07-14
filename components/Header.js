@@ -129,7 +129,7 @@ export default function Header() {
                 fontSize: '26px',
                 fontWeight: '900',
                 letterSpacing: '-0.5px',
-                background: 'linear-gradient(135deg, #0f172a 0%, #4f46e5 50%, #0891b2 100%)',
+                background: 'var(--logo-gradient)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 display: 'inline-block',

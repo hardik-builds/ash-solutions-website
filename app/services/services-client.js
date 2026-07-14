@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import CTASection from '@/components/CTASection';
@@ -149,6 +150,178 @@ const cardVariants = {
 };
 
 export default function Services() {
+  const servicesData = [
+    {
+      title: "AI Automation",
+      desc: "Automate workflows and operations.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="4" stroke="url(#ai-grad)" />
+          <path d="M9 9h6v6H9z" fill="url(#ai-grad-fill)" stroke="url(#ai-grad)" />
+          <path d="M9 12h6M12 9v6M3 9h3M3 15h3M18 9h3M18 15h3M9 3v3M15 3v3M9 18v3M15 18v3" />
+          <defs>
+            <linearGradient id="ai-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#0ea5e9" />
+              <stop offset="100%" stopColor="#14c9e1" />
+            </linearGradient>
+            <linearGradient id="ai-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(14, 165, 233, 0.15)" />
+              <stop offset="100%" stopColor="rgba(20, 201, 225, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s1-color)",
+      glow: "var(--s1-glow)",
+      bg: "var(--s1-bg)",
+      gradient: "var(--s1-gradient)",
+      index_tag: "01 • AI AUTOMATION"
+    },
+    {
+      title: "Custom SaaS",
+      desc: "Subscription software platforms.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M4 6l8-4 8 4-8 4-8-4z" fill="url(#saas-grad-fill)" stroke="url(#saas-grad)" />
+          <path d="M4 12l8 4 8-4M4 17l8 4 8-4" stroke="url(#saas-grad)" />
+          <defs>
+            <linearGradient id="saas-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#4f46e5" />
+              <stop offset="100%" stopColor="#0ea5e9" />
+            </linearGradient>
+            <linearGradient id="saas-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(79, 70, 229, 0.15)" />
+              <stop offset="100%" stopColor="rgba(14, 165, 233, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s2-color)",
+      glow: "var(--s2-glow)",
+      bg: "var(--s2-bg)",
+      gradient: "var(--s2-gradient)",
+      index_tag: "02 • CUSTOM SAAS"
+    },
+    {
+      title: "Cloud & DevOps",
+      desc: "AWS cloud setups and secure pipelines.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="3" y="3" width="18" height="6" rx="2" fill="url(#cloud-grad-fill)" stroke="url(#cloud-grad)" />
+          <rect x="3" y="15" width="18" height="6" rx="2" fill="url(#cloud-grad-fill)" stroke="url(#cloud-grad)" />
+          <circle cx="7" cy="6" r="1.5" fill="var(--s3-color)" />
+          <circle cx="7" cy="18" r="1.5" fill="var(--s3-color)" />
+          <path d="M12 9v6" stroke="url(#cloud-grad)" />
+          <defs>
+            <linearGradient id="cloud-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#9e3cec" />
+              <stop offset="100%" stopColor="#d946ef" />
+            </linearGradient>
+            <linearGradient id="cloud-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(158, 60, 236, 0.15)" />
+              <stop offset="100%" stopColor="rgba(217, 70, 239, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s3-color)",
+      glow: "var(--s3-glow)",
+      bg: "var(--s3-bg)",
+      gradient: "var(--s3-gradient)",
+      index_tag: "03 • CLOUD & DEVOPS"
+    },
+    {
+      title: "Website Development",
+      desc: "Modern high-performance web products.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="url(#web-grad-fill)" stroke="url(#web-grad)" />
+          <path d="M3 8h18M8 3v18" stroke="url(#web-grad)" />
+          <circle cx="5.5" cy="5.5" r="1" fill="#ef4444" />
+          <circle cx="10.5" cy="5.5" r="1" fill="#eab308" />
+          <defs>
+            <linearGradient id="web-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#22c55e" />
+            </linearGradient>
+            <linearGradient id="web-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(16, 185, 129, 0.15)" />
+              <stop offset="100%" stopColor="rgba(34, 197, 94, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s4-color)",
+      glow: "var(--s4-glow)",
+      bg: "var(--s4-bg)",
+      gradient: "var(--s4-gradient)",
+      index_tag: "04 • WEB DEV"
+    },
+    {
+      title: "Mobile Applications",
+      desc: "Scalable iOS & Android builds.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="5" y="2" width="14" height="20" rx="4" fill="url(#mob-grad-fill)" stroke="url(#mob-grad)" />
+          <path d="M12 18h.01" stroke="url(#mob-grad)" strokeWidth="2" strokeLinecap="round" />
+          <rect x="8" y="5" width="3" height="3" rx="1" fill="var(--s5-color)" />
+          <rect x="13" y="5" width="3" height="3" rx="1" fill="var(--s5-color)" />
+          <rect x="8" y="10" width="3" height="3" rx="1" fill="var(--s5-color)" />
+          <rect x="13" y="10" width="3" height="3" rx="1" fill="var(--s5-color)" />
+          <defs>
+            <linearGradient id="mob-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#14c9e1" />
+              <stop offset="100%" stopColor="#10b981" />
+            </linearGradient>
+            <linearGradient id="mob-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(20, 201, 225, 0.15)" />
+              <stop offset="100%" stopColor="rgba(16, 185, 129, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s5-color)",
+      glow: "var(--s5-glow)",
+      bg: "var(--s5-bg)",
+      gradient: "var(--s5-gradient)",
+      index_tag: "05 • MOBILE APPS"
+    },
+    {
+      title: "Business Systems",
+      desc: "Tailored CRM and custom ERP setups.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <ellipse cx="12" cy="5" rx="7" ry="2" fill="url(#sys-grad-fill)" stroke="url(#sys-grad)" />
+          <path d="M5 5v5c0 1.1 3.1 2 7 2s7-.9 7-2V5M5 10v5c0 1.1 3.1 2 7 2s7-.9 7-2v-5" fill="url(#sys-grad-fill)" stroke="url(#sys-grad)" />
+          <ellipse cx="12" cy="15" rx="7" ry="2" fill="url(#sys-grad-fill)" stroke="url(#sys-grad)" />
+          <defs>
+            <linearGradient id="sys-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#f97315" />
+              <stop offset="100%" stopColor="#d946ef" />
+            </linearGradient>
+            <linearGradient id="sys-grad-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(249, 115, 21, 0.15)" />
+              <stop offset="100%" stopColor="rgba(217, 70, 239, 0.15)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      ),
+      color: "var(--s6-color)",
+      glow: "var(--s6-glow)",
+      bg: "var(--s6-bg)",
+      gradient: "var(--s6-gradient)",
+      index_tag: "06 • BUSINESS SYS"
+    }
+  ];
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  };
+
   return (
     <div className="services-page-wrapper" style={{ position: 'relative', background: 'transparent', color: 'var(--text-color)', overflow: 'hidden' }}>
       <div
@@ -348,126 +521,128 @@ export default function Services() {
             </h2>
           </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                variants={cardVariants}
-                className="service-card glass-panel glass-panel-hover premium-card-sheen"
-                style={{
-                  alignItems: 'start',
-                  borderRadius: '28px',
-                }}
-              >
-                {/* Icon Circle */}
+          {/* Static Service Cards Grid */}
+          {/* Bento Grid Showcase */}
+          <div className="services-bento-grid">
+            {servicesData.map((node, index) => {
+              const isSpan2 = index === 0 || index === 5;
+              return (
                 <div
-                  className="service-icon"
+                  key={index}
+                  className={`bento-card ${isSpan2 ? 'span-2' : ''}`}
+                  onMouseMove={handleMouseMove}
                   style={{
-                    width: '72px',
-                    height: '72px',
-                    borderRadius: '18px',
-                    background: 'rgba(99, 102, 241, 0.08)',
-                    border: '1px solid rgba(99, 102, 241, 0.15)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#4f46e5',
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    '--service-theme-color': node.color,
+                    '--service-theme-glow': node.glow,
+                    '--service-theme-bg': node.bg,
+                    '--service-gradient': node.gradient
                   }}
                 >
-                  {service.icon}
+                  {isSpan2 ? (
+                    <div>
+                      <div className="bento-content">
+                        <div>
+                          <span className="card-index">{node.index_tag}</span>
+                          <div className="icon-wrap">
+                            {node.icon}
+                          </div>
+                          <h3>{node.title}</h3>
+                          <p>{node.desc}</p>
+                        </div>
+                        <div className="card-action">
+                          <span>Explore Service</span>
+                          <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="bento-visual">
+                        {index === 0 ? (
+                          <div className="sleek-terminal">
+                            <div className="terminal-header">
+                              <span className="dot red"></span>
+                              <span className="dot yellow"></span>
+                              <span className="dot green"></span>
+                            </div>
+                            <div className="terminal-body">
+                              <div className="line"><span className="keyword">import</span> {'{ agent }'} <span className="keyword">from</span> <span className="string">"@ash/ai"</span>;</div>
+                              <div className="line">agent.init(<span className="string">"workflows"</span>);</div>
+                              <div className="line"><span className="comment">// active pipelines...</span></div>
+                              <div className="line success">✓ 14 tasks running</div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="sleek-schema">
+                            <div className="schema-row">
+                              <span className="label">CRM Portal</span>
+                              <span className="connector">
+                                <svg width="16" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+                                  <path d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18" />
+                                </svg>
+                              </span>
+                              <span className="label">ERP Sync</span>
+                            </div>
+                            <div className="schema-row">
+                              <span className="label">Enterprise APIs</span>
+                              <span className="connector">
+                                <svg width="16" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+                                  <path d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18" />
+                                </svg>
+                              </span>
+                              <span className="label">Database</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <div>
+                        <span className="card-index">{node.index_tag}</span>
+                        <div className="icon-wrap">
+                          {node.icon}
+                        </div>
+                        <h3>{node.title}</h3>
+                        <p>{node.desc}</p>
+                      </div>
+                      <div className="card-action">
+                        <span>Explore Service</span>
+                        <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
 
-                {/* Left - Main Info */}
+            {/* Custom CTA Bento Card (7th block) */}
+            <div
+              className="bento-card cta-card"
+              onClick={() => window.location.href = '/contact'}
+              style={{
+                '--service-theme-color': 'var(--primary-glow)',
+                '--service-theme-glow': 'rgba(158, 60, 236, 0.15)',
+                '--service-theme-bg': 'rgba(158, 60, 236, 0.08)',
+                '--service-gradient': 'var(--cyber-gradient)'
+              }}
+            >
+              <div>
                 <div>
-                  <h3
-                    style={{
-                      fontSize: '28px',
-                      fontWeight: '800',
-                      color: '#0f172a',
-                      marginBottom: '12px',
-                      letterSpacing: '-0.5px',
-                    }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p style={{ color: '#1e293b', lineHeight: '1.7', fontSize: '15px', marginBottom: '24px' }}>
-                    {service.description}
-                  </p>
-
-                  <div className="service-tags-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                    {service.features.map((feat, idx) => (
-                      <span
-                        key={idx}
-                        className="service-tag"
-                        style={{
-                          padding: '6px 12px',
-                          borderRadius: '8px',
-                          background: 'rgba(15, 23, 42, 0.02)',
-                          border: '1px solid rgba(15, 23, 42, 0.08)',
-                          fontSize: '13px',
-                          color: '#0f172a',
-                          fontWeight: '700',
-                        }}
-                      >
-                        {feat}
-                      </span>
-                    ))}
-                  </div>
+                  <span className="card-index">07 // CONSULTATION</span>
+                  <h3 style={{ marginBottom: '8px' }}>Let's Build Together</h3>
+                  <p>Have an idea or custom requirement? Let's consult and scale your business automation.</p>
                 </div>
-
-                {/* Right - Pricing & Timeline Removed, display custom quote helper */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'flex-end',
-                    height: '100%',
-                    gap: '8px',
-                    alignSelf: 'center',
-                    textAlign: 'right',
-                  }}
-                  className="pricing-block"
-                >
-                  <div style={{ fontSize: '13px', color: '#4f46e5', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Custom Proposal
-                  </div>
-                  <div style={{ fontSize: '15px', color: 'var(--body-text)', fontWeight: '700', lineHeight: '1.4' }}>
-                    Pricing & timeline tailored to your scope
-                  </div>
-
-                  <a
-                    href="https://wa.me/918652768171"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-primary-btn service-card-btn"
-                    style={{
-                      marginTop: '15px',
-                      textDecoration: 'none',
-                      padding: '12px 24px',
-                      borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                      color: '#ffffff',
-                      fontSize: '14px',
-                      fontWeight: '700',
-                      textAlign: 'center',
-                      transition: 'all 0.3s ease',
-                      boxShadow: '0 4px 15px rgba(79, 70, 229, 0.2)',
-                    }}
-                  >
-                    Discuss project &rarr;
-                  </a>
+                <div className="card-action">
+                  <span>Book a Consultation</span>
+                  <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -513,7 +688,7 @@ export default function Services() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-              gap: '24px',
+              gap: '30px',
             }}
           >
             {industries.map((ind, idx) => (
@@ -523,24 +698,19 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="glass-panel"
                 style={{
-                  borderRadius: '24px',
-                   background: 'var(--card-bg)',
-                  border: '1px solid var(--card-border)',
-                  boxShadow: 'var(--card-shadow), var(--card-sheen)',
-                  transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  padding: '24px 20px',
+                  background: 'transparent',
+                  borderLeft: `3px solid ${ind.color}`,
+                  position: 'relative',
                   cursor: 'pointer',
+                  transition: 'transform 0.3s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px) scale(1.02)';
-                  e.currentTarget.style.borderColor = `${ind.color}35`;
-                  e.currentTarget.style.boxShadow = `0 20px 40px -15px ${ind.color}25, var(--card-sheen)`;
+                  e.currentTarget.style.transform = 'translateX(5px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.borderColor = 'var(--card-border)';
-                  e.currentTarget.style.boxShadow = 'var(--card-shadow), var(--card-sheen)';
+                  e.currentTarget.style.transform = 'translateX(0)';
                 }}
               >
                 <div
@@ -570,7 +740,7 @@ export default function Services() {
                 >
                   {ind.title}
                 </h3>
-                <p style={{ color: 'var(--body-text)', fontSize: '15px', lineHeight: '1.7' }}>
+                <p style={{ color: 'var(--body-text)', fontSize: '15px', lineHeight: '1.7', margin: 0 }}>
                   {ind.desc}
                 </p>
               </motion.div>

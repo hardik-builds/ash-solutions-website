@@ -259,25 +259,22 @@ export default function Contact() {
               gap: '20px',
             }}
           >
-            {[
-              'Free Consultation',
-              'Custom Solutions',
-              'Fast Response',
-              'Long-Term Support',
-            ].map((item) => (
+            {['No high-pressure sales calls', 'Zero obligation consultations', 'Direct developer collaboration', 'NDAs signed upon request'].map((item, idx) => (
               <div
-                key={item}
-                className="glass-panel"
+                key={idx}
                 style={{
-                  padding: '20px',
-                  borderRadius: '16px',
+                  padding: '16px 24px',
+                  borderRadius: '100px',
                   fontWeight: '700',
                   color: 'var(--title-color)',
-                  fontSize: '15px',
+                  fontSize: '14.5px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '10px'
+                  gap: '10px',
+                  background: 'rgba(99, 102, 241, 0.05)',
+                  border: '1px solid rgba(99, 102, 241, 0.15)',
+                  boxShadow: '0 8px 24px rgba(99, 102, 241, 0.05)'
                 }}
               >
                 <FiCheckCircle style={{ color: '#4f46e5', fontSize: '18px', flexShrink: 0 }} />
@@ -330,10 +327,9 @@ export default function Contact() {
             {/* Form card */}
             <div
               id="contact-form"
-              className="glass-panel"
               style={{
-                borderRadius: '32px',
-                padding: 'var(--card-padding)',
+                background: 'transparent',
+                padding: '10px 0',
               }}
             >
               <AnimatePresence>
@@ -503,15 +499,12 @@ export default function Contact() {
 
             {/* Quick Contact Info */}
             <div
-              className="glass-panel"
               style={{
-                borderRadius: '32px',
-                padding: 'var(--card-padding)',
                 position: 'sticky',
                 top: '120px',
-                background: 'var(--card-bg)',
-                border: '1px solid var(--card-border)',
-                boxShadow: 'var(--card-shadow), var(--card-sheen)',
+                background: 'transparent',
+                padding: '10px 0 10px 24px',
+                borderLeft: '2px solid rgba(99, 102, 241, 0.25)',
               }}
             >
               <div

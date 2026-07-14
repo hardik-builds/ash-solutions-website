@@ -370,48 +370,65 @@ export default function About() {
           }}
         >
           <div
-            className="principles-grid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
-              gap: '24px',
+              position: 'relative',
+              padding: '40px 0',
             }}
+            className="about-metrics-timeline"
           >
-            {achievements.map((item, idx) => (
-              <div
-                key={idx}
-                className="glass-panel"
-                style={{
-                  padding: 'var(--card-padding)',
-                  borderRadius: '24px',
-                  borderTop: '2px solid #4f46e5',
-                }}
-              >
+            {/* Horizontal glowing connector line */}
+            <div className="metrics-flow-line" />
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+                gap: '40px',
+                position: 'relative',
+                zIndex: 2,
+              }}
+            >
+              {achievements.map((item, idx) => (
                 <div
+                  key={idx}
+                  className="metric-timeline-node"
                   style={{
-                    fontSize: '44px',
-                    fontWeight: '900',
-                    color: '#4f46e5',
-                    marginBottom: '10px',
+                    textAlign: 'center',
+                    position: 'relative',
                   }}
                 >
-                  {item.value}
+                  {/* The glowing junction point */}
+                  <div className="metric-dot" />
+
+                  <div
+                    style={{
+                      fontSize: '54px',
+                      fontWeight: '900',
+                      color: '#4f46e5',
+                      marginBottom: '12px',
+                      textShadow: '0 0 20px rgba(79, 70, 229, 0.25)',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    {item.value}
+                  </div>
+                  <h3
+                    style={{
+                      fontSize: '18px',
+                      fontWeight: '800',
+                      color: 'var(--title-color)',
+                      marginBottom: '10px',
+                      letterSpacing: '-0.3px',
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p style={{ color: 'var(--body-text)', fontSize: '14.5px', lineHeight: '1.6', margin: '0 auto', maxWidth: '280px' }}>
+                    {item.description}
+                  </p>
                 </div>
-                <h3
-                  style={{
-                    fontSize: '18px',
-                    fontWeight: '800',
-                    color: '#0f172a',
-                    marginBottom: '10px',
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p style={{ color: '#1e293b', fontSize: '14px', lineHeight: '1.6' }}>
-                  {item.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -90,13 +90,12 @@ export default function ReviewSlider() {
             {allReviews.map((review, index) => (
               <div
                 key={index}
-                className="review-card glass-panel"
+                className="review-card"
                 style={{
-                  borderRadius: '28px',
-                  padding: '35px',
-                  border: '1px solid var(--card-border)',
-                  background: 'var(--card-bg)',
-                  boxShadow: 'var(--card-shadow), var(--card-sheen)',
+                  background: 'transparent',
+                  padding: '10px 0 10px 24px',
+                  borderLeft: '3px solid rgba(99, 102, 241, 0.45)',
+                  margin: '0 20px',
                 }}
               >
                 <div
