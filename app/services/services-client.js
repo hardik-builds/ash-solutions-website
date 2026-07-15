@@ -365,9 +365,8 @@ export default function Services() {
       <section
         className="hero-section"
         style={{
-          padding: '160px 24px 100px',
-          background: 'radial-gradient(circle at 50% 25%, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
           position: 'relative',
+          background: 'transparent',
         }}
       >
         <div

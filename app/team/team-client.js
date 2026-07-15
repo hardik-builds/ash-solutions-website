@@ -84,8 +84,7 @@ export default function TeamClient({ teamData }) {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          padding: '160px 24px 100px',
-          background: 'radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
+          background: 'transparent',
         }}
       >
         <div

@@ -214,6 +214,14 @@ export default function Header() {
               gap: '16px',
             }}
           >
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              aria-label="Toggle dark/light mode"
+            >
+              {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </button>
+
             <Link
               href="/contact"
               className="desktop-cta"
@@ -288,10 +296,36 @@ export default function Header() {
                   );
                 })}
 
+                {/* Mobile Theme Switcher Row */}
                 <motion.div
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: navLinks.length * 0.05 }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '12px 16px',
+                    borderRadius: '8px',
+                    background: 'var(--cta-secondary-bg)',
+                    border: '1px solid var(--cta-secondary-border)',
+                    marginTop: '8px',
+                    cursor: 'pointer'
+                  }}
+                  onClick={toggleTheme}
+                >
+                  <span style={{ fontSize: '15px', fontWeight: '700', color: 'var(--text-color)' }}>
+                    Theme: {theme === 'dark' ? 'Dark' : 'Light'}
+                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', color: 'var(--text-color)' }}>
+                    {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: (navLinks.length + 1) * 0.05 }}
                 >
                   <Link
                     href="/contact"

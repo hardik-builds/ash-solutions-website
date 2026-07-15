@@ -110,9 +110,9 @@ function TechCube({ scrollYProgress }) {
     { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: '#4f46e5', transform: 'rotateY(0deg) translateZ(120px)' },
     { name: 'SaaS Platforms', desc: 'Next.js, React, Node', color: '#0ea5e9', transform: 'rotateY(90deg) translateZ(120px)' },
     { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#7c3aed', transform: 'rotateY(180deg) translateZ(120px)' },
-    { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: '#38bdf8', transform: 'rotateY(270deg) translateZ(120px)' },
+    { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: 'var(--code-variable)', transform: 'rotateY(270deg) translateZ(120px)' },
     { name: 'Database Systems', desc: 'MongoDB, PostgreSQL', color: '#10b981', transform: 'rotateX(90deg) translateZ(120px)' },
-    { name: 'API Integrations', desc: 'GraphQL, REST, Webhooks', color: '#f43f5e', transform: 'rotateX(-90deg) translateZ(120px)' },
+    { name: 'API Integrations', desc: 'GraphQL, REST, Webhooks', color: 'var(--code-keyword)', transform: 'rotateX(-90deg) translateZ(120px)' },
   ];
 
   return (
@@ -164,7 +164,7 @@ function TechCube({ scrollYProgress }) {
               alignItems: 'center',
               textAlign: 'center',
               backfaceVisibility: 'hidden',
-              boxShadow: `0 10px 30px ${face.color}15, inset 0 1px 0 rgba(255,255,255,0.05)`,
+              boxShadow: `0 10px 30px ${face.color}15, inset 0 1px 0 var(--card-sheen)`,
               transform: face.transform,
               userSelect: 'none',
               pointerEvents: 'none'
@@ -747,11 +747,11 @@ export default function Home() {
                 <div
                   className="glass-panel"
                   style={{
-                    background: 'rgba(9, 13, 26, 0.88)',
-                    border: '1px solid rgba(15, 23, 42, 0.15)',
+                    background: 'var(--editor-bg)',
+                    border: '1px solid var(--editor-border)',
                     borderRadius: '24px',
                     overflow: 'hidden',
-                    boxShadow: '0 30px 60px rgba(15, 23, 42, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                    boxShadow: '0 30px 60px rgba(15, 23, 42, 0.15), inset 0 1px 0 var(--card-sheen)',
                     position: 'relative',
                     zIndex: 3,
                     display: 'flex',
@@ -766,8 +766,8 @@ export default function Home() {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '14px 20px',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                  background: 'rgba(5, 8, 16, 0.6)',
+                  borderBottom: '1px solid var(--editor-border)',
+                  background: 'var(--editor-sub-bg)',
                 }}
               >
                 <div style={{ display: 'flex', gap: '8px' }}>
@@ -775,7 +775,7 @@ export default function Home() {
                   <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#F59E0B' }} />
                   <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22C55E' }} />
                 </div>
-                <div style={{ fontSize: '12px', color: '#64748B', fontFamily: 'monospace', fontWeight: '600' }}>
+                <div style={{ fontSize: '12px', color: 'var(--editor-text)', fontFamily: 'monospace', fontWeight: '600' }}>
                   ash-solutions.js
                 </div>
                 <div style={{ width: '52px' }} />
@@ -789,36 +789,36 @@ export default function Home() {
               }}>
                 {/* Explorer Sidebar */}
                 <div className="editor-file-tree" style={{
-                  background: 'rgba(5, 8, 16, 0.4)',
-                  borderRight: '1px solid rgba(255, 255, 255, 0.06)',
+                  background: 'var(--editor-sub-bg)',
+                  borderRight: '1px solid var(--editor-border)',
                   padding: '16px 12px',
                   fontSize: '12px',
                   fontFamily: 'monospace',
-                  color: '#64748b',
+                  color: 'var(--editor-text)',
                   userSelect: 'none'
                 }}>
-                  <div style={{ textTransform: 'uppercase', fontSize: '10px', fontWeight: '800', letterSpacing: '1px', marginBottom: '12px', color: '#475569' }}>
+                  <div style={{ textTransform: 'uppercase', fontSize: '10px', fontWeight: '800', letterSpacing: '1px', marginBottom: '12px', color: 'var(--editor-text)' }}>
                     Explorer
                   </div>
-                  <div style={{ color: '#cbd5e1', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ color: 'var(--editor-folder-text)', fontWeight: '600', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     ▼ MY-APP
                   </div>
                   <div style={{ paddingLeft: '12px' }}>
-                    <div style={{ color: '#cbd5e1', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ color: 'var(--editor-folder-text)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       ▼ app
                     </div>
                     <div style={{ paddingLeft: '12px' }}>
-                      <div style={{ background: 'rgba(56, 189, 248, 0.08)', color: '#38bdf8', padding: '4px 8px', borderRadius: '4px', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
+                      <div style={{ background: 'var(--editor-active-bg)', color: 'var(--code-variable)', padding: '4px 8px', borderRadius: '4px', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600' }}>
                         📄 page.js
                       </div>
-                      <div style={{ padding: '4px 8px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
+                      <div style={{ padding: '4px 8px', color: 'var(--editor-text)', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
                         📄 layout.js
                       </div>
                     </div>
-                    <div style={{ color: '#64748b', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ color: 'var(--editor-text)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       ▶ components
                     </div>
-                    <div style={{ color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ color: 'var(--editor-text)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       ▶ public
                     </div>
                   </div>
@@ -829,17 +829,17 @@ export default function Home() {
                   {/* Editor Tabs */}
                   <div style={{
                     display: 'flex',
-                    background: 'rgba(5, 8, 16, 0.2)',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                    background: 'var(--editor-sub-bg)',
+                    borderBottom: '1px solid var(--editor-border)',
                     fontSize: '11px',
                     fontFamily: 'monospace'
                   }}>
                     <div style={{
-                      background: 'rgba(9, 13, 26, 0.85)',
-                      borderRight: '1px solid rgba(255, 255, 255, 0.06)',
+                      background: 'var(--editor-bg)',
+                      borderRight: '1px solid var(--editor-border)',
                       borderTop: '2px solid #38bdf8',
                       padding: '8px 16px',
-                      color: '#f8fafc',
+                      color: 'var(--editor-active-text)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px',
@@ -849,11 +849,11 @@ export default function Home() {
                     </div>
                     <div style={{
                       padding: '8px 16px',
-                      color: '#64748b',
+                      color: 'var(--editor-text)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px',
-                      borderRight: '1px solid rgba(255, 255, 255, 0.06)'
+                      borderRight: '1px solid var(--editor-border)'
                     }}>
                       📄 layout.js
                     </div>
@@ -870,7 +870,7 @@ export default function Home() {
                     background: 'transparent'
                   }}>
                     {/* Line Numbers */}
-                    <div style={{ color: '#334155', textAlign: 'right', paddingRight: '16px', borderRight: '1px solid rgba(255, 255, 255, 0.06)', userSelect: 'none' }}>
+                    <div style={{ color: '#334155', textAlign: 'right', paddingRight: '16px', borderRight: '1px solid var(--editor-border)', userSelect: 'none' }}>
                       <div>1</div>
                       <div>2</div>
                       <div>3</div>
@@ -883,25 +883,25 @@ export default function Home() {
                     </div>
                     
                     {/* Code */}
-                    <pre style={{ margin: 0, paddingLeft: '16px', color: '#94a3b8' }}>
+                    <pre style={{ margin: 0, paddingLeft: '16px', color: 'var(--editor-code-default)' }}>
                       <code>
-                        <span style={{ color: '#f43f5e' }}>const</span>{' '}
-                        <span style={{ color: '#38bdf8' }}>system</span> = {'{\n'}
+                        <span style={{ color: 'var(--code-keyword)' }}>const</span>{' '}
+                        <span style={{ color: 'var(--code-variable)' }}>system</span> = {'{\n'}
                         {'  '}
-                        <span style={{ color: '#fb923c' }}>name</span>:{' '}
-                        <span style={{ color: '#4ade80' }}>&quot;ASH Solutions&quot;</span>,{'\n'}
+                        <span style={{ color: 'var(--code-key)' }}>name</span>:{' '}
+                        <span style={{ color: 'var(--code-string)' }}>&quot;ASH Solutions&quot;</span>,{'\n'}
                         {'  '}
-                        <span style={{ color: '#fb923c' }}>aiAutomation</span>:{' '}
-                        <span style={{ color: '#a78bfa' }}>true</span>,{'\n'}
+                        <span style={{ color: 'var(--code-key)' }}>aiAutomation</span>:{' '}
+                        <span style={{ color: 'var(--code-bool)' }}>true</span>,{'\n'}
                         {'  '}
-                        <span style={{ color: '#fb923c' }}>customSaaS</span>:{' '}
-                        <span style={{ color: '#a78bfa' }}>true</span>,{'\n'}
+                        <span style={{ color: 'var(--code-key)' }}>customSaaS</span>:{' '}
+                        <span style={{ color: 'var(--code-bool)' }}>true</span>,{'\n'}
                         {'  '}
-                        <span style={{ color: '#fb923c' }}>scalability</span>:{' '}
-                        <span style={{ color: '#4ade80' }}>&quot;maximum&quot;</span>,{'\n'}
+                        <span style={{ color: 'var(--code-key)' }}>scalability</span>:{' '}
+                        <span style={{ color: 'var(--code-string)' }}>&quot;maximum&quot;</span>,{'\n'}
                         {'  '}
-                        <span style={{ color: '#fb923c' }}>readyToScale</span>:{' '}
-                        <span style={{ color: '#a78bfa' }}>true</span>{'\n'}
+                        <span style={{ color: 'var(--code-key)' }}>readyToScale</span>:{' '}
+                        <span style={{ color: 'var(--code-bool)' }}>true</span>{'\n'}
                         {'};'}
                       </code>
                     </pre>
@@ -1580,7 +1580,7 @@ export default function Home() {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   marginBottom: '20px',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderBottom: '1px solid var(--editor-border)',
                   paddingBottom: '14px'
                 }}
               >
@@ -1589,7 +1589,7 @@ export default function Home() {
                   <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#fbbf24' }} />
                   <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#22c55e' }} />
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#4ade80', letterSpacing: '0.5px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: 'var(--code-string)', letterSpacing: '0.5px' }}>
                   <span className="pulse-dot" /> LIVE OPERATIONS HUB
                 </div>
               </div>
@@ -1609,7 +1609,7 @@ export default function Home() {
                       boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#38bdf8', transform: 'translateZ(10px)' }}>99.9%</div>
+                    <div style={{ fontSize: '26px', fontWeight: '900', color: 'var(--code-variable)', transform: 'translateZ(10px)' }}>99.9%</div>
                     <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>System Uptime</div>
                   </div>
                   <div
@@ -1661,7 +1661,7 @@ export default function Home() {
               <div style={{ marginTop: '10px', transform: 'translateZ(35px)', transformStyle: 'preserve-3d' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '700', color: '#a1a1aa', marginBottom: '6px', transform: 'translateZ(5px)' }}>
                   <span>AI SYSTEM EFFICIENCY</span>
-                  <span style={{ color: '#38bdf8' }}>92% OPTIMIZED</span>
+                  <span style={{ color: 'var(--code-variable)' }}>92% OPTIMIZED</span>
                 </div>
                 <div className="performance-line" style={{ transform: 'translateZ(5px)' }}>
                   <div className="performance-fill" />

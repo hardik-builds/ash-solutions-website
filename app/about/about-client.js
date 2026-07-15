@@ -93,10 +93,9 @@ export default function About() {
       <section
         className="hero-section"
         style={{
-          padding: '170px 24px 100px',
-          background: 'radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
           position: 'relative',
           overflow: 'hidden',
+          background: 'transparent',
         }}
       >
         {/* Background Glow */}

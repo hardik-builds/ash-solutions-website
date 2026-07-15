@@ -40,6 +40,22 @@
   --secondary-glow: radial-gradient(circle, rgba(20, 201, 225, 0.1) 0%, transparent 60%);
   --cyber-gradient: linear-gradient(135deg, #14c9e1 0%, #9e3cec 50%, #f97315 100%);
   --logo-gradient: linear-gradient(135deg, #ffffff 0%, #14c9e1 50%, #9e3cec 100%);
+  --cyber-grid-line: rgba(99, 102, 241, 0.035);
+  --hero-glow: rgba(99, 102, 241, 0.055);
+  --editor-bg: rgba(9, 13, 26, 0.88);
+  --editor-sub-bg: rgba(5, 8, 16, 0.6);
+  --editor-border: rgba(255, 255, 255, 0.06);
+  --editor-text: #64748b;
+  --editor-active-bg: rgba(255, 255, 255, 0.03);
+  --editor-active-text: #f8fafc;
+  --editor-folder-text: #cbd5e1;
+  --editor-code-default: #94a3b8;
+  --editor-line-numbers: #334155;
+  --code-keyword: #f43f5e;
+  --code-variable: #38bdf8;
+  --code-key: #fb923c;
+  --code-string: #4ade80;
+  --code-bool: #a78bfa;
 
   /* Service tokens - Dark */
   --s1-color: #0ea5e9;
@@ -109,6 +125,22 @@
   --secondary-glow: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
   --cyber-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #7c3aed 100%);
   --logo-gradient: linear-gradient(135deg, #0f172a 0%, #4f46e5 50%, #0284c7 100%);
+  --cyber-grid-line: rgba(79, 70, 229, 0.06);
+  --hero-glow: rgba(99, 102, 241, 0.035);
+  --editor-bg: rgba(248, 250, 252, 0.96);
+  --editor-sub-bg: rgba(241, 245, 249, 0.8);
+  --editor-border: rgba(15, 23, 42, 0.08);
+  --editor-text: #475569;
+  --editor-active-bg: rgba(15, 23, 42, 0.03);
+  --editor-active-text: #0f172a;
+  --editor-folder-text: #334155;
+  --editor-code-default: #475569;
+  --editor-line-numbers: #94a3b8;
+  --code-keyword: #d73a49;
+  --code-variable: #005cc5;
+  --code-key: #e36209;
+  --code-string: #032f62;
+  --code-bool: #005cc5;
 
   /* Service tokens - Light */
   --s1-color: #0284c7;
@@ -321,6 +353,11 @@ html, body {
 /* Responsive Hero Padding */
 .hero-section {
   padding: 160px 24px 100px !important;
+  background: radial-gradient(circle at 50% 25%, var(--hero-glow) 0%, transparent 60%) !important;
+  position: relative;
+}
+.services-page-wrapper {
+  background: radial-gradient(circle at 50% 25%, var(--hero-glow) 0%, transparent 60%) !important;
 }
 @media (max-width: 768px) {
   .hero-section {
@@ -671,8 +708,8 @@ html, body {
   right: 0;
   height: 100vh;
   background-image: 
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--cyber-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyber-grid-line) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center top;
   transform: rotateX(60deg) scale(2) translateY(-20%);
@@ -1152,8 +1189,8 @@ html, body {
 .sleek-terminal {
   width: 100%;
   max-width: 250px;
-  background: #08090c;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--editor-bg);
+  border: 1px solid var(--editor-border);
   border-radius: 10px;
   font-family: 'Geist Mono', 'SF Mono', monospace;
   font-size: 12.5px;
@@ -1164,12 +1201,12 @@ html, body {
 
 .terminal-header {
   height: 24px;
-  background: #0f1115;
+  background: var(--editor-sub-bg);
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 0 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--editor-border);
 }
 
 .terminal-header .dot {
@@ -1183,13 +1220,13 @@ html, body {
 
 .terminal-body {
   padding: 12px;
-  color: #a1a1aa;
+  color: var(--editor-code-default);
   line-height: 1.6;
 }
 
-.terminal-body .keyword { color: #f472b6; }
-.terminal-body .string { color: #34d399; }
-.terminal-body .comment { color: #71717a; }
+.terminal-body .keyword { color: var(--code-keyword); }
+.terminal-body .string { color: var(--code-string); }
+.terminal-body .comment { color: var(--editor-text); }
 .terminal-body .success { color: #22c55e; }
 
 /* Sleek Schema Grid */
@@ -1312,6 +1349,27 @@ html, body {
   .bento-card.cta-card .card-action {
     justify-content: center;
   }
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--cta-secondary-bg);
+  border-color: var(--cta-secondary-border);
+  color: var(--title-color);
+  transform: scale(1.08);
 }
 
 
