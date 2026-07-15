@@ -175,7 +175,8 @@ export default function Services() {
       glow: "var(--s1-glow)",
       bg: "var(--s1-bg)",
       gradient: "var(--s1-gradient)",
-      index_tag: "01 • AI AUTOMATION"
+      index_tag: "01 • AI AUTOMATION",
+      serviceParam: "automation"
     },
     {
       title: "Custom SaaS",
@@ -200,7 +201,8 @@ export default function Services() {
       glow: "var(--s2-glow)",
       bg: "var(--s2-bg)",
       gradient: "var(--s2-gradient)",
-      index_tag: "02 • CUSTOM SAAS"
+      index_tag: "02 • CUSTOM SAAS",
+      serviceParam: "saas"
     },
     {
       title: "Cloud & DevOps",
@@ -228,7 +230,8 @@ export default function Services() {
       glow: "var(--s3-glow)",
       bg: "var(--s3-bg)",
       gradient: "var(--s3-gradient)",
-      index_tag: "03 • CLOUD & DEVOPS"
+      index_tag: "03 • CLOUD & DEVOPS",
+      serviceParam: "cloud"
     },
     {
       title: "Website Development",
@@ -255,7 +258,8 @@ export default function Services() {
       glow: "var(--s4-glow)",
       bg: "var(--s4-bg)",
       gradient: "var(--s4-gradient)",
-      index_tag: "04 • WEB DEV"
+      index_tag: "04 • WEB DEV",
+      serviceParam: "website"
     },
     {
       title: "Mobile Applications",
@@ -284,7 +288,8 @@ export default function Services() {
       glow: "var(--s5-glow)",
       bg: "var(--s5-bg)",
       gradient: "var(--s5-gradient)",
-      index_tag: "05 • MOBILE APPS"
+      index_tag: "05 • MOBILE APPS",
+      serviceParam: "mobile"
     },
     {
       title: "Business Systems",
@@ -310,7 +315,8 @@ export default function Services() {
       glow: "var(--s6-glow)",
       bg: "var(--s6-bg)",
       gradient: "var(--s6-gradient)",
-      index_tag: "06 • BUSINESS SYS"
+      index_tag: "06 • BUSINESS SYS",
+      serviceParam: "crm"
     }
   ];
   const handleMouseMove = (e) => {
@@ -548,12 +554,16 @@ export default function Services() {
                           <h3>{node.title}</h3>
                           <p>{node.desc}</p>
                         </div>
-                        <div className="card-action">
+                        <Link
+                          href={`/contact?service=${node.serviceParam}`}
+                          className="card-action"
+                          style={{ textDecoration: 'none' }}
+                        >
                           <span>Explore Service</span>
                           <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </div>
+                        </Link>
                       </div>
                       <div className="bento-visual">
                         {index === 0 ? (
@@ -604,12 +614,16 @@ export default function Services() {
                         <h3>{node.title}</h3>
                         <p>{node.desc}</p>
                       </div>
-                      <div className="card-action">
+                      <Link
+                        href={`/contact?service=${node.serviceParam}`}
+                        className="card-action"
+                        style={{ textDecoration: 'none' }}
+                      >
                         <span>Explore Service</span>
                         <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                      </div>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -619,7 +633,6 @@ export default function Services() {
             {/* Custom CTA Bento Card (7th block) */}
             <div
               className="bento-card cta-card"
-              onClick={() => window.location.href = '/contact'}
               style={{
                 '--service-theme-color': 'var(--primary-glow)',
                 '--service-theme-glow': 'rgba(158, 60, 236, 0.15)',
@@ -633,12 +646,16 @@ export default function Services() {
                   <h3 style={{ marginBottom: '8px' }}>Let's Build Together</h3>
                   <p>Have an idea or custom requirement? Let's consult and scale your business automation.</p>
                 </div>
-                <div className="card-action">
+                <Link
+                  href="/contact"
+                  className="card-action"
+                  style={{ textDecoration: 'none' }}
+                >
                   <span>Book a Consultation</span>
                   <svg className="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

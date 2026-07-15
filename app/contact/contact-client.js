@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaRocket, FaWhatsapp } from 'react-icons/fa';
@@ -18,6 +18,19 @@ export default function Contact() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const serviceParam = params.get('service');
+      if (serviceParam) {
+        setFormData(prev => ({
+          ...prev,
+          service: serviceParam
+        }));
+      }
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
