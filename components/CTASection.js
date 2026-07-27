@@ -62,7 +62,7 @@ export default function CTASection() {
       >
         <div
           style={{
-            color: '#4f46e5',
+            color: 'var(--title-color)',
             fontWeight: '700',
             marginBottom: '15px',
             letterSpacing: '1px',
@@ -113,13 +113,14 @@ export default function CTASection() {
             rel="noopener noreferrer"
             style={{
               textDecoration: 'none',
-              color: '#FFFFFF',
+              color: '#FAF7F2',
               fontWeight: '700',
               fontSize: '14px',
               padding: '16px 36px',
               borderRadius: '14px',
-              background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-              boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              background: '#0B1F3A',
+              border: '1px solid #0B1F3A',
+              boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(212, 175, 55, 0.3)',
               transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
               display: 'inline-flex',
               alignItems: 'center',
@@ -128,13 +129,15 @@ export default function CTASection() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-              e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(79, 70, 229, 0.35)';
+              e.currentTarget.style.background = '#183A66';
+              e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(11, 31, 58, 0.35)';
               const icon = e.currentTarget.querySelector('.wa-icon');
               if (icon) icon.style.transform = 'scale(1.15) rotate(5deg)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.25)';
+              e.currentTarget.style.background = '#0B1F3A';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(11, 31, 58, 0.25)';
               const icon = e.currentTarget.querySelector('.wa-icon');
               if (icon) icon.style.transform = 'scale(1) rotate(0)';
             }}
@@ -149,8 +152,8 @@ export default function CTASection() {
               padding: '16px 36px',
               borderRadius: '14px',
               textDecoration: 'none',
-              background: 'var(--cta-secondary-bg)',
-              border: '1px solid var(--cta-secondary-border)',
+              background: 'transparent',
+              border: '1px solid #0B1F3A',
               color: 'var(--title-color)',
               fontWeight: '700',
               backdropFilter: 'blur(10px)',
@@ -162,15 +165,15 @@ export default function CTASection() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-              e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
-              e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
+              e.currentTarget.style.background = '#F5F2EB';
+              e.currentTarget.style.borderColor = '#D4AF37';
               const arrow = e.currentTarget.querySelector('.arrow-icon');
               if (arrow) arrow.style.transform = 'translateX(4px)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.background = 'var(--cta-secondary-bg)';
-              e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = '#0B1F3A';
               const arrow = e.currentTarget.querySelector('.arrow-icon');
               if (arrow) arrow.style.transform = 'translateX(0)';
             }}

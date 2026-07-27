@@ -174,7 +174,7 @@ export default function Contact() {
         >
           <div
              style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '20px',
@@ -232,10 +232,10 @@ export default function Contact() {
                 padding: '16px 32px',
                 borderRadius: '14px',
                 textDecoration: 'none',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                 color: '#fff',
                 fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
@@ -289,7 +289,7 @@ export default function Contact() {
                   boxShadow: '0 8px 24px rgba(99, 102, 241, 0.05)'
                 }}
               >
-                <FiCheckCircle style={{ color: '#4f46e5', fontSize: '18px', flexShrink: 0 }} />
+                <FiCheckCircle style={{ color: 'var(--title-color)', fontSize: '18px', flexShrink: 0 }} />
                 {item}
               </div>
             ))}
@@ -308,7 +308,7 @@ export default function Contact() {
           <div style={{ textAlign: 'center', marginBottom: '70px' }}>
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 marginBottom: '12px',
                 letterSpacing: '1px',
@@ -379,7 +379,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   <div className="input-wrapper">
-                    <FiUser className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <FiUser className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
                     <input
                       type="text"
                       name="name"
@@ -392,7 +392,7 @@ export default function Contact() {
                   </div>
 
                   <div className="input-wrapper">
-                    <FiMail className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <FiMail className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
                     <input
                       type="email"
                       name="email"
@@ -407,7 +407,7 @@ export default function Contact() {
 
                 <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   <div className="input-wrapper">
-                    <FiPhone className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <FiPhone className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
                     <input
                       type="tel"
                       name="phone"
@@ -419,7 +419,7 @@ export default function Contact() {
                   </div>
 
                   <div className="input-wrapper">
-                    <FiBriefcase className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                    <FiBriefcase className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
                     <input
                       type="text"
                       name="company"
@@ -432,7 +432,7 @@ export default function Contact() {
                 </div>
 
                 <div className="input-wrapper">
-                  <FiZap className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', pointerEvents: 'none', fontSize: '18px', zIndex: 3, transition: 'all 0.3s ease' }} />
+                  <FiZap className="input-icon" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', zIndex: 3, transition: 'all 0.3s ease' }} />
                   <select
                     name="service"
                     value={formData.service}
@@ -442,7 +442,7 @@ export default function Contact() {
                       color: formData.service ? 'var(--input-text)' : '#64748b',
                     }}
                   >
-                    <option value="" style={{ background: 'var(--input-bg)', color: '#64748b' }}>Select Service</option>
+                    <option value="" style={{ background: 'var(--input-bg)', color: 'var(--body-text)' }}>Select Service</option>
                     <option value="website" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Website Development</option>
                     <option value="saas" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>Custom SaaS Development</option>
                     <option value="automation" style={{ background: 'var(--input-bg)', color: 'var(--input-text)' }}>AI Automation</option>
@@ -453,7 +453,7 @@ export default function Contact() {
                 </div>
 
                 <div className="input-wrapper" style={{ alignItems: 'flex-start' }}>
-                  <FiMessageSquare className="input-icon" style={{ position: 'absolute', left: '16px', top: '18px', color: '#64748b', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
+                  <FiMessageSquare className="input-icon" style={{ position: 'absolute', left: '16px', top: '18px', color: 'var(--body-text)', pointerEvents: 'none', fontSize: '18px', transition: 'all 0.3s ease' }} />
                   <textarea
                     rows="6"
                     name="message"
@@ -478,12 +478,12 @@ export default function Contact() {
                     padding: '18px',
                     border: 'none',
                     borderRadius: '14px',
-                    background: 'linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%)',
+                    background: 'linear-gradient(135deg, #0B1F3A 0%, #D4AF37 100%)',
                     color: '#FFFFFF',
                     fontWeight: '800',
                     fontSize: '16px',
                     cursor: 'pointer',
-                    boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -498,7 +498,7 @@ export default function Contact() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.25)';
+                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(11, 31, 58, 0.25)';
                     const icon = e.currentTarget.querySelector('.btn-icon');
                     if (icon) icon.style.transform = 'translate(0, 0) scale(1)';
                   }}
@@ -521,7 +521,7 @@ export default function Contact() {
             >
               <div
                 style={{
-                  color: '#4f46e5',
+                  color: 'var(--title-color)',
                   fontWeight: '700',
                   marginBottom: '12px',
                   fontSize: '13px',
@@ -657,7 +657,7 @@ export default function Contact() {
         }
 
         .input-wrapper:focus-within {
-          border-color: #4f46e5;
+          border-color: #0B1F3A;
           background: var(--card-bg) !important;
           box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15), 0 8px 20px -5px rgba(79, 70, 229, 0.1);
           transform: translateY(-1px);

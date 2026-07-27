@@ -124,7 +124,7 @@ export default function About() {
         >
           <div
             style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '20px',
@@ -181,11 +181,11 @@ export default function About() {
               style={{
                 padding: '18px 36px',
                 borderRadius: '16px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                 color: '#FFFFFF',
                 textDecoration: 'none',
                 fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -200,7 +200,7 @@ export default function About() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.25)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(11, 31, 58, 0.25)';
                 const arrow = e.currentTarget.querySelector('.arrow-icon');
                 if (arrow) arrow.style.transform = 'translateX(0)';
               }}
@@ -292,8 +292,8 @@ export default function About() {
           >
             <div
               style={{
-                color: '#4f46e5',
-                fontWeight: '700',
+                color: '#D4AF37',
+                fontWeight: '800',
                 letterSpacing: '2px',
                 marginBottom: '20px',
                 textTransform: 'uppercase',
@@ -307,13 +307,13 @@ export default function About() {
                 fontSize: 'clamp(44px, 6vw, 78px)',
                 fontWeight: '900',
                 lineHeight: '.95',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 letterSpacing: '-2px',
               }}
             >
               Building <br />
               Systems <br />
-              That Scale.
+              <span className="text-gold-gradient">That Scale.</span>
             </h2>
           </motion.div>
 
@@ -327,7 +327,7 @@ export default function About() {
             <motion.p
               variants={itemVariants}
               style={{
-                color: '#1e293b',
+                color: 'var(--body-text)',
                 fontSize: '18px',
                 lineHeight: '1.9',
                 marginBottom: '24px',
@@ -339,7 +339,7 @@ export default function About() {
             <motion.p
               variants={itemVariants}
               style={{
-                color: '#1e293b',
+                color: 'var(--body-text)',
                 fontSize: '18px',
                 lineHeight: '1.9',
                 marginBottom: '24px',
@@ -351,7 +351,7 @@ export default function About() {
             <motion.p
               variants={itemVariants}
               style={{
-                color: '#1e293b',
+                color: 'var(--body-text)',
                 fontSize: '18px',
                 lineHeight: '1.9',
               }}
@@ -403,9 +403,9 @@ export default function About() {
                     style={{
                       fontSize: '54px',
                       fontWeight: '900',
-                      color: '#4f46e5',
+                      color: 'var(--title-color)',
                       marginBottom: '12px',
-                      textShadow: '0 0 20px rgba(79, 70, 229, 0.25)',
+                      textShadow: '0 0 20px rgba(11, 31, 58, 0.25)',
                       fontFamily: 'monospace',
                     }}
                   >
@@ -454,7 +454,7 @@ export default function About() {
           >
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 letterSpacing: '2px',
                 marginBottom: '15px',
@@ -469,7 +469,7 @@ export default function About() {
                 fontSize: 'clamp(38px, 6vw, 64px)',
                 fontWeight: '900',
                 lineHeight: '.95',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 letterSpacing: '-1.5px',
               }}
             >
@@ -519,7 +519,7 @@ export default function About() {
               <div>
                 <div
                   style={{
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     fontWeight: '700',
                     marginBottom: '12px',
                     textTransform: 'uppercase',
@@ -568,7 +568,7 @@ export default function About() {
               <div>
                 <div
                   style={{
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     fontWeight: '700',
                     marginBottom: '12px',
                     textTransform: 'uppercase',
@@ -655,7 +655,7 @@ export default function About() {
           >
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 letterSpacing: '2px',
                 marginBottom: '15px',
@@ -670,7 +670,7 @@ export default function About() {
                 fontSize: 'clamp(38px, 6vw, 64px)',
                 fontWeight: '900',
                 lineHeight: '.95',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 letterSpacing: '-1.5px',
               }}
             >
@@ -715,7 +715,7 @@ export default function About() {
                 style={{
                   fontSize: '64px',
                   fontWeight: '950',
-                  color: '#4f46e5',
+                  color: 'var(--title-color)',
                   lineHeight: '1',
                 }}
               >
@@ -727,7 +727,7 @@ export default function About() {
                   style={{
                     fontSize: '26px',
                     fontWeight: '800',
-                    color: '#0f172a',
+                    color: 'var(--title-color)',
                     marginBottom: '14px',
                   }}
                 >
@@ -737,7 +737,7 @@ export default function About() {
                 <p
                   style={{
                     maxWidth: '800px',
-                    color: '#1e293b',
+                    color: 'var(--body-text)',
                     fontSize: '17px',
                     lineHeight: '1.8',
                   }}
@@ -770,7 +770,7 @@ export default function About() {
         @media (hover: hover) {
           .photo-frame:hover {
             transform: translateY(-6px) scale(1.025);
-            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.25) !important;
+            box-shadow: 0 30px 60px rgba(11, 31, 58, 0.25) !important;
           }
           .photo-frame img {
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;

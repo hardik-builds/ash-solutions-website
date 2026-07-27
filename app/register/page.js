@@ -348,11 +348,11 @@ export default function RegisterPage() {
                 />
                 <label htmlFor="consent" style={{ color: 'var(--body-text)', cursor: 'pointer', lineHeight: '1.4' }}>
                   I consent to the collection and processing of my personal data (name, email, and password) in accordance with the{' '}
-                  <Link href="/privacy-policy" target="_blank" style={{ color: '#4f46e5', fontWeight: '700', textDecoration: 'underline' }}>
+                  <Link href="/privacy-policy" target="_blank" style={{ color: 'var(--title-color)', fontWeight: '700', textDecoration: 'underline' }}>
                     Privacy Policy
                   </Link>{' '}
                   and{' '}
-                  <Link href="/terms" target="_blank" style={{ color: '#4f46e5', fontWeight: '700', textDecoration: 'underline' }}>
+                  <Link href="/terms" target="_blank" style={{ color: 'var(--title-color)', fontWeight: '700', textDecoration: 'underline' }}>
                     Terms
                   </Link>
                   .
@@ -380,7 +380,7 @@ export default function RegisterPage() {
 
             <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '13px', color: 'var(--body-text)' }}>
               Already have an account?{' '}
-              <Link href="/login" style={{ color: '#4f46e5', fontWeight: '700', textDecoration: 'none' }}>
+              <Link href="/login" style={{ color: 'var(--title-color)', fontWeight: '700', textDecoration: 'none' }}>
                 Sign In
               </Link>
             </div>
@@ -506,7 +506,7 @@ export default function RegisterPage() {
 
       <style jsx>{`
         .register-input:focus {
-          border-color: #4f46e5 !important;
+          border-color: #0B1F3A !important;
           background: rgba(99, 102, 241, 0.01) !important;
           box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
@@ -532,13 +532,13 @@ const submitButtonStyle = (loading) => ({
   width: '100%',
   padding: '15px',
   borderRadius: '14px',
-  background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+  background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
   color: '#FFFFFF',
   fontWeight: '700',
   border: 'none',
   cursor: loading ? 'not-allowed' : 'pointer',
   opacity: loading ? 0.7 : 1,
-  boxShadow: '0 4px 15px rgba(79, 70, 229, 0.3)',
+  boxShadow: '0 4px 15px rgba(11, 31, 58, 0.3)',
   fontSize: '14px',
   transition: 'all 0.3s ease',
 });

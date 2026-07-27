@@ -416,7 +416,7 @@ export default function InsightsClient() {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <div
             style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '15px',
@@ -466,14 +466,14 @@ export default function InsightsClient() {
           ) : user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
               <span style={{ color: 'var(--title-color)', fontWeight: '700' }}>
-                Logged in as: <span style={{ color: '#4f46e5' }}>{user.name}</span> ({user.role})
+                Logged in as: <span style={{ color: 'var(--title-color)' }}>{user.name}</span> ({user.role})
               </span>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <button
                   onClick={handleLogout}
                   style={{
                     background: 'rgba(99, 102, 241, 0.08)',
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     border: '1px solid rgba(99, 102, 241, 0.15)',
                     borderRadius: '8px',
                     padding: '6px 12px',
@@ -515,7 +515,7 @@ export default function InsightsClient() {
                   href="/login"
                   style={{
                     background: 'rgba(99, 102, 241, 0.08)',
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     border: '1px solid rgba(99, 102, 241, 0.15)',
                     borderRadius: '8px',
                     padding: '6px 14px',
@@ -529,7 +529,7 @@ export default function InsightsClient() {
                 <Link
                   href="/register"
                   style={{
-                    background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                    background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                     color: '#FFFFFF',
                     borderRadius: '8px',
                     padding: '6px 14px',
@@ -552,7 +552,7 @@ export default function InsightsClient() {
                 <button
                   onClick={() => setShowAddForm(!showAddForm)}
                   style={{
-                    background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                    background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                     color: '#FFFFFF',
                     border: 'none',
                     borderRadius: '10px',
@@ -570,7 +570,7 @@ export default function InsightsClient() {
                 <button
                   onClick={() => setShowAddForm(!showAddForm)}
                   style={{
-                    background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                    background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                     color: '#FFFFFF',
                     border: 'none',
                     borderRadius: '10px',
@@ -892,7 +892,7 @@ export default function InsightsClient() {
                       }}
                     >
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        <div style={{ fontSize: '11px', fontWeight: '800', color: '#4f46e5', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div style={{ fontSize: '11px', fontWeight: '800', color: 'var(--title-color)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                           Client: {study.client}
                         </div>
                         <h2 style={{ fontSize: '24px', fontWeight: '900', color: 'var(--title-color)', margin: '4px 0 12px' }}>
@@ -925,7 +925,7 @@ export default function InsightsClient() {
                             marginBottom: '20px',
                           }}
                         >
-                          <div style={{ fontSize: '11px', fontWeight: '800', color: '#4f46e5', textTransform: 'uppercase', marginBottom: '4px' }}>
+                          <div style={{ fontSize: '11px', fontWeight: '800', color: 'var(--title-color)', textTransform: 'uppercase', marginBottom: '4px' }}>
                             Measurable Outcome
                           </div>
                           <div style={{ fontSize: '15px', fontWeight: '700', color: 'var(--title-color)' }}>
@@ -943,7 +943,7 @@ export default function InsightsClient() {
                                 background: 'rgba(15, 23, 42, 0.02)',
                                 border: '1px solid rgba(15, 23, 42, 0.08)',
                                 fontSize: '12px',
-                                color: '#475569',
+                                color: 'var(--body-text)',
                                 fontWeight: '700',
                               }}
                             >
@@ -961,7 +961,7 @@ export default function InsightsClient() {
                             style={{
                               fontSize: '13px',
                               fontWeight: '800',
-                              color: '#4f46e5',
+                              color: 'var(--title-color)',
                               textDecoration: 'none',
                               display: 'inline-flex',
                               alignItems: 'center',
@@ -1023,7 +1023,7 @@ export default function InsightsClient() {
                       }}
                     >
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '800', color: '#4f46e5', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '800', color: 'var(--title-color)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                           <span>By {post.author}</span>
                           <span>{new Date(post.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                         </div>
@@ -1044,7 +1044,7 @@ export default function InsightsClient() {
                                 background: 'rgba(15, 23, 42, 0.02)',
                                 border: '1px solid rgba(15, 23, 42, 0.08)',
                                 fontSize: '12px',
-                                color: '#475569',
+                                color: 'var(--body-text)',
                                 fontWeight: '700',
                               }}
                             >
@@ -1113,7 +1113,7 @@ export default function InsightsClient() {
                               <span key={i}>{i < rev.rating ? '★' : '☆'}</span>
                             ))}
                           </div>
-                          <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '600' }}>
+                          <span style={{ fontSize: '11px', color: 'var(--body-text)', fontWeight: '600' }}>
                             {new Date(rev.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
                           </span>
                         </div>
@@ -1127,7 +1127,7 @@ export default function InsightsClient() {
                               height: '32px',
                               borderRadius: '50%',
                               background: 'rgba(99, 102, 241, 0.1)',
-                              color: '#4f46e5',
+                              color: 'var(--title-color)',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -1142,7 +1142,7 @@ export default function InsightsClient() {
                               {rev.userName}
                             </div>
                             {rev.company && (
-                              <div style={{ fontSize: '12px', color: '#64748b', fontWeight: '600' }}>
+                              <div style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>
                                 {rev.company}
                               </div>
                             )}
@@ -1183,7 +1183,7 @@ const textareaStyle = {
 };
 
 const submitButtonStyle = {
-  background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+  background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
   color: '#FFFFFF',
   border: 'none',
   borderRadius: '12px',
@@ -1192,6 +1192,6 @@ const submitButtonStyle = {
   fontWeight: '700',
   cursor: 'pointer',
   marginTop: '10px',
-  boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25)',
+  boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25)',
   transition: 'all 0.3s ease',
 };

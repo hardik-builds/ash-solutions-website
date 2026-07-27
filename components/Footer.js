@@ -6,12 +6,12 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: '#070b13',
-        color: '#FFFFFF',
+        background: '#0B1F3A',
+        color: '#FAF7F2',
         padding: '90px 24px 35px',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+        borderTop: '1px solid #183A66',
       }}
     >
       {/* Premium Glow Blobs */}
@@ -21,7 +21,7 @@ export default function Footer() {
           width: '350px',
           height: '350px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%)',
           filter: 'blur(80px)',
           top: '-100px',
           right: '-100px',
@@ -34,7 +34,7 @@ export default function Footer() {
           width: '300px',
           height: '300px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(24, 58, 102, 0.12) 0%, transparent 70%)',
           filter: 'blur(80px)',
           bottom: '-50px',
           left: '-100px',
@@ -59,7 +59,7 @@ export default function Footer() {
                 fontSize: '32px',
                 fontWeight: '900',
                 letterSpacing: '-1px',
-                background: 'linear-gradient(135deg, #ffffff 40%, #818cf8 100%)',
+                background: 'linear-gradient(135deg, #FAF7F2 40%, #D4AF37 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -69,7 +69,7 @@ export default function Footer() {
 
             <p
               style={{
-                color: '#e2e8f0',
+                color: '#E8E2D9',
                 lineHeight: '1.8',
                 fontSize: '15px',
                 maxWidth: '320px',
@@ -90,12 +90,12 @@ export default function Footer() {
                   gap: '8px',
                   padding: '14px 26px',
                   borderRadius: '12px',
-                  background: 'linear-gradient(135deg, #4f46e5 0%, #4338ca 100%)',
-                  color: '#FFFFFF',
+                  background: '#D4AF37',
+                  color: '#0B1F3A',
                   textDecoration: 'none',
                   fontWeight: '700',
                   fontSize: '14px',
-                  boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
+                  boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)',
                   transition: 'all 0.3s ease',
                 }}
               >

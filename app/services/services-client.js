@@ -71,7 +71,7 @@ const industries = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
     ),
-    color: '#4f46e5'
+    color: 'var(--title-color)'
   },
   {
     title: 'Finance & Banking',
@@ -112,7 +112,7 @@ const industries = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
       </svg>
     ),
-    color: '#6366f1'
+    color: '#D4AF37'
   },
   {
     title: 'Startups & SaaS',
@@ -384,7 +384,7 @@ export default function Services() {
         >
           <div
             style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '20px',
@@ -441,11 +441,11 @@ export default function Services() {
               style={{
                 padding: '18px 36px',
                 borderRadius: '16px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                 color: '#FFFFFF',
                 textDecoration: 'none',
                 fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
@@ -502,7 +502,7 @@ export default function Services() {
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 letterSpacing: '2px',
                 marginBottom: '15px',
@@ -673,7 +673,7 @@ export default function Services() {
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 letterSpacing: '2px',
                 marginBottom: '15px',

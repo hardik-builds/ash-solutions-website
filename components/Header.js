@@ -173,9 +173,9 @@ export default function Header() {
                     href={item.href}
                     style={{
                       textDecoration: 'none',
-                      color: active ? '#4f46e5' : 'var(--text-color)',
-                      fontWeight: '700',
-                      fontSize: '13px',
+                      color: active ? '#D4AF37' : 'var(--text-color)',
+                      fontWeight: active ? '800' : '600',
+                      fontSize: '13.5px',
                       letterSpacing: '1px',
                       textTransform: 'uppercase',
                       position: 'relative',
@@ -194,9 +194,9 @@ export default function Header() {
                           left: 0,
                           right: 0,
                           height: '3px',
-                          background: 'linear-gradient(90deg, #4f46e5, #0891b2)',
+                          background: 'linear-gradient(90deg, #D4AF37, #E6C65B)',
                           borderRadius: '999px',
-                          boxShadow: '0 0 8px rgba(99, 102, 241, 0.5)',
+                          boxShadow: '0 0 12px rgba(212, 175, 55, 0.6)',
                         }}
                       />
                     )}
@@ -227,13 +227,14 @@ export default function Header() {
               className="desktop-cta"
               style={{
                 textDecoration: 'none',
-                color: '#FFFFFF',
+                color: '#FAF7F2',
                 fontWeight: '700',
                 fontSize: '14px',
                 padding: '12px 24px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                background: '#0B1F3A',
+                border: '1px solid #0B1F3A',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.3)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
@@ -367,11 +368,11 @@ export default function Header() {
                 top: '100%',
                 left: 0,
                 width: '100%',
-                background: theme === 'dark' ? 'rgba(7, 10, 19, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+                background: 'var(--header-bg-scrolled)',
                 backdropFilter: 'blur(30px)',
                 WebkitBackdropFilter: 'blur(30px)',
                 borderBottom: '1px solid var(--header-border-scrolled)',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
+                boxShadow: 'var(--card-shadow)',
                 zIndex: 9998,
                 padding: '40px 0 30px',
               }}
@@ -689,12 +690,13 @@ export default function Header() {
 
         @media (hover: hover) {
           .nav-link-hover:hover {
-            color: #4f46e5 !important;
+            color: #D4AF37 !important;
           }
           .desktop-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-            background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+            box-shadow: 0 6px 20px rgba(11, 31, 58, 0.35);
+            background: #183A66 !important;
+            border-color: #D4AF37 !important;
           }
         }
 
@@ -730,13 +732,13 @@ export default function Header() {
             text-decoration: none;
             text-align: center;
             display: block;
-            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-            color: white;
+            background: #0B1F3A;
+            color: #FAF7F2;
             padding: 14px;
             border-radius: 12px;
             font-weight: 700;
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 4px 15px rgba(11, 31, 58, 0.2);
           }
         }
 

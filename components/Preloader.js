@@ -44,20 +44,20 @@ export default function Preloader() {
             position: 'fixed',
             inset: 0,
             zIndex: 999999,
-            background: '#f0f2f8',
+            background: 'var(--bg-color)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
           }}
         >
-          {/* Pastel Radial Glows */}
+          {/* Radial Glows */}
           <div
             style={{
               position: 'absolute',
               width: '600px',
               height: '600px',
-              background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%)',
               borderRadius: '50%',
               top: '-15%',
               right: '-10%',
@@ -69,7 +69,7 @@ export default function Preloader() {
               position: 'absolute',
               width: '500px',
               height: '500px',
-              background: 'radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(11, 31, 58, 0.08) 0%, transparent 70%)',
               borderRadius: '50%',
               bottom: '-15%',
               left: '-10%',
@@ -77,14 +77,14 @@ export default function Preloader() {
             }}
           />
 
-          {/* Light Grid Pattern */}
+          {/* Grid Pattern */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
               backgroundImage: `
-                linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px), 
-                linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px)
+                linear-gradient(rgba(11, 31, 58, 0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(11, 31, 58, 0.03) 1px, transparent 1px)
               `,
               backgroundSize: '45px 45px',
               opacity: 0.6,
@@ -126,7 +126,7 @@ export default function Preloader() {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  border: '1px dashed rgba(99, 102, 241, 0.35)',
+                  border: '1px dashed rgba(11, 31, 58, 0.25)',
                   borderRadius: '50%',
                 }}
               />
@@ -139,10 +139,10 @@ export default function Preloader() {
                   position: 'absolute',
                   inset: '12px',
                   border: '1px solid transparent',
-                  borderTop: '2px solid #4f46e5',
-                  borderBottom: '2px solid #0891b2',
+                  borderTop: '2px solid #0B1F3A',
+                  borderBottom: '2px solid #D4AF37',
                   borderRadius: '50%',
-                  filter: 'drop-shadow(0 0 6px rgba(99, 102, 241, 0.3))',
+                  filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.3))',
                 }}
               />
 
@@ -152,7 +152,7 @@ export default function Preloader() {
                   fontSize: '38px',
                   fontFamily: 'monospace',
                   fontWeight: '800',
-                  color: '#0f172a',
+                  color: 'var(--title-color)',
                   letterSpacing: '-1px',
                   display: 'flex',
                   alignItems: 'baseline',
@@ -160,7 +160,7 @@ export default function Preloader() {
                 }}
               >
                 <span>{String(percent).padStart(3, '0')}</span>
-                <span style={{ fontSize: '18px', color: '#4f46e5', marginLeft: '2px' }}>%</span>
+                <span style={{ fontSize: '18px', color: '#D4AF37', marginLeft: '2px' }}>%</span>
               </div>
             </div>
 
@@ -174,7 +174,7 @@ export default function Preloader() {
                 fontWeight: '900',
                 lineHeight: '1.1',
                 letterSpacing: '-1.5px',
-                background: 'linear-gradient(135deg, #4f46e5 10%, #7c3aed 50%, #0891b2 90%)',
+                background: 'linear-gradient(135deg, #0B1F3A 10%, #183A66 50%, #D4AF37 90%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginBottom: '8px',
@@ -189,7 +189,7 @@ export default function Preloader() {
               animate={{ y: 0, opacity: 0.9 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               style={{
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 fontWeight: '800',
                 letterSpacing: '8px',
                 fontSize: '12px',
@@ -206,7 +206,7 @@ export default function Preloader() {
               style={{
                 width: '180px',
                 height: '4px',
-                background: 'rgba(99, 102, 241, 0.1)',
+                background: 'rgba(11, 31, 58, 0.1)',
                 borderRadius: '999px',
                 overflow: 'hidden',
                 position: 'relative',
@@ -217,7 +217,7 @@ export default function Preloader() {
                   height: '100%',
                   width: `${percent}%`,
                   borderRadius: '999px',
-                  background: 'linear-gradient(90deg, #4f46e5, #7c3aed, #0891b2)',
+                  background: 'linear-gradient(90deg, #0B1F3A, #183A66, #D4AF37)',
                   transition: 'width 0.1s linear',
                 }}
               />
@@ -229,7 +229,7 @@ export default function Preloader() {
                 marginTop: '15px',
                 fontFamily: 'monospace',
                 fontSize: '11px',
-                color: '#4f46e5',
+                color: '#0B1F3A',
                 fontWeight: '600',
                 letterSpacing: '1px',
                 textTransform: 'uppercase',

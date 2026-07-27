@@ -59,7 +59,7 @@ export default function SimpleDashboardLayout({ children, title }) {
           }}>
             SH Solutions
           </Link>
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1F2937' }}>{title}</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--title-color)' }}>{title}</h1>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -139,7 +139,7 @@ export default function SimpleDashboardLayout({ children, title }) {
               }}>
                 <div style={{ padding: '12px 16px', borderBottom: '1px solid #E5E7EB' }}>
                   <div style={{ fontSize: '14px', color: '#6B7280' }}>Welcome back,</div>
-                  <div style={{ fontSize: '16px', fontWeight: '500', color: '#1F2937' }}>{user.name || user.email}</div>
+                  <div style={{ fontSize: '16px', fontWeight: '500', color: 'var(--title-color)' }}>{user.name || user.email}</div>
                 </div>
                 <button 
                   onClick={handleLogout}

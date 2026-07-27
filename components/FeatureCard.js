@@ -41,13 +41,13 @@ export default function FeatureCard({ title, description, icon, isProcess = fals
         fontSize: '20px', 
         fontWeight: 'bold', 
         marginBottom: '12px',
-        color: '#1F2937'
+        color: 'var(--title-color)'
       }}>
         {title}
       </h3>
       
       <p style={{ 
-        color: '#4B5563', 
+        color: 'var(--body-text)', 
         lineHeight: '1.6',
         flexGrow: 1
       }}>

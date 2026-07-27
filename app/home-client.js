@@ -107,7 +107,7 @@ function TechCube({ scrollYProgress }) {
   });
 
   const faces = [
-    { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: '#4f46e5', transform: 'rotateY(0deg) translateZ(120px)' },
+    { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: 'var(--title-color)', transform: 'rotateY(0deg) translateZ(120px)' },
     { name: 'SaaS Platforms', desc: 'Next.js, React, Node', color: '#0ea5e9', transform: 'rotateY(90deg) translateZ(120px)' },
     { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#7c3aed', transform: 'rotateY(180deg) translateZ(120px)' },
     { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: 'var(--code-variable)', transform: 'rotateY(270deg) translateZ(120px)' },
@@ -623,7 +623,7 @@ export default function Home() {
           >
             <div
                style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '20px',
@@ -684,8 +684,8 @@ export default function Home() {
                 fontSize: '14px',
                 padding: '12px 24px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
                 onMouseEnter={(e) => {
@@ -718,7 +718,7 @@ export default function Home() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
                   e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0) scale(1)';
@@ -876,7 +876,7 @@ export default function Home() {
                     background: 'transparent'
                   }}>
                     {/* Line Numbers */}
-                    <div style={{ color: '#334155', textAlign: 'right', paddingRight: '16px', borderRight: '1px solid var(--editor-border)', userSelect: 'none' }}>
+                    <div style={{ color: 'var(--body-text)', textAlign: 'right', paddingRight: '16px', borderRight: '1px solid var(--editor-border)', userSelect: 'none' }}>
                       <div>1</div>
                       <div>2</div>
                       <div>3</div>
@@ -970,7 +970,7 @@ export default function Home() {
           >
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 marginBottom: '12px',
                 letterSpacing: '1px',
@@ -1154,7 +1154,7 @@ export default function Home() {
                 display: 'inline-block',
                 padding: '16px 36px',
                 borderRadius: '14px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
                 color: '#ffffff',
                 textDecoration: 'none',
                 fontWeight: '700',
@@ -1205,7 +1205,7 @@ export default function Home() {
           >
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 marginBottom: '12px',
                 letterSpacing: '1px',
@@ -1481,7 +1481,7 @@ export default function Home() {
             <div>
               <div
                 style={{
-                  color: '#4f46e5',
+                  color: 'var(--title-color)',
                   fontWeight: '700',
                   marginBottom: '12px',
                   letterSpacing: '1.5px',
@@ -1533,7 +1533,7 @@ export default function Home() {
                   {
                     title: 'AI-Powered Automation',
                     desc: 'We integrate intelligent agents and LLMs to automate repetitive tasks and save manual overhead.',
-                    color: '#4f46e5'
+                    color: 'var(--title-color)'
                   },
                   {
                     title: 'Business-First Integration',
@@ -1559,7 +1559,7 @@ export default function Home() {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        background: '#ffffff',
+                        background: '#D4AF37',
                         border: `2px solid ${item.color}`,
                         boxShadow: `0 0 8px ${item.color}`,
                       }}
@@ -1718,7 +1718,7 @@ export default function Home() {
           >
             <div
               style={{
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 marginBottom: '12px',
                 letterSpacing: '1px',
@@ -1856,7 +1856,7 @@ export default function Home() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     fontWeight: '800',
                     fontSize: '18px',
                     boxShadow: '0 0 15px rgba(99, 102, 241, 0.15)',
@@ -1894,8 +1894,8 @@ export default function Home() {
                 fontSize: '14px',
                 padding: '12px 24px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
               onMouseEnter={(e) => {
@@ -1972,7 +1972,7 @@ export default function Home() {
         >
           <div
             style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               marginBottom: '15px',
               letterSpacing: '1px',
@@ -2027,8 +2027,8 @@ export default function Home() {
                 fontSize: '14px',
                 padding: '12px 24px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-                boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
+                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
               onMouseEnter={(e) => {
@@ -2060,7 +2060,7 @@ export default function Home() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
                 e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
-                e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
+                e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
@@ -2395,7 +2395,7 @@ export default function Home() {
         }
         
         .tech-card:hover {
-          border-color: rgba(99, 102, 241, 0.3);
+          border-color: rgba(212, 175, 55, 0.3);
           transform: translateY(-8px);
           box-shadow: 0 20px 45px -15px rgba(99, 102, 241, 0.15);
         }
@@ -2494,7 +2494,7 @@ export default function Home() {
           display: inline-block;
           padding: 16px 32px;
           border-radius: 14px;
-          background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+          background: linear-gradient(135deg, #0B1F3A 0%, #183A66 100%);
           color: #ffffff !important;
           text-decoration: none;
           font-weight: 700;

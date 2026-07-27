@@ -126,7 +126,7 @@ export default function TeamClient({ teamData }) {
         >
           <div
              style={{
-              color: '#4f46e5',
+              color: 'var(--title-color)',
               fontWeight: '700',
               letterSpacing: '2px',
               marginBottom: '20px',
@@ -191,7 +191,7 @@ export default function TeamClient({ teamData }) {
                   style={{
                     fontSize: '36px',
                     fontWeight: '900',
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     marginBottom: '8px',
                   }}
                 >
@@ -229,7 +229,7 @@ export default function TeamClient({ teamData }) {
                 borderRadius: '999px',
                 background: 'rgba(99, 102, 241, 0.08)',
                 border: '1px solid rgba(99, 102, 241, 0.15)',
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 fontSize: '13px',
                 textTransform: 'uppercase',
@@ -244,16 +244,16 @@ export default function TeamClient({ teamData }) {
               style={{
                 fontSize: 'clamp(36px, 6vw, 64px)',
                 fontWeight: '900',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 lineHeight: '1.1',
                 marginBottom: '18px',
                 letterSpacing: '-1.5px',
               }}
             >
-              Meet The People Behind The Vision
+              Meet The People Behind <span className="text-gold-gradient">The Vision</span>
             </h2>
 
-            <p style={{ maxWidth: '680px', margin: '0 auto', color: '#1e293b', fontSize: '18px', lineHeight: '1.8' }}>
+            <p style={{ maxWidth: '680px', margin: '0 auto', color: 'var(--body-text)', fontSize: '18px', lineHeight: '1.8' }}>
               Combining technology, innovation and business strategy to build scalable digital solutions for modern businesses.
             </p>
           </div>
@@ -315,7 +315,7 @@ export default function TeamClient({ teamData }) {
                   style={{
                     fontSize: '26px',
                     fontWeight: '800',
-                    color: '#0f172a',
+                    color: 'var(--title-color)',
                     marginBottom: '6px',
                     letterSpacing: '-0.5px',
                   }}
@@ -326,7 +326,7 @@ export default function TeamClient({ teamData }) {
                 {/* Role */}
                 <div
                   style={{
-                    color: '#4f46e5',
+                    color: 'var(--title-color)',
                     fontWeight: '800',
                     fontSize: '13px',
                     textTransform: 'uppercase',
@@ -340,7 +340,7 @@ export default function TeamClient({ teamData }) {
                 {/* Bio */}
                 <p
                   style={{
-                    color: '#1e293b',
+                    color: 'var(--body-text)',
                     lineHeight: '1.7',
                     fontSize: '15px',
                     marginBottom: '24px',
@@ -369,7 +369,7 @@ export default function TeamClient({ teamData }) {
                         borderRadius: '8px',
                         background: 'rgba(99, 102, 241, 0.08)',
                         border: '1px solid rgba(99, 102, 241, 0.15)',
-                        color: '#4f46e5',
+                        color: 'var(--title-color)',
                         fontSize: '12px',
                         fontWeight: '700',
                         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -401,7 +401,7 @@ export default function TeamClient({ teamData }) {
                           rel="noopener noreferrer"
                           className="social-link-item"
                           style={{
-                            color: '#1e293b',
+                            color: 'var(--body-text)',
                             fontSize: '18px',
                             transition: 'color 0.2s',
                           }}
@@ -434,7 +434,7 @@ export default function TeamClient({ teamData }) {
                 borderRadius: '999px',
                 background: 'rgba(99, 102, 241, 0.08)',
                 border: '1px solid rgba(99, 102, 241, 0.15)',
-                color: '#4f46e5',
+                color: 'var(--title-color)',
                 fontWeight: '700',
                 fontSize: '13px',
                 textTransform: 'uppercase',
@@ -449,7 +449,7 @@ export default function TeamClient({ teamData }) {
               style={{
                 fontSize: 'clamp(36px, 6vw, 64px)',
                 fontWeight: '900',
-                color: '#0f172a',
+                color: 'var(--title-color)',
                 lineHeight: '1.1',
                 letterSpacing: '-1.5px',
               }}
@@ -467,22 +467,22 @@ export default function TeamClient({ teamData }) {
           >
             {[
               {
-                icon: <FaRocket size={28} style={{ color: '#4f46e5' }} />,
+                icon: <FaRocket size={28} style={{ color: 'var(--title-color)' }} />,
                 title: 'Innovation First',
                 desc: 'We leverage modern technologies, AI automation and scalable architectures to keep businesses ahead of the competition.',
               },
               {
-                icon: <FiTarget size={28} style={{ color: '#4f46e5' }} />,
+                icon: <FiTarget size={28} style={{ color: 'var(--title-color)' }} />,
                 title: 'Business Focused',
                 desc: 'Every solution is designed around business goals, efficiency and measurable growth outcomes.',
               },
               {
-                icon: <FiZap size={28} style={{ color: '#4f46e5' }} />,
+                icon: <FiZap size={28} style={{ color: 'var(--title-color)' }} />,
                 title: 'Fast Execution',
                 desc: 'Agile development processes help us deliver high-quality solutions quickly without sacrificing quality.',
               },
               {
-                icon: <FaHandshake size={28} style={{ color: '#4f46e5' }} />,
+                icon: <FaHandshake size={28} style={{ color: 'var(--title-color)' }} />,
                 title: 'Long-Term Partnership',
                 desc: 'We support businesses beyond launch with continuous improvements, maintenance and strategic guidance.',
               },
@@ -561,7 +561,7 @@ export default function TeamClient({ teamData }) {
           }
           .glass-panel-hover:hover .photo-frame {
             box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2) !important;
-            border-color: #4f46e5 !important;
+            border-color: #0B1F3A !important;
             transform: scale(1.06) rotate(1.5deg);
           }
           .glass-panel-hover:hover span {

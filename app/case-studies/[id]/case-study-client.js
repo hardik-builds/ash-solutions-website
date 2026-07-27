@@ -193,7 +193,7 @@ const spinnerStyle = {
   width: '50px',
   height: '50px',
   border: '4px solid rgba(79, 70, 229, 0.15)',
-  borderTop: '4px solid #4f46e5',
+  borderTop: '4px solid #0B1F3A',
   borderRadius: '50%',
   animation: 'spin 1s linear infinite',
 };
@@ -201,14 +201,14 @@ const spinnerStyle = {
 const backButtonStyle = {
   display: 'inline-flex',
   alignItems: 'center',
-  background: 'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
+  background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
   color: '#FFFFFF',
   padding: '12px 24px',
   borderRadius: '12px',
   fontWeight: '700',
   fontSize: '14px',
   textDecoration: 'none',
-  boxShadow: '0 4px 15px rgba(79, 70, 229, 0.25)',
+  boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25)',
   transition: 'all 0.3s ease',
 };
 
@@ -233,7 +233,7 @@ const contentPanelStyle = {
 const clientLabelStyle = {
   fontSize: '12px',
   fontWeight: '800',
-  color: '#4f46e5',
+  color: 'var(--title-color)',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   display: 'inline-block',
@@ -251,7 +251,7 @@ const titleStyle = {
 
 const dateStyle = {
   fontSize: '13px',
-  color: '#64748b',
+  color: 'var(--body-text)',
   fontWeight: '500',
 };
 
@@ -288,7 +288,7 @@ const outcomeCardStyle = {
 const outcomeLabelStyle = {
   fontSize: '11px',
   fontWeight: '850',
-  color: '#4f46e5',
+  color: 'var(--title-color)',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   marginBottom: '6px',
@@ -307,7 +307,7 @@ const tagStyle = {
   background: 'rgba(15, 23, 42, 0.02)',
   border: '1px solid rgba(15, 23, 42, 0.08)',
   fontSize: '12px',
-  color: '#475569',
+  color: 'var(--body-text)',
   fontWeight: '700',
 };
 

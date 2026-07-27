@@ -16,7 +16,7 @@
 //           <p style={{ color: '#6B7280', fontSize: '14px' }}>{role}</p>
 //         </div>
 //       </div>
-//       <p style={{ color: '#4B5563', fontStyle: 'italic' }}>"{content}"</p>
+//       <p style={{ color: 'var(--body-text)', fontStyle: 'italic' }}>"{content}"</p>
 //     </div>
 //   );
 // }
