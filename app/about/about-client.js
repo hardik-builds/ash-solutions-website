@@ -21,10 +21,10 @@ const team = [
 ];
 
 const achievements = [
-  { title: 'Global Clients Served', value: '10+', description: 'Delivering tailored digital systems for clients across regions' },
-  { title: 'Enterprise Deployments', value: '25+', description: 'Production-ready software architectures successfully launched' },
-  { title: 'Security Audits Passed', value: '100%', description: 'Fully compliant software design with zero vulnerability leaks' },
-  { title: 'System Uptime Guarantee', value: '99.9%', description: 'Ensuring reliable cloud operations and continuous monitoring' }
+  { title: 'System Architecture', value: 'Custom', description: 'Tailored software solutions designed around your precise business workflows' },
+  { title: 'Deployment Model', value: 'Cloud Native', description: 'Containerized, scalable cloud environments with automated CI/CD pipelines' },
+  { title: 'Security Standard', value: 'Enterprise', description: 'Encrypted communications, JWT authorization, and strict compliance controls' },
+  { title: 'Engineering Approach', value: 'Agile', description: 'Rapid development cycles focused on measurable business outcomes' }
 ];
 
 const containerVariants = {

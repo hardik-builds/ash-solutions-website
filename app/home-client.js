@@ -1626,8 +1626,8 @@ export default function Home() {
                       boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: '900', color: 'var(--code-variable)', transform: 'translateZ(10px)' }}>99.9%</div>
-                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>System Uptime</div>
+                    <div style={{ fontSize: '26px', fontWeight: '900', color: 'var(--code-variable)', transform: 'translateZ(10px)' }}>Active</div>
+                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>Cloud Monitoring</div>
                   </div>
                   <div
                     style={{
@@ -1641,8 +1641,8 @@ export default function Home() {
                       boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
                     }}
                   >
-                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#a855f7', transform: 'translateZ(10px)' }}>40%+</div>
-                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>Efficiency Gain</div>
+                    <div style={{ fontSize: '26px', fontWeight: '900', color: '#a855f7', transform: 'translateZ(10px)' }}>Encrypted</div>
+                    <div style={{ fontSize: '10px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: '800', marginTop: '4px', transform: 'translateZ(5px)' }}>Security Architecture</div>
                   </div>
                 </div>
 

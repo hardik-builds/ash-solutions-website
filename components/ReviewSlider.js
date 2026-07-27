@@ -1,192 +1,183 @@
 'use client';
 
 export default function ReviewSlider() {
-  const reviews = [
+  const capabilities = [
     {
-      name: 'Dhanush Eeda',
-      role: 'Business Owner',
+      name: 'Security-First Design',
+      role: 'Enterprise Standard',
       review:
-        'Good for system management and conversion systems. Sharing from personal experience. Professional communication and quality delivery.',
+        'We build every system with defense-in-depth security, strict role-based access control, and full data encryption.',
     },
     {
-      name: 'Shakshi Dhakoliya',
-      role: 'Client',
+      name: 'Cloud-Native Infrastructure',
+      role: 'System Architecture',
       review:
-        'Excellent experience working with ASH Solutions. Smooth process, great support and timely delivery.',
+        'Containerized microservices and automated deployment pipelines engineered for high throughput and high availability.',
     },
     {
-      name: 'Purushotham Arumugam',
-      role: 'Client',
+      name: 'Custom Workflow Automation',
+      role: 'Operational Engine',
       review:
-        'Professional team providing web development, cloud solutions, app development and SEO services. Highly recommended.',
+        'Streamline business operations by connecting custom APIs, database syncs, and intelligent automation into one unified platform.',
+    },
+    {
+      name: 'AI & Intelligent Systems',
+      role: 'Advanced Capabilities',
+      review:
+        'Harness practical AI workflows, custom LLM agents, and automated data pipelines tailored to real business objectives.',
     },
   ];
 
-  const allReviews = [...reviews, ...reviews];
+  const allCapabilities = [...capabilities, ...capabilities];
 
   return (
-    <>
-      <section
+    <section
+      style={{
+        padding: '120px 0',
+        background: 'var(--section-bg)',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <div
         style={{
-          padding: '120px 0',
-          background: 'var(--section-bg)',
-          overflow: 'hidden',
-          position: 'relative',
+          textAlign: 'center',
+          marginBottom: '70px',
+          padding: '0 24px',
         }}
       >
         <div
           style={{
-            textAlign: 'center',
-            marginBottom: '70px',
-            padding: '0 24px',
+            color: '#D4AF37',
+            fontWeight: '800',
+            letterSpacing: '2px',
+            marginBottom: '15px',
+            textTransform: 'uppercase',
           }}
         >
-          <div
-            style={{
-              color: '#4f46e5',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '15px',
-              textTransform: 'uppercase',
-            }}
-          >
-            Client Testimonials
-          </div>
-
-          <h2
-            style={{
-              fontSize: 'clamp(38px, 6vw, 64px)',
-              fontWeight: '900',
-              lineHeight: '1.1',
-              color: 'var(--title-color)',
-              marginBottom: '20px',
-              letterSpacing: '-1.5px',
-            }}
-          >
-            Trusted By <br />
-            Growing Businesses
-          </h2>
-
-          <p
-            style={{
-              maxWidth: '680px',
-              margin: '0 auto',
-              color: 'var(--body-text)',
-              lineHeight: '1.8',
-              fontSize: '18px',
-            }}
-          >
-            We focus on delivering business outcomes, not just software.
-          </p>
+          OUR TECHNICAL CAPABILITIES
         </div>
 
-        <div
+        <h2
           style={{
-            overflow: 'hidden',
-            position: 'relative',
+            fontSize: 'clamp(38px, 6vw, 64px)',
+            fontWeight: '950',
+            lineHeight: '1.1',
+            color: 'var(--title-color)',
+            marginBottom: '20px',
+            letterSpacing: '-1.5px',
           }}
         >
-          <div className="review-track">
-            {allReviews.map((review, index) => (
+          Engineering Built For <br />
+          Long-Term Scalability
+        </h2>
+
+        <p
+          style={{
+            maxWidth: '680px',
+            margin: '0 auto',
+            color: 'var(--body-text)',
+            lineHeight: '1.8',
+            fontSize: '18px',
+          }}
+        >
+          We focus on custom software architecture, seamless integrations, and measurable operational results.
+        </p>
+      </div>
+
+      <div
+        style={{
+          overflow: 'hidden',
+          position: 'relative',
+        }}
+      >
+        <div className="review-track">
+          {allCapabilities.map((item, index) => (
+            <div
+              key={index}
+              className="review-card"
+              style={{
+                background: 'var(--card-bg)',
+                padding: '30px 28px',
+                borderLeft: '4px solid #D4AF37',
+                borderRadius: '16px',
+                border: '1px solid var(--card-border)',
+                borderLeftWidth: '4px',
+                borderLeftColor: '#D4AF37',
+                margin: '0 16px',
+                boxShadow: 'var(--card-shadow)',
+              }}
+            >
               <div
-                key={index}
-                className="review-card"
                 style={{
-                  background: 'transparent',
-                  padding: '10px 0 10px 24px',
-                  borderLeft: '3px solid rgba(99, 102, 241, 0.45)',
-                  margin: '0 20px',
+                  fontSize: '13px',
+                  fontWeight: '800',
+                  color: '#D4AF37',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  marginBottom: '12px',
                 }}
               >
-                <div
-                  style={{
-                    fontSize: '60px',
-                    fontWeight: '900',
-                    color: 'rgba(99, 102, 241, 0.2)',
-                    lineHeight: 1,
-                    marginBottom: '-10px',
-                    fontFamily: 'Georgia, serif',
-                  }}
-                >
-                  “
-                </div>
-
-                <p
-                  style={{
-                    color: 'var(--body-text)',
-                    lineHeight: '1.8',
-                    marginBottom: '30px',
-                    fontSize: '15px',
-                  }}
-                >
-                  {review.review}
-                </p>
-
-                <div>
-                  <div
-                    style={{
-                      fontWeight: '800',
-                      color: 'var(--title-color)',
-                      marginBottom: '4px',
-                    }}
-                  >
-                    {review.name}
-                  </div>
-
-                  <div
-                    style={{
-                      color: '#4f46e5',
-                      fontSize: '13px',
-                      fontWeight: '700',
-                    }}
-                  >
-                    {review.role}
-                  </div>
-                </div>
+                {item.role}
               </div>
-            ))}
-          </div>
+
+              <h3
+                style={{
+                  fontSize: '20px',
+                  fontWeight: '800',
+                  color: 'var(--title-color)',
+                  marginBottom: '14px',
+                }}
+              >
+                {item.name}
+              </h3>
+
+              <p
+                style={{
+                  color: 'var(--body-text)',
+                  lineHeight: '1.7',
+                  fontSize: '15px',
+                  margin: 0,
+                }}
+              >
+                {item.review}
+              </p>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <style jsx>{`
-          .review-track {
-            display: flex;
-            gap: 24px;
-            width: max-content;
-            animation: scrollReviews 30s linear infinite;
-            padding: 20px 24px;
-          }
+      <style jsx>{`
+        .review-track {
+          display: flex;
+          gap: 24px;
+          width: max-content;
+          animation: scrollReviews 30s linear infinite;
+          padding: 20px 24px;
+        }
 
-          .review-card {
-            width: 380px;
-            min-height: 250px;
-            flex-shrink: 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          }
+        .review-card {
+          width: 380px;
+          min-height: 220px;
+          flex-shrink: 0;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-          .review-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(99, 102, 241, 0.25) !important;
-            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.12) !important;
-          }
+        .review-card:hover {
+          transform: translateY(-6px);
+          border-color: #D4AF37 !important;
+          box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.2) !important;
+        }
 
-          @keyframes scrollReviews {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-50%);
-            }
+        @keyframes scrollReviews {
+          from {
+            transform: translateX(0);
           }
-
-          @media (max-width: 768px) {
-            .review-card {
-              width: 300px;
-              padding: 25px;
-            }
+          to {
+            transform: translateX(-50%);
           }
-        `}</style>
-      </section>
-    </>
+        }
+      `}</style>
+    </section>
   );
 }
