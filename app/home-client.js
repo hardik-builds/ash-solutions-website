@@ -107,12 +107,12 @@ function TechCube({ scrollYProgress }) {
   });
 
   const faces = [
-    { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: 'var(--title-color)', transform: 'rotateY(0deg) translateZ(120px)' },
-    { name: 'SaaS Platforms', desc: 'Next.js, React, Node', color: '#0ea5e9', transform: 'rotateY(90deg) translateZ(120px)' },
-    { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#7c3aed', transform: 'rotateY(180deg) translateZ(120px)' },
-    { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: 'var(--code-variable)', transform: 'rotateY(270deg) translateZ(120px)' },
-    { name: 'Database Systems', desc: 'MongoDB, PostgreSQL', color: '#10b981', transform: 'rotateX(90deg) translateZ(120px)' },
-    { name: 'API Integrations', desc: 'GraphQL, REST, Webhooks', color: 'var(--code-keyword)', transform: 'rotateX(-90deg) translateZ(120px)' },
+    { name: 'AI & Automation', desc: 'LLMs, Agents, Python', color: '#D4AF37', transform: 'rotateY(0deg) translateZ(120px)' },
+    { name: 'SaaS Platforms', desc: 'Next.js, React, Node', color: '#D4AF37', transform: 'rotateY(90deg) translateZ(120px)' },
+    { name: 'Cloud Infra', desc: 'AWS, Docker, Kubernetes', color: '#D4AF37', transform: 'rotateY(180deg) translateZ(120px)' },
+    { name: 'Mobile Apps', desc: 'Flutter, Swift, iOS', color: '#D4AF37', transform: 'rotateY(270deg) translateZ(120px)' },
+    { name: 'Database Systems', desc: 'MongoDB, PostgreSQL', color: '#D4AF37', transform: 'rotateX(90deg) translateZ(120px)' },
+    { name: 'API Integrations', desc: 'GraphQL, REST, Webhooks', color: '#D4AF37', transform: 'rotateX(-90deg) translateZ(120px)' },
   ];
 
   return (
@@ -155,7 +155,7 @@ function TechCube({ scrollYProgress }) {
               width: '240px',
               height: '240px',
               background: 'var(--card-bg)',
-              border: `2px solid ${face.color}40`,
+              border: '2px solid rgba(212, 175, 55, 0.4)',
               borderRadius: '20px',
               padding: '24px',
               display: 'flex',
@@ -164,7 +164,7 @@ function TechCube({ scrollYProgress }) {
               alignItems: 'center',
               textAlign: 'center',
               backfaceVisibility: 'hidden',
-              boxShadow: `0 10px 30px ${face.color}15, inset 0 1px 0 var(--card-sheen)`,
+              boxShadow: '0 10px 30px rgba(212, 175, 55, 0.15), inset 0 1px 0 var(--card-sheen)',
               transform: face.transform,
               userSelect: 'none',
               pointerEvents: 'none'

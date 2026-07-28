@@ -1386,3 +1386,65 @@ html, body {
   color: #D4AF37 !important;
   font-weight: 700;
 }
+
+/* Master Dark Mode Card & CTA Card High-Contrast Styling */
+.bento-card.cta-card {
+  background: linear-gradient(135deg, #0B1F3A 0%, #162A4A 60%, #203864 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 15px 40px -10px rgba(11, 31, 58, 0.3) !important;
+}
+
+.bento-card.cta-card h3 {
+  color: #FFFFFF !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.bento-card.cta-card p {
+  color: #CBD5E1 !important;
+  opacity: 0.95 !important;
+}
+
+.bento-card.cta-card .card-index {
+  color: #F5E08C !important;
+  opacity: 1 !important;
+}
+
+.bento-card.cta-card .card-action {
+  color: #F5E08C !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .bento-card.cta-card {
+  background: linear-gradient(135deg, #0B172C 0%, #10203C 60%, #1A2B4C 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.5) !important;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] .bento-card {
+  background: #0D1B2E !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .bento-card:hover {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 20px 50px -10px rgba(212, 175, 55, 0.35) !important;
+}
+
+[data-theme="dark"] .bento-card h3 {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .bento-card p {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .card-index {
+  color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .card-action {
+  color: #D4AF37 !important;
+}
