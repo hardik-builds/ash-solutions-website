@@ -4,11 +4,10 @@ import Header from '@/components/Header';
 import ScrollToTop from '@/components/ScrollToTop';
 import ResponsiveHandler from '@/components/ResponsiveHandler';
 import Preloader from '@/components/Preloader';
+import JsonLd from '@/components/JsonLd';
+import { generateMetadata } from '@/lib/metadata';
 
-export const metadata = {
-  title: 'ASH Solutions',
-  description: 'Advanced digital solutions for modern businesses',
-};
+export const metadata = generateMetadata('home');
 
 export default function RootLayout({ children }) {
   return (
@@ -33,6 +32,7 @@ export default function RootLayout({ children }) {
           overflowX: 'hidden'
         }}
       >
+        <JsonLd />
         <Preloader />
 
         <Header />
@@ -52,4 +52,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

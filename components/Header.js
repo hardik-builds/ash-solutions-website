@@ -713,32 +713,59 @@ export default function Header() {
 
           .mobile-menu {
             display: block;
-            background: var(--bg-color);
-            border-top: 1px solid var(--card-border);
+            background: #FAF7F2 !important;
+            border-top: 1px solid #E8E2D9 !important;
             padding: 28px 24px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 20px 40px rgba(11, 31, 58, 0.15) !important;
+          }
+
+          [data-theme="dark"] .mobile-menu {
+            background: #0B172C !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8) !important;
           }
 
           .mobile-link {
             text-decoration: none;
-            font-size: 18px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--title-color) !important;
             display: block;
-            padding: 8px 0;
-            transition: color 0.2s;
+            padding: 12px 14px;
+            border-radius: 10px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-bottom: 4px;
+          }
+
+          .mobile-link:hover, .mobile-link.active {
+            color: #D4AF37 !important;
+            background: rgba(212, 175, 55, 0.08) !important;
+            padding-left: 18px !important;
+          }
+
+          [data-theme="dark"] .mobile-link:hover, [data-theme="dark"] .mobile-link.active {
+            background: rgba(212, 175, 55, 0.15) !important;
           }
 
           .mobile-cta {
             text-decoration: none;
             text-align: center;
             display: block;
-            background: #0B1F3A;
-            color: #FAF7F2;
-            padding: 14px;
+            background: linear-gradient(135deg, #0B1F3A 0%, #183A66 60%, #D4AF37 100%) !important;
+            color: #FFFFFF !important;
+            padding: 14px 20px;
             border-radius: 12px;
-            font-weight: 700;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(11, 31, 58, 0.2);
+            font-weight: 800;
+            font-size: 15px;
+            margin-top: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.4) !important;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25) !important;
+            transition: transform 0.2s ease !important;
+          }
+
+          .mobile-cta:active {
+            transform: scale(0.98);
           }
         }
 
