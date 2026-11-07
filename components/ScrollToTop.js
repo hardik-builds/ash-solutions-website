@@ -142,20 +142,20 @@ export default function ScrollToTop() {
 
         @media (max-width: 640px) {
           .floating-action-stack {
-            bottom: 20px;
-            right: 16px;
-            gap: 10px;
+            bottom: 16px;
+            right: 14px;
+            gap: 8px;
           }
           .floating-btn {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
           }
           :global(.floating-icon) {
-            font-size: 20px;
+            font-size: 18px;
           }
           .scroll-arrow-svg {
-            width: 19px;
-            height: 19px;
+            width: 17px;
+            height: 17px;
           }
         }
       `}</style>

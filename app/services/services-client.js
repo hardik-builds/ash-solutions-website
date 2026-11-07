@@ -377,204 +377,142 @@ export default function Services() {
       >
         <div
           style={{
-            maxWidth: '1280px',
+            maxWidth: '850px',
             margin: '0 auto',
             padding: '0 24px',
             textAlign: 'left',
           }}
         >
           <div
-            className="services-hero-grid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1.15fr 1fr',
-              gap: '60px',
-              alignItems: 'center',
+              color: '#D4AF37',
+              fontWeight: '700',
+              letterSpacing: '2px',
+              marginBottom: '14px',
+              textTransform: 'uppercase',
+              fontFamily: 'monospace',
+              fontSize: '12px'
             }}
           >
-            <div>
-              <div
-                style={{
-                  color: '#D4AF37',
-                  fontWeight: '700',
-                  letterSpacing: '2px',
-                  marginBottom: '14px',
-                  textTransform: 'uppercase',
-                  fontFamily: 'monospace',
-                  fontSize: '12px'
-                }}
-              >
-                // SERVICES & CAPABILITIES
-              </div>
+            // SERVICES & CAPABILITIES
+          </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                style={{
-                  fontSize: 'clamp(32px, 6vw, 76px)',
-                  fontWeight: '950',
-                  lineHeight: '1.02',
-                  color: 'var(--title-color)',
-                  letterSpacing: '-2px',
-                  marginBottom: '24px',
-                }}
-              >
-                Building <br />
-                <span className="text-gradient-purple-cyan">Digital Systems</span>
-              </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontSize: 'clamp(32px, 6vw, 76px)',
+              fontWeight: '950',
+              lineHeight: '1.02',
+              color: 'var(--title-color)',
+              letterSpacing: '-2px',
+              marginBottom: '20px',
+            }}
+          >
+            Building <br />
+            <span className="text-gradient-purple-cyan">Digital Systems</span>
+          </motion.h1>
 
-              <div
-                className="services-cta-buttons"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  alignItems: 'center',
-                  gap: '14px',
-                  flexWrap: 'wrap',
-                }}
-              >
-                <a
-                  href="https://wa.me/918652768171"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cta-primary-btn"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    height: '48px',
-                    padding: '0 28px',
-                    borderRadius: '10px',
-                    backgroundColor: '#0B1F3A',
-                    border: '1px solid #0B1F3A',
-                    color: '#FFFFFF',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '15px',
-                    letterSpacing: '-0.2px',
-                    boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
-                    transition: 'all 0.25s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#183A66';
-                    e.currentTarget.style.borderColor = '#183A66';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#0B1F3A';
-                    e.currentTarget.style.borderColor = '#0B1F3A';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
-                  }}
-                >
-                  Discuss Project
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
+          <p
+            style={{
+              color: 'var(--body-text)',
+              fontSize: '18px',
+              lineHeight: '1.8',
+              marginBottom: '32px',
+              maxWidth: '680px',
+            }}
+          >
+            From AI Automation and SaaS platforms to Websites, Mobile Apps, CRM and ERP systems — we engineer software designed for measurable growth.
+          </p>
 
-                <Link
-                  href="/contact"
-                  className="cta-secondary-btn"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '48px',
-                    padding: '0 28px',
-                    borderRadius: '10px',
-                    background: 'var(--card-bg)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--title-color)',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '15px',
-                    letterSpacing: '-0.2px',
-                    boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
-                    transition: 'all 0.25s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--bg-color)';
-                    e.currentTarget.style.borderColor = 'var(--title-color)';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--card-bg)';
-                    e.currentTarget.style.borderColor = 'var(--card-border)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
-                  }}
-                >
-                  Request Proposal
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Side: Capabilities Spec */}
-            <div
+          <div
+            className="services-cta-buttons"
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              gap: '14px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="https://wa.me/918652768171"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary-btn"
               style={{
-                background: 'var(--card-bg)',
-                border: '1px solid var(--card-border)',
-                borderRadius: '16px',
-                padding: '32px 30px',
-                boxShadow: '0 4px 20px -4px rgba(11, 31, 58, 0.06)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
+                backgroundColor: '#0B1F3A',
+                border: '1px solid #0B1F3A',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '15px',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                transition: 'all 0.25s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#183A66';
+                e.currentTarget.style.borderColor = '#183A66';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#0B1F3A';
+                e.currentTarget.style.borderColor = '#0B1F3A';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
               }}
             >
-              <div
-                style={{
-                  fontFamily: 'monospace',
-                  fontSize: '11px',
-                  color: '#D4AF37',
-                  fontWeight: '700',
-                  letterSpacing: '1px',
-                  textTransform: 'uppercase',
-                  marginBottom: '10px',
-                }}
-              >
-                // WHAT WE DELIVER
-              </div>
-              <p
-                style={{
-                  color: 'var(--body-text)',
-                  fontSize: '16.5px',
-                  lineHeight: '1.8',
-                  marginBottom: '24px',
-                }}
-              >
-                From AI Automation and SaaS platforms to Websites, Mobile Apps, CRM and ERP systems — we engineer software designed for measurable growth.
-              </p>
+              Discuss Project
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '14px',
-                  borderTop: '1px solid var(--card-border)',
-                  paddingTop: '20px',
-                }}
-              >
-                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
-                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>01 // AI AUTOMATION</div>
-                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Workflow Bots & LLMs</div>
-                </div>
-                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
-                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>02 // SAAS PLATFORMS</div>
-                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Full-Stack Systems</div>
-                </div>
-                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
-                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>03 // APPS & SITES</div>
-                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Next.js, React & Mobile</div>
-                </div>
-                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
-                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>04 // INTEGRATIONS</div>
-                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>CRM, ERP & APIs</div>
-                </div>
-              </div>
-            </div>
+            <Link
+              href="/contact"
+              className="cta-secondary-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+                color: 'var(--title-color)',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '15px',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                transition: 'all 0.25s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'var(--bg-color)';
+                e.currentTarget.style.borderColor = 'var(--title-color)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'var(--card-bg)';
+                e.currentTarget.style.borderColor = 'var(--card-border)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
+              }}
+            >
+              Request Proposal
+            </Link>
           </div>
 
           {/* Service Ribbon */}

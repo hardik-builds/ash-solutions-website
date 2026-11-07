@@ -165,7 +165,7 @@ export default function Contact() {
 
         <div
           style={{
-            maxWidth: '1280px',
+            maxWidth: '850px',
             margin: '0 auto',
             padding: '0 24px',
             textAlign: 'left',
@@ -174,183 +174,126 @@ export default function Contact() {
           }}
         >
           <div
-            className="contact-hero-grid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1.15fr 1fr',
-              gap: '60px',
-              alignItems: 'center',
+              color: '#D4AF37', fontWeight: '700', letterSpacing: '2px', marginBottom: '14px', textTransform: 'uppercase', fontFamily: 'monospace', fontSize: '12px',
             }}
           >
-            <div>
-              <div
-                style={{
-                  color: '#D4AF37', fontWeight: '700', letterSpacing: '2px', marginBottom: '14px', textTransform: 'uppercase', fontFamily: 'monospace', fontSize: '12px',
-                }}
-              >
-                <FaRocket style={{ marginRight: '8px', fontSize: '14px' }} /> // INITIATE ENGAGEMENT
-              </div>
+            <FaRocket style={{ marginRight: '8px', fontSize: '14px' }} /> // INITIATE ENGAGEMENT
+          </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                style={{
-                  fontSize: 'clamp(32px, 6vw, 76px)',
-                  fontWeight: '950',
-                  lineHeight: '1.02',
-                  color: 'var(--title-color)',
-                  letterSpacing: '-2px',
-                  marginBottom: '24px',
-                }}
-              >
-                Let's Build <br />
-                <span className="text-gradient-purple-cyan">Something Amazing</span>
-              </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontSize: 'clamp(32px, 6vw, 76px)',
+              fontWeight: '950',
+              lineHeight: '1.02',
+              color: 'var(--title-color)',
+              letterSpacing: '-2px',
+              marginBottom: '20px',
+            }}
+          >
+            Let's Build <br />
+            <span className="text-gradient-purple-cyan">Something Amazing</span>
+          </motion.h1>
 
-              <div
-                className="contact-hero-buttons"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  gap: '14px',
-                  flexWrap: 'wrap',
-                }}
-              >
-                <a
-                  href="https://wa.me/918652768171"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cta-primary-btn"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    height: '48px',
-                    padding: '0 28px',
-                    borderRadius: '10px',
-                    backgroundColor: '#0B1F3A',
-                    border: '1px solid #0B1F3A',
-                    color: '#FFFFFF',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '15px',
-                    letterSpacing: '-0.2px',
-                    boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
-                    transition: 'all 0.25s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#183A66';
-                    e.currentTarget.style.borderColor = '#183A66';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#0B1F3A';
-                    e.currentTarget.style.borderColor = '#0B1F3A';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
-                  }}
-                >
-                  <FaWhatsapp style={{ fontSize: '18px' }} />
-                  Talk To An Expert
-                </a>
+          <p
+            style={{
+              color: 'var(--body-text)',
+              fontSize: '18px',
+              lineHeight: '1.8',
+              marginBottom: '32px',
+              maxWidth: '680px',
+            }}
+          >
+            Tell us about your project and we'll help transform your idea into a scalable website, AI automation system, SaaS platform or business management solution.
+          </p>
 
-                <a
-                  href="#contact-form"
-                  className="cta-secondary-btn"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '48px',
-                    padding: '0 28px',
-                    borderRadius: '10px',
-                    background: 'var(--card-bg)',
-                    border: '1px solid var(--card-border)',
-                    color: 'var(--title-color)',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '15px',
-                    letterSpacing: '-0.2px',
-                    boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
-                    transition: 'all 0.25s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--bg-color)';
-                    e.currentTarget.style.borderColor = 'var(--title-color)';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--card-bg)';
-                    e.currentTarget.style.borderColor = 'var(--card-border)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
-                  }}
-                >
-                  Request A Quote
-                </a>
-              </div>
-            </div>
-
-            {/* Right Side: Trust & Engagement Standards */}
-            <div
+          <div
+            className="contact-hero-buttons"
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              gap: '14px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <a
+              href="https://wa.me/918652768171"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary-btn"
               style={{
-                background: 'var(--card-bg)',
-                border: '1px solid var(--card-border)',
-                borderRadius: '16px',
-                padding: '32px 30px',
-                boxShadow: '0 4px 20px -4px rgba(11, 31, 58, 0.06)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
+                backgroundColor: '#0B1F3A',
+                border: '1px solid #0B1F3A',
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '15px',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                transition: 'all 0.25s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#183A66';
+                e.currentTarget.style.borderColor = '#183A66';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#0B1F3A';
+                e.currentTarget.style.borderColor = '#0B1F3A';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
               }}
             >
-              <div
-                style={{
-                  fontFamily: 'monospace',
-                  fontSize: '11px',
-                  color: '#D4AF37',
-                  fontWeight: '700',
-                  letterSpacing: '1px',
-                  textTransform: 'uppercase',
-                  marginBottom: '10px',
-                }}
-              >
-                // OUR ENGAGEMENT STANDARD
-              </div>
-              <p
-                style={{
-                  color: 'var(--body-text)',
-                  fontSize: '16.5px',
-                  lineHeight: '1.8',
-                  marginBottom: '24px',
-                }}
-              >
-                Tell us about your project and we'll help transform your idea into a scalable website, AI automation system, SaaS platform or business management solution.
-              </p>
+              <FaWhatsapp style={{ fontSize: '18px' }} />
+              Talk To An Expert
+            </a>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '12px',
-                  borderTop: '1px solid var(--card-border)',
-                  paddingTop: '20px',
-                }}
-              >
-                {[
-                  { tag: '01 // TRANSPARENCY', title: 'Zero High-Pressure Sales' },
-                  { tag: '02 // CONSULTATION', title: 'Free Architecture Review' },
-                  { tag: '03 // COLLABORATION', title: 'Direct Developer Team' },
-                  { tag: '04 // CONFIDENTIALITY', title: 'Mutual NDAs Upon Request' }
-                ].map((item, idx) => (
-                  <div key={idx} style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
-                    <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>{item.tag}</div>
-                    <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>{item.title}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <a
+              href="#contact-form"
+              className="cta-secondary-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+                color: 'var(--title-color)',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '15px',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                transition: 'all 0.25s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'var(--bg-color)';
+                e.currentTarget.style.borderColor = 'var(--title-color)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'var(--card-bg)';
+                e.currentTarget.style.borderColor = 'var(--card-border)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
+              }}
+            >
+              Request A Quote
+            </a>
           </div>
         </div>
       </section>
