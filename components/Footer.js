@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -215,6 +216,16 @@ export default function Footer() {
                 style={{ color: '#cbd5e1', textDecoration: 'none' }}
               >
                 +91 86527 68171
+              </a>
+              <a
+                href="https://instagram.com/ashsolutionshq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+                style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+              >
+                <FaInstagram style={{ fontSize: '15px' }} />
+                @ashsolutionshq
               </a>
             </div>
           </div>

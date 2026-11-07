@@ -117,98 +117,207 @@ export default function TeamClient({ teamData }) {
 
         <div
           style={{
-            maxWidth: '1200px',
+            maxWidth: '1280px',
             margin: '0 auto',
-            textAlign: 'center',
+            padding: '0 24px',
+            textAlign: 'left',
             position: 'relative',
             zIndex: 2,
           }}
         >
           <div
-             style={{
-              color: 'var(--title-color)',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '20px',
-              textTransform: 'uppercase',
-            }}
-          >
-            <FiUsers style={{ marginRight: '8px', fontSize: '14px' }} /> Our Team
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="team-hero-grid"
             style={{
-              fontSize: 'clamp(32px, 8vw, 78px)',
-              fontWeight: '950',
-              lineHeight: '1.05',
-              color: 'var(--title-color)',
-              letterSpacing: '-2px',
-              marginBottom: '24px',
-            }}
-          >
-            Meet The Team <br />
-            Behind <span className="text-gradient-purple-cyan">ASH Solutions</span>
-          </motion.h1>
-
-          <p
-            style={{
-              maxWidth: '800px',
-              margin: '0 auto',
-              fontSize: '20px',
-              lineHeight: '1.8',
-              color: 'var(--body-text)',
-            }}
-          >
-            A passionate team focused on building AI-powered software, automation systems, SaaS products and business solutions designed for growth.
-          </p>
-
-          <div
-            style={{
-              marginTop: '60px',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
-              gap: '24px',
+              gridTemplateColumns: '1.1fr 1fr',
+              gap: '60px',
+              alignItems: 'center',
             }}
           >
-            {[
-              { number: 'AI', label: 'Automation Solutions' },
-              { number: 'SaaS', label: 'Platform Development' },
-              { number: '24/7', label: 'Support Mindset' },
-              { number: '100%', label: 'Client Focused' },
-            ].map((item, index) => (
+            <div>
               <div
-                key={index}
-                className="glass-panel"
                 style={{
-                  borderRadius: '24px',
-                  padding: 'var(--card-padding)',
+                  color: '#D4AF37', fontWeight: '700', letterSpacing: '2px', marginBottom: '14px', textTransform: 'uppercase', fontFamily: 'monospace', fontSize: '12px',
                 }}
               >
-                <div
-                  style={{
-                    fontSize: '36px',
-                    fontWeight: '900',
-                    color: 'var(--title-color)',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {item.number}
-                </div>
-
-                <div
-                  style={{
-                    color: 'var(--title-color)',
-                    fontWeight: '700',
-                    fontSize: '15px',
-                  }}
-                >
-                  {item.label}
-                </div>
+                <FiUsers style={{ marginRight: '8px', fontSize: '14px' }} /> // LEADERSHIP & TALENT
               </div>
-            ))}
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                  fontSize: 'clamp(32px, 5.5vw, 68px)',
+                  fontWeight: '950',
+                  lineHeight: '1.05',
+                  color: 'var(--title-color)',
+                  letterSpacing: '-2px',
+                  marginBottom: '20px',
+                }}
+              >
+                Meet The Team <br />
+                Behind <span className="text-gradient-purple-cyan">ASH Solutions</span>
+              </motion.h1>
+
+              <p
+                style={{
+                  color: 'var(--body-text)',
+                  fontSize: '17.5px',
+                  lineHeight: '1.75',
+                  marginBottom: '28px',
+                }}
+              >
+                A passionate engineering collective focused on designing AI-powered software, automation workflows, enterprise SaaS platforms, and digital architectures.
+              </p>
+
+              <div
+                className="team-cta"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  gap: '14px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Link
+                  href="/contact"
+                  className="cta-primary-btn"
+                  style={{
+                    padding: '0 28px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    backgroundColor: '#0B1F3A',
+                    border: '1px solid #0B1F3A',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                    transition: 'all 0.25s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#183A66';
+                    e.currentTarget.style.borderColor = '#183A66';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#0B1F3A';
+                    e.currentTarget.style.borderColor = '#0B1F3A';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
+                  }}
+                >
+                  <FaRocket style={{ fontSize: '15px' }} />
+                  Start A Project
+                </Link>
+
+                <Link
+                  href="/services"
+                  className="cta-secondary-btn"
+                  style={{
+                    padding: '0 28px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    color: 'var(--title-color)',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                    transition: 'all 0.25s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--bg-color)';
+                    e.currentTarget.style.borderColor = 'var(--title-color)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--card-bg)';
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
+                  }}
+                >
+                  <FaHandshake style={{ fontSize: '16px' }} />
+                  Explore Capabilities
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Side: Key Metrics Matrix */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '16px',
+              }}
+            >
+              {[
+                { number: 'AI', label: 'Automation Engineering', tag: '01 // SPECIALTY' },
+                { number: 'SaaS', label: 'Platform Architecture', tag: '02 // SYSTEMS' },
+                { number: '24/7', label: 'Enterprise Uptime Mindset', tag: '03 // RELIABILITY' },
+                { number: '100%', label: 'Client-Focused Execution', tag: '04 // COMMITMENT' },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  style={{
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    borderRadius: '14px',
+                    padding: '24px 20px',
+                    boxShadow: '0 2px 8px -2px rgba(11, 31, 58, 0.04)',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: 'monospace',
+                      fontSize: '10px',
+                      color: '#D4AF37',
+                      fontWeight: '700',
+                      letterSpacing: '0.8px',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    {item.tag}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '32px',
+                      fontWeight: '900',
+                      color: 'var(--title-color)',
+                      marginBottom: '4px',
+                      letterSpacing: '-1px',
+                    }}
+                  >
+                    {item.number}
+                  </div>
+                  <div
+                    style={{
+                      color: 'var(--body-text)',
+                      fontWeight: '600',
+                      fontSize: '13px',
+                      lineHeight: '1.4',
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -221,7 +330,7 @@ export default function TeamClient({ teamData }) {
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <div
               style={{
                 display: 'inline-block',
@@ -253,7 +362,7 @@ export default function TeamClient({ teamData }) {
               Meet The People Behind <span className="text-gold-gradient">The Vision</span>
             </h2>
 
-            <p style={{ maxWidth: '680px', margin: '0 auto', color: 'var(--body-text)', fontSize: '18px', lineHeight: '1.8' }}>
+            <p style={{ maxWidth: '680px', margin: '0 0 25px 0', color: 'var(--body-text)', fontSize: '18px', lineHeight: '1.8' }}>
               Combining technology, innovation and business strategy to build scalable digital solutions for modern businesses.
             </p>
           </div>
@@ -277,7 +386,7 @@ export default function TeamClient({ teamData }) {
                 style={{
                   borderRadius: '32px',
                   padding: 'var(--card-padding)',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   cursor: 'pointer',
                   display: 'flex',
                   flexDirection: 'column',
@@ -426,7 +535,7 @@ export default function TeamClient({ teamData }) {
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <div
               style={{
                 display: 'inline-block',
@@ -575,6 +684,10 @@ export default function TeamClient({ teamData }) {
         }
 
         @media (max-width: 900px) {
+          .team-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
           .leader-row {
             grid-template-columns: 1fr !important;
             gap: 40px !important;
@@ -587,14 +700,18 @@ export default function TeamClient({ teamData }) {
 
         @media (max-width: 768px) {
           :global(.team-cta) {
-            flex-direction: column !important;
-            align-items: stretch !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
             gap: 12px !important;
+            flex-wrap: wrap !important;
             width: 100% !important;
           }
           :global(.team-cta a) {
-            width: 100% !important;
-            max-width: 100% !important;
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 220px !important;
+            height: 46px !important;
             text-align: center !important;
           }
         }

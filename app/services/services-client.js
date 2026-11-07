@@ -377,99 +377,204 @@ export default function Services() {
       >
         <div
           style={{
-            maxWidth: '1300px',
+            maxWidth: '1280px',
             margin: '0 auto',
-            textAlign: 'center',
+            padding: '0 24px',
+            textAlign: 'left',
           }}
         >
           <div
+            className="services-hero-grid"
             style={{
-              color: 'var(--title-color)',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '20px',
-              textTransform: 'uppercase',
+              display: 'grid',
+              gridTemplateColumns: '1.15fr 1fr',
+              gap: '60px',
+              alignItems: 'center',
             }}
           >
-            Services
-          </div>
+            <div>
+              <div
+                style={{
+                  color: '#D4AF37',
+                  fontWeight: '700',
+                  letterSpacing: '2px',
+                  marginBottom: '14px',
+                  textTransform: 'uppercase',
+                  fontFamily: 'monospace',
+                  fontSize: '12px'
+                }}
+              >
+                // SERVICES & CAPABILITIES
+              </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              fontSize: 'clamp(32px, 8vw, 100px)',
-              fontWeight: '950',
-              lineHeight: '.95',
-              color: 'var(--title-color)',
-              letterSpacing: '-2px',
-              marginBottom: '25px',
-            }}
-          >
-            Building <br />
-            <span className="text-gradient-purple-cyan">Digital Systems</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                  fontSize: 'clamp(32px, 6vw, 76px)',
+                  fontWeight: '950',
+                  lineHeight: '1.02',
+                  color: 'var(--title-color)',
+                  letterSpacing: '-2px',
+                  marginBottom: '24px',
+                }}
+              >
+                Building <br />
+                <span className="text-gradient-purple-cyan">Digital Systems</span>
+              </motion.h1>
 
-          <p
-            style={{
-              maxWidth: '850px',
-              margin: '0 auto',
-              color: 'var(--body-text)',
-              fontSize: '20px',
-              lineHeight: '1.9',
-            }}
-          >
-            From AI Automation and SaaS platforms to Websites, Mobile Apps, CRM and ERP systems — we build technology designed for growth.
-          </p>
+              <div
+                className="services-cta-buttons"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  gap: '14px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <a
+                  href="https://wa.me/918652768171"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-primary-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    height: '48px',
+                    padding: '0 28px',
+                    borderRadius: '10px',
+                    backgroundColor: '#0B1F3A',
+                    border: '1px solid #0B1F3A',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                    transition: 'all 0.25s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#183A66';
+                    e.currentTarget.style.borderColor = '#183A66';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#0B1F3A';
+                    e.currentTarget.style.borderColor = '#0B1F3A';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
+                  }}
+                >
+                  Discuss Project
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
 
-          <div
-            className="services-cta-buttons"
-            style={{
-              marginTop: '50px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '18px',
-              flexWrap: 'wrap',
-            }}
-          >
-            <a
-              href="https://wa.me/918652768171"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-primary-btn"
+                <Link
+                  href="/contact"
+                  className="cta-secondary-btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '48px',
+                    padding: '0 28px',
+                    borderRadius: '10px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    color: 'var(--title-color)',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                    transition: 'all 0.25s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--bg-color)';
+                    e.currentTarget.style.borderColor = 'var(--title-color)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--card-bg)';
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
+                  }}
+                >
+                  Request Proposal
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Side: Capabilities Spec */}
+            <div
               style={{
-                padding: '18px 36px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
                 borderRadius: '16px',
-                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                padding: '32px 30px',
+                boxShadow: '0 4px 20px -4px rgba(11, 31, 58, 0.06)',
               }}
             >
-              Discuss Project
-            </a>
+              <div
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '11px',
+                  color: '#D4AF37',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  marginBottom: '10px',
+                }}
+              >
+                // WHAT WE DELIVER
+              </div>
+              <p
+                style={{
+                  color: 'var(--body-text)',
+                  fontSize: '16.5px',
+                  lineHeight: '1.8',
+                  marginBottom: '24px',
+                }}
+              >
+                From AI Automation and SaaS platforms to Websites, Mobile Apps, CRM and ERP systems — we engineer software designed for measurable growth.
+              </p>
 
-            <Link
-              href="/contact"
-              className="cta-secondary-btn"
-              style={{
-                padding: '18px 36px',
-                borderRadius: '16px',
-                border: '1px solid var(--cta-secondary-border)',
-                color: 'var(--text-color)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                background: 'var(--cta-secondary-bg)',
-                boxShadow: 'var(--cta-secondary-shadow)',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-            >
-              Request Proposal
-            </Link>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '14px',
+                  borderTop: '1px solid var(--card-border)',
+                  paddingTop: '20px',
+                }}
+              >
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>01 // AI AUTOMATION</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Workflow Bots & LLMs</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>02 // SAAS PLATFORMS</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Full-Stack Systems</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>03 // APPS & SITES</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Next.js, React & Mobile</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>04 // INTEGRATIONS</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>CRM, ERP & APIs</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Service Ribbon */}
@@ -499,17 +604,19 @@ export default function Services() {
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <div
               style={{
-                color: 'var(--title-color)',
+                color: '#D4AF37',
                 fontWeight: '700',
                 letterSpacing: '2px',
-                marginBottom: '15px',
+                marginBottom: '12px',
                 textTransform: 'uppercase',
+                fontFamily: 'monospace',
+                fontSize: '12px'
               }}
             >
-              What We Build
+              // WHAT WE BUILD
             </div>
 
             <h2
@@ -670,17 +777,19 @@ export default function Services() {
         }}
       >
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <div
               style={{
-                color: 'var(--title-color)',
+                color: '#D4AF37',
                 fontWeight: '700',
                 letterSpacing: '2px',
-                marginBottom: '15px',
+                marginBottom: '12px',
                 textTransform: 'uppercase',
+                fontFamily: 'monospace',
+                fontSize: '12px'
               }}
             >
-              Industries We Serve
+              // INDUSTRIES WE SERVE
             </div>
 
             <h2
@@ -695,7 +804,7 @@ export default function Services() {
             >
               Solutions For Every Industry
             </h2>
-            <p style={{ maxWidth: '680px', margin: '0 auto', color: 'var(--body-text)', fontSize: '18px', lineHeight: '1.8' }}>
+            <p style={{ maxWidth: '680px', margin: '0 0 20px 0', color: 'var(--body-text)', fontSize: '17px', lineHeight: '1.7' }}>
               We build scalable software and workflows optimized to solve sector-specific challenges.
             </p>
           </div>
@@ -831,6 +940,12 @@ export default function Services() {
           }
         }
 
+        @media (max-width: 900px) {
+          .services-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+        }
         @media (max-width: 992px) {
           .glass-panel-hover {
             grid-template-columns: 80px 1fr !important;
@@ -858,14 +973,18 @@ export default function Services() {
             grid-column: span 1;
           }
           :global(.services-cta-buttons) {
-            flex-direction: column !important;
-            align-items: stretch !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
             gap: 12px !important;
+            flex-wrap: wrap !important;
             width: 100% !important;
           }
           :global(.services-cta-buttons a) {
-            width: 100% !important;
-            max-width: 100% !important;
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 220px !important;
+            height: 46px !important;
             text-align: center !important;
           }
         }

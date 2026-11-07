@@ -411,36 +411,71 @@ export default function InsightsClient() {
         }}
       />
 
-      <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-        {/* Header Block */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <div
-            style={{
-              color: 'var(--title-color)',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '15px',
-              textTransform: 'uppercase',
-              fontSize: '13px',
-            }}
-          >
-            Insights & Testimonials
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 2 }}>
+        {/* Header Block: 2-Column Split */}
+        <div
+          className="insights-header-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1.2fr 1fr',
+            gap: '50px',
+            alignItems: 'flex-end',
+            marginBottom: '45px',
+            textAlign: 'left',
+          }}
+        >
+          <div>
+            <div
+              style={{
+                color: '#D4AF37',
+                fontWeight: '700',
+                letterSpacing: '2px',
+                marginBottom: '12px',
+                textTransform: 'uppercase',
+                fontFamily: 'monospace',
+                fontSize: '12px',
+              }}
+            >
+              // INSIGHTS & CASE STUDIES
+            </div>
+            <h1
+              style={{
+                fontSize: 'clamp(36px, 5.5vw, 64px)',
+                fontWeight: '950',
+                lineHeight: '1.05',
+                color: 'var(--title-color)',
+                letterSpacing: '-2px',
+                margin: 0,
+              }}
+            >
+              Case Studies, <br />Blogs & Reviews
+            </h1>
           </div>
-          <h1
-            style={{
-              fontSize: 'clamp(38px, 6vw, 64px)',
-              fontWeight: '950',
-              lineHeight: '1.05',
-              color: 'var(--title-color)',
-              letterSpacing: '-2.5px',
-              marginBottom: '20px',
-            }}
-          >
-            Case Studies, Blogs & Reviews
-          </h1>
-          <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--body-text)', fontSize: '18px', lineHeight: '1.7' }}>
-            Discover how we build high-performing digital platforms and what our clients think of our work.
-          </p>
+
+          <div>
+            <p style={{ color: 'var(--body-text)', fontSize: '17px', lineHeight: '1.75', marginBottom: '16px' }}>
+              Discover how we architect scalable digital platforms, solve complex enterprise automation challenges, and read authentic reviews from founders.
+            </p>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {['AI Automation', 'Enterprise SaaS', 'Web & Mobile', 'Cloud Architecture'].map((topic, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    padding: '4px 10px',
+                    borderRadius: '6px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    color: 'var(--title-color)',
+                  }}
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Auth Status Bar */}
@@ -611,7 +646,7 @@ export default function InsightsClient() {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             gap: '12px',
             borderBottom: '1px solid var(--card-border)',
             paddingBottom: '16px',

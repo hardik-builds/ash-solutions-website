@@ -51,7 +51,7 @@ export default function CTASection() {
         }}
       />
 
-      <div
+            <div
         style={{
           position: 'relative',
           zIndex: 2,
@@ -62,48 +62,54 @@ export default function CTASection() {
       >
         <div
           style={{
-            color: 'var(--title-color)',
+            color: '#D4AF37',
             fontWeight: '700',
-            marginBottom: '15px',
-            letterSpacing: '1px',
+            marginBottom: '14px',
+            letterSpacing: '2px',
+            fontFamily: 'monospace',
             textTransform: 'uppercase',
-            fontSize: '13px'
+            fontSize: '12px',
+            textAlign: 'center'
           }}
         >
-          {"LET'S BUILD SOMETHING AMAZING"}
+          {"// LET'S BUILD SOMETHING AMAZING"}
         </div>
 
         <h2
           style={{
-            fontSize: 'clamp(36px, 7vw, 64px)',
+            fontSize: 'clamp(32px, 5.5vw, 56px)',
             fontWeight: '900',
+            fontFamily: "'Manrope', 'Inter', -apple-system, sans-serif",
             lineHeight: '1.1',
-            marginBottom: '25px',
+            marginBottom: '20px',
             letterSpacing: '-1.5px',
-            color: 'var(--title-color)'
+            color: 'var(--title-color)',
+            textAlign: 'center'
           }}
         >
-          Your Next Growth Engine<br />Starts Here
+          Your Next Growth Engine Starts Here
         </h2>
 
         <p
           style={{
-            maxWidth: '750px',
-            margin: '0 auto',
-            fontSize: '18px',
-            lineHeight: '1.9',
+            maxWidth: '720px',
+            margin: '0 auto 32px auto',
+            fontSize: '17px',
+            lineHeight: '1.7',
             color: 'var(--body-text)',
+            textAlign: 'center'
           }}
         >
           Whether you need AI automation, a custom SaaS platform, a business management system, a website or a mobile app, we&apos;re ready to help you scale.
         </p>
 
         <div
+          className="cta-button-group"
           style={{
-            marginTop: '40px',
             display: 'flex',
+            alignItems: 'center',
             justifyContent: 'center',
-            gap: '16px',
+            gap: '14px',
             flexWrap: 'wrap',
           }}
         >
@@ -112,89 +118,114 @@ export default function CTASection() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              textDecoration: 'none',
-              color: '#FAF7F2',
-              fontWeight: '700',
-              fontSize: '14px',
-              padding: '16px 36px',
-              borderRadius: '14px',
-              background: '#0B1F3A',
-              border: '1px solid #0B1F3A',
-              boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(212, 175, 55, 0.3)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '10px'
+              gap: '8px',
+              height: '48px',
+              padding: '0 28px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              color: '#FFFFFF',
+              backgroundColor: '#0B1F3A',
+              border: '1px solid #0B1F3A',
+              fontSize: '15px',
+              fontWeight: '600',
+              letterSpacing: '-0.2px',
+              boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+              transition: 'all 0.25s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-              e.currentTarget.style.background = '#183A66';
-              e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(11, 31, 58, 0.35)';
-              const icon = e.currentTarget.querySelector('.wa-icon');
-              if (icon) icon.style.transform = 'scale(1.15) rotate(5deg)';
+              e.currentTarget.style.backgroundColor = '#183A66';
+              e.currentTarget.style.borderColor = '#183A66';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.background = '#0B1F3A';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(11, 31, 58, 0.25)';
-              const icon = e.currentTarget.querySelector('.wa-icon');
-              if (icon) icon.style.transform = 'scale(1) rotate(0)';
+              e.currentTarget.style.backgroundColor = '#0B1F3A';
+              e.currentTarget.style.borderColor = '#0B1F3A';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
             }}
           >
-            <FaWhatsapp className="wa-icon" style={{ fontSize: '18px', transition: 'transform 0.3s ease' }} />
+            <FaWhatsapp className="wa-icon" style={{ fontSize: '18px' }} />
             Talk to an Expert
           </a>
 
           <Link
             href="/contact"
             style={{
-              padding: '16px 36px',
-              borderRadius: '14px',
-              textDecoration: 'none',
-              background: 'transparent',
-              border: '1px solid #0B1F3A',
-              color: 'var(--title-color)',
-              fontWeight: '700',
-              backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '10px'
+              gap: '8px',
+              height: '48px',
+              padding: '0 28px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              background: 'var(--card-bg)',
+              border: '1px solid var(--card-border)',
+              color: 'var(--title-color)',
+              fontSize: '15px',
+              fontWeight: '600',
+              letterSpacing: '-0.2px',
+              boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+              transition: 'all 0.25s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-              e.currentTarget.style.background = '#F5F2EB';
-              e.currentTarget.style.borderColor = '#D4AF37';
-              const arrow = e.currentTarget.querySelector('.arrow-icon');
-              if (arrow) arrow.style.transform = 'translateX(4px)';
+              e.currentTarget.style.background = 'var(--bg-color)';
+              e.currentTarget.style.borderColor = 'var(--title-color)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.borderColor = '#0B1F3A';
-              const arrow = e.currentTarget.querySelector('.arrow-icon');
-              if (arrow) arrow.style.transform = 'translateX(0)';
+              e.currentTarget.style.background = 'var(--card-bg)';
+              e.currentTarget.style.borderColor = 'var(--card-border)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
             }}
           >
             Get Custom Quote
-            <FiArrowRight className="arrow-icon" style={{ fontSize: '16px', transition: 'transform 0.3s ease' }} />
+            <FiArrowRight className="arrow-icon" style={{ fontSize: '16px' }} />
           </Link>
         </div>
 
         <div
           style={{
-            marginTop: '40px',
+            marginTop: '36px',
             color: 'var(--body-text)',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: '500',
-            letterSpacing: '0.5px'
+            fontFamily: 'monospace',
+            letterSpacing: '0.5px',
+            textAlign: 'center'
           }}
         >
-          AI Automation • SaaS Development • Websites • Apps • Cybersecurity
+          // AI AUTOMATION • SAAS PLATFORMS • WEBSITES • MOBILE APPS • CLOUD
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .cta-button-group {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            width: 100% !important;
+          }
+          .cta-button-group a {
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 220px !important;
+            height: 46px !important;
+            padding: 0 16px !important;
+            font-size: 14px !important;
+            text-align: center !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

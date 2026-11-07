@@ -666,9 +666,10 @@ export default function Home() {
             <div
               className="cta-buttons"
               style={{
-                marginTop: '40px',
+                marginTop: '36px',
                 display: 'flex',
-                gap: '16px',
+                alignItems: 'center',
+                gap: '14px',
                 flexWrap: 'wrap',
               }}
             >
@@ -677,53 +678,73 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
-               style={{
-                textDecoration: 'none',
-                color: '#FFFFFF',
-                fontWeight: '700',
-                fontSize: '14px',
-                padding: '12px 24px',
-                borderRadius: '12px',
-                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
-                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  height: '48px',
+                  padding: '0 28px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  color: '#FFFFFF',
+                  backgroundColor: '#0B1F3A',
+                  border: '1px solid #0B1F3A',
+                  fontSize: '15px',
+                  fontWeight: '600',
+                  letterSpacing: '-0.2px',
+                  boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                  transition: 'all 0.25s ease',
+                }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                  e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(79, 70, 229, 0.35)';
+                  e.currentTarget.style.backgroundColor = '#183A66';
+                  e.currentTarget.style.borderColor = '#183A66';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(79, 70, 229, 0.2)';
+                  e.currentTarget.style.backgroundColor = '#0B1F3A';
+                  e.currentTarget.style.borderColor = '#0B1F3A';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
                 }}
               >
                 Start A Project
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </a>
               <Link
                 href="/services"
                 className="btn-secondary"
                 style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '48px',
+                  padding: '0 28px',
+                  borderRadius: '10px',
                   textDecoration: 'none',
-                  border: '1px solid var(--cta-secondary-border)',
+                  background: 'var(--card-bg)',
+                  border: '1px solid var(--card-border)',
                   color: 'var(--title-color)',
-                  padding: '16px 32px',
-                  borderRadius: '14px',
-                  fontWeight: '700',
-                  background: 'var(--cta-secondary-bg)',
-                  boxShadow: 'var(--cta-secondary-shadow)',
-                  backdropFilter: 'blur(10px)',
-                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  display: 'inline-block'
+                  fontSize: '15px',
+                  fontWeight: '600',
+                  letterSpacing: '-0.2px',
+                  boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                  transition: 'all 0.25s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                  e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
+                  e.currentTarget.style.background = 'var(--bg-color)';
+                  e.currentTarget.style.borderColor = 'var(--title-color)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.background = 'var(--cta-secondary-bg)';
-                  e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
+                  e.currentTarget.style.background = 'var(--card-bg)';
+                  e.currentTarget.style.borderColor = 'var(--card-border)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
                 }}
               >
                 Explore Services
@@ -964,44 +985,49 @@ export default function Home() {
           {/* Heading */}
           <div
             style={{
-              textAlign: 'center',
-              marginBottom: '70px',
+              textAlign: 'left',
+              marginBottom: '50px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px',
+              maxWidth: '850px'
             }}
           >
             <div
               style={{
                 color: 'var(--title-color)',
                 fontWeight: '700',
-                marginBottom: '12px',
-                letterSpacing: '1px',
-                textTransform: 'uppercase'
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                fontSize: '13px'
               }}
             >
-              WHAT WE BUILD
+              What We Build
             </div>
 
             <h2
               style={{
-                fontSize: 'clamp(34px,6vw,58px)',
-                fontWeight: '900',
+                fontSize: 'clamp(32px, 5vw, 52px)',
+                fontWeight: '850',
                 color: 'var(--title-color)',
-                marginBottom: '18px',
-                letterSpacing: '-1.5px'
+                margin: 0,
+                letterSpacing: '-1.5px',
+                lineHeight: '1.15'
               }}
             >
-              Technology Built For Growth
+              Engineered for Real Business Growth
             </h2>
 
             <p
               style={{
-                maxWidth: '700px',
-                margin: '0 auto',
                 color: 'var(--body-text)',
-                lineHeight: '1.8',
-                fontSize: '18px',
+                lineHeight: '1.7',
+                fontSize: '17px',
+                margin: 0,
+                maxWidth: '680px'
               }}
             >
-              We help businesses automate operations, build scalable software and create digital experiences that drive measurable growth.
+              We design and engineer enterprise-grade automation systems, bespoke software platforms, and resilient web & mobile applications.
             </p>
           </div>
 
@@ -1181,12 +1207,12 @@ export default function Home() {
       <motion.section
         initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
+        id="tech"
         style={{
-          padding: '120px 20px',
-          background: 'transparent',
           position: 'relative',
+          padding: '120px 20px',
           zIndex: 2,
         }}
       >
@@ -1199,258 +1225,336 @@ export default function Home() {
           {/* Section Heading */}
           <div
             style={{
-              textAlign: 'center',
-              marginBottom: '70px',
+              textAlign: 'left',
+              marginBottom: '50px',
             }}
           >
             <div
               style={{
-                color: 'var(--title-color)',
+                color: '#D4AF37',
                 fontWeight: '700',
-                marginBottom: '12px',
-                letterSpacing: '1px',
+                fontSize: '12px',
+                marginBottom: '10px',
+                letterSpacing: '2px',
+                fontFamily: 'monospace',
                 textTransform: 'uppercase'
               }}
             >
-              MODERNIZATION TECH STACK
+              // PRODUCTION STACK & CAPABILITIES
             </div>
 
             <h2
               style={{
-                fontSize: 'clamp(34px,6vw,58px)',
+                fontSize: 'clamp(32px, 5vw, 50px)',
                 fontWeight: '900',
                 color: 'var(--title-color)',
-                marginBottom: '18px',
-                letterSpacing: '-1.5px'
+                marginBottom: '14px',
+                letterSpacing: '-1.5px',
+                lineHeight: '1.15'
               }}
             >
-              Statically Typed, Globally Distributed, Highly Available
+              Architected for Performance, Scale & Zero Downtime
             </h2>
 
             <p
               style={{
-                maxWidth: '700px',
-                margin: '0 auto',
+                maxWidth: '740px',
+                margin: 0,
                 color: 'var(--body-text)',
-                lineHeight: '1.9',
-                fontSize: '18px',
+                lineHeight: '1.7',
+                fontSize: '16.5px',
               }}
             >
-              We build with modern, production-grade tools that scale automatically, guarantee zero-downtime deployments, and keep applications lightning fast.
+              We engineer with vetted enterprise standards—combining statically compiled client interfaces, resilient distributed backends, auto-scaling cloud topologies, and hardware-accelerated mobile apps.
             </p>
           </div>
 
           {/* Interactive 3D Spinning Tech Cube */}
           <TechCube scrollYProgress={scrollYProgress} />
 
-          {/* Grid of Tech Stacks */}
-          <div className="tech-grid">
-            {/* React & Next.js */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#00d8ff' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1c2.19 0 4.17.78 5.73 2.07c-1.3-.4-3-.62-4.87-.62C10.74 4.45 8.94 4.8 7.39 5.4c.04-.01.07-.02.11-.03C8.98 4 10.42 3.65 12 3.65zm-2 .24c-1.44.38-2.68 1.07-3.61 2.03C5.64 6.7 5.12 7.72 4.86 8.8c.28-.27.59-.5.92-.7c1.33-.8 2.94-1.25 4.67-1.25c.34 0 .68.02 1 .05c-1.32.74-2.5 1.76-3.46 2.97c-.96 1.2-1.67 2.6-2.07 4.11c-.02.09-.04.18-.06.27c-.24-1.12-.36-2.29-.36-3.5c0-2.82.68-5.32 1.83-7.25c.2-.33.42-.64.67-.93V3.89zM12 4.45c1.61 0 3.12.21 4.5.58c-1.4 1-2.58 2.29-3.4 3.79c-.83 1.5-1.34 3.14-1.48 4.8c-.37-.02-.74-.02-1.12-.02c-1.89 0-3.65.23-5.22.64c.24-1.45.83-2.81 1.72-3.99c.9-1.18 2.05-2.12 3.39-2.76C10.72 4.5 11.35 4.45 12 4.45zm5.11.96c.64.44 1.2.98 1.67 1.61c.47.63.83 1.34 1.08 2.1c-.26-.14-.54-.26-.83-.37C17.76 8.24 16.36 7.7 14.8 7.4c.73-.83 1.58-1.5 2.52-2.01c-.07.01-.14.02-.21.02zm-8.8 3.82c.98-.82 2.14-1.44 3.42-1.8c.23.49.42 1 .58 1.53c-1.25.75-2.31 1.76-3.14 2.95c-.83 1.18-1.41 2.51-1.72 3.93c-.47-.46-.98-.86-1.52-1.2c.43-1.63 1.23-3.13 2.38-4.41z" opacity="0.3"/>
-                    <path d="M12 10.2c-.99 0-1.8.81-1.8 1.8s.81 1.8 1.8 1.8 1.8-.81 1.8-1.8-.81-1.8-1.8-1.8zm6.05-2.04c-.38-.99-.95-1.89-1.67-2.63c.48.51.89 1.1 1.2 1.74c.16.3.31.62.47.94V8.16zm.83 4.19c.12-.51.18-1.04.18-1.58c0-1.32-.32-2.56-.9-3.66c-.01.03-.02.05-.03.08c-.28.84-.71 1.62-1.27 2.32c-.56.7-1.27 1.3-2.08 1.77c.46 1.01.76 2.09.89 3.22c.28-.21.57-.45.86-.71c.96-.86 1.74-1.92 2.3-3.09c.02-.04.03-.09.05-.13l.02-.32zM12 13.55c.42 0 .83.05 1.22.14c.26 1.02.41 2.11.41 3.23c0 2.21-.59 4.23-1.63 5.92c-.22.36-.48.69-.76 1c-.88-.73-1.61-1.62-2.14-2.63c.89-.31 1.71-.8 2.42-1.44c.48-.44.91-.94 1.27-1.49c-.26.03-.52.05-.79.05c-1.6 0-3.08-.44-4.34-1.2c.7-.6 1.31-1.33 1.82-2.15c.51-.83.88-1.74 1.11-2.71c.36.08.73.13 1.11.13c.43 0 .86-.06 1.27-.17c-.24.58-.55 1.12-.92 1.61c-.37.49-.8.92-1.27 1.28c.41-.04.81-.11 1.2-.22z" opacity="0.5"/>
-                    <circle cx="12" cy="12" r="2" />
-                    <path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                  </svg>
+          {/* 4-Pillar Enterprise Architecture Matrix */}
+          <div className="tech-matrix-grid">
+            {/* Pillar 1: Frontend & Interface Systems */}
+            <div className="tech-matrix-card">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
+                    [ SYSTEM 01 // FRONTEND ]
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Client Tier</span>
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>React & Next.js</h3>
+                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                  Interface & Web Systems
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
+                  Sub-second Core Web Vitals, server components, and edge-cached static distribution for global audience reach.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#00d8ff' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="2" />
+                        <path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>React 18 & Next.js 14</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Server Components (RSC), Incremental Static Regeneration (ISR), and automated SEO metadata.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#dd0031' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 6l2 12 8 4 8-4 2-12L12 2zm5 14H7l-1.5-4h13L17 16zm-5-9.5L16.2 12H7.8L12 6.5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Angular Enterprise</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Component trees, RxJS reactive state management, and large-scale administrative dashboards.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#3178c6' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 8h10v2H7V8zm0 4h10v2H7v-2zm0 4h7v2H7v-2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>TypeScript & Modern CSS</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Type-safe design contracts, strict runtime boundary validation, and zero-runtime CSS layouts.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Used for building ultra-fast frontends, server-side rendered (SSR) apps, and static websites with optimal SEO.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">SSR & ISR</span>
-                <span className="tech-pill">Vercel Deployment</span>
-                <span className="tech-pill">SEO Audits</span>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+                <span className="tech-spec-tag">NEXT.JS 14</span>
+                <span className="tech-spec-tag">ANGULAR</span>
+                <span className="tech-spec-tag">TYPESCRIPT</span>
+                <span className="tech-spec-tag">RSC & ISR</span>
+                <span className="tech-spec-tag">EDGE CDN</span>
               </div>
             </div>
 
-            {/* Node.js */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#339933' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L3.5 7v10L12 22l8.5-5V7L12 2zm6.8 14.12l-6.8 4v-8.12l6.8-4v8.12zm-8.3 4v-8.12l-6.8-4v8.12l6.8 4z" />
-                  </svg>
+            {/* Pillar 2: Core Backend & Distributed APIs */}
+            <div className="tech-matrix-card">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
+                    [ SYSTEM 02 // SERVICES & APIS ]
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Service Layer</span>
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Node.js Backend</h3>
+                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                  Distributed Backend & APIs
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
+                  Event-driven microservices, high-throughput asynchronous execution, and unified API contracts.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#339933' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L3.5 7v10L12 22l8.5-5V7L12 2zm6.8 14.12l-6.8 4v-8.12l6.8-4v8.12zm-8.3 4v-8.12l-6.8-4v8.12l6.8 4z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Node.js & NestJS</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Non-blocking asynchronous I/O, WebSockets, microservices, and GraphQL federation.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#3776ab' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.002 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm2.844 14.545c0 .48-.39.864-.864.864H9.42a.864.864 0 0 1-.864-.864v-1.728h4.29v1.728zm-3.41-3.155h-2.01v-1.73H10.1c.477 0 .864.388.864.865v.865zm4.846-1.728H14.28V9.927c0-.477-.388-.864-.864-.864h-.865v2.593h2.89v1.727zm-3.411-3.456h-2.01V6.478H10.1c.477 0 .864.388.864.864v.864z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Python & AI Pipelines</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        FastAPI services, autonomous agent pipelines, web data extraction, and machine learning models.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#ff2d20' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-6h2v6zm0-8h-2V7h2v1z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Laravel & PHP 8.2</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Robust MVC frameworks, relational ORM schemas, and transactional business portals.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Event-driven runtime for high-throughput, non-blocking REST APIs, microservices, and web sockets.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">REST & GraphQL</span>
-                <span className="tech-pill">WebSockets</span>
-                <span className="tech-pill">Express / NestJS</span>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+                <span className="tech-spec-tag">NODE.JS</span>
+                <span className="tech-spec-tag">PYTHON 3.12</span>
+                <span className="tech-spec-tag">FASTAPI</span>
+                <span className="tech-spec-tag">GRAPHQL</span>
+                <span className="tech-spec-tag">WEBSOCKETS</span>
               </div>
             </div>
 
-            {/* AWS Cloud */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#ff9900' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.32 12.38c-.37.38-.85.57-1.43.57-.61 0-1.12-.22-1.52-.66-.4-.44-.6-1.07-.6-1.89v-2.07c0-.82.2-1.45.6-1.89.4-.44.91-.66 1.52-.66.58 0 1.06.19 1.43.57.37.38.56.93.56 1.66h-1.18c0-.42-.09-.73-.26-.93-.17-.2-.42-.3-.75-.3-.33 0-.58.11-.75.34-.17.23-.26.6-.26 1.12v2.33c0 .52.09.89.26 1.12.17.23.42.34.75.34.33 0 .58-.1.75-.3.17-.2.26-.51.26-.93h1.18c0 .73-.19 1.28-.56 1.66z" />
-                  </svg>
+            {/* Pillar 3: Cloud Infrastructure & DevOps */}
+            <div className="tech-matrix-card">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
+                    [ SYSTEM 03 // INFRASTRUCTURE ]
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Cloud Tier</span>
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Amazon Web Services</h3>
+                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                  Cloud, Edge & Container Systems
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
+                  Zero-downtime rolling deploys, multi-zone database replication, and automated CI/CD pipelines.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#ff9900' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.32 12.38c-.37.38-.85.57-1.43.57-.61 0-1.12-.22-1.52-.66-.4-.44-.6-1.07-.6-1.89v-2.07c0-.82.2-1.45.6-1.89.4-.44.91-.66 1.52-.66.58 0 1.06.19 1.43.57.37.38.56.93.56 1.66h-1.18c0-.42-.09-.73-.26-.93-.17-.2-.42-.3-.75-.3-.33 0-.58.11-.75.34-.17.23-.26.6-.26 1.12v2.33c0 .52.09.89.26 1.12.17.23.42.34.75.34.33 0 .58-.1.75-.3.17-.2.26-.51.26-.93h1.18c0 .73-.19 1.28-.56 1.66z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Amazon Web Services (AWS)</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        EC2 elastic compute, S3 asset buckets, RDS database clusters, and serverless Lambda functions.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#0078d4' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="2" y="2" width="9" height="9" fill="#f25022" />
+                        <rect x="13" y="2" width="9" height="9" fill="#7fba00" />
+                        <rect x="2" y="13" width="9" height="9" fill="#00a4ef" />
+                        <rect x="13" y="13" width="9" height="9" fill="#ffb900" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Microsoft Azure</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Active Directory identity federation, enterprise security governance, and Cosmos DB synchronization.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#2496ed' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.962 10.475h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H8.63a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H5.706a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Docker & Containers</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Immutable environment parity, microservice sandboxing, and automated Kubernetes orchestration.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Scalable server networks hosting databases, cloud computation, data lakes, and global content delivery.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">AWS EC2 / S3</span>
-                <span className="tech-pill">Serverless Lambda</span>
-                <span className="tech-pill">RDS SQL / NoSQL</span>
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+                <span className="tech-spec-tag">AWS EC2 / S3</span>
+                <span className="tech-spec-tag">AZURE</span>
+                <span className="tech-spec-tag">DOCKER</span>
+                <span className="tech-spec-tag">KUBERNETES</span>
+                <span className="tech-spec-tag">AUTO-SCALING</span>
               </div>
             </div>
 
-            {/* Microsoft Azure */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#0078d4' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.32 12.38c-.37.38-.85.57-1.43.57-.61 0-1.12-.22-1.52-.66-.4-.44-.6-1.07-.6-1.89v-2.07c0-.82.2-1.45.6-1.89.4-.44.91-.66 1.52-.66.58 0 1.06.19 1.43.57.37.38.56.93.56 1.66h-1.18c0-.42-.09-.73-.26-.93-.17-.2-.42-.3-.75-.3-.33 0-.58.11-.75.34-.17.23-.26.6-.26 1.12v2.33c0 .52.09.89.26 1.12.17.23.42.34.75.34.33 0 .58-.1.75-.3.17-.2.26-.51.26-.93h1.18c0 .73-.19 1.28-.56 1.66z" opacity="0.3"/>
-                    <path d="M12 10.2c-.99 0-1.8.81-1.8 1.8s.81 1.8 1.8 1.8 1.8-.81 1.8-1.8-.81-1.8-1.8-1.8zm6.05-2.04c-.38-.99-.95-1.89-1.67-2.63c.48.51.89 1.1 1.2 1.74c.16.3.31.62.47.94V8.16zm.83 4.19c.12-.51.18-1.04.18-1.58c0-1.32-.32-2.56-.9-3.66c-.01.03-.02.05-.03.08c-.28.84-.71 1.62-1.27 2.32c-.56.7-1.27 1.3-2.08 1.77c.46 1.01.76 2.09.89 3.22c.28-.21.57-.45.86-.71c.96-.86 1.74-1.92 2.3-3.09c.02-.04.03-.09.05-.13l.02-.32zM12 13.55c.42 0 .83.05 1.22.14c.26 1.02.41 2.11.41 3.23c0 2.21-.59 4.23-1.63 5.92c-.22.36-.48.69-.76 1c-.88-.73-1.61-1.62-2.14-2.63c.89-.31 1.71-.8 2.42-1.44c.48-.44.91-.94 1.27-1.49c-.26.03-.52.05-.79.05c-1.6 0-3.08-.44-4.34-1.2c.7-.6 1.31-1.33 1.82-2.15c.51-.83.88-1.74 1.11-2.71c.36.08.73.13 1.11.13c.43 0 .86-.06 1.27-.17c-.24.58-.55 1.12-.92 1.61c-.37.49-.8.92-1.27 1.28c.41-.04.81-.11 1.2-.22z" opacity="0.5"/>
-                    <rect x="2" y="2" width="9" height="9" fill="#f25022" />
-                    <rect x="13" y="2" width="9" height="9" fill="#7fba00" />
-                    <rect x="2" y="13" width="9" height="9" fill="#00a4ef" />
-                    <rect x="13" y="13" width="9" height="9" fill="#ffb900" />
-                  </svg>
+            {/* Pillar 4: Mobile & Multi-Platform Systems */}
+            <div className="tech-matrix-card">
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
+                    [ SYSTEM 04 // MULTI-PLATFORM ]
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Mobile Tier</span>
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Microsoft Azure</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Enterprise cloud integration focusing on high availability, database replication, and Active Directory security.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">Azure Functions</span>
-                <span className="tech-pill">Cosmos DB</span>
-                <span className="tech-pill">Active Directory</span>
-              </div>
-            </div>
+                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                  Mobile & Native Engineering
+                </h3>
+                <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
+                  Hardware-accelerated mobile apps delivering 60 FPS performance, offline persistence, and biometric security.
+                </p>
 
-            {/* Docker */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#2496ed' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M13.962 10.475h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H8.63a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H5.706a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm5.849-2.924h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243V7.794a.242.242 0 0 0-.243-.243zm-2.924 0H8.63a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243V7.794a.242.242 0 0 0-.243-.243zm5.849 0h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243V7.794a.242.242 0 0 0-.243-.243zm2.925 2.924h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm2.925 0h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.243.243 0 0 0-.243-.243zm-2.925-2.924h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243V7.794a.243.243 0 0 0-.243-.243z" />
-                    <path d="M22.047 12.871c-.244-.457-.655-.838-1.189-1.072a7.35 7.35 0 0 0-.583-.232l-.121-.044c-.313-.092-.544-.24-.712-.454-.25-.316-.328-.718-.225-1.164.084-.361.272-.733.56-1.107l.115-.147a.238.238 0 0 0-.02-.31l-.226-.21a.24.24 0 0 0-.323-.016l-.167.14c-.452.378-.934.62-1.436.723a3.527 3.527 0 0 1-1.636-.118c-.461-.16-.84-.456-1.127-.88a3.17 3.17 0 0 1-.444-1.378l-.014-.143a.24.24 0 0 0-.242-.218h-.308a.24.24 0 0 0-.241.229l-.008.118c-.035.53-.198 1.028-.485 1.482a2.82 2.82 0 0 1-1.184 1.111c-.482.228-1.009.324-1.57.283a4.26 4.26 0 0 1-1.583-.497l-.15-.084a.24.24 0 0 0-.317.056l-.18.231c-.048.061-.039.148.02.199l.119.102c.42.36.728.773.916 1.228.21.508.233 1.054.07 1.624a3.532 3.532 0 0 1-1.288 1.954c-.5.39-.938.569-1.312.569H2.4a.24.24 0 0 0-.24.24v.667c0 .126.098.231.223.24 1.44.1 2.658-.337 3.621-1.298a6.386 6.386 0 0 0 1.574-2.617c.074-.294.137-.585.187-.872h14.072a.24.24 0 0 0 .239-.24c-.001-.482-.097-.905-.289-1.272z" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Docker Containers</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Isolating core environments into lightweight containers to ensure parity between dev, staging, and production environments.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">Kubernetes</span>
-                <span className="tech-pill">Containers</span>
-                <span className="tech-pill">CI/CD Deploy</span>
-              </div>
-            </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#02569B' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.3 2.3L5 11.6l3.7 3.7 9.3-9.3zM18.7 14.3l-3.7-3.7-5.7 5.7 3.7 3.7zM15 15l-3.7 3.7-1.9-1.9 3.7-3.7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Flutter Mobile</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Google SDK compiling directly to ARM machine code for unified, high-fidelity iOS & Android applications.
+                      </div>
+                    </div>
+                  </div>
 
-            {/* Python & AI */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#3776ab' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.002 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm2.844 14.545c0 .48-.39.864-.864.864H9.42a.864.864 0 0 1-.864-.864v-1.728h4.29v1.728zm-3.41-3.155h-2.01v-1.73H10.1c.477 0 .864.388.864.865v.865zm4.846-1.728H14.28V9.927c0-.477-.388-.864-.864-.864h-.865v2.593h2.89v1.727zm-3.411-3.456h-2.01V6.478H10.1c.477 0 .864.388.864.864v.864z" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Python & AI Systems</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Our backbone language for writing AI automation agents, automated web scraper scripts, and statistical pipelines.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">AI Agents</span>
-                <span className="tech-pill">Web Scraping</span>
-                <span className="tech-pill">Automation</span>
-              </div>
-            </div>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#f05138' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.002 2.002c-5.522 0-10 4.477-10 10s4.478 10 10 10 10-4.477 10-10c0-5.524-4.478-10-10-10zm2.748 13.914c-.66.866-1.579 1.346-2.583 1.346-1.892 0-3.328-1.579-3.328-3.52 0-1.942 1.436-3.522 3.328-3.522.95 0 1.83.435 2.502 1.22l-1.076 1.077c-.382-.446-.867-.678-1.393-.678-.89 0-1.53.766-1.53 1.903 0 1.139.64 1.903 1.53 1.903.585 0 1.083-.284 1.488-.799l1.092 1.07z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Native iOS (Swift)</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        SwiftUI architectures utilizing native Apple Neural Engine, CoreData, and Apple Watch integrations.
+                      </div>
+                    </div>
+                  </div>
 
-            {/* Flutter */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#02569B' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M14.3 2.3L5 11.6l3.7 3.7 9.3-9.3zM18.7 14.3l-3.7-3.7-5.7 5.7 3.7 3.7zM15 15l-3.7 3.7-1.9-1.9 3.7-3.7z" />
-                  </svg>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#10b981' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Offline-First & Security</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Encrypted local SQLite storage, background sync queues, and biometric hardware authentication.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Flutter Mobile</h3>
               </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Google\'s UI software development kit for compiling natively-built cross-platform mobile apps for iOS and Android.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">iOS & Android</span>
-                <span className="tech-pill">Single Codebase</span>
-                <span className="tech-pill">Material UI / Cupertino</span>
-              </div>
-            </div>
 
-            {/* Swift Native */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#f05138' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.002 2.002c-5.522 0-10 4.477-10 10s4.478 10 10 10 10-4.477 10-10c0-5.524-4.478-10-10-10zm2.748 13.914c-.66.866-1.579 1.346-2.583 1.346-1.892 0-3.328-1.579-3.328-3.52 0-1.942 1.436-3.522 3.328-3.522.95 0 1.83.435 2.502 1.22l-1.076 1.077c-.382-.446-.867-.678-1.393-.678-.89 0-1.53.766-1.53 1.903 0 1.139.64 1.903 1.53 1.903.585 0 1.083-.284 1.488-.799l1.092 1.07z" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Native iOS (Swift)</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Swift applications designed natively for iOS systems to leverage core hardware capability, ARKit, and Apple Health integrations.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">SwiftUI</span>
-                <span className="tech-pill">CoreData</span>
-                <span className="tech-pill">Apple Watch Kit</span>
-              </div>
-            </div>
-
-            {/* Laravel */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#ff2d20' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-6h2v6zm0-8h-2V7h2v1z" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Laravel & PHP</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                A highly secure PHP MVC architecture for web portals, content CMS portals, and database integration workflows.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">Eloquent ORM</span>
-                <span className="tech-pill">Blade Views</span>
-                <span className="tech-pill">PHP 8.2</span>
-              </div>
-            </div>
-
-            {/* Angular */}
-            <div className="tech-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="tech-icon-wrapper" style={{ color: '#dd0031' }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 6l2 12 8 4 8-4 2-12L12 2zm5 14H7l-1.5-4h13L17 16zm-5-9.5L16.2 12H7.8L12 6.5z" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--title-color)' }}>Angular Enterprise</h3>
-              </div>
-              <p style={{ fontSize: '14.5px', color: 'var(--body-text)', lineHeight: '1.6' }}>
-                Component-driven framework by Google designed for enterprise dashboard architectures and complex application states.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                <span className="tech-pill">TypeScript</span>
-                <span className="tech-pill">RxJS States</span>
-                <span className="tech-pill">Google Framework</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+                <span className="tech-spec-tag">FLUTTER</span>
+                <span className="tech-spec-tag">SWIFTUI</span>
+                <span className="tech-spec-tag">IOS & ANDROID</span>
+                <span className="tech-spec-tag">OFFLINE-FIRST</span>
+                <span className="tech-spec-tag">60 FPS</span>
               </div>
             </div>
           </div>
@@ -1712,8 +1816,9 @@ export default function Home() {
           {/* Heading */}
           <div
             style={{
-              textAlign: 'center',
-              marginBottom: '80px',
+              textAlign: 'left',
+              marginBottom: '60px',
+              maxWidth: '850px'
             }}
           >
             <div
@@ -1721,35 +1826,37 @@ export default function Home() {
                 color: 'var(--title-color)',
                 fontWeight: '700',
                 marginBottom: '12px',
-                letterSpacing: '1px',
-                textTransform: 'uppercase'
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                fontSize: '13px'
               }}
             >
-              OUR PROCESS
+              Our Process
             </div>
 
             <h2
               style={{
-                fontSize: 'clamp(36px,6vw,58px)',
-                fontWeight: '900',
+                fontSize: 'clamp(32px, 5vw, 52px)',
+                fontWeight: '850',
                 color: 'var(--title-color)',
-                marginBottom: '18px',
-                letterSpacing: '-1.5px'
+                marginBottom: '14px',
+                letterSpacing: '-1.5px',
+                lineHeight: '1.15'
               }}
             >
-              From Idea To Deployment
+              From Discovery to Seamless Deployment
             </h2>
 
             <p
               style={{
-                maxWidth: '700px',
-                margin: '0 auto',
                 color: 'var(--body-text)',
-                lineHeight: '1.9',
-                fontSize: '18px',
+                lineHeight: '1.7',
+                fontSize: '17px',
+                margin: 0,
+                maxWidth: '680px'
               }}
             >
-              Every project follows a structured roadmap focused on quality, scalability and business outcomes.
+              A focused, systematic engineering lifecycle designed to eliminate technical debt and deliver measurable results.
             </p>
           </div>
 
@@ -2008,11 +2115,13 @@ export default function Home() {
           </p>
 
           <div
+            className="cta-button-group"
             style={{
-              marginTop: '40px',
-              display: 'flex',
+              marginTop: '36px',
+              display: 'inline-flex',
+              alignItems: 'center',
               justifyContent: 'center',
-              gap: '16px',
+              gap: '14px',
               flexWrap: 'wrap',
             }}
           >
@@ -2020,52 +2129,73 @@ export default function Home() {
               href="https://wa.me/918652768171"
               target="_blank"
               rel="noopener noreferrer"
-             style={{
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
                 textDecoration: 'none',
                 color: '#FFFFFF',
-                fontWeight: '700',
-                fontSize: '14px',
-                padding: '12px 24px',
-                borderRadius: '12px',
-                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
-                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                backgroundColor: '#0B1F3A',
+                border: '1px solid #0B1F3A',
+                fontSize: '15px',
+                fontWeight: '600',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                transition: 'all 0.25s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(6, 182, 212, 0.35)';
+                e.currentTarget.style.backgroundColor = '#183A66';
+                e.currentTarget.style.borderColor = '#183A66';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(6, 182, 212, 0.2)';
+                e.currentTarget.style.backgroundColor = '#0B1F3A';
+                e.currentTarget.style.borderColor = '#0B1F3A';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
               }}
             >
               Talk to an Expert
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
 
             <Link
               href="/contact"
               style={{
-                padding: '16px 36px',
-                borderRadius: '14px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '48px',
+                padding: '0 28px',
+                borderRadius: '10px',
                 textDecoration: 'none',
-                background: 'var(--cta-secondary-bg)',
-                border: '1px solid var(--cta-secondary-border)',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
                 color: 'var(--title-color)',
-                fontWeight: '700',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                display: 'inline-block'
+                fontSize: '15px',
+                fontWeight: '600',
+                letterSpacing: '-0.2px',
+                boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                transition: 'all 0.25s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                e.currentTarget.style.background = 'rgba(99, 102, 241, 0.08)';
-                e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
+                e.currentTarget.style.background = 'var(--bg-color)';
+                e.currentTarget.style.borderColor = 'var(--title-color)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.background = 'var(--cta-secondary-bg)';
-                e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
+                e.currentTarget.style.background = 'var(--card-bg)';
+                e.currentTarget.style.borderColor = 'var(--card-border)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
               }}
             >
               Get Custom Quote
@@ -2188,11 +2318,11 @@ export default function Home() {
         @media (max-width: 1024px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 60px !important;
-            text-align: center;
+            gap: 40px !important;
+            text-align: left !important;
           }
           .cta-buttons {
-            justify-content: center;
+            justify-content: flex-start !important;
           }
           .floating-pill,
           .tech-orbit-container {
@@ -2241,14 +2371,41 @@ export default function Home() {
         }
         @media (max-width: 640px) {
           .cta-buttons {
-            flex-direction: column;
-            align-items: center;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 10px !important;
+            width: 100% !important;
           }
 
           .cta-buttons a {
-            width: 100%;
-            max-width: 320px;
-            text-align: center;
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 200px !important;
+            padding: 0 16px !important;
+            font-size: 14px !important;
+            height: 46px !important;
+            text-align: center !important;
+          }
+
+          .cta-button-group {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            width: 100% !important;
+          }
+
+          .cta-button-group a {
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 200px !important;
+            padding: 0 16px !important;
+            font-size: 14px !important;
+            height: 46px !important;
+            text-align: center !important;
           }
         }
         
@@ -2350,118 +2507,98 @@ export default function Home() {
           }
         }
         
-        @media (max-width:640px){
-          .cta-buttons{
-            flex-direction:column !important;
-            align-items:center !important;
-            width:100%;
+        @media (max-width: 640px) {
+          .cta-buttons {
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 10px !important;
+            width: 100% !important;
           }
-
-          .cta-buttons a{
-            width:100%;
-            max-width:320px;
-            text-align:center;
-          }
-        }
-        @media (max-width:640px){
-          .why-btn{
-            display:block !important;
-            width:100%;
-            max-width:320px;
-            text-align:center;
-            margin:auto;
+          .cta-buttons a {
+            flex: 1 1 140px !important;
+            max-width: 220px !important;
+            text-align: center !important;
           }
         }
+        @media (max-width: 640px) {
+          .why-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: auto !important;
+            min-width: 160px !important;
+            height: 46px !important;
+            padding: 0 24px !important;
+            margin: 0 !important;
+          }
+        }
 
-        .tech-grid {
+        .tech-matrix-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-          margin-top: 20px;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+          margin-top: 30px;
         }
-        
-        .tech-card {
-          padding: 35px 30px;
-          border-radius: 24px;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .tech-matrix-card {
           background: var(--card-bg);
           border: 1px solid var(--card-border);
-          box-shadow: var(--card-shadow);
-        }
-        
-        .tech-card:hover {
-          border-color: rgba(212, 175, 55, 0.3);
-          transform: translateY(-8px);
-          box-shadow: 0 20px 45px -15px rgba(99, 102, 241, 0.15);
-        }
-
-        .tech-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.04), transparent 50%);
-          pointer-events: none;
-          transition: opacity 0.4s ease;
+          border-radius: 12px;
+          padding: 30px 28px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 2px 8px -2px rgba(11, 31, 58, 0.04);
         }
 
-        .tech-card:hover::before {
-          background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.08), transparent 60%);
+        .tech-matrix-card:hover {
+          border-color: rgba(11, 31, 58, 0.28);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px -8px rgba(11, 31, 58, 0.08);
         }
-        
-        .tech-icon-wrapper {
-          width: 54px;
-          height: 54px;
-          border-radius: 14px;
+
+        [data-theme="dark"] .tech-matrix-card:hover {
+          border-color: rgba(212, 175, 55, 0.35);
+          box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-item-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          padding: 14px 0;
+          border-top: 1px solid var(--card-border);
+        }
+
+        .tech-item-row:first-of-type {
+          border-top: none;
+          padding-top: 6px;
+        }
+
+        .tech-item-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(99, 102, 241, 0.06);
-          border: 1px solid rgba(99, 102, 241, 0.12);
-          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .tech-card:hover .tech-icon-wrapper {
-          transform: scale(1.1) rotate(4deg);
-          background: rgba(99, 102, 241, 0.1);
-          border-color: rgba(99, 102, 241, 0.25);
-        }
-        
-        .tech-pill {
-          padding: 6px 12px;
-          border-radius: 8px;
-          font-size: 12px;
-          font-weight: 700;
-          background: rgba(15, 23, 42, 0.02);
-          border: 1px solid rgba(15, 23, 42, 0.06);
-          color: var(--text-color);
-          transition: all 0.25s ease;
+          flex-shrink: 0;
+          background: var(--bg-color);
+          border: 1px solid var(--card-border);
         }
 
-        [data-theme="dark"] .tech-pill {
-          background: rgba(255, 255, 255, 0.03);
-          border-color: rgba(255, 255, 255, 0.06);
-          color: #cbd5e1;
-        }
-        
-        .tech-card:hover .tech-pill {
-          border-color: rgba(99, 102, 241, 0.2);
-          background: rgba(99, 102, 241, 0.04);
-          color: #4f46e5;
-        }
-        
-        @media (max-width: 1024px) {
-          .tech-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-          }
+        .tech-spec-tag {
+          font-family: monospace;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          padding: 4px 10px;
+          border-radius: 6px;
+          background: var(--bg-color);
+          border: 1px solid var(--card-border);
+          color: var(--body-text);
         }
         
         @media (max-width: 768px) {

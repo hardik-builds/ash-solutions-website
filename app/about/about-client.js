@@ -115,134 +115,200 @@ export default function About() {
 
         <div
           style={{
-            maxWidth: '1300px',
+            maxWidth: '1280px',
             margin: '0 auto',
-            textAlign: 'center',
+            padding: '0 24px',
+            textAlign: 'left',
             position: 'relative',
             zIndex: 2,
           }}
         >
           <div
+            className="about-hero-grid"
             style={{
-              color: 'var(--title-color)',
-              fontWeight: '700',
-              letterSpacing: '2px',
-              marginBottom: '20px',
-              textTransform: 'uppercase',
+              display: 'grid',
+              gridTemplateColumns: '1.15fr 1fr',
+              gap: '60px',
+              alignItems: 'center',
             }}
           >
-            About ASH Solutions
-          </div>
+            {/* Left Column: Heading "Sidewards" */}
+            <div>
+              <div
+                style={{
+                  color: '#D4AF37', fontWeight: '700', letterSpacing: '2px', marginBottom: '14px', textTransform: 'uppercase', fontFamily: 'monospace', fontSize: '12px',
+                }}
+              >
+                // ABOUT ASH SOLUTIONS
+              </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              fontSize: 'clamp(32px, 8vw, 100px)',
-              fontWeight: '950',
-              lineHeight: '.95',
-              letterSpacing: '-2px',
-              color: 'var(--title-color)',
-              marginBottom: '30px',
-            }}
-          >
-            Technology.<br />
-            Automation.<br />
-            <span className="text-gradient-purple-cyan">Growth.</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                  fontSize: 'clamp(32px, 6vw, 76px)',
+                  fontWeight: '950',
+                  lineHeight: '1.02',
+                  letterSpacing: '-2px',
+                  color: 'var(--title-color)',
+                  marginBottom: '28px',
+                }}
+              >
+                Technology.<br />
+                Automation.<br />
+                <span className="text-gradient-purple-cyan">Growth.</span>
+              </motion.h1>
 
-          <p
-            style={{
-              maxWidth: '850px',
-              margin: '0 auto',
-              color: 'var(--body-text)',
-              fontSize: '20px',
-              lineHeight: '1.9',
-            }}
-          >
-            We build AI-powered software, automation systems and scalable digital solutions that help businesses operate smarter, grow faster and stay future-ready.
-          </p>
+              <div
+                className="about-hero-buttons"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  gap: '14px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Link
+                  href="/contact"
+                  className="cta-primary-btn"
+                  style={{
+                    padding: '0 28px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    backgroundColor: '#0B1F3A',
+                    border: '1px solid #0B1F3A',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 2px 8px rgba(11, 31, 58, 0.12)',
+                    transition: 'all 0.25s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#183A66';
+                    e.currentTarget.style.borderColor = '#183A66';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.18)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#0B1F3A';
+                    e.currentTarget.style.borderColor = '#0B1F3A';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(11, 31, 58, 0.12)';
+                  }}
+                >
+                  Start A Project
+                  <FiArrowRight className="arrow-icon" style={{ fontSize: '16px' }} />
+                </Link>
 
-          {/* Buttons */}
-          <div
-            className="about-hero-buttons"
-            style={{
-              marginTop: '55px',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '18px',
-              flexWrap: 'wrap',
-            }}
-          >
-            <Link
-              href="/contact"
-              className="cta-primary-btn"
+                <Link
+                  href="/services"
+                  className="cta-secondary-btn"
+                  style={{
+                    padding: '0 28px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    background: 'var(--card-bg)',
+                    border: '1px solid var(--card-border)',
+                    color: 'var(--title-color)',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '15px',
+                    letterSpacing: '-0.2px',
+                    boxShadow: '0 1px 3px rgba(11, 31, 58, 0.04)',
+                    transition: 'all 0.25s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--bg-color)';
+                    e.currentTarget.style.borderColor = 'var(--title-color)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(11, 31, 58, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'var(--card-bg)';
+                    e.currentTarget.style.borderColor = 'var(--card-border)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 1px 3px rgba(11, 31, 58, 0.04)';
+                  }}
+                >
+                  <FiBriefcase style={{ fontSize: '16px' }} />
+                  Explore Services
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Architectural Highlights Card */}
+            <div
+              className="about-hero-spec"
               style={{
-                padding: '18px 36px',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
                 borderRadius: '16px',
-                background: 'linear-gradient(135deg, #0B1F3A 0%, #183A66 100%)',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                fontWeight: '700',
-                boxShadow: '0 4px 15px rgba(11, 31, 58, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(79, 70, 229, 0.4)';
-                const arrow = e.currentTarget.querySelector('.arrow-icon');
-                if (arrow) arrow.style.transform = 'translateX(4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(11, 31, 58, 0.25)';
-                const arrow = e.currentTarget.querySelector('.arrow-icon');
-                if (arrow) arrow.style.transform = 'translateX(0)';
+                padding: '32px 30px',
+                boxShadow: '0 4px 20px -4px rgba(11, 31, 58, 0.06)',
               }}
             >
-              Start A Project
-              <FiArrowRight className="arrow-icon" style={{ fontSize: '18px', transition: 'transform 0.3s ease' }} />
-            </Link>
+              <div
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '11px',
+                  color: '#D4AF37',
+                  fontWeight: '700',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  marginBottom: '10px',
+                }}
+              >
+                // OUR CORE MANDATE
+              </div>
+              <p
+                style={{
+                  color: 'var(--body-text)',
+                  fontSize: '16.5px',
+                  lineHeight: '1.8',
+                  marginBottom: '24px',
+                }}
+              >
+                We build AI-powered software, automation systems and scalable digital solutions that help businesses operate smarter, grow faster and stay future-ready.
+              </p>
 
-            <Link
-              href="/services"
-              className="cta-secondary-btn"
-              style={{
-                padding: '18px 36px',
-                borderRadius: '16px',
-                border: '1px solid var(--cta-secondary-border)',
-                color: 'var(--text-color)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                background: 'var(--cta-secondary-bg)',
-                boxShadow: 'var(--cta-secondary-shadow)',
-                backdropFilter: 'blur(10px)',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                e.currentTarget.style.backgroundColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.05)';
-                e.currentTarget.style.borderColor = isDark ? 'rgba(56, 189, 248, 0.25)' : 'rgba(99, 102, 241, 0.25)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.backgroundColor = 'var(--cta-secondary-bg)';
-                e.currentTarget.style.borderColor = 'var(--cta-secondary-border)';
-              }}
-            >
-              <FiBriefcase style={{ fontSize: '18px' }} />
-              Explore Services
-            </Link>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '14px',
+                  borderTop: '1px solid var(--card-border)',
+                  paddingTop: '20px',
+                }}
+              >
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>01 // ARCHITECTURE</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Custom Scalable SaaS</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>02 // AUTOMATION</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>AI Workflow Agents</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>03 // SECURITY</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Enterprise Defense</div>
+                </div>
+                <div style={{ padding: '10px 12px', background: 'var(--bg-color)', borderRadius: '8px', border: '1px solid var(--card-border)' }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '10px', color: '#D4AF37', fontWeight: '700' }}>04 // DELIVERY</div>
+                  <div style={{ fontSize: '13px', fontWeight: '700', color: 'var(--title-color)', marginTop: '3px' }}>Agile Speed & SLA</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Ribbon */}
@@ -275,8 +341,7 @@ export default function About() {
         <div
           className="story-grid"
           style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
+            maxWidth: '1280px', margin: '0 auto',
             display: 'grid',
             gridTemplateColumns: '1fr 1.1fr',
             gap: '80px',
@@ -392,7 +457,7 @@ export default function About() {
                   key={idx}
                   className="metric-timeline-node"
                   style={{
-                    textAlign: 'center',
+                    textAlign: 'left',
                     position: 'relative',
                   }}
                 >
@@ -422,7 +487,7 @@ export default function About() {
                   >
                     {item.title}
                   </h3>
-                  <p style={{ color: 'var(--body-text)', fontSize: '14.5px', lineHeight: '1.6', margin: '0 auto', maxWidth: '280px' }}>
+                  <p style={{ color: 'var(--body-text)', fontSize: '14.5px', lineHeight: '1.6', margin: '0 0 25px 0', maxWidth: '280px' }}>
                     {item.description}
                   </p>
                 </div>
@@ -441,14 +506,13 @@ export default function About() {
       >
         <div
           style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
+            maxWidth: '1280px', margin: '0 auto',
           }}
         >
           {/* Heading */}
           <div
             style={{
-              textAlign: 'center',
+              textAlign: 'left',
               marginBottom: '100px',
             }}
           >
@@ -643,13 +707,12 @@ export default function About() {
       >
         <div
           style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
+            maxWidth: '1280px', margin: '0 auto',
           }}
         >
           <div
             style={{
-              textAlign: 'center',
+              textAlign: 'left',
               marginBottom: '100px',
             }}
           >
@@ -753,6 +816,12 @@ export default function About() {
       <CTASection />
 
       <style jsx>{`
+        @media (max-width: 900px) {
+          .about-hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+        }
         .about-ribbon {
           display: inline-block;
           font-size: 14px;
@@ -817,14 +886,18 @@ export default function About() {
 
         @media (max-width: 768px) {
           :global(.about-hero-buttons), :global(.about-cta-buttons) {
-            flex-direction: column !important;
-            align-items: stretch !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
             gap: 12px !important;
+            flex-wrap: wrap !important;
             width: 100% !important;
           }
           :global(.about-hero-buttons a), :global(.about-cta-buttons a) {
-            width: 100% !important;
-            max-width: 100% !important;
+            flex: 1 1 140px !important;
+            min-width: 130px !important;
+            max-width: 220px !important;
+            height: 46px !important;
             text-align: center !important;
           }
         }
