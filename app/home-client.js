@@ -1277,13 +1277,13 @@ export default function Home() {
             {/* Pillar 1: Frontend & Interface Systems */}
             <div className="tech-matrix-card">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
                     [ SYSTEM 01 // FRONTEND ]
                   </span>
                   <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Client Tier</span>
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
                   Interface & Web Systems
                 </h3>
                 <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
@@ -1301,7 +1301,21 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>React 18 & Next.js 14</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Server Components (RSC), Incremental Static Regeneration (ISR), and automated SEO metadata.
+                        Server Components (RSC), App Router, dynamic ISR rendering & automated SEO.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#3178c6' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 8h10v2H7V8zm0 4h10v2H7v-2zm0 4h7v2H7v-2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>TypeScript & Architecture</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Type-safe design contracts, strict runtime boundary validation & atomic CSS.
                       </div>
                     </div>
                   </div>
@@ -1315,32 +1329,18 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Angular Enterprise</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Component trees, RxJS reactive state management, and large-scale administrative dashboards.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="tech-item-row">
-                    <div className="tech-item-icon" style={{ color: '#3178c6' }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 8h10v2H7V8zm0 4h10v2H7v-2zm0 4h7v2H7v-2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>TypeScript & Modern CSS</div>
-                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Type-safe design contracts, strict runtime boundary validation, and zero-runtime CSS layouts.
+                        Component trees, RxJS reactive state management & high-density admin portals.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
                 <span className="tech-spec-tag">NEXT.JS 14</span>
-                <span className="tech-spec-tag">ANGULAR</span>
+                <span className="tech-spec-tag">REACT 18</span>
                 <span className="tech-spec-tag">TYPESCRIPT</span>
-                <span className="tech-spec-tag">RSC & ISR</span>
+                <span className="tech-spec-tag">ANGULAR</span>
                 <span className="tech-spec-tag">EDGE CDN</span>
               </div>
             </div>
@@ -1348,13 +1348,13 @@ export default function Home() {
             {/* Pillar 2: Core Backend & Distributed APIs */}
             <div className="tech-matrix-card">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
                     [ SYSTEM 02 // SERVICES & APIS ]
                   </span>
                   <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Service Layer</span>
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
                   Distributed Backend & APIs
                 </h3>
                 <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
@@ -1371,7 +1371,7 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Node.js & NestJS</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Non-blocking asynchronous I/O, WebSockets, microservices, and GraphQL federation.
+                        Non-blocking asynchronous I/O, WebSockets, microservices & GraphQL federation.
                       </div>
                     </div>
                   </div>
@@ -1385,7 +1385,7 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Python & AI Pipelines</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        FastAPI services, autonomous agent pipelines, web data extraction, and machine learning models.
+                        FastAPI microservices, autonomous agent pipelines & machine learning workflows.
                       </div>
                     </div>
                   </div>
@@ -1397,16 +1397,16 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Laravel & PHP 8.2</div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Laravel & Enterprise PHP</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Robust MVC frameworks, relational ORM schemas, and transactional business portals.
+                        Robust MVC frameworks, relational ORM schemas & transactional business portals.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
                 <span className="tech-spec-tag">NODE.JS</span>
                 <span className="tech-spec-tag">PYTHON 3.12</span>
                 <span className="tech-spec-tag">FASTAPI</span>
@@ -1418,17 +1418,17 @@ export default function Home() {
             {/* Pillar 3: Cloud Infrastructure & DevOps */}
             <div className="tech-matrix-card">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
                     [ SYSTEM 03 // INFRASTRUCTURE ]
                   </span>
                   <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Cloud Tier</span>
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
                   Cloud, Edge & Container Systems
                 </h3>
                 <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Zero-downtime rolling deploys, multi-zone database replication, and automated CI/CD pipelines.
+                  Zero-downtime rolling deploys, multi-zone database redundancy, and automated CI/CD pipelines.
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -1441,7 +1441,21 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Amazon Web Services (AWS)</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        EC2 elastic compute, S3 asset buckets, RDS database clusters, and serverless Lambda functions.
+                        EC2 elastic compute, S3 asset buckets, RDS database clusters & serverless Lambda.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#2496ed' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.962 10.475h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H8.63a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H5.706a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Docker & Containers</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Immutable environment parity, microservice sandboxing & Kubernetes orchestration.
                       </div>
                     </div>
                   </div>
@@ -1456,34 +1470,20 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Microsoft Azure</div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Microsoft Azure & Edge</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Active Directory identity federation, enterprise security governance, and Cosmos DB synchronization.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="tech-item-row">
-                    <div className="tech-item-icon" style={{ color: '#2496ed' }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13.962 10.475h-2.408a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H8.63a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243zm-2.924 0H5.706a.243.243 0 0 0-.243.243v2.408c0 .135.11.243.243.243h2.408a.243.243 0 0 0 .243-.243v-2.408a.242.242 0 0 0-.243-.243z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Docker & Containers</div>
-                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Immutable environment parity, microservice sandboxing, and automated Kubernetes orchestration.
+                        Enterprise security governance, active sync & edge-routed CDN distribution.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
                 <span className="tech-spec-tag">AWS EC2 / S3</span>
-                <span className="tech-spec-tag">AZURE</span>
                 <span className="tech-spec-tag">DOCKER</span>
                 <span className="tech-spec-tag">KUBERNETES</span>
+                <span className="tech-spec-tag">AZURE</span>
                 <span className="tech-spec-tag">AUTO-SCALING</span>
               </div>
             </div>
@@ -1491,20 +1491,35 @@ export default function Home() {
             {/* Pillar 4: Mobile & Multi-Platform Systems */}
             <div className="tech-matrix-card">
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
                   <span style={{ fontFamily: 'monospace', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', color: '#D4AF37' }}>
                     [ SYSTEM 04 // MULTI-PLATFORM ]
                   </span>
                   <span style={{ fontSize: '12px', color: 'var(--body-text)', fontWeight: '600' }}>Mobile Tier</span>
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: '800', color: 'var(--title-color)', marginBottom: '8px' }}>
                   Mobile & Native Engineering
                 </h3>
                 <p style={{ fontSize: '14px', color: 'var(--body-text)', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Hardware-accelerated mobile apps delivering 60 FPS performance, offline persistence, and biometric security.
+                  Hardware-accelerated mobile apps delivering 60 FPS performance, offline persistence & security.
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="tech-item-row">
+                    <div className="tech-item-icon" style={{ color: '#00d8ff' }}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="2" />
+                        <path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>React Native & Expo</div>
+                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
+                        Cross-platform iOS and Android apps with unified codebases and native bridge performance.
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="tech-item-row">
                     <div className="tech-item-icon" style={{ color: '#02569B' }}>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -1512,23 +1527,9 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Flutter Mobile</div>
+                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Flutter Mobile SDK</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Google SDK compiling directly to ARM machine code for unified, high-fidelity iOS & Android applications.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="tech-item-row">
-                    <div className="tech-item-icon" style={{ color: '#f05138' }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.002 2.002c-5.522 0-10 4.477-10 10s4.478 10 10 10 10-4.477 10-10c0-5.524-4.478-10-10-10zm2.748 13.914c-.66.866-1.579 1.346-2.583 1.346-1.892 0-3.328-1.579-3.328-3.52 0-1.942 1.436-3.522 3.328-3.522.95 0 1.83.435 2.502 1.22l-1.076 1.077c-.382-.446-.867-.678-1.393-.678-.89 0-1.53.766-1.53 1.903 0 1.139.64 1.903 1.53 1.903.585 0 1.083-.284 1.488-.799l1.092 1.07z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Native iOS (Swift)</div>
-                      <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        SwiftUI architectures utilizing native Apple Neural Engine, CoreData, and Apple Watch integrations.
+                        Google SDK compiling directly to ARM machine code for unified, high-fidelity native UX.
                       </div>
                     </div>
                   </div>
@@ -1542,16 +1543,16 @@ export default function Home() {
                     <div>
                       <div style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--title-color)' }}>Offline-First & Security</div>
                       <div style={{ fontSize: '13px', color: 'var(--body-text)', lineHeight: '1.5', marginTop: '2px' }}>
-                        Encrypted local SQLite storage, background sync queues, and biometric hardware authentication.
+                        Encrypted local SQLite storage, background sync queues & biometric authentication.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--card-border)' }}>
+                <span className="tech-spec-tag">REACT NATIVE</span>
                 <span className="tech-spec-tag">FLUTTER</span>
-                <span className="tech-spec-tag">SWIFTUI</span>
                 <span className="tech-spec-tag">IOS & ANDROID</span>
                 <span className="tech-spec-tag">OFFLINE-FIRST</span>
                 <span className="tech-spec-tag">60 FPS</span>
@@ -2544,7 +2545,7 @@ export default function Home() {
         .tech-matrix-card {
           background: var(--card-bg);
           border: 1px solid var(--card-border);
-          border-radius: 12px;
+          border-radius: 14px;
           padding: 30px 28px;
           display: flex;
           flex-direction: column;
@@ -2599,15 +2600,35 @@ export default function Home() {
           background: var(--bg-color);
           border: 1px solid var(--card-border);
           color: var(--body-text);
+          display: inline-block;
+          white-space: nowrap;
         }
-        
-        @media (max-width: 768px) {
-          .tech-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
+
+        @media (max-width: 960px) {
+          .tech-matrix-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
           }
-          .tech-card {
-            padding: 28px 24px;
+          .tech-matrix-card {
+            padding: 24px 20px !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          #tech {
+            padding: 60px 16px !important;
+          }
+          .tech-matrix-card {
+            padding: 20px 16px !important;
+            border-radius: 12px !important;
+          }
+          .tech-item-row {
+            gap: 12px !important;
+            padding: 12px 0 !important;
+          }
+          .tech-spec-tag {
+            font-size: 10px !important;
+            padding: 3px 8px !important;
           }
         }
 
